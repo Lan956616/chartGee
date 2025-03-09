@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  min-width: 300px;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 3px 3px 5px #e6e6e6;
+}
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.leftHeader {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+}

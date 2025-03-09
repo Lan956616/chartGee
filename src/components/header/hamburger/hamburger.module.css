@@ -1,0 +1,19 @@
+.hamburgerWrapper {
+  width: 45px;
+  height: 45px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.hamburger {
+  width: 90%;
+  height: 3px;
+}
+
+@media screen and (min-width: 640px) {
+  .hamburgerWrapper {
+    display: none;
+  }
+}
