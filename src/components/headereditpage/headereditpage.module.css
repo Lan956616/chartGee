@@ -1,0 +1,44 @@
+.header {
+  width: 100%;
+  min-width: 300px;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #2c3140;
+  min-width: 400px;
+}
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.leftHeader {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  animation: spin 1s linear infinite;
+}
+.state {
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .state {
+    display: initial;
+  }
+}

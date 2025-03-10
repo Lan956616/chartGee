@@ -4,7 +4,7 @@ import Container from "../container/container";
 import ButtonArea from "./buttonarea/buttonarea";
 import styles from "./header.module.css";
 import Image from "next/image";
-import NavbarSmall from "./navbarsmall/navbarsamll";
+import NavbarSmall from "./navbarsmall/navbarsmall";
 import NavbarLarge from "./navbarlarge/navbarlarge";
 import Hamburger from "./hamburger/hamburger";
 

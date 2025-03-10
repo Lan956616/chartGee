@@ -3,4 +3,9 @@
   border-radius: 10px;
   font-weight: 500;
   font-size: 18px;
+  display: flex;
+}
+
+.btnImg {
+  margin-right: 0.5rem;
 }

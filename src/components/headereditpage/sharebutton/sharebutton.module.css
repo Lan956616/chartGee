@@ -1,0 +1,35 @@
+.shareZone {
+  position: relative;
+}
+.shareArea {
+  position: absolute;
+  top: 82px;
+  right: 0;
+  width: 250px;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+}
+
+.shareArea .shareItem {
+  display: flex;
+  gap: 1rem;
+}
+.shareArea .shareItem p {
+  font-weight: 500;
+  font-size: 18px;
+}
+.shareArea .shareItem p:hover {
+  color: #3d92e7;
+  cursor: pointer;
+}
+.shareArea .shareItem .icon:hover {
+  cursor: pointer;
+}
+.shareArea .shareItem + .shareItem {
+  margin-top: 1rem;
+}
+.shareArea .shareItem .icon {
+  width: 25px;
+  height: 25px;
+}
