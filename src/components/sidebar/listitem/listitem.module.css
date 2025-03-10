@@ -1,0 +1,30 @@
+.listItem {
+  border-radius: 10px;
+  width: 72px;
+  height: 72px;
+}
+.listItem .itemWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.listItem:hover {
+  background-color: hsl(226, 16%, 36%);
+}
+.listItem p {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 1280px) {
+  .listItem + .listItem {
+    margin-top: 1.5rem;
+  }
+}

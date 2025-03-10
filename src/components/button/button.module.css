@@ -5,6 +5,9 @@
   font-size: 18px;
   display: flex;
 }
+.btn:hover {
+  filter: brightness(0.9);
+}
 
 .btnImg {
   margin-right: 0.5rem;
