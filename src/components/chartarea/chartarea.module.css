@@ -1,0 +1,20 @@
+.chartarea {
+  padding: 1rem;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .chartarea {
+    flex-basis: 50%;
+    flex-shrink: 1;
+    display: flex;
+  }
+  .chart {
+    border: 1px solid red;
+    flex-shrink: 1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .chartarea {
+    flex-basis: 60%;
+  }
+}

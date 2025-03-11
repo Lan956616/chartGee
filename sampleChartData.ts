@@ -23,6 +23,7 @@ export const SampleBarChartdata = {
 };
 
 export const SampleBarChartoptions = {
+  maintainAspectRatio: false,
   //柱狀圖寬度
   barPercentage: 0.9,
   borderWidth: 0,

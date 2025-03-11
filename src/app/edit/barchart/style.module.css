@@ -9,6 +9,12 @@
   flex-grow: 1;
   background-color: #dddddd;
 }
+@media screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-grow: 1;
+  }
+}
 
 @media screen and (min-width: 1280px) {
   .main {

@@ -4,7 +4,6 @@
   padding: 0.8rem;
   margin: 0.5rem;
   position: relative;
-  flex-grow: 1;
 }
 .crossButton {
   position: absolute;
@@ -43,4 +42,21 @@
 }
 .tabMenu.right::after {
   transform: translateX(100%);
+}
+.resetButtonArea {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dataArea {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dataArea {
+    flex-basis: 40%;
+  }
 }

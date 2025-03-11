@@ -34,9 +34,14 @@ const DataArea: React.FC = () => {
           Setting
         </Button>
       </nav>
-      <Button width={100} color="white" border="#ddd">
-        Clear Data
-      </Button>
+      <div className={styles.resetButtonArea}>
+        <Button width={50} color="white" border="#ddd">
+          Clear Data
+        </Button>
+        <Button width={50} color="white" border="#ddd">
+          Reset Data
+        </Button>
+      </div>
     </section>
   );
 };
