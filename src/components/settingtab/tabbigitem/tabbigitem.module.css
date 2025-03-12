@@ -1,0 +1,49 @@
+.tabBigItem {
+  padding: 1rem;
+  font-size: 18px;
+}
+.tabBigItem + .tabBigItem {
+  margin-top: 0.5rem;
+}
+.tabBigItem.itemClicked {
+  background-color: #eee;
+  border: 1px solid #908f8f;
+  border-radius: 10px;
+}
+.icon {
+  margin-right: 1.5rem;
+}
+.arrow {
+  transition: transform 0.3s ease-in-out;
+}
+.arrow.clicked {
+  transform: rotate(-180deg);
+}
+.row {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+}
+.childrenWrapper {
+  padding-left: calc(30px + 1.5rem);
+  border: 1px solid red;
+}
+/*  */
+
+.right {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right p {
+  font-size: 18px;
+}
+
+.round {
+  width: 50px;
+  height: 25px;
+  border: 1px solid #908f8f;
+}

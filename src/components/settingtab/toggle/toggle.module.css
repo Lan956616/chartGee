@@ -1,0 +1,35 @@
+.toggleContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 60px;
+  height: 25px;
+  background-color: #908f8f;
+  border: 1px solid #908f8f;
+  border-radius: 25px;
+  position: relative;
+}
+.toggle.active {
+  background-color: #3d92e7;
+}
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  left: 0%;
+  background-color: white;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.toggle.active::before {
+  transform: translateX(calc(60px - 100% - 2px));
+}

@@ -1,0 +1,17 @@
+.SliderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.RangeWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.8rem;
+}
+.slider {
+  height: 3px;
+  width: 120px;
+  background-color: #908f8f;
+}
