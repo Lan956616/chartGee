@@ -1,0 +1,34 @@
+.pickerContainer {
+  width: 220px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 8px;
+  justify-items: center;
+}
+
+.color {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+}
+.color.selected {
+  border: 3px solid #3d92e7;
+}
+.color:hover {
+  border: 3px solid #3d92e7;
+}
+.color:hover::before,
+.color.selected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  pointer-events: none;
+}
