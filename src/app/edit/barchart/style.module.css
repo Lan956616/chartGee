@@ -8,6 +8,12 @@
   flex-direction: column;
   flex-grow: 1;
   background-color: #dddddd;
+  position: relative;
+  border: 1px solid red;
+  margin-top: 72px;
+}
+.wrapper {
+  height: 100%;
 }
 @media screen and (min-width: 768px) {
   .wrapper {
@@ -18,6 +24,6 @@
 
 @media screen and (min-width: 1280px) {
   .main {
-    flex-direction: row;
+    margin-left: 80px;
   }
 }

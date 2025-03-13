@@ -1,8 +1,9 @@
 .header {
   width: 100%;
   min-width: 300px;
+  height: 72px;
   min-height: 72px;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
   background-color: #2c3140;
