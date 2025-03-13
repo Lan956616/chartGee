@@ -52,8 +52,9 @@ export const SampleBarChartoptions = {
         font: {
           family: "Outfit", // ✅ 設定圖例字體
           size: 16,
-          weight: "500",
+          weight: "normal",
         },
+        color: "#000000",
       },
     },
   },

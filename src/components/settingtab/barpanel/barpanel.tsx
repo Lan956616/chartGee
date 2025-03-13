@@ -4,6 +4,7 @@ import ColorSelect from "../colorselect/colorselect";
 import { ChartDataContext } from "@/app/edit/barchart/page";
 import { useContext } from "react";
 import lodash, { set } from "lodash";
+
 const BarPanel: React.FC = () => {
   const { options, setOptions } = useContext(ChartDataContext);
   const handleOptionChange = (key: string, value: number | string) => {
