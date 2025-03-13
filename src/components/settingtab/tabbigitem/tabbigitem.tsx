@@ -19,6 +19,9 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
   return (
     <div
       className={`${styles.tabBigItem} ${isClicked ? styles.itemClicked : ""}`}
+      onClick={() => {
+        setIsClicked((prev) => !prev);
+      }}
     >
       <div className={styles.row}>
         <Image
@@ -36,9 +39,6 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
             width={15}
             height={15}
             className={`${styles.arrow} ${isClicked ? styles.clicked : ""}`}
-            onClick={() => {
-              setIsClicked((prev) => !prev);
-            }}
           />
         </div>
       </div>

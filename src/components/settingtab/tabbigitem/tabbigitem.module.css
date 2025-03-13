@@ -2,6 +2,9 @@
   padding: 1rem;
   font-size: 18px;
 }
+.tabBigItem:hover {
+  cursor: pointer;
+}
 .tabBigItem + .tabBigItem {
   margin-top: 0.5rem;
 }
