@@ -19,11 +19,13 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
   return (
     <div
       className={`${styles.tabBigItem} ${isClicked ? styles.itemClicked : ""}`}
-      onClick={() => {
-        setIsClicked((prev) => !prev);
-      }}
     >
-      <div className={styles.row}>
+      <div
+        className={styles.row}
+        onClick={() => {
+          setIsClicked((prev) => !prev);
+        }}
+      >
         <Image
           src={src}
           alt={alt}

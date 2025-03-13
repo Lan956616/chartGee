@@ -2,7 +2,7 @@
   padding: 1rem;
   font-size: 18px;
 }
-.tabBigItem:hover {
+.tabBigItem .row:hover {
   cursor: pointer;
 }
 .tabBigItem + .tabBigItem {
