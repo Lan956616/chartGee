@@ -1,3 +1,5 @@
+import { CategoryScale } from "chart.js";
+
 export const SampleBarChartdata = {
   labels: ["Jan", "Feb", "Mar", "Apr"],
   datasets: [
@@ -22,7 +24,6 @@ export const SampleBarChartdata = {
 export const SampleBarChartoptions = {
   maintainAspectRatio: false,
   //柱狀圖寬度
-  barPercentage: 0.8,
   barThickness: 20,
   borderWidth: 0,
   //設定圓角數值 0-100數字
@@ -62,7 +63,7 @@ export const SampleBarChartoptions = {
     x: {
       grid: {
         color: "#CDCDCD",
-        lineWidth: 1,
+        lineWidth: 10,
       },
       ticks: {
         font: {
@@ -77,7 +78,7 @@ export const SampleBarChartoptions = {
       beginAtZero: true,
       grid: {
         color: "#CDCDCD",
-        lineWidth: 1,
+        lineWidth: 10,
       },
       ticks: {
         font: {
