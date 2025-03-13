@@ -3,17 +3,11 @@ import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
 import { ChartDataContext } from "@/app/edit/barchart/page";
 import { useContext } from "react";
-import lodash, { set } from "lodash";
+import { handleOptionChange } from "@/utils/updateOptions";
 
 const BarPanel: React.FC = () => {
   const { options, setOptions } = useContext(ChartDataContext);
-  const handleOptionChange = (key: string, value: number | string) => {
-    setOptions((prevOptions) => {
-      const newOptions = lodash.cloneDeep(prevOptions);
-      set(newOptions, key, value);
-      return newOptions;
-    });
-  };
+
   return (
     <TabBigItem title="Bars" src="/blackgraph.png" alt="graph-icon">
       <Slider
@@ -22,7 +16,7 @@ const BarPanel: React.FC = () => {
         max={50}
         value={options.barThickness}
         onChange={(newWidth) => {
-          handleOptionChange("barThickness", newWidth);
+          handleOptionChange(setOptions, "barThickness", newWidth);
         }}
       />
       <Slider
@@ -31,7 +25,7 @@ const BarPanel: React.FC = () => {
         min={0}
         max={Math.floor(options.barThickness / 2)}
         onChange={(border) => {
-          handleOptionChange("borderRadius", border);
+          handleOptionChange(setOptions, "borderRadius", border);
         }}
       />
       <Slider
@@ -40,14 +34,14 @@ const BarPanel: React.FC = () => {
         min={0}
         max={Math.floor(options.barThickness / 3)}
         onChange={(newWidth) => {
-          handleOptionChange("borderWidth", newWidth);
+          handleOptionChange(setOptions, "borderWidth", newWidth);
         }}
       />
       <ColorSelect
         label="Border Color"
         color={options.borderColor}
         onChange={(newBorderColor) => {
-          handleOptionChange("borderColor", newBorderColor);
+          handleOptionChange(setOptions, "borderColor", newBorderColor);
         }}
       />
     </TabBigItem>

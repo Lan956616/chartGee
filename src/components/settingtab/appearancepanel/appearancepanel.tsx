@@ -5,20 +5,10 @@ import ChartTitleSetting from "./charttitlesettings/charttitlesettings";
 import LabelSetting from "./labelsetting/labelsetting";
 import { ChartDataContext } from "@/app/edit/barchart/page";
 import { useContext } from "react";
-import lodash, { set } from "lodash";
+import { handleOptionChange } from "@/utils/updateOptions";
 
 const AppearancePanel: React.FC = () => {
   const { options, setOptions } = useContext(ChartDataContext);
-  const handleOptionChange = (
-    key: string,
-    value: number | string | boolean
-  ) => {
-    setOptions((prevOptions) => {
-      const newOptions = lodash.cloneDeep(prevOptions);
-      set(newOptions, key, value);
-      return newOptions;
-    });
-  };
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
@@ -30,27 +20,18 @@ const AppearancePanel: React.FC = () => {
           { value: "y", label: "Y" },
         ]}
         onChange={(newAxis) => {
-          setOptions((prevOption) => {
-            return { ...prevOption, indexAxis: newAxis };
-          });
+          handleOptionChange(setOptions, "indexAxis", newAxis);
         }}
       />
       <Toggle
         label="Show ChartTitle"
         active={options.plugins.title.display}
         onClick={() => {
-          setOptions((prevOptions) => {
-            return {
-              ...prevOptions,
-              plugins: {
-                ...prevOptions.plugins,
-                title: {
-                  ...prevOptions.plugins.title,
-                  display: !prevOptions.plugins.title.display,
-                },
-              },
-            };
-          });
+          handleOptionChange(
+            setOptions,
+            "plugins.title.display",
+            !options.plugins.title.display
+          );
         }}
       />
       {options.plugins.title.display && <ChartTitleSetting />}
@@ -59,6 +40,7 @@ const AppearancePanel: React.FC = () => {
         active={options.plugins.legend.display}
         onClick={() => {
           handleOptionChange(
+            setOptions,
             "plugins.legend.display",
             !options.plugins.legend.display
           );

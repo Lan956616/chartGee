@@ -5,19 +5,10 @@ import styles from "./labelsetting.module.css";
 import SelectDropDown from "../../selectdropdown/selectdropdown";
 import Slider from "../../slider/slider";
 import ColorSelect from "../../colorselect/colorselect";
-import lodash, { set } from "lodash";
+import { handleOptionChange } from "@/utils/updateOptions";
 const LabelSetting: React.FC = () => {
   const { options, setOptions } = useContext(ChartDataContext);
-  const handleOptionChange = (
-    key: string,
-    value: number | string | boolean
-  ) => {
-    setOptions((prevOptions) => {
-      const newOptions = lodash.cloneDeep(prevOptions);
-      set(newOptions, key, value);
-      return newOptions;
-    });
-  };
+
   return (
     <div className={styles.labelSettingContainer}>
       <Slider
@@ -26,7 +17,11 @@ const LabelSetting: React.FC = () => {
         max={40}
         value={options.plugins.legend.labels.font.size}
         onChange={(newFontSize) => {
-          handleOptionChange("plugins.legend.labels.font.size", newFontSize);
+          handleOptionChange(
+            setOptions,
+            "plugins.legend.labels.font.size",
+            newFontSize
+          );
         }}
       />
       <SelectDropDown
@@ -39,6 +34,7 @@ const LabelSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
+            setOptions,
             "plugins.legend.labels.font.weight",
             newFontWeight
           );
@@ -48,7 +44,11 @@ const LabelSetting: React.FC = () => {
         label="Font Color"
         color={options.plugins.legend.labels.color}
         onChange={(newColor) => {
-          handleOptionChange("plugins.legend.labels.color", newColor);
+          handleOptionChange(
+            setOptions,
+            "plugins.legend.labels.color",
+            newColor
+          );
         }}
       />
     </div>

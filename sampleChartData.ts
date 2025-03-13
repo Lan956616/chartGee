@@ -1,5 +1,3 @@
-import { CategoryScale } from "chart.js";
-
 export const SampleBarChartdata = {
   labels: ["Jan", "Feb", "Mar", "Apr"],
   datasets: [
