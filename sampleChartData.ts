@@ -5,19 +5,16 @@ export const SampleBarChartdata = {
       label: "Apple",
       data: [65, 59, 80, 81],
       backgroundColor: "#D64550",
-      borderColor: "rgba(255, 99, 132, 1)",
     },
     {
       label: "Banana",
       data: [50, 50, 50, 50],
       backgroundColor: "#F6E27F",
-      borderColor: "black",
     },
     {
       label: "Guava",
       data: [50, 50, 50, 50],
       backgroundColor: "#BBD8B3",
-      borderColor: "black",
     },
   ],
 };
@@ -25,13 +22,16 @@ export const SampleBarChartdata = {
 export const SampleBarChartoptions = {
   maintainAspectRatio: false,
   //柱狀圖寬度
-  barPercentage: 0.9,
+  barPercentage: 0.8,
+  barThickness: 20,
   borderWidth: 0,
   //設定圓角數值 0-100數字
   borderRadius: 0,
+  borderColor: "#000000",
   //長條圖方向
-  indexAxis: "x",
+  indexAxis: "y",
   responsive: false,
+
   plugins: {
     //圖表標題
     title: {
@@ -40,9 +40,9 @@ export const SampleBarChartoptions = {
       font: {
         family: "Outfit",
         size: 20,
-        weight: "500",
+        weight: "normal",
       },
-      color: "black",
+      color: "#000000",
     },
     //圖表類別顏色區塊
     legend: {
