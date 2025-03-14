@@ -30,8 +30,8 @@ const ChartArea: React.FC<ChartAreaProps> = ({ data, options }) => {
         data={data}
         options={options}
         className={styles.chart}
-        width={500}
-        height={500}
+        width={400}
+        height={400}
       />
     </section>
   );

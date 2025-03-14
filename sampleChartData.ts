@@ -62,7 +62,7 @@ export const SampleBarChartoptions = {
     x: {
       grid: {
         color: "#CDCDCD",
-        lineWidth: 10,
+        lineWidth: 1,
       },
       ticks: {
         font: {
@@ -77,7 +77,7 @@ export const SampleBarChartoptions = {
       beginAtZero: true,
       grid: {
         color: "#CDCDCD",
-        lineWidth: 10,
+        lineWidth: 1,
       },
       ticks: {
         font: {

@@ -4,6 +4,9 @@
   padding: 0.8rem;
   margin: 0.5rem;
   position: relative;
+  height: calc(100% - 1rem);
+  display: flex;
+  flex-direction: column;
 }
 .crossButton {
   position: absolute;
@@ -46,8 +49,12 @@
 .resetButtonArea {
   display: flex;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
+.tabMenu .activeBTN {
+  background-color: #eee !important;
+}
 @media screen and (min-width: 768px) {
   .dataArea {
     flex-basis: 50%;

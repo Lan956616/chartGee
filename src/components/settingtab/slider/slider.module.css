@@ -15,3 +15,8 @@
   width: 120px;
   background-color: #908f8f;
 }
+
+.RangeWrapper p {
+  width: 50px;
+  text-align: center;
+}

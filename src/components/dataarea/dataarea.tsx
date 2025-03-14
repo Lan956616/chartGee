@@ -2,9 +2,10 @@
 import styles from "./dataarea.module.css";
 import Button from "../button/button";
 import Image from "next/image";
+import SettingTab from "../settingtab/settingtab";
 import { useState } from "react";
 const DataArea: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"data" | "setting">("data");
+  const [activeTab, setActiveTab] = useState<"data" | "setting">("setting");
   return (
     <section className={styles.dataArea}>
       <div className={styles.crossButton}>
@@ -21,6 +22,7 @@ const DataArea: React.FC = () => {
           onClick={() => {
             setActiveTab("data");
           }}
+          className={`${activeTab === "data" ? styles.activeBTN : ""}`}
         >
           Data
         </Button>
@@ -30,18 +32,20 @@ const DataArea: React.FC = () => {
           onClick={() => {
             setActiveTab("setting");
           }}
+          className={activeTab === "setting" ? styles.activeBTN : ""}
         >
           Setting
         </Button>
       </nav>
-      <div className={styles.resetButtonArea}>
+      {activeTab === "setting" && <SettingTab />}
+      {/* <div className={styles.resetButtonArea}>
         <Button width={50} color="white" border="#ddd">
           Clear Data
         </Button>
         <Button width={50} color="white" border="#ddd">
           Reset Data
         </Button>
-      </div>
+      </div> */}
     </section>
   );
 };

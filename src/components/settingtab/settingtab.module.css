@@ -1,0 +1,15 @@
+@media screen and (min-width: 768px) {
+  .settingTab {
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    border: 1px solid red;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .settingTab {
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    border: 1px solid red;
+  }
+}

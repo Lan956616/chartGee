@@ -5,16 +5,19 @@
 @media screen and (min-width: 768px) {
   .chartarea {
     flex-basis: 50%;
-    flex-shrink: 1;
     display: flex;
+    max-height: calc(100vh - 152px);
   }
   .chart {
     border: 1px solid red;
-    flex-shrink: 1;
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    max-height: calc(100vh - 152px);
   }
 }
 @media screen and (min-width: 1280px) {
   .chartarea {
     flex-basis: 60%;
+    max-height: calc(100vh - 72px);
   }
 }
