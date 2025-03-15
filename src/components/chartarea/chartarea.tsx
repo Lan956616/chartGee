@@ -24,10 +24,21 @@ type ChartAreaProps = {
 };
 
 const ChartArea: React.FC<ChartAreaProps> = ({ data, options }) => {
+  // 過濾掉空欄位
+  const activeLabels = data.labels.filter((label) => label.trim() !== "");
+  const activeDatasets = data.datasets
+    .filter((dataset) => dataset.label.trim() !== "")
+    .map((dataset) => ({
+      ...dataset,
+      data: dataset.data
+        .slice(0, activeLabels.length)
+        .map((val) => (val === "" ? null : Number(val))), // 轉換數據
+    }));
+  console.log("ala", activeLabels);
   return (
     <section className={styles.chartarea}>
       <Bar
-        data={data}
+        data={{ labels: activeLabels, datasets: activeDatasets }}
         options={options}
         className={styles.chart}
         width={400}

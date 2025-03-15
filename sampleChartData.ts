@@ -1,21 +1,25 @@
 export const SampleBarChartdata = {
-  labels: ["Jan", "Feb", "Mar", "Apr"],
+  labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
   datasets: [
     {
       label: "Apple",
-      data: [65, 59, 80, 81],
-      backgroundColor: "#D64550",
+      data: [65, 59, 80, 81, "", "", "", "", "", "", "", ""],
+      backgroundColor: "#E74C3C",
     },
     {
       label: "Banana",
-      data: [50, 50, 50, 50],
-      backgroundColor: "#F6E27F",
+      data: [50, 50, 50, 50, "", "", "", "", "", "", "", ""],
+      backgroundColor: "#F7DC6F",
     },
     {
       label: "Guava",
-      data: [50, 50, 50, 50],
-      backgroundColor: "#BBD8B3",
+      data: [50, 50, 50, 50, "", "", "", "", "", "", "", ""],
+      backgroundColor: "#ABEBC6",
     },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#E67E22" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#E573C2" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#5DADE2" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "##EC7063" },
   ],
 };
 
