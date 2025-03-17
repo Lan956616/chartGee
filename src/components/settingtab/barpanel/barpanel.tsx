@@ -1,12 +1,15 @@
 import Slider from "../slider/slider";
 import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
-import { ChartDataContext } from "@/app/edit/barchart/page";
+import { ChartDataContext } from "@/components/ChartDataProvider";
+import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 
 const BarPanel: React.FC = () => {
-  const { options, setOptions } = useContext(ChartDataContext);
+  const { option, setOption } = useContext(
+    ChartDataContext
+  ) as unknown as ContextType;
 
   return (
     <TabBigItem title="Bars" src="/blackgraph.png" alt="graph-icon">
@@ -14,34 +17,34 @@ const BarPanel: React.FC = () => {
         label="Width"
         min={5}
         max={50}
-        value={options.barThickness}
+        value={option.barThickness}
         onChange={(newWidth) => {
-          handleOptionChange(setOptions, "barThickness", newWidth);
+          handleOptionChange(setOption, "barThickness", newWidth);
         }}
       />
       <Slider
         label="Border Radius"
-        value={options.borderRadius}
+        value={option.borderRadius}
         min={0}
-        max={Math.floor(options.barThickness / 2)}
+        max={Math.floor(option.barThickness / 2)}
         onChange={(border) => {
-          handleOptionChange(setOptions, "borderRadius", border);
+          handleOptionChange(setOption, "borderRadius", border);
         }}
       />
       <Slider
         label="Border Width"
-        value={options.borderWidth}
+        value={option.borderWidth}
         min={0}
-        max={Math.floor(options.barThickness / 3)}
+        max={Math.floor(option.barThickness / 3)}
         onChange={(newWidth) => {
-          handleOptionChange(setOptions, "borderWidth", newWidth);
+          handleOptionChange(setOption, "borderWidth", newWidth);
         }}
       />
       <ColorSelect
         label="Border Color"
-        color={options.borderColor}
+        color={option.borderColor}
         onChange={(newBorderColor) => {
-          handleOptionChange(setOptions, "borderColor", newBorderColor);
+          handleOptionChange(setOption, "borderColor", newBorderColor);
         }}
       />
     </TabBigItem>

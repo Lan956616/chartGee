@@ -1,13 +1,16 @@
 "use client";
 import { useContext } from "react";
-import { ChartDataContext } from "@/app/edit/barchart/page";
+import { ChartDataContext } from "@/components/ChartDataProvider";
+import type { ContextType } from "@/components/ChartDataProvider";
 import styles from "./labelsetting.module.css";
 import SelectDropDown from "../../selectdropdown/selectdropdown";
 import Slider from "../../slider/slider";
 import ColorSelect from "../../colorselect/colorselect";
 import { handleOptionChange } from "@/utils/updateOptions";
 const LabelSetting: React.FC = () => {
-  const { options, setOptions } = useContext(ChartDataContext);
+  const { option, setOption } = useContext(
+    ChartDataContext
+  ) as unknown as ContextType;
 
   return (
     <div className={styles.labelSettingContainer}>
@@ -15,10 +18,10 @@ const LabelSetting: React.FC = () => {
         label="Font Size"
         min={6}
         max={40}
-        value={options.plugins.legend.labels.font.size}
+        value={option.plugins.legend.labels.font.size}
         onChange={(newFontSize) => {
           handleOptionChange(
-            setOptions,
+            setOption,
             "plugins.legend.labels.font.size",
             newFontSize
           );
@@ -26,7 +29,7 @@ const LabelSetting: React.FC = () => {
       />
       <SelectDropDown
         label="Font Weight"
-        value={options.plugins.legend.labels.font.weight}
+        value={option.plugins.legend.labels.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -34,7 +37,7 @@ const LabelSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOptions,
+            setOption,
             "plugins.legend.labels.font.weight",
             newFontWeight
           );
@@ -42,10 +45,10 @@ const LabelSetting: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={options.plugins.legend.labels.color}
+        color={option.plugins.legend.labels.color}
         onChange={(newColor) => {
           handleOptionChange(
-            setOptions,
+            setOption,
             "plugins.legend.labels.color",
             newColor
           );

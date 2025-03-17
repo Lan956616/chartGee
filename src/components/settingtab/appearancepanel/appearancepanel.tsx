@@ -3,50 +3,53 @@ import SelectDropDown from "../selectdropdown/selectdropdown";
 import Toggle from "../toggle/toggle";
 import ChartTitleSetting from "./charttitlesettings/charttitlesettings";
 import LabelSetting from "./labelsetting/labelsetting";
-import { ChartDataContext } from "@/app/edit/barchart/page";
+import { ChartDataContext } from "@/components/ChartDataProvider";
+import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 
 const AppearancePanel: React.FC = () => {
-  const { options, setOptions } = useContext(ChartDataContext);
+  const { option, setOption } = useContext(
+    ChartDataContext
+  ) as unknown as ContextType;
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
         label="Index Axis"
-        value={options.indexAxis}
+        value={option.indexAxis}
         width={60}
         options={[
           { value: "x", label: "X" },
           { value: "y", label: "Y" },
         ]}
         onChange={(newAxis) => {
-          handleOptionChange(setOptions, "indexAxis", newAxis);
+          handleOptionChange(setOption, "indexAxis", newAxis);
         }}
       />
       <Toggle
         label="Show ChartTitle"
-        active={options.plugins.title.display}
+        active={option.plugins.title.display}
         onClick={() => {
           handleOptionChange(
-            setOptions,
+            setOption,
             "plugins.title.display",
-            !options.plugins.title.display
+            !option.plugins.title.display
           );
         }}
       />
-      {options.plugins.title.display && <ChartTitleSetting />}
+      {option.plugins.title.display && <ChartTitleSetting />}
       <Toggle
         label="Show Label"
-        active={options.plugins.legend.display}
+        active={option.plugins.legend.display}
         onClick={() => {
           handleOptionChange(
-            setOptions,
+            setOption,
             "plugins.legend.display",
-            !options.plugins.legend.display
+            !option.plugins.legend.display
           );
         }}
       />
-      {options.plugins.legend.display && <LabelSetting />}
+      {option.plugins.legend.display && <LabelSetting />}
     </TabBigItem>
   );
 };
