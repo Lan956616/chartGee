@@ -6,7 +6,7 @@ const ShareButton: React.FC = () => {
   const [isShareButtonClicked, setIsShareButtonClicked] =
     useState<boolean>(false);
   return (
-    <div className={styles.shareZone}>
+    <div className={styles.ShareButtonContainer}>
       <Button
         src="/share.png"
         color="white"
@@ -19,9 +19,17 @@ const ShareButton: React.FC = () => {
         Share
       </Button>
       <div
-        className={styles.shareArea}
+        className={styles.sharePopUp}
         style={{ display: `${isShareButtonClicked ? "" : "none"}` }}
       >
+        <div
+          className={styles.closeIcon}
+          onClick={() => {
+            setIsShareButtonClicked(false);
+          }}
+        >
+          <Image src="/close.png" alt="close-icon" width={15} height={15} />
+        </div>
         <div className={styles.shareItem}>
           <Image
             src="/download.png"
