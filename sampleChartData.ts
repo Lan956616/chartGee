@@ -1,4 +1,78 @@
-export const SampleBarChartdata = {
+export type BarChartDatasets = {
+  label: string;
+  data: number[];
+  backgroundColor: string;
+};
+export type SampleBarChartData = {
+  labels: string[];
+  datasets: BarChartDatasets[];
+};
+export type SampleBarChartOptions = {
+  barThickness: number;
+  borderWidth: number;
+  borderRadius: number;
+  borderColor: string;
+  indexAxis: "x" | "y";
+  responsive: true | false;
+  maintainAspectRatio: true | false;
+  aspectRatio: number;
+  plugins: {
+    //圖表標題
+    title: {
+      display: true | false;
+      text: string;
+      font: {
+        family: "Outfit";
+        size: number;
+        weight: "normal" | "bold";
+      };
+      color: string;
+    };
+    legend: {
+      display: true | false;
+      labels: {
+        font: {
+          family: "Outfit";
+          size: number;
+          weight: "normal" | "bold";
+        };
+        color: string;
+      };
+    };
+  };
+  scales: {
+    x: {
+      grid: {
+        color: string;
+        lineWidth: number;
+      };
+      ticks: {
+        font: {
+          size: number;
+          weight: "bold" | "normal";
+          family: "Outfit";
+        };
+        color: string;
+      };
+    };
+    y: {
+      beginAtZero: true;
+      grid: {
+        color: string;
+        lineWidth: number;
+      };
+      ticks: {
+        font: {
+          size: number;
+          weight: "bold" | "normal";
+          family: "Outfit";
+        };
+        color: string;
+      };
+    };
+  };
+};
+export const SampleBarChartdata: SampleBarChartData = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
   datasets: [
     {
@@ -23,8 +97,7 @@ export const SampleBarChartdata = {
   ],
 };
 
-export const SampleBarChartoptions = {
-  maintainAspectRatio: false,
+export const SampleBarChartoptions: SampleBarChartOptions = {
   //柱狀圖寬度
   barThickness: 20,
   borderWidth: 0,
@@ -33,7 +106,9 @@ export const SampleBarChartoptions = {
   borderColor: "#000000",
   //長條圖方向
   indexAxis: "y",
-  responsive: false,
+  responsive: true,
+  maintainAspectRatio: true,
+  aspectRatio: 16 / 9,
 
   plugins: {
     //圖表標題
