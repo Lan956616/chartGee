@@ -93,7 +93,7 @@ export const SampleBarChartdata: SampleBarChartData = {
     { label: "", data: Array(12).fill(""), backgroundColor: "#E67E22" },
     { label: "", data: Array(12).fill(""), backgroundColor: "#E573C2" },
     { label: "", data: Array(12).fill(""), backgroundColor: "#5DADE2" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "##EC7063" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#EC7063" },
   ],
 };
 

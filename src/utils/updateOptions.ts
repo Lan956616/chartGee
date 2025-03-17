@@ -1,7 +1,10 @@
 import lodash, { set } from "lodash";
+import type { SampleBarChartOptions } from "../../sampleChartData";
 
 export const handleOptionChange = (
-  setOptions: (updateFn: (prev: any) => any) => void,
+  setOptions: (
+    updateFn: (prev: SampleBarChartOptions) => SampleBarChartOptions
+  ) => void,
   key: string,
   value: number | string | boolean
 ) => {
