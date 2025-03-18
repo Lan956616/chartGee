@@ -7,6 +7,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 8px;
   justify-items: center;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 }
 
 .color {
@@ -15,6 +16,7 @@
   border: 2px solid #ccc;
   border-radius: 50%;
   position: relative;
+  z-index: 99;
 }
 .color.selected {
   border: 3px solid #3d92e7;
