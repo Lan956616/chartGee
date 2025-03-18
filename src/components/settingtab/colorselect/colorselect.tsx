@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./colorselect.module.css";
 import ColorPicker from "../colorpicker/colorpicker";
 type SelectProps = {
@@ -8,7 +8,26 @@ type SelectProps = {
   onChange: (newColor: string) => void;
 };
 const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
+  const pickerRef = useRef<HTMLDivElement | null>(null);
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        pickerRef.current &&
+        !pickerRef.current.contains(event.target as Node)
+      ) {
+        setIsPickerOpen(false);
+      }
+    }
+
+    if (isPickerOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isPickerOpen]);
   return (
     <>
       <div className={styles.selectWrapper}>
@@ -21,12 +40,11 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
           }}
         ></div>
         {isPickerOpen && (
-          <div className={styles.pickerWrapper}>
+          <div className={styles.pickerWrapper} ref={pickerRef}>
             <ColorPicker
               color={color}
               onClick={(newColor) => {
                 onChange(newColor);
-                setIsPickerOpen(false);
               }}
             />
           </div>
