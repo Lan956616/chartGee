@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import styles from "./colorselect.module.css";
 import ColorPicker from "../colorpicker/colorpicker";
-import { calculatePosition } from "@/utils/calculatePosition";
+import { calculateColorSelect } from "@/utils/calculatePosition";
 type SelectProps = {
   label: string;
   color: string;
@@ -16,10 +16,9 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
     left: number;
   } | null>(null);
   const BoxRef = useRef<HTMLDivElement | null>(null);
-
   useLayoutEffect(() => {
     if (isPickerOpen) {
-      setPosition(calculatePosition(BoxRef.current));
+      setPosition(calculateColorSelect(BoxRef.current));
     }
   }, [isPickerOpen]);
 
