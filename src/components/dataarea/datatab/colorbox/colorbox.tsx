@@ -1,9 +1,10 @@
 "use client";
 import { createPortal } from "react-dom";
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import styles from "./colorbox.module.css";
 import ColorPicker from "@/components/settingtab/colorpicker/colorpicker";
 import { calculateColorBox } from "@/utils/calculatePosition";
+import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type ColorBoxProps = { color: string; onChange: (newColor: string) => void };
 const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
   const [isBoxClicked, setIsBoxClicked] = useState<boolean>(false);
@@ -19,21 +20,9 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
       setPosition(calculateColorBox(BoxRef.current));
     }
   }, [isBoxClicked]);
-  useEffect(() => {
-    const handleClose = (e: MouseEvent | WheelEvent) => {
-      if (pickerRef.current && !pickerRef.current.contains(e.target as Node)) {
-        setIsBoxClicked(false);
-      }
-    };
-    if (isBoxClicked) {
-      document.addEventListener("click", handleClose);
-      document.addEventListener("wheel", handleClose);
-    }
-    return () => {
-      document.removeEventListener("click", handleClose);
-      document.removeEventListener("wheel", handleClose);
-    };
-  }, [isBoxClicked]);
+  useClickWheelOutside(pickerRef, isBoxClicked, () => {
+    setIsBoxClicked(false);
+  });
   return (
     <>
       <div

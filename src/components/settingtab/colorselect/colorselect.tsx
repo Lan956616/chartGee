@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import styles from "./colorselect.module.css";
 import ColorPicker from "../colorpicker/colorpicker";
 import { calculateColorSelect } from "@/utils/calculatePosition";
+import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type SelectProps = {
   label: string;
   color: string;
@@ -21,28 +22,9 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
       setPosition(calculateColorSelect(BoxRef.current));
     }
   }, [isPickerOpen]);
-
-  useEffect(() => {
-    function handleClose(event: MouseEvent | WheelEvent) {
-      if (
-        pickerRef.current &&
-        !pickerRef.current.contains(event.target as Node)
-      ) {
-        setIsPickerOpen(false);
-      }
-    }
-
-    if (isPickerOpen) {
-      document.addEventListener("click", handleClose);
-      document.addEventListener("wheel", handleClose);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClose);
-      document.removeEventListener("wheel", handleClose);
-    };
-  }, [isPickerOpen]);
-
+  useClickWheelOutside(pickerRef, isPickerOpen, () => {
+    setIsPickerOpen(false);
+  });
   return (
     <>
       <div className={styles.selectWrapper}>

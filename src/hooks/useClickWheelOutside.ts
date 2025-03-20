@@ -1,0 +1,24 @@
+"use client";
+import { useEffect } from "react";
+
+export const useClickWheelOutside = (
+  ref: React.RefObject<HTMLElement>,
+  isOpen: boolean,
+  onClose: () => void
+) => {
+  useEffect(() => {
+    const handleClose = (event: MouseEvent | WheelEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      document.body.addEventListener("click", handleClose);
+      document.body.addEventListener("wheel", handleClose);
+    }
+    return () => {
+      document.body.removeEventListener("click", handleClose);
+      document.body.removeEventListener("wheel", handleClose);
+    };
+  }, [ref, isOpen, onClose]);
+};
