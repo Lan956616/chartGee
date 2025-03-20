@@ -20,7 +20,7 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
       setPosition(calculateColorBox(BoxRef.current));
     }
   }, [isBoxClicked]);
-  useClickWheelOutside(pickerRef, isBoxClicked, () => {
+  useClickWheelOutside(pickerRef, BoxRef, isBoxClicked, () => {
     setIsBoxClicked(false);
   });
   return (

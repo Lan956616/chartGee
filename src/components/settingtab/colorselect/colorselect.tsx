@@ -22,7 +22,7 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
       setPosition(calculateColorSelect(BoxRef.current));
     }
   }, [isPickerOpen]);
-  useClickWheelOutside(pickerRef, isPickerOpen, () => {
+  useClickWheelOutside(pickerRef, BoxRef, isPickerOpen, () => {
     setIsPickerOpen(false);
   });
   return (
