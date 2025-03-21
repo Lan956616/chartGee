@@ -1,0 +1,62 @@
+.axisIconBase:hover {
+  opacity: 0;
+  cursor: pointer;
+}
+.axisIconHover {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.axisIconHover:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+/* th td basic style */
+.cell {
+  box-shadow: inset -1px -1px 0 #ddd;
+  width: 100px;
+  height: 45px;
+  min-width: 100px;
+  background-color: white;
+}
+.invalidCell {
+  background-color: #ff9c9c;
+}
+/* specific style */
+.tableRow .cell:nth-child(1) {
+  width: 45px;
+  min-width: 45px;
+  height: 45px;
+  position: sticky;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tableRow .cell:nth-child(2) {
+  position: sticky;
+  left: 45px;
+}
+.tableRow .cell:last-child {
+  box-shadow: inset 0px -1px 0px #ddd;
+}
+/* for the scroll in table */
+.thead tr {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.thead input {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: transparent;
+}
+.thead input:focus {
+  border: 1.5px solid var(--blue);
+  background-color: rgba(61, 146, 231, 0.2);
+}

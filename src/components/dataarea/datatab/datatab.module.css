@@ -6,99 +6,11 @@
   overflow: scroll;
   border: 1.5px solid #aaa;
 }
-.AxisIcon:hover {
-  opacity: 0;
-  cursor: pointer;
-}
-.blueAxisIcon {
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.blueAxisIcon:hover {
-  opacity: 1;
-  cursor: pointer;
-}
 .tableContainer table {
   width: 100%;
 }
-.tableContainer input {
-  outline: none;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: transparent;
-}
-.tableContainer input:focus {
-  border: 1.5px solid var(--blue);
-  background-color: rgba(61, 146, 231, 0.2);
-}
-.tableContainer th,
-.tableContainer td {
-  box-shadow: inset -1px -1px 0 #ddd;
-  width: 100px;
-  height: 45px;
-  min-width: 100px;
-  background-color: white;
-}
-
-.thead tr {
-  position: sticky;
-  top: 0;
-  z-index: 90;
-}
-.tbody tr {
-  z-index: 80;
-}
-.thead tr th:nth-child(1) {
-  width: 45px;
-  min-width: 45px;
-  height: 45px;
-  position: sticky;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.thead tr th:nth-child(2) {
-  position: sticky;
-  left: 45px;
-}
-.thead tr th:last-child {
-  box-shadow: inset 0px -1px 0 #ddd;
-}
-.tbody tr th:nth-child(1) {
-  width: 45px;
-  min-width: 45px;
-  height: 45px;
-  position: sticky;
-  left: 0;
-}
-.tbody tr th:nth-child(2) {
-  position: sticky;
-  left: 45px;
-}
-.tbody tr:last-child th:nth-child(1),
-.tbody tr:last-child th:nth-child(2) {
-  box-shadow: inset -1px 0px 0 #ddd;
-}
-
-.tbody tr:last-child td {
-  box-shadow: inset -1px 0px 0px #ddd;
-}
-.tbody tr td:last-child {
-  box-shadow: inset 0px -1px 0px #ddd;
-}
-.tbody tr:last-child td:last-child {
-  box-shadow: none;
-}
-.tbody td input {
-  padding-left: 15px;
-}
-.resetButtonArea {
+/* ControlButtons */
+.tableControlButton {
   margin-top: auto;
   display: flex;
   gap: 0.5rem;
