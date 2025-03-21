@@ -31,11 +31,29 @@ export const handleDatasetsLabelChange = (
     };
   });
 };
+export const handleBgColorChange = (
+  setData: (
+    updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
+  ) => void,
+  newColor: string,
+  index: number
+) => {
+  setData((prevData) => {
+    return {
+      ...prevData,
+      datasets: prevData.datasets.map((dataset, i) => {
+        return i === index
+          ? { ...dataset, backgroundColor: newColor }
+          : dataset;
+      }),
+    };
+  });
+};
 export const handleDatasetsChange = (
   setData: (
     updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
   ) => void,
-  newValue: string,
+  newValue: string | null,
   index: number,
   eachDataIndex: number
 ) => {
@@ -47,7 +65,11 @@ export const handleDatasetsChange = (
           ? {
               ...dataset,
               data: dataset.data.map((eachData, j) => {
-                return j === eachDataIndex ? Number(newValue) : eachData;
+                return j === eachDataIndex
+                  ? newValue === ""
+                    ? ""
+                    : Number(newValue)
+                  : eachData;
               }),
             }
           : dataset;
