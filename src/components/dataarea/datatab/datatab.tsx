@@ -1,4 +1,5 @@
 "use client";
+import { SampleBarChartoptions } from "../../../../sampleChartData";
 import { useContext } from "react";
 import type { ContextType } from "@/components/ChartDataProvider";
 import { ChartDataContext } from "@/components/ChartDataProvider";
@@ -41,6 +42,7 @@ const DataTab: React.FC = () => {
           border="#DE3C4B"
           onClick={() => {
             setData(blankBarChartData);
+            handleOptionChange(setOption, "plugins.title.text", "");
           }}
         >
           Clear Data
@@ -52,6 +54,11 @@ const DataTab: React.FC = () => {
           border="#DE3C4B"
           onClick={() => {
             setData(SampleBarChartdata);
+            handleOptionChange(
+              setOption,
+              "plugins.title.text",
+              SampleBarChartoptions.plugins.title.text
+            );
           }}
         >
           Reset Data
