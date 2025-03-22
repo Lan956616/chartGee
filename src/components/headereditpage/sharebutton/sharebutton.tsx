@@ -1,35 +1,40 @@
 import styles from "./sharebutton.module.css";
 import Image from "next/image";
-import Button from "@/components/button/button";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
+
 const ShareButton: React.FC = () => {
-  const [isShareButtonClicked, setIsShareButtonClicked] =
-    useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const popUpRef = useRef<HTMLDivElement | null>(null);
+  useClickWheelOutside(popUpRef, buttonRef, isClicked, () => {
+    setIsClicked(false);
+  });
   return (
     <div className={styles.ShareButtonContainer}>
-      <Button
-        className={styles.btn}
-        src="/share.png"
+      <button
+        className={`${styles.btn} ${isClicked && styles.clicked}`}
         onClick={() => {
-          setIsShareButtonClicked((prev) => {
+          setIsClicked((prev) => {
             return !prev;
           });
         }}
+        ref={buttonRef}
       >
+        <Image
+          src="/share.png"
+          alt="share-icon"
+          width={25}
+          height={25}
+          className={styles.btnImg}
+        />
         Share
-      </Button>
+      </button>
       <div
         className={styles.sharePopUp}
-        style={{ display: `${isShareButtonClicked ? "" : "none"}` }}
+        style={{ display: `${isClicked ? "" : "none"}` }}
+        ref={popUpRef}
       >
-        <div
-          className={styles.closeIcon}
-          onClick={() => {
-            setIsShareButtonClicked(false);
-          }}
-        >
-          <Image src="/close.png" alt="close-icon" width={15} height={15} />
-        </div>
         <div className={styles.shareItem}>
           <Image
             src="/download.png"

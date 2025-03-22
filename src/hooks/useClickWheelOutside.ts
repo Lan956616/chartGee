@@ -2,18 +2,18 @@
 import { useEffect } from "react";
 
 export const useClickWheelOutside = (
-  pickerRef: React.RefObject<HTMLElement>,
-  boxRef: React.RefObject<HTMLElement>,
+  popUpRef: React.RefObject<HTMLElement>,
+  ref: React.RefObject<HTMLElement>,
   isOpen: boolean,
   onClose: () => void
 ) => {
   useEffect(() => {
     const handleClose = (event: MouseEvent | WheelEvent) => {
       if (
-        pickerRef.current &&
-        boxRef.current &&
-        !pickerRef.current.contains(event.target as Node) &&
-        !boxRef.current.contains(event.target as Node)
+        popUpRef.current &&
+        ref.current &&
+        !popUpRef.current.contains(event.target as Node) &&
+        !ref.current.contains(event.target as Node)
       ) {
         onClose();
       }
@@ -26,5 +26,5 @@ export const useClickWheelOutside = (
       document.body.removeEventListener("click", handleClose);
       document.body.removeEventListener("wheel", handleClose);
     };
-  }, [isOpen, onClose, pickerRef, boxRef]);
+  }, [isOpen, onClose, popUpRef, ref]);
 };
