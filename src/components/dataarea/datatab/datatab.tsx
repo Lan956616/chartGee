@@ -1,19 +1,14 @@
 "use client";
-import { SampleBarChartoptions } from "../../../../sampleChartData";
 import { useContext } from "react";
 import type { ContextType } from "@/components/ChartDataProvider";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import {
-  SampleBarChartdata,
-  blankBarChartData,
-} from "../../../../sampleChartData";
 import { handleOptionChange } from "@/utils/updateOptions";
 import styles from "./datatab.module.css";
 import DataTableHeader from "./datatableheader/datatableheader";
 import DataTableBody from "./datatablebody/datatablebody";
-import Button from "@/components/button/button";
+import TableControlButton from "./tablecontrolbutton/tablecontrolbutton";
 const DataTab: React.FC = () => {
-  const { setData, option, setOption } = useContext(
+  const { option, setOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
   return (
@@ -34,36 +29,7 @@ const DataTab: React.FC = () => {
           <DataTableBody />
         </table>
       </div>
-      <div className={styles.tableControlButton}>
-        <Button
-          width={50}
-          color="#DE3C4B"
-          bgColor="white"
-          border="#DE3C4B"
-          onClick={() => {
-            setData(blankBarChartData);
-            handleOptionChange(setOption, "plugins.title.text", "");
-          }}
-        >
-          Clear Data
-        </Button>
-        <Button
-          width={50}
-          color="#DE3C4B"
-          bgColor="white"
-          border="#DE3C4B"
-          onClick={() => {
-            setData(SampleBarChartdata);
-            handleOptionChange(
-              setOption,
-              "plugins.title.text",
-              SampleBarChartoptions.plugins.title.text
-            );
-          }}
-        >
-          Reset Data
-        </Button>
-      </div>
+      <TableControlButton />
     </div>
   );
 };

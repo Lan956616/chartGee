@@ -1,0 +1,5 @@
+.tableControlButton {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
