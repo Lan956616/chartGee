@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import ShareButton from "./sharebutton/sharebutton";
+import SmallSideBar from "./smallsidebar/smallsidebar";
 const HeaderEditPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   return (
@@ -40,7 +41,10 @@ const HeaderEditPage: React.FC = () => {
               />
             )}
           </div>
-          <ShareButton />
+          <div className={styles.rightHeader}>
+            <ShareButton />
+            <SmallSideBar />
+          </div>
         </div>
       </Container>
     </header>

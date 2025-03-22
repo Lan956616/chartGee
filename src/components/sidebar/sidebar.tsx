@@ -8,10 +8,13 @@ const Sidebar: React.FC = () => {
           Home
         </ListItem>
         <ListItem href="/" src="/newfile.png" alt="newfile-icon">
-          New Files
+          New File
         </ListItem>
         <ListItem href="/" src="/graph.png" alt="graph-icon">
           My Graph
+        </ListItem>
+        <ListItem href="/" src="/logout.png" alt="logout-icon">
+          Log Out
         </ListItem>
       </ul>
     </nav>
