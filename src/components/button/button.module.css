@@ -7,9 +7,6 @@
   align-items: center;
   justify-content: center;
 }
-.btn:hover {
-  filter: brightness(0.9);
-}
 
 .btnImg {
   margin-right: 0.5rem;

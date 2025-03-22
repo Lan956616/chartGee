@@ -8,8 +8,8 @@ const ShareButton: React.FC = () => {
   return (
     <div className={styles.ShareButtonContainer}>
       <Button
+        className={styles.btn}
         src="/share.png"
-        color="white"
         onClick={() => {
           setIsShareButtonClicked((prev) => {
             return !prev;

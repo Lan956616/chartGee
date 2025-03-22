@@ -3,3 +3,11 @@
   display: flex;
   gap: 0.5rem;
 }
+.btn {
+  color: var(--blue);
+  border: 2px solid var(--blue);
+}
+.btn:hover {
+  color: #de3c4b;
+  border: 2px solid #de3c4b;
+}

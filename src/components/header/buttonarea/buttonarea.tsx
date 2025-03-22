@@ -4,9 +4,9 @@ import Button from "@/components/button/button";
 const ButtonArea: React.FC = () => {
   return (
     <div className={styles.buttonWrapper}>
-      <Button color="white">Log In</Button>
-      <Button color="blue">Sign Up Free</Button>
-      <Button color="blue">My Account</Button>
+      <Button className={styles.logBTN}>Log In</Button>
+      <Button className={styles.signBTN}>Sign Up Free</Button>
+      <Button className={styles.accountBTN}>My Account</Button>
     </div>
   );
 };

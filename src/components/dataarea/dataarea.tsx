@@ -19,21 +19,23 @@ const DataArea: React.FC = () => {
       >
         <Button
           width={50}
-          color="white"
           onClick={() => {
             setActiveTab("data");
           }}
-          className={`${activeTab === "data" ? styles.activeBTN : ""}`}
+          className={`${styles.btn} ${
+            activeTab === "data" ? styles.activeBTN : ""
+          }`}
         >
           Data
         </Button>
         <Button
           width={50}
-          color="white"
           onClick={() => {
             setActiveTab("setting");
           }}
-          className={activeTab === "setting" ? styles.activeBTN : ""}
+          className={`${styles.btn} ${
+            activeTab === "setting" ? styles.activeBTN : ""
+          }`}
         >
           Setting
         </Button>

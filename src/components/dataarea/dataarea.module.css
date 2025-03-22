@@ -47,9 +47,11 @@
 .tabMenu.right::after {
   transform: translateX(100%);
 }
-
+.btn:hover {
+  background-color: #eee;
+}
 .tabMenu .activeBTN {
-  background-color: #eee !important;
+  background-color: #eee;
 }
 @media screen and (min-width: 768px) {
   .dataArea {

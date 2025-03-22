@@ -1,6 +1,31 @@
 .buttonWrapper {
   display: none;
 }
+.logBTN {
+  transition: transform 0.3s ease-in;
+}
+.logBTN:hover {
+  cursor: pointer;
+  background-color: #eee;
+  transform: scale(1.05);
+}
+.signBTN {
+  color: white;
+  background-color: var(--blue);
+  transition: transform 0.3s ease-in;
+}
+.signBTN:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.accountBTN {
+  border: 2px solid var(--blue);
+  transition: transform 0.3s ease-in;
+}
+.accountBTN:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 
 @media screen and (min-width: 640px) {
   .buttonWrapper {

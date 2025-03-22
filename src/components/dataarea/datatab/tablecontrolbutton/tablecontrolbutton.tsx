@@ -18,10 +18,8 @@ const TableControlButton: React.FC = () => {
   return (
     <div className={styles.tableControlButton}>
       <Button
+        className={styles.btn}
         width={50}
-        color="#DE3C4B"
-        bgColor="white"
-        border="#DE3C4B"
         onClick={() => {
           setData(blankBarChartData);
           handleOptionChange(setOption, "plugins.title.text", "");
@@ -30,10 +28,8 @@ const TableControlButton: React.FC = () => {
         Clear Data
       </Button>
       <Button
+        className={styles.btn}
         width={50}
-        color="#DE3C4B"
-        bgColor="white"
-        border="#DE3C4B"
         onClick={() => {
           setData(SampleBarChartdata);
           handleOptionChange(

@@ -1,6 +1,12 @@
 .ShareButtonContainer {
   position: relative;
 }
+.btn {
+  background-color: white;
+}
+.btn:hover {
+  border: 2px solid var(--blue);
+}
 
 .sharePopUp {
   position: absolute;
