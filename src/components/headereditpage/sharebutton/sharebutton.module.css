@@ -5,6 +5,7 @@
   background-color: white;
 }
 .btn:hover {
+  cursor: pointer;
   border: 2px solid var(--blue);
 }
 

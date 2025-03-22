@@ -48,6 +48,7 @@
   transform: translateX(100%);
 }
 .btn:hover {
+  cursor: pointer;
   background-color: #eee;
 }
 .tabMenu .activeBTN {
