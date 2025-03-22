@@ -26,31 +26,11 @@
   position: absolute;
   top: 65px;
   right: 0;
-  width: 240px;
-  min-width: 240px;
+  width: 190px;
+  min-width: 190px;
   background-color: white;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
     0 4px 6px -4px rgba(0, 0, 0, 0.3);
-  padding: 1.8rem 2rem 1.5rem 2rem;
+  padding: 1rem;
   border-radius: 10px;
-}
-
-.shareItem {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-.shareItem p {
-  font-weight: 500;
-  font-size: 18px;
-}
-.shareItem p:hover {
-  color: #3d92e7;
-  cursor: pointer;
-}
-.shareItem .icon:hover {
-  cursor: pointer;
-}
-.shareItem + .shareItem {
-  margin-top: 1rem;
 }
