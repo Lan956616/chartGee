@@ -1,0 +1,28 @@
+.showGraphBTN,
+.showDataBTN {
+  position: fixed;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  right: 2rem;
+  bottom: 2rem;
+  background-color: var(--blue);
+  color: white;
+  font-weight: 500;
+  border-radius: 50px;
+  font-size: 20px;
+}
+.showDataBTN {
+  background-color: white;
+  color: var(--blue);
+  border: 3px solid var(--blue);
+}
+@media screen and (min-width: 900px) {
+  .showGraphBTN,
+  .showDataBTN {
+    display: none;
+  }
+}

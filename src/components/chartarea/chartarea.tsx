@@ -21,8 +21,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const ChartArea: React.FC = () => {
+type ChartAreaProps = {
+  hideOnMobile: boolean;
+};
+const ChartArea: React.FC<ChartAreaProps> = ({ hideOnMobile }) => {
   const { data, option } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
@@ -38,14 +40,14 @@ const ChartArea: React.FC = () => {
     }));
   console.log("ala", activeLabels);
   return (
-    <section className={styles.chartarea}>
-      <div className={styles.chartWrapper}>
-        <Bar
-          data={{ labels: activeLabels, datasets: activeDatasets }}
-          options={option}
-          className={styles.chart}
-        />
-      </div>
+    <section
+      className={`${styles.chartarea} ${hideOnMobile && styles.hideOnMobile}`}
+    >
+      <Bar
+        data={{ labels: activeLabels, datasets: activeDatasets }}
+        options={option}
+        className={styles.chart}
+      />
     </section>
   );
 };

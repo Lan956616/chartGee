@@ -1,27 +1,23 @@
 .pageContainer {
   height: 100vh;
+  background-color: #dddddd;
   display: flex;
   flex-direction: column;
-  background-color: #dddddd;
 }
 .main {
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  position: relative;
-  border: 3px solid pink;
   margin-top: 72px;
+  background-color: #dddddd;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: 900px) {
   .main {
-    flex-direction: row;
-    max-height: calc(100vh - 152px);
+    display: flex;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .main {
     margin-left: 80px;
-    max-height: calc(100vh - 72px);
   }
 }

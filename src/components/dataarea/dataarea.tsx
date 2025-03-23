@@ -5,10 +5,15 @@ import Button from "../button/button";
 import SettingTab from "../settingtab/settingtab";
 import DataTab from "./datatab/datatab";
 import { useState } from "react";
-const DataArea: React.FC = () => {
+type DataAreaProps = {
+  hideOnMobile: boolean;
+};
+const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
   const [activeTab, setActiveTab] = useState<"data" | "setting">("data");
   return (
-    <section className={styles.dataArea}>
+    <section
+      className={`${styles.dataArea} ${hideOnMobile && styles.hideOnMobile}`}
+    >
       <nav
         className={`${styles.tabMenu} ${
           activeTab === "data" ? styles.left : styles.right

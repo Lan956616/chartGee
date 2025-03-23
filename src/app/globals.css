@@ -9,3 +9,6 @@
   list-style: none;
   box-sizing: border-box;
 }
+* {
+  --blue: #3d92e7;
+}
