@@ -12,8 +12,23 @@ const AppearancePanel: React.FC = () => {
   const { option, setOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  console.log(option.aspectRatio);
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
+      <SelectDropDown
+        label="Aspect Ratio"
+        value={option.aspectRatio === 1 ? "1/1" : "16/9"}
+        width={80}
+        options={[
+          { value: "1/1", label: "1 / 1" },
+          { value: "16/9", label: "16 / 9" },
+        ]}
+        onChange={(newRatio) => {
+          const [w, h] = newRatio.split("/").map(Number);
+          const ratio = w / h;
+          handleOptionChange(setOption, "aspectRatio", ratio);
+        }}
+      />
       <SelectDropDown
         label="Index Axis"
         value={option.indexAxis}

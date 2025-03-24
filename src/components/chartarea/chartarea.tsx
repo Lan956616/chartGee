@@ -44,6 +44,7 @@ const ChartArea: React.FC<ChartAreaProps> = ({ hideOnMobile }) => {
       className={`${styles.chartarea} ${hideOnMobile && styles.hideOnMobile}`}
     >
       <Bar
+        key={option.aspectRatio}
         data={{ labels: activeLabels, datasets: activeDatasets }}
         options={option}
         className={styles.chart}
