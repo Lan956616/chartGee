@@ -7,7 +7,7 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
-
+import ValueSetting from "./valuesetting/valuesetting";
 const AppearancePanel: React.FC = () => {
   const { option, setOption } = useContext(
     ChartDataContext
@@ -65,6 +65,18 @@ const AppearancePanel: React.FC = () => {
         }}
       />
       {option.plugins.legend.display && <LabelSetting />}
+      <Toggle
+        label="Show Values"
+        active={option.plugins.datalabels.display}
+        onClick={() => {
+          handleOptionChange(
+            setOption,
+            "plugins.datalabels.display",
+            !option.plugins.datalabels.display
+          );
+        }}
+      />
+      {option.plugins.datalabels.display && <ValueSetting />}
     </TabBigItem>
   );
 };

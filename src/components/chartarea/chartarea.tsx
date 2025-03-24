@@ -1,4 +1,5 @@
 "use client";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import styles from "./chartarea.module.css";
 import { ChartDataContext } from "../ChartDataProvider";
 import { useContext } from "react";
@@ -20,7 +21,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 type ChartAreaProps = {
   hideOnMobile: boolean;

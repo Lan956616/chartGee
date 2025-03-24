@@ -17,34 +17,38 @@ const BarPanel: React.FC = () => {
         label="Width"
         min={5}
         max={50}
-        value={option.barThickness}
+        value={option.datasets.bar.barThickness}
         onChange={(newWidth) => {
-          handleOptionChange(setOption, "barThickness", newWidth);
+          handleOptionChange(setOption, "datasets.bar.barThickness", newWidth);
         }}
       />
       <Slider
         label="Border Radius"
-        value={option.borderRadius}
+        value={option.datasets.bar.borderRadius}
         min={0}
-        max={Math.floor(option.barThickness / 2)}
+        max={25}
         onChange={(border) => {
-          handleOptionChange(setOption, "borderRadius", border);
+          handleOptionChange(setOption, "datasets.bar.borderRadius", border);
         }}
       />
       <Slider
         label="Border Width"
-        value={option.borderWidth}
+        value={option.datasets.bar.borderWidth}
         min={0}
-        max={Math.floor(option.barThickness / 3)}
+        max={10}
         onChange={(newWidth) => {
-          handleOptionChange(setOption, "borderWidth", newWidth);
+          handleOptionChange(setOption, "datasets.bar.borderWidth", newWidth);
         }}
       />
       <ColorSelect
         label="Border Color"
-        color={option.borderColor}
+        color={option.datasets.bar.borderColor}
         onChange={(newBorderColor) => {
-          handleOptionChange(setOption, "borderColor", newBorderColor);
+          handleOptionChange(
+            setOption,
+            "datasets.bar.borderColor",
+            newBorderColor
+          );
         }}
       />
     </TabBigItem>

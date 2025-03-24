@@ -1,1 +1,5 @@
-
+.labelSettingContainer {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #908f8f;
+  border-radius: 0.5px;
+}

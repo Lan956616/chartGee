@@ -1,3 +1,4 @@
+import type { ChartOptions } from "chart.js";
 export type BarChartDatasets = {
   label: string;
   data: (number | "")[];
@@ -6,71 +7,6 @@ export type BarChartDatasets = {
 export type SampleBarChartData = {
   labels: string[];
   datasets: BarChartDatasets[];
-};
-export type SampleBarChartOptions = {
-  barThickness: number;
-  borderWidth: number;
-  borderRadius: number;
-  borderColor: string;
-  indexAxis: "x" | "y";
-  responsive: true | false;
-  maintainAspectRatio: true | false;
-  aspectRatio: number;
-  plugins: {
-    //圖表標題
-    title: {
-      display: true | false;
-      text: string;
-      font: {
-        family: "Outfit";
-        size: number;
-        weight: "normal" | "bold";
-      };
-      color: string;
-    };
-    legend: {
-      display: true | false;
-      labels: {
-        font: {
-          family: "Outfit";
-          size: number;
-          weight: "normal" | "bold";
-        };
-        color: string;
-      };
-    };
-  };
-  scales: {
-    x: {
-      grid: {
-        color: string;
-        lineWidth: number;
-      };
-      ticks: {
-        font: {
-          size: number;
-          weight: "bold" | "normal";
-          family: "Outfit";
-        };
-        color: string;
-      };
-    };
-    y: {
-      beginAtZero: true;
-      grid: {
-        color: string;
-        lineWidth: number;
-      };
-      ticks: {
-        font: {
-          size: number;
-          weight: "bold" | "normal";
-          family: "Outfit";
-        };
-        color: string;
-      };
-    };
-  };
 };
 export const SampleBarChartdata: SampleBarChartData = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
@@ -97,19 +33,19 @@ export const SampleBarChartdata: SampleBarChartData = {
   ],
 };
 
-export const SampleBarChartoptions: SampleBarChartOptions = {
-  //柱狀圖寬度
-  barThickness: 20,
-  borderWidth: 0,
-  //設定圓角數值 0-100數字
-  borderRadius: 0,
-  borderColor: "#000000",
-  //長條圖方向
+export const SampleBarChartoptions: ChartOptions<"bar"> = {
   indexAxis: "y",
   responsive: true,
   maintainAspectRatio: true,
   aspectRatio: 16 / 9,
-
+  datasets: {
+    bar: {
+      barThickness: 20,
+      borderWidth: 0,
+      borderRadius: 10,
+      borderColor: "#000000",
+    },
+  },
   plugins: {
     //圖表標題
     title: {
@@ -127,16 +63,26 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
       display: true,
       labels: {
         font: {
-          family: "Outfit", // ✅ 設定圖例字體
+          family: "Outfit",
           size: 16,
           weight: "normal",
         },
         color: "#000000",
       },
     },
+    datalabels: {
+      display: true,
+      color: "#000000",
+      font: {
+        weight: "bold",
+        size: 12,
+      },
+      formatter: (value, context) => {
+        return `${value}`;
+      },
+    },
   },
 
-  //y軸從零開始
   scales: {
     x: {
       grid: {
@@ -168,4 +114,29 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
       },
     },
   },
+};
+
+export const blankBarChartData: SampleBarChartData = {
+  labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
+  datasets: [
+    {
+      label: "",
+      data: Array(12).fill(""),
+      backgroundColor: "#E74C3C",
+    },
+    {
+      label: "",
+      data: Array(12).fill(""),
+      backgroundColor: "#F7DC6F",
+    },
+    {
+      label: "",
+      data: Array(12).fill(""),
+      backgroundColor: "#ABEBC6",
+    },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#E67E22" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#E573C2" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#5DADE2" },
+    { label: "", data: Array(12).fill(""), backgroundColor: "#EC7063" },
+  ],
 };

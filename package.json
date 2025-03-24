@@ -12,6 +12,7 @@
     "@types/chart.js": "^2.9.41",
     "@types/lodash": "^4.17.16",
     "chart.js": "^4.4.8",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "lodash": "^4.17.21",
     "next": "15.0.3",
     "react": "^18.3.1",
