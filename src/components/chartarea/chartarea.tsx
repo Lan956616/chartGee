@@ -4,6 +4,7 @@ import { ChartDataContext } from "../ChartDataProvider";
 import { useContext } from "react";
 import type { ContextType } from "../ChartDataProvider";
 import { Bar } from "react-chartjs-2";
+import { getCleanData } from "@/utils/getCleanData";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -28,24 +29,14 @@ const ChartArea: React.FC<ChartAreaProps> = ({ hideOnMobile }) => {
   const { data, option } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
-  // 過濾掉空欄位
-  const activeLabels = data.labels.filter((label) => label.trim() !== "");
-  const activeDatasets = data.datasets
-    .filter((dataset) => dataset.label.trim() !== "")
-    .map((dataset) => ({
-      ...dataset,
-      data: dataset.data
-        .slice(0, activeLabels.length)
-        .map((val) => (val === "" ? null : Number(val))), // 轉換數據
-    }));
-  console.log("ala", activeLabels);
+  const cleanedData = getCleanData(data);
   return (
     <section
       className={`${styles.chartarea} ${hideOnMobile && styles.hideOnMobile}`}
     >
       <Bar
         key={option.aspectRatio}
-        data={{ labels: activeLabels, datasets: activeDatasets }}
+        data={cleanedData}
         options={option}
         className={styles.chart}
       />
