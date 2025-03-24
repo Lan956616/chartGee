@@ -12,3 +12,7 @@
 * {
   --blue: #3d92e7;
 }
+html,
+body {
+  height: 100%;
+}

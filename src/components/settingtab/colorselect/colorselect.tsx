@@ -44,7 +44,7 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
             style={{
               top: `${position.top}px`,
               left: `${position.left}px`,
-              zIndex: 1000,
+              zIndex: 9999,
             }}
           >
             <ColorPicker

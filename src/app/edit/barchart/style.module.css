@@ -1,6 +1,6 @@
 .pageContainer {
-  height: 100vh;
   background-color: #dddddd;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -8,11 +8,13 @@
   flex-grow: 1;
   margin-top: 72px;
   background-color: #dddddd;
+  overflow-y: scroll;
 }
 
 @media screen and (min-width: 900px) {
   .main {
     display: flex;
+    overflow: hidden;
   }
 }
 

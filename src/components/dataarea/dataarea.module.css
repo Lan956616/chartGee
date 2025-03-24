@@ -4,10 +4,12 @@
   padding: 0.8rem;
   margin: 0.5rem;
   position: relative;
-  height: calc(100% - 1rem);
   display: flex;
   flex-direction: column;
   min-width: 450px;
+}
+.dataArea.hideOnMobile {
+  display: none;
 }
 .tabMenu {
   border-bottom: 1px solid #ccc;
@@ -42,10 +44,13 @@
 .tabMenu .activeBTN {
   background-color: #eee;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .dataArea {
     flex-basis: 50%;
-    flex-shrink: 1;
+    overflow: hidden;
+  }
+  .dataArea.hideOnMobile {
+    display: flex;
   }
 }
 
