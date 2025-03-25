@@ -1,4 +1,5 @@
 "use client";
+import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import styles from "./chartarea.module.css";
 import { ChartDataContext } from "../ChartDataProvider";
@@ -22,7 +23,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ChartDataLabels
+  ChartDataLabels,
+  backgroundColorPlugin
 );
 type ChartAreaProps = {
   hideOnMobile: boolean;

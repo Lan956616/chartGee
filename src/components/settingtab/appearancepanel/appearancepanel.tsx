@@ -8,6 +8,7 @@ import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 import ValueSetting from "./valuesetting/valuesetting";
+import ColorSelect from "../colorselect/colorselect";
 const AppearancePanel: React.FC = () => {
   const { option, setOption } = useContext(
     ChartDataContext
@@ -39,6 +40,17 @@ const AppearancePanel: React.FC = () => {
         ]}
         onChange={(newAxis) => {
           handleOptionChange(setOption, "indexAxis", newAxis);
+        }}
+      />
+      <ColorSelect
+        label="Background Color"
+        color={option.plugins.backgroundColor.color}
+        onChange={(newColor) => {
+          handleOptionChange(
+            setOption,
+            "plugins.backgroundColor.color",
+            newColor
+          );
         }}
       />
       <Toggle

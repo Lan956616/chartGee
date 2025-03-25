@@ -1,4 +1,11 @@
 import type { ChartOptions, ChartData } from "chart.js";
+export type BackgroundColorPlugin = {
+  plugins: {
+    backgroundColor: {
+      color: string;
+    };
+  };
+};
 
 export const SampleBarChartdata: ChartData<"bar"> = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
@@ -25,7 +32,8 @@ export const SampleBarChartdata: ChartData<"bar"> = {
   ],
 };
 
-export const SampleBarChartoptions: ChartOptions<"bar"> = {
+export const SampleBarChartoptions: ChartOptions<"bar"> &
+  BackgroundColorPlugin = {
   indexAxis: "y",
   responsive: true,
   maintainAspectRatio: true,
@@ -49,6 +57,9 @@ export const SampleBarChartoptions: ChartOptions<"bar"> = {
         weight: "normal",
       },
       color: "#000000",
+    },
+    backgroundColor: {
+      color: "#FFFFFF",
     },
     //圖表類別顏色區塊
     legend: {
