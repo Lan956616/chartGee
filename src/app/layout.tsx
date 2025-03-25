@@ -1,11 +1,4 @@
 import "./globals.css";
-import { Outfit } from "next/font/google";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // 可選擇需要的字重
-  display: "swap",
-});
 
 export default function RootLayout({
   children,
@@ -14,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased`}>{children}</body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }

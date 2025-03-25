@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 *,
 *::before,
 *::after {
@@ -15,4 +17,5 @@
 html,
 body {
   height: 100%;
+  font-family: "Outfit", "Noto Sans TC", sans-serif;
 }

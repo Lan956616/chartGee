@@ -52,7 +52,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
       display: true,
       text: "Fruit Sales Trends(First Four Months)",
       font: {
-        family: "Outfit",
+        family: "'Outfit', 'Noto Sans TC', sans-serif",
         size: 20,
         weight: "normal",
       },
@@ -66,7 +66,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
       display: true,
       labels: {
         font: {
-          family: "Outfit",
+          family: "'Outfit', 'Noto Sans TC', sans-serif",
           size: 16,
           weight: "normal",
         },
@@ -77,6 +77,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
       display: true,
       color: "#000000",
       font: {
+        family: "'Outfit', 'Noto Sans TC', sans-serif",
         weight: "bold",
         size: 12,
       },
@@ -96,7 +97,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
         font: {
           size: 16,
           weight: "bold",
-          family: "Outfit",
+          family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
         color: "black",
       },
@@ -111,7 +112,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
         font: {
           size: 16,
           weight: "bold",
-          family: "Outfit",
+          family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
         color: "black",
       },
