@@ -9,7 +9,7 @@ import {
   blankBarChartData,
   SampleBarChartdata,
   SampleBarChartoptions,
-} from "../../../../../sampleChartData";
+} from "../../../../../sampleBarChartData";
 
 const TableControlButton: React.FC = () => {
   const { setData, setOption } = useContext(

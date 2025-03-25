@@ -1,4 +1,4 @@
-import type { SampleBarChartData } from "../../sampleChartData";
+import type { SampleBarChartData } from "../../sampleBarChartData";
 
 export const getCleanData = (data: SampleBarChartData) => {
   const activeLabel = data.labels.filter((label) => label.trim() !== "");

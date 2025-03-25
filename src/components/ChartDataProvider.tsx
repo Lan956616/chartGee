@@ -3,12 +3,12 @@ import { createContext, useState } from "react";
 import {
   SampleBarChartdata,
   SampleBarChartoptions,
-} from "../../sampleChartData";
+} from "../../sampleBarChartData";
 import { Dispatch, SetStateAction } from "react";
 import type {
   SampleBarChartData,
   SampleBarChartOptions,
-} from "../../sampleChartData";
+} from "../../sampleBarChartData";
 export type ContextType = {
   data: SampleBarChartData;
   setData: Dispatch<SetStateAction<SampleBarChartData>>;

@@ -1,4 +1,4 @@
-import type { SampleBarChartData } from "../../sampleChartData";
+import type { SampleBarChartData } from "../../sampleBarChartData";
 export const handleLabelChange = (
   setData: (
     updateFunc: (prevData: SampleBarChartData) => SampleBarChartData

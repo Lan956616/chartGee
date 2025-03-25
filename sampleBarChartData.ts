@@ -1,14 +1,6 @@
-import type { ChartOptions } from "chart.js";
-export type BarChartDatasets = {
-  label: string;
-  data: (number | "")[];
-  backgroundColor: string;
-};
-export type SampleBarChartData = {
-  labels: string[];
-  datasets: BarChartDatasets[];
-};
-export const SampleBarChartdata: SampleBarChartData = {
+import type { ChartOptions, ChartData } from "chart.js";
+
+export const SampleBarChartdata: ChartData<"bar"> = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
   datasets: [
     {
@@ -77,7 +69,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> = {
         weight: "bold",
         size: 12,
       },
-      formatter: (value, context) => {
+      formatter: (value) => {
         return `${value}`;
       },
     },
@@ -116,7 +108,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> = {
   },
 };
 
-export const blankBarChartData: SampleBarChartData = {
+export const blankBarChartData: ChartData<"bar"> = {
   labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
   datasets: [
     {

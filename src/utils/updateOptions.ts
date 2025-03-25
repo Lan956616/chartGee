@@ -1,5 +1,5 @@
 import lodash, { set } from "lodash";
-import type { SampleBarChartOptions } from "../../sampleChartData";
+import type { SampleBarChartOptions } from "../../sampleBarChartData";
 
 export const handleOptionChange = (
   setOptions: (
