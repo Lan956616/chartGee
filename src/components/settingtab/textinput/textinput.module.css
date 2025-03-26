@@ -1,0 +1,18 @@
+.InputContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid #908f8f;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+}
+.input:focus {
+  outline: none;
+}

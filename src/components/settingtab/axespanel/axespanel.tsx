@@ -6,12 +6,15 @@ import Slider from "../slider/slider";
 import SelectDropDown from "../selectdropdown/selectdropdown";
 import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
+import Toggle from "../toggle/toggle";
 import { handleOptionChange } from "@/utils/updateOptions";
-
+import UnitSetting from "./unitsetting/unitsetting";
+import getAxisInfo from "@/utils/getAxisInfo";
 const AxesPanel: React.FC = () => {
   const { option, setOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  const { valueAxis } = getAxisInfo(option.indexAxis);
   return (
     <TabBigItem title="Axes" src="/axis.png" alt="axis-icon">
       <Slider
@@ -87,6 +90,18 @@ const AxesPanel: React.FC = () => {
           handleOptionChange(setOption, "scales.y.grid.color", newLineColor);
         }}
       />
+      <Toggle
+        label="Show Unit"
+        active={option.scales[valueAxis].title.display}
+        onClick={() => {
+          handleOptionChange(
+            setOption,
+            `scales.${valueAxis}.title.display`,
+            !option.scales[valueAxis].title.display
+          );
+        }}
+      />
+      {option.scales[valueAxis].title.display && <UnitSetting />}
     </TabBigItem>
   );
 };

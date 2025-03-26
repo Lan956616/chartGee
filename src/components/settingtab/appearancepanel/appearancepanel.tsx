@@ -9,11 +9,13 @@ import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 import ValueSetting from "./valuesetting/valuesetting";
 import ColorSelect from "../colorselect/colorselect";
+import getAxisInfo from "@/utils/getAxisInfo";
 const AppearancePanel: React.FC = () => {
   const { option, setOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
   console.log(option.aspectRatio);
+
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
@@ -39,7 +41,21 @@ const AppearancePanel: React.FC = () => {
           { value: "y", label: "Y" },
         ]}
         onChange={(newAxis) => {
+          const { valueAxis: newValueAxis, labelAxis: newLabelAxis } =
+            getAxisInfo(newAxis as "x" | "y");
+          const { valueAxis: oldValueAxis } = getAxisInfo(option.indexAxis);
+          const currentDisplay = option.scales[oldValueAxis].title.display;
           handleOptionChange(setOption, "indexAxis", newAxis);
+          handleOptionChange(
+            setOption,
+            `scales.${newValueAxis}.title.display`,
+            currentDisplay
+          );
+          handleOptionChange(
+            setOption,
+            `scales.${newLabelAxis}.title.display`,
+            false
+          );
         }}
       />
       <ColorSelect

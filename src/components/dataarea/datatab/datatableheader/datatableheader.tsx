@@ -7,11 +7,13 @@ import Image from "next/image";
 import { handleOptionChange } from "@/utils/updateOptions";
 import { handleLabelChange } from "@/utils/updateData";
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
-
+import getAxisInfo from "@/utils/getAxisInfo";
 const DataTableHeader: React.FC = () => {
   const { data, setData, setOption, option } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  const { valueAxis, labelAxis } = getAxisInfo(option.indexAxis);
+  const currentDisplay = option.scales[valueAxis].title.display;
   return (
     <thead className={styles.thead}>
       <tr className={styles.tableRow}>
@@ -30,10 +32,16 @@ const DataTableHeader: React.FC = () => {
             height={30}
             className={styles.axisIconHover}
             onClick={() => {
+              handleOptionChange(setOption, "indexAxis", valueAxis);
               handleOptionChange(
                 setOption,
-                "indexAxis",
-                option.indexAxis === "x" ? "y" : "x"
+                `scales.${labelAxis}.title.display`,
+                currentDisplay
+              );
+              handleOptionChange(
+                setOption,
+                `scales.${valueAxis}.title.display`,
+                false
               );
             }}
           />
