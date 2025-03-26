@@ -2,9 +2,9 @@
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import styles from "./chartarea.module.css";
-import { ChartDataContext } from "../ChartDataProvider";
+import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import type { ContextType } from "../ChartDataProvider";
+import type { ContextType } from "@/components/ChartDataProvider";
 import { Bar } from "react-chartjs-2";
 import { getCleanData } from "@/utils/getCleanData";
 import {

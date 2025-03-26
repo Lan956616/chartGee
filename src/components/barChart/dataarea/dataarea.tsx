@@ -1,8 +1,8 @@
 "use client";
 import styles from "./dataarea.module.css";
-import Button from "../button/button";
+import Button from "@/components/button/button";
 
-import SettingTab from "../settingtab/settingtab";
+import SettingTab from "@/components/settingtab/settingtab";
 import DataTab from "./datatab/datatab";
 import { useState } from "react";
 type DataAreaProps = {
