@@ -1,15 +1,21 @@
 "use client";
 import styles from "./dataarea.module.css";
 import Button from "@/components/button/button";
-
-import SettingTab from "@/components/settingtab/settingtab";
+import SettingTab from "../settingtab/settingtab";
 import DataTab from "./datatab/datatab";
 import { useState } from "react";
 type DataAreaProps = {
+  chartType: "bar" | "pie" | "line";
   hideOnMobile: boolean;
 };
-const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
+const DataArea: React.FC<DataAreaProps> = ({ chartType, hideOnMobile }) => {
   const [activeTab, setActiveTab] = useState<"data" | "setting">("data");
+  let DataTabComponent = null;
+  let SettingTabComponent = null;
+  if (chartType === "bar") {
+    DataTabComponent = <DataTab />;
+    SettingTabComponent = <SettingTab />;
+  }
   return (
     <section
       className={`${styles.dataArea} ${hideOnMobile && styles.hideOnMobile}`}
@@ -42,8 +48,8 @@ const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
           Setting
         </Button>
       </nav>
-      {activeTab === "data" && <DataTab />}
-      {activeTab === "setting" && <SettingTab />}
+      {activeTab === "data" && DataTabComponent}
+      {activeTab === "setting" && SettingTabComponent}
     </section>
   );
 };

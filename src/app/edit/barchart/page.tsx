@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import DisplayButtons from "@/components/displaybuttons/displaybuttons";
-import DataArea from "@/components/barChart/dataarea/dataarea";
+import DataArea from "@/components/dataarea/dataarea";
 import styles from "./style.module.css";
 import HeaderEditPage from "@/components/headereditpage/headereditpage";
 import Sidebar from "@/components/sidebar/sidebar";
@@ -15,7 +15,7 @@ const BarChartEditPage: React.FC = () => {
       <HeaderEditPage />
       <main className={styles.main}>
         <ChartDataProvider>
-          <DataArea hideOnMobile={!showData} />
+          <DataArea chartType="bar" hideOnMobile={!showData} />
           <ChartArea hideOnMobile={showData} />
         </ChartDataProvider>
       </main>
