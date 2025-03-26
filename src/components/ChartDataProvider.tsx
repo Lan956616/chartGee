@@ -4,11 +4,12 @@ import {
   SampleBarChartdata,
   SampleBarChartoptions,
 } from "../../sampleBarChartData";
-import { Dispatch, SetStateAction } from "react";
 import type {
   SampleBarChartData,
   SampleBarChartOptions,
-} from "../../sampleBarChartData";
+} from "../../barChartDataType";
+import type { Dispatch, SetStateAction } from "react";
+
 export type ContextType = {
   data: SampleBarChartData;
   setData: Dispatch<SetStateAction<SampleBarChartData>>;

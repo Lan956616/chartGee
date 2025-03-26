@@ -1,13 +1,8 @@
-import type { ChartOptions, ChartData } from "chart.js";
-export type BackgroundColorPlugin = {
-  plugins: {
-    backgroundColor: {
-      color: string;
-    };
-  };
-};
-
-export const SampleBarChartdata: ChartData<"bar"> = {
+import type {
+  SampleBarChartData,
+  SampleBarChartOptions,
+} from "./barChartDataType";
+export const SampleBarChartdata: SampleBarChartData = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
   datasets: [
     {
@@ -32,12 +27,14 @@ export const SampleBarChartdata: ChartData<"bar"> = {
   ],
 };
 
-export const SampleBarChartoptions: ChartOptions<"bar"> &
-  BackgroundColorPlugin = {
-  indexAxis: "y",
+export const SampleBarChartoptions: SampleBarChartOptions = {
+  indexAxis: "x",
   responsive: true,
   maintainAspectRatio: true,
   aspectRatio: 16 / 9,
+  layout: {
+    padding: 20,
+  },
   datasets: {
     bar: {
       barThickness: 20,
@@ -82,7 +79,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
         size: 12,
       },
       formatter: (value) => {
-        return `${value}`;
+        return value === null ? "" : `${value}`;
       },
     },
   },
@@ -90,7 +87,7 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
   scales: {
     x: {
       grid: {
-        color: "#CDCDCD",
+        color: "#4A4A4A",
         lineWidth: 1,
       },
       ticks: {
@@ -99,13 +96,24 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "black",
+        color: "#000000",
+      },
+      title: {
+        display: false,
+        text: "(kg)",
+        align: "end",
+        font: {
+          size: 20,
+          weight: "normal",
+          family: "'Outfit', 'Noto Sans TC', sans-serif",
+        },
+        color: "#4A4A4A",
       },
     },
     y: {
       beginAtZero: true,
       grid: {
-        color: "#CDCDCD",
+        color: "#4A4A4A",
         lineWidth: 1,
       },
       ticks: {
@@ -114,13 +122,24 @@ export const SampleBarChartoptions: ChartOptions<"bar"> &
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "black",
+        color: "#000000",
+      },
+      title: {
+        display: true,
+        text: "(kg)",
+        align: "end",
+        font: {
+          size: 20,
+          weight: "normal",
+          family: "'Outfit', 'Noto Sans TC', sans-serif",
+        },
+        color: "#4A4A4A",
       },
     },
   },
 };
 
-export const blankBarChartData: ChartData<"bar"> = {
+export const blankBarChartData: SampleBarChartData = {
   labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
   datasets: [
     {
