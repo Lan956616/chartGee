@@ -15,6 +15,7 @@
   border: 1px solid #908f8f;
   border-radius: 25px;
   position: relative;
+  transition: background-color 0.3s ease-in-out;
 }
 .toggle.active {
   background-color: #3d92e7;
