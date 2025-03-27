@@ -34,7 +34,7 @@ type ChartAreaProps = {
   hideOnMobile: boolean;
 };
 const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
-  const { data, option, pieData, pieOption } = useContext(
+  const { data, option, pieData, pieOption, unit } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
   let ChartComponent = null;
@@ -43,7 +43,18 @@ const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
       <Pie
         key={pieOption.aspectRatio}
         data={pieData}
-        options={pieOption}
+        options={{
+          ...pieOption,
+          plugins: {
+            ...pieOption.plugins,
+            datalabels: {
+              ...pieOption.plugins.datalabels,
+              formatter: (value) => {
+                return value === null ? "" : `${value}${unit}`;
+              },
+            },
+          },
+        }}
         className={styles.chart}
       />
     );
