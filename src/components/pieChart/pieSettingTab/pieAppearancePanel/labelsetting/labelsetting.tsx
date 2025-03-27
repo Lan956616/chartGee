@@ -19,6 +19,7 @@ const LabelSetting: React.FC = () => {
         min={6}
         max={40}
         value={pieOption.plugins.legend.labels.font.size}
+        Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
             setPieOption,

@@ -19,6 +19,7 @@ const ChartTitleSetting: React.FC = () => {
         min={6}
         max={40}
         value={pieOption.plugins.title.font.size}
+        Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
             setPieOption,

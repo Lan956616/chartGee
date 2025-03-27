@@ -19,6 +19,7 @@ const LabelSetting: React.FC = () => {
         min={6}
         max={40}
         value={option.plugins.legend.labels.font.size}
+        Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
             setOption,

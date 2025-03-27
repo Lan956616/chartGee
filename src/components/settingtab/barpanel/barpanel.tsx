@@ -18,6 +18,7 @@ const BarPanel: React.FC = () => {
         min={5}
         max={50}
         value={option.datasets.bar.barThickness}
+        Unit="px"
         onChange={(newWidth) => {
           handleOptionChange(setOption, "datasets.bar.barThickness", newWidth);
         }}
@@ -27,6 +28,7 @@ const BarPanel: React.FC = () => {
         value={option.datasets.bar.borderRadius}
         min={0}
         max={25}
+        Unit="px"
         onChange={(border) => {
           handleOptionChange(setOption, "datasets.bar.borderRadius", border);
         }}
@@ -36,6 +38,7 @@ const BarPanel: React.FC = () => {
         value={option.datasets.bar.borderWidth}
         min={0}
         max={10}
+        Unit="px"
         onChange={(newWidth) => {
           handleOptionChange(setOption, "datasets.bar.borderWidth", newWidth);
         }}

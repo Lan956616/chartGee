@@ -27,6 +27,7 @@ const PieValueSetting: React.FC = () => {
         min={6}
         max={45}
         value={pieOption.plugins.datalabels.font.size}
+        Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
             setPieOption,
