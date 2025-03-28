@@ -10,34 +10,50 @@ import {
   SampleBarChartdata,
   SampleBarChartoptions,
 } from "@/utils/sampleChartData/barChart";
-const TableControlButton: React.FC = () => {
-  const { setData, setOption } = useContext(
+import {
+  blankPieChartData,
+  samplePieChartData,
+  samplePieChartOption,
+} from "@/utils/sampleChartData/pieChart";
+type TableControlButtonProps = { chartType: "bar" | "pie" | "line" };
+const TableControlButton: React.FC<TableControlButtonProps> = ({
+  chartType,
+}) => {
+  const { setData, setOption, setPieData, setPieOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  const ClearDataOnClick = () => {
+    if (chartType === "bar") {
+      setData(blankBarChartData);
+      handleOptionChange(setOption, "plugins.title.text", "");
+    } else if (chartType === "pie") {
+      setPieData(blankPieChartData);
+      handleOptionChange(setPieOption, "plugins.title.text", "");
+    }
+  };
+  const resetDataOnClick = () => {
+    if (chartType === "bar") {
+      setData(SampleBarChartdata);
+      handleOptionChange(
+        setOption,
+        "plugins.title.text",
+        SampleBarChartoptions.plugins.title.text
+      );
+    } else if (chartType === "pie") {
+      setPieData(samplePieChartData);
+      handleOptionChange(
+        setPieOption,
+        "plugins.title.text",
+        samplePieChartOption.plugins.title.text
+      );
+    }
+  };
   return (
     <div className={styles.tableControlButton}>
-      <Button
-        className={styles.btn}
-        width={50}
-        onClick={() => {
-          setData(blankBarChartData);
-          handleOptionChange(setOption, "plugins.title.text", "");
-        }}
-      >
+      <Button className={styles.btn} width={50} onClick={ClearDataOnClick}>
         Clear Data
       </Button>
-      <Button
-        className={styles.btn}
-        width={50}
-        onClick={() => {
-          setData(SampleBarChartdata);
-          handleOptionChange(
-            setOption,
-            "plugins.title.text",
-            SampleBarChartoptions.plugins.title.text
-          );
-        }}
-      >
+      <Button className={styles.btn} width={50} onClick={resetDataOnClick}>
         Reset Data
       </Button>
     </div>

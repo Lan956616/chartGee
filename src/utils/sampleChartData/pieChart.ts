@@ -77,3 +77,22 @@ export const samplePieChartOption: SamplePieChartOption = {
     },
   },
 };
+export const blankPieChartData: SamplePieChartData = {
+  labels: ["", "", "", "", "", "", "", ""],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: ["", "", "", "", "", "", "", ""],
+      backgroundColor: [
+        "#8E44AD",
+        "#1E3799",
+        "#F7DC6F",
+        "#E573C2",
+        "#3498DB",
+        "#E74C3C",
+        "#F4A261",
+        "#7FB3D5",
+      ],
+    },
+  ],
+};
