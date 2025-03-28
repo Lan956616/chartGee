@@ -14,11 +14,11 @@ const DataArea: React.FC<DataAreaProps> = ({ chartType, hideOnMobile }) => {
   let DataTabComponent = null;
   let SettingTabComponent = null;
   if (chartType === "bar") {
-    DataTabComponent = <DataTab />;
+    DataTabComponent = <DataTab chartType={chartType} />;
     SettingTabComponent = <SettingTab />;
   }
   if (chartType === "pie") {
-    DataTabComponent = <DataTab />;
+    DataTabComponent = <DataTab chartType={chartType} />;
     SettingTabComponent = <PieSettingTab />;
   }
   return (

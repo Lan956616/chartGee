@@ -16,6 +16,7 @@ import {
   BarElement,
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
+import { getCleanPieData } from "@/utils/getCleanPieData";
 import { Pie, Bar } from "react-chartjs-2";
 ChartJS.register(
   ArcElement,
@@ -42,7 +43,7 @@ const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
     ChartComponent = (
       <Pie
         key={pieOption.aspectRatio}
-        data={pieData}
+        data={getCleanPieData(pieData)}
         options={{
           ...pieOption,
           plugins: {
@@ -50,7 +51,7 @@ const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
             datalabels: {
               ...pieOption.plugins.datalabels,
               formatter: (value) => {
-                return value === null ? "" : `${value}${unit}`;
+                return value === "" ? "" : `${value}${unit}`;
               },
             },
           },

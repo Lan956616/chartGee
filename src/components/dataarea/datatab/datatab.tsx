@@ -8,20 +8,32 @@ import styles from "./datatab.module.css";
 import DataTableHeader from "./datatableheader/datatableheader";
 import DataTableBody from "./datatablebody/datatablebody";
 import TableControlButton from "./tablecontrolbutton/tablecontrolbutton";
-const DataTab: React.FC = () => {
-  const { option, setOption } = useContext(
+
+import PieTableBody from "@/components/pieChart/PieTableBody/PieTableBody";
+type DataTabProps = { chartType: "bar" | "pie" | "line" };
+const DataTab: React.FC<DataTabProps> = ({ chartType }) => {
+  const { option, setOption, pieOption, setPieOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  const OptionName = chartType === "bar" ? option : pieOption;
+  const setOptionName = chartType === "bar" ? setOption : setPieOption;
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const TableHeaderComponent = chartType === "bar" ? <DataTableHeader /> : null;
+  const TableBodyComponent =
+    chartType === "bar" ? <DataTableBody /> : <PieTableBody />;
   return (
     <div className={styles.dataTabContainer}>
       <div className={styles.TitleInputContainer}>
         <input
           type="text"
           id="titleInput"
-          value={option.plugins.title.text}
+          value={OptionName.plugins.title.text}
           onChange={(e) => {
-            handleOptionChange(setOption, "plugins.title.text", e.target.value);
+            handleOptionChange(
+              setOptionName,
+              "plugins.title.text",
+              e.target.value
+            );
           }}
           placeholder="Add a title"
           ref={inputRef}
@@ -40,11 +52,11 @@ const DataTab: React.FC = () => {
       </div>
       <div className={styles.tableContainer}>
         <table>
-          <DataTableHeader />
-          <DataTableBody />
+          {TableHeaderComponent}
+          {TableBodyComponent}
         </table>
       </div>
-      <TableControlButton />
+      <TableControlButton chartType={chartType} />
     </div>
   );
 };
