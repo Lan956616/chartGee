@@ -1,6 +1,6 @@
 type PieChartDatasets = {
   label: string;
-  data: number[];
+  data: (number | "")[];
   backgroundColor: string[];
 };
 export type SamplePieChartData = {

@@ -4,12 +4,21 @@ import type {
 } from "./pieChartDataType";
 
 export const samplePieChartData: SamplePieChartData = {
-  labels: ["Grape", "BlueBerry", "Banana"],
+  labels: ["Grape", "BlueBerry", "Banana", "", "", "", "", ""],
   datasets: [
     {
       label: "My First Dataset",
-      data: [100, 50, 100],
-      backgroundColor: ["#8E44AD", "#1E3799", "#F7DC6F"],
+      data: [100, 50, 100, "", "", "", "", ""],
+      backgroundColor: [
+        "#8E44AD",
+        "#1E3799",
+        "#F7DC6F",
+        "#E573C2",
+        "#3498DB",
+        "#E74C3C",
+        "#F4A261",
+        "#7FB3D5",
+      ],
     },
   ],
 };
