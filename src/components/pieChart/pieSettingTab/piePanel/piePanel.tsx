@@ -24,6 +24,16 @@ const PiePanel: React.FC = () => {
         }}
       />
       <Slider
+        label="Border Radius"
+        value={pieOption.datasets.pie.borderRadius}
+        min={0}
+        max={25}
+        Unit="px"
+        onChange={(border) => {
+          handleOptionChange(setPieOption, "datasets.pie.borderRadius", border);
+        }}
+      />
+      <Slider
         label="Border Width"
         value={pieOption.datasets.pie.borderWidth}
         min={0}
@@ -37,16 +47,7 @@ const PiePanel: React.FC = () => {
           );
         }}
       />
-      <Slider
-        label="Border Radius"
-        value={pieOption.datasets.pie.borderRadius}
-        min={0}
-        max={25}
-        Unit="px"
-        onChange={(border) => {
-          handleOptionChange(setPieOption, "datasets.pie.borderRadius", border);
-        }}
-      />
+
       <ColorSelect
         label="Border Color"
         color={pieOption.datasets.pie.borderColor}
