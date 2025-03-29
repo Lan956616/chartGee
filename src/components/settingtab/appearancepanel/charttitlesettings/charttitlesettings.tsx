@@ -7,10 +7,27 @@ import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 
-const ChartTitleSetting: React.FC = () => {
-  const { option, setOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+type ChartTitleSettingProps = {
+  chartType: "bar" | "line" | "pie";
+};
+const ChartTitleSetting: React.FC<ChartTitleSettingProps> = ({ chartType }) => {
+  const {
+    option,
+    setOption,
+    lineOption,
+    setLineOption,
+    pieOption,
+    setPieOption,
+  } = useContext(ChartDataContext) as unknown as ContextType;
+
+  const Option =
+    chartType === "bar" ? option : chartType === "pie" ? pieOption : lineOption;
+  const SetOption =
+    chartType === "bar"
+      ? setOption
+      : chartType === "pie"
+      ? setPieOption
+      : setLineOption;
 
   return (
     <div className={styles.chartTitleSettingContainer}>
@@ -18,15 +35,15 @@ const ChartTitleSetting: React.FC = () => {
         label="Font Size"
         min={6}
         max={40}
-        value={option.plugins.title.font.size}
+        value={Option.plugins.title.font.size}
         Unit="px"
         onChange={(newFontSize) => {
-          handleOptionChange(setOption, "plugins.title.font.size", newFontSize);
+          handleOptionChange(SetOption, "plugins.title.font.size", newFontSize);
         }}
       />
       <SelectDropDown
         label="Font Weight"
-        value={option.plugins.title.font.weight}
+        value={Option.plugins.title.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -34,7 +51,7 @@ const ChartTitleSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.title.font.weight",
             newFontWeight
           );
@@ -42,9 +59,9 @@ const ChartTitleSetting: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={option.plugins.title.color}
+        color={Option.plugins.title.color}
         onChange={(newColor) => {
-          handleOptionChange(setOption, "plugins.title.color", newColor);
+          handleOptionChange(SetOption, "plugins.title.color", newColor);
         }}
       />
     </div>

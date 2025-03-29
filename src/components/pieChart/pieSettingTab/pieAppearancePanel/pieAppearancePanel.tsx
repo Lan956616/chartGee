@@ -1,8 +1,8 @@
 import TabBigItem from "@/components/settingtab/tabbigitem/tabbigitem";
 import SelectDropDown from "@/components/settingtab/selectdropdown/selectdropdown";
 import Toggle from "@/components/settingtab/toggle/toggle";
-import ChartTitleSetting from "./charttitlesettings/charttitlesettings";
-import LabelSetting from "./labelsetting/labelsetting";
+import ChartTitleSetting from "@/components/settingtab/appearancepanel/charttitlesettings/charttitlesettings";
+import LabelSetting from "@/components/settingtab/appearancepanel/labelsetting/labelsetting";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
@@ -52,7 +52,7 @@ const PieAppearancePanel: React.FC = () => {
           );
         }}
       />
-      {pieOption.plugins.title.display && <ChartTitleSetting />}
+      {pieOption.plugins.title.display && <ChartTitleSetting chartType="pie" />}
       <Toggle
         label="Show Label"
         active={pieOption.plugins.legend.display}
@@ -64,7 +64,7 @@ const PieAppearancePanel: React.FC = () => {
           );
         }}
       />
-      {pieOption.plugins.legend.display && <LabelSetting />}
+      {pieOption.plugins.legend.display && <LabelSetting chartType="pie" />}
       <Toggle
         label="Show Values"
         active={pieOption.plugins.datalabels.display}

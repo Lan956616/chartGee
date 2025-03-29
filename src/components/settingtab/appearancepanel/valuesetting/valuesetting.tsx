@@ -6,11 +6,15 @@ import SelectDropDown from "../../selectdropdown/selectdropdown";
 import Slider from "../../slider/slider";
 import ColorSelect from "../../colorselect/colorselect";
 import { handleOptionChange } from "@/utils/updateOptions";
+type ValueSettingProps = { chartType: "bar" | "line" };
 
-const ValueSetting: React.FC = () => {
-  const { option, setOption } = useContext(
+const ValueSetting: React.FC<ValueSettingProps> = ({ chartType }) => {
+  const { option, setOption, lineOption, setLineOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+
+  const Option = chartType === "bar" ? option : lineOption;
+  const SetOption = chartType === "bar" ? setOption : setLineOption;
 
   return (
     <div>
@@ -18,11 +22,11 @@ const ValueSetting: React.FC = () => {
         label="Font Size"
         min={6}
         max={45}
-        value={option.plugins.datalabels.font.size}
+        value={Option.plugins.datalabels.font.size}
         Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.datalabels.font.size",
             newFontSize
           );
@@ -30,7 +34,7 @@ const ValueSetting: React.FC = () => {
       />
       <SelectDropDown
         label="Font Weight"
-        value={option.plugins.datalabels.font.weight}
+        value={Option.plugins.datalabels.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -38,7 +42,7 @@ const ValueSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.datalabels.font.weight",
             newFontWeight
           );
@@ -46,9 +50,9 @@ const ValueSetting: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={option.plugins.datalabels.color}
+        color={Option.plugins.datalabels.color}
         onChange={(newColor) => {
-          handleOptionChange(setOption, "plugins.datalabels.color", newColor);
+          handleOptionChange(SetOption, "plugins.datalabels.color", newColor);
         }}
       />
     </div>

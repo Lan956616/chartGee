@@ -84,7 +84,9 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
           );
         }}
       />
-      {Option.plugins.title.display && <ChartTitleSetting />}
+      {Option.plugins.title.display && (
+        <ChartTitleSetting chartType={chartType} />
+      )}
       <Toggle
         label="Show Label"
         active={Option.plugins.legend.display}
@@ -96,7 +98,7 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
           );
         }}
       />
-      {Option.plugins.legend.display && <LabelSetting />}
+      {Option.plugins.legend.display && <LabelSetting chartType={chartType} />}
       <Toggle
         label="Show Values"
         active={Option.plugins.datalabels.display}
@@ -108,7 +110,9 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
           );
         }}
       />
-      {Option.plugins.datalabels.display && <ValueSetting />}
+      {Option.plugins.datalabels.display && (
+        <ValueSetting chartType={chartType} />
+      )}
     </TabBigItem>
   );
 };

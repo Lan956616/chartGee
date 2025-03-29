@@ -7,10 +7,25 @@ import SelectDropDown from "../../selectdropdown/selectdropdown";
 import Slider from "../../slider/slider";
 import ColorSelect from "../../colorselect/colorselect";
 import { handleOptionChange } from "@/utils/updateOptions";
-const LabelSetting: React.FC = () => {
-  const { option, setOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+type LabelSettingProps = { chartType: "bar" | "pie" | "line" };
+const LabelSetting: React.FC<LabelSettingProps> = ({ chartType }) => {
+  const {
+    option,
+    setOption,
+    lineOption,
+    setLineOption,
+    pieOption,
+    setPieOption,
+  } = useContext(ChartDataContext) as unknown as ContextType;
+
+  const Option =
+    chartType === "bar" ? option : chartType === "pie" ? pieOption : lineOption;
+  const SetOption =
+    chartType === "bar"
+      ? setOption
+      : chartType === "pie"
+      ? setPieOption
+      : setLineOption;
 
   return (
     <div className={styles.labelSettingContainer}>
@@ -18,11 +33,11 @@ const LabelSetting: React.FC = () => {
         label="Font Size"
         min={6}
         max={40}
-        value={option.plugins.legend.labels.font.size}
+        value={Option.plugins.legend.labels.font.size}
         Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.legend.labels.font.size",
             newFontSize
           );
@@ -30,7 +45,7 @@ const LabelSetting: React.FC = () => {
       />
       <SelectDropDown
         label="Font Weight"
-        value={option.plugins.legend.labels.font.weight}
+        value={Option.plugins.legend.labels.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -38,7 +53,7 @@ const LabelSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.legend.labels.font.weight",
             newFontWeight
           );
@@ -46,10 +61,10 @@ const LabelSetting: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={option.plugins.legend.labels.color}
+        color={Option.plugins.legend.labels.color}
         onChange={(newColor) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.legend.labels.color",
             newColor
           );
