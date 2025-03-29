@@ -6,35 +6,37 @@ import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
 import TextInput from "../../textinput/textinput";
-const UnitSetting: React.FC = () => {
-  const { option, setOption } = useContext(
+type UnitSettingProps = { chartType: "bar" | "line" };
+const UnitSetting: React.FC<UnitSettingProps> = ({ chartType }) => {
+  const { option, setOption, lineOption, setLineOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
-
+  const Option = chartType === "bar" ? option : lineOption;
+  const SetOption = chartType === "bar" ? setOption : setLineOption;
   return (
     <div>
       <TextInput
         label="Unit"
-        value={option.scales.x.title.text}
+        value={Option.scales.x.title.text}
         onChange={(newUnit) => {
-          handleOptionChange(setOption, "scales.x.title.text", newUnit);
-          handleOptionChange(setOption, "scales.y.title.text", newUnit);
+          handleOptionChange(SetOption, "scales.x.title.text", newUnit);
+          handleOptionChange(SetOption, "scales.y.title.text", newUnit);
         }}
       />
       <Slider
         label="Font Size"
         min={6}
         max={40}
-        value={option.scales.x.title.font.size}
+        value={Option.scales.x.title.font.size}
         Unit="px"
         onChange={(newFontSize) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.x.title.font.size",
             newFontSize
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.y.title.font.size",
             newFontSize
           );
@@ -42,7 +44,7 @@ const UnitSetting: React.FC = () => {
       />
       <SelectDropDown
         label="Font Weight"
-        value={option.scales.x.title.font.weight}
+        value={Option.scales.x.title.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -50,12 +52,12 @@ const UnitSetting: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.x.title.font.weight",
             newFontWeight
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.y.title.font.weight",
             newFontWeight
           );
@@ -63,10 +65,10 @@ const UnitSetting: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={option.scales.x.title.color}
+        color={Option.scales.x.title.color}
         onChange={(newColor) => {
-          handleOptionChange(setOption, "scales.x.title.color", newColor);
-          handleOptionChange(setOption, "scales.y.title.color", newColor);
+          handleOptionChange(SetOption, "scales.x.title.color", newColor);
+          handleOptionChange(SetOption, "scales.y.title.color", newColor);
         }}
       />
     </div>

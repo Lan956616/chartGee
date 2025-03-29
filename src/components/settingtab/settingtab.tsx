@@ -8,7 +8,7 @@ const SettingTab: React.FC = () => {
     <div className={styles.settingTab}>
       <AppearancePanel chartType="bar" />
       <BarPanel />
-      <AxesPanel />
+      <AxesPanel chartType="bar" />
     </div>
   );
 };

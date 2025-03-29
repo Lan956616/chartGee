@@ -10,11 +10,16 @@ import Toggle from "../toggle/toggle";
 import { handleOptionChange } from "@/utils/updateOptions";
 import UnitSetting from "./unitsetting/unitsetting";
 import getAxisInfo from "@/utils/getAxisInfo";
-const AxesPanel: React.FC = () => {
-  const { option, setOption } = useContext(
+type AxesPanelProps = {
+  chartType: "bar" | "line";
+};
+const AxesPanel: React.FC<AxesPanelProps> = ({ chartType }) => {
+  const { option, setOption, lineOption, setLineOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
-  const { valueAxis } = getAxisInfo(option.indexAxis);
+  const Option = chartType === "bar" ? option : lineOption;
+  const SetOption = chartType === "bar" ? setOption : setLineOption;
+  const { valueAxis } = getAxisInfo(Option.indexAxis);
   return (
     <TabBigItem title="Axes" src="/axis.png" alt="axis-icon">
       <Slider
@@ -22,15 +27,15 @@ const AxesPanel: React.FC = () => {
         min={6}
         max={40}
         Unit="px"
-        value={option.scales.x.ticks.font.size}
+        value={Option.scales.x.ticks.font.size}
         onChange={(newFontSize) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.x.ticks.font.size",
             newFontSize
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.y.ticks.font.size",
             newFontSize
           );
@@ -38,7 +43,7 @@ const AxesPanel: React.FC = () => {
       />
       <SelectDropDown
         label="Font Weight"
-        value={option.scales.x.ticks.font.weight}
+        value={Option.scales.x.ticks.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
@@ -46,12 +51,12 @@ const AxesPanel: React.FC = () => {
         ]}
         onChange={(newFontWeight) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.x.ticks.font.weight",
             newFontWeight
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.y.ticks.font.weight",
             newFontWeight
           );
@@ -59,26 +64,26 @@ const AxesPanel: React.FC = () => {
       />
       <ColorSelect
         label="Font Color"
-        color={option.scales.x.ticks.color}
+        color={Option.scales.x.ticks.color}
         onChange={(newColor) => {
-          handleOptionChange(setOption, "scales.x.ticks.color", newColor);
-          handleOptionChange(setOption, "scales.y.ticks.color", newColor);
+          handleOptionChange(SetOption, "scales.x.ticks.color", newColor);
+          handleOptionChange(SetOption, "scales.y.ticks.color", newColor);
         }}
       />
       <Slider
         label="Grid Line Width"
-        value={option.scales.x.grid.lineWidth}
+        value={Option.scales.x.grid.lineWidth}
         min={1}
         max={10}
         Unit="px"
         onChange={(newLineWidth) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.x.grid.lineWidth",
             newLineWidth
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             "scales.y.grid.lineWidth",
             newLineWidth
           );
@@ -86,24 +91,26 @@ const AxesPanel: React.FC = () => {
       />
       <ColorSelect
         label="Grid Line Color"
-        color={option.scales.x.grid.color}
+        color={Option.scales.x.grid.color}
         onChange={(newLineColor) => {
-          handleOptionChange(setOption, "scales.x.grid.color", newLineColor);
-          handleOptionChange(setOption, "scales.y.grid.color", newLineColor);
+          handleOptionChange(SetOption, "scales.x.grid.color", newLineColor);
+          handleOptionChange(SetOption, "scales.y.grid.color", newLineColor);
         }}
       />
       <Toggle
         label="Show Unit"
-        active={option.scales[valueAxis].title.display}
+        active={Option.scales[valueAxis].title.display}
         onClick={() => {
           handleOptionChange(
-            setOption,
+            SetOption,
             `scales.${valueAxis}.title.display`,
-            !option.scales[valueAxis].title.display
+            !Option.scales[valueAxis].title.display
           );
         }}
       />
-      {option.scales[valueAxis].title.display && <UnitSetting />}
+      {Option.scales[valueAxis].title.display && (
+        <UnitSetting chartType={chartType} />
+      )}
     </TabBigItem>
   );
 };
