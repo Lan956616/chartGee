@@ -17,6 +17,14 @@ import type {
   SamplePieChartData,
   SamplePieChartOption,
 } from "@/utils/sampleChartData/pieChartDataType";
+import {
+  sampleLineChartData,
+  sampleLineChartOption,
+} from "@/utils/sampleChartData/lineChart";
+import {
+  SampleLineChartData,
+  SampleLineChartOption,
+} from "@/utils/sampleChartData/lineChartDataType";
 
 export type ContextType = {
   data: SampleBarChartData;
@@ -27,6 +35,10 @@ export type ContextType = {
   setPieData: Dispatch<SetStateAction<SamplePieChartData>>;
   pieOption: SamplePieChartOption;
   setPieOption: Dispatch<SetStateAction<SamplePieChartOption>>;
+  lineData: SampleLineChartData;
+  setLineData: Dispatch<SetStateAction<SampleLineChartData>>;
+  lineOption: SampleLineChartOption;
+  setLineOption: Dispatch<SetStateAction<SampleLineChartOption>>;
   unit: string;
   setUnit: Dispatch<SetStateAction<string>>;
 };
@@ -41,6 +53,8 @@ const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
   const [option, setOption] = useState(SampleBarChartoptions);
   const [pieData, setPieData] = useState(samplePieChartData);
   const [pieOption, setPieOption] = useState(samplePieChartOption);
+  const [lineData, setLineData] = useState(sampleLineChartData);
+  const [lineOption, setLineOption] = useState(sampleLineChartOption);
   const [unit, setUnit] = useState("kg");
   return (
     <ChartDataContext.Provider
@@ -53,6 +67,10 @@ const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
         setPieData,
         pieOption,
         setPieOption,
+        lineData,
+        setLineData,
+        lineOption,
+        setLineOption,
         unit,
         setUnit,
       }}

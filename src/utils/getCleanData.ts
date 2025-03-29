@@ -1,6 +1,9 @@
 import type { SampleBarChartData } from "./sampleChartData/barChartDataType";
+import type { SampleLineChartData } from "./sampleChartData/lineChartDataType";
 
-export const getCleanData = (data: SampleBarChartData) => {
+export const getCleanData = (
+  data: SampleBarChartData | SampleLineChartData
+) => {
   const activeLabel = data.labels.filter((label) => label.trim() !== "");
   const activeDatasets = data.datasets
     .filter((dataset) => dataset.label.trim() !== "")
