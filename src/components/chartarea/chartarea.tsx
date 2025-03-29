@@ -14,10 +14,12 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
+  PointElement,
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
-import { Pie, Bar } from "react-chartjs-2";
+import { Pie, Bar, Line } from "react-chartjs-2";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -27,7 +29,9 @@ ChartJS.register(
   backgroundColorPlugin,
   CategoryScale,
   LinearScale,
-  BarElement
+  BarElement,
+  LineElement,
+  PointElement
 );
 
 type ChartAreaProps = {
@@ -35,9 +39,8 @@ type ChartAreaProps = {
   hideOnMobile: boolean;
 };
 const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
-  const { data, option, pieData, pieOption, unit } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const { data, option, pieData, pieOption, lineData, lineOption, unit } =
+    useContext(ChartDataContext) as unknown as ContextType;
   let ChartComponent = null;
   if (chartType === "pie") {
     ChartComponent = (
@@ -66,6 +69,16 @@ const ChartArea: React.FC<ChartAreaProps> = ({ chartType, hideOnMobile }) => {
         key={option.aspectRatio}
         data={getCleanData(data)}
         options={option}
+        className={styles.chart}
+      />
+    );
+  }
+  if (chartType === "line") {
+    ChartComponent = (
+      <Line
+        key={lineOption.aspectRatio}
+        data={getCleanData(lineData)}
+        options={lineOption}
         className={styles.chart}
       />
     );
