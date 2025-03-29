@@ -1,26 +1,30 @@
-import TabBigItem from "../tabbigitem/tabbigitem";
-import SelectDropDown from "../selectdropdown/selectdropdown";
-import Toggle from "../toggle/toggle";
-import ChartTitleSetting from "./charttitlesettings/charttitlesettings";
-import LabelSetting from "./labelsetting/labelsetting";
+import TabBigItem from "./settingtab/tabbigitem/tabbigitem";
+import SelectDropDown from "./settingtab/selectdropdown/selectdropdown";
+import Toggle from "./settingtab/toggle/toggle";
+import ChartTitleSetting from "./settingtab/appearancepanel/charttitlesettings/charttitlesettings";
+import LabelSetting from "./settingtab/appearancepanel/labelsetting/labelsetting";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { handleOptionChange } from "@/utils/updateOptions";
-import ValueSetting from "./valuesetting/valuesetting";
-import ColorSelect from "../colorselect/colorselect";
+import ValueSetting from "./settingtab/appearancepanel/valuesetting/valuesetting";
+import ColorSelect from "./settingtab/colorselect/colorselect";
 import getAxisInfo from "@/utils/getAxisInfo";
-const AppearancePanel: React.FC = () => {
-  const { option, setOption } = useContext(
+type AppearancePanelProps = {
+  chartType: "bar" | "line";
+};
+const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
+  const { option, setOption, lineOption, setLineOption } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
-  console.log(option.aspectRatio);
+  const Option = chartType === "bar" ? option : lineOption;
+  const SetOption = chartType === "bar" ? setOption : setLineOption;
 
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
         label="Aspect Ratio"
-        value={option.aspectRatio === 1 ? "1/1" : "16/9"}
+        value={Option.aspectRatio === 1 ? "1/1" : "16/9"}
         width={80}
         options={[
           { value: "1/1", label: "1 / 1" },
@@ -29,12 +33,12 @@ const AppearancePanel: React.FC = () => {
         onChange={(newRatio) => {
           const [w, h] = newRatio.split("/").map(Number);
           const ratio = w / h;
-          handleOptionChange(setOption, "aspectRatio", ratio);
+          handleOptionChange(SetOption, "aspectRatio", ratio);
         }}
       />
       <SelectDropDown
         label="Index Axis"
-        value={option.indexAxis}
+        value={Option.indexAxis}
         width={60}
         options={[
           { value: "x", label: "X" },
@@ -43,16 +47,16 @@ const AppearancePanel: React.FC = () => {
         onChange={(newAxis) => {
           const { valueAxis: newValueAxis, labelAxis: newLabelAxis } =
             getAxisInfo(newAxis as "x" | "y");
-          const { valueAxis: oldValueAxis } = getAxisInfo(option.indexAxis);
-          const currentDisplay = option.scales[oldValueAxis].title.display;
-          handleOptionChange(setOption, "indexAxis", newAxis);
+          const { valueAxis: oldValueAxis } = getAxisInfo(Option.indexAxis);
+          const currentDisplay = Option.scales[oldValueAxis].title.display;
+          handleOptionChange(SetOption, "indexAxis", newAxis);
           handleOptionChange(
-            setOption,
+            SetOption,
             `scales.${newValueAxis}.title.display`,
             currentDisplay
           );
           handleOptionChange(
-            setOption,
+            SetOption,
             `scales.${newLabelAxis}.title.display`,
             false
           );
@@ -60,10 +64,10 @@ const AppearancePanel: React.FC = () => {
       />
       <ColorSelect
         label="Background Color"
-        color={option.plugins.backgroundColor.color}
+        color={Option.plugins.backgroundColor.color}
         onChange={(newColor) => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.backgroundColor.color",
             newColor
           );
@@ -71,40 +75,40 @@ const AppearancePanel: React.FC = () => {
       />
       <Toggle
         label="Show ChartTitle"
-        active={option.plugins.title.display}
+        active={Option.plugins.title.display}
         onClick={() => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.title.display",
-            !option.plugins.title.display
+            !Option.plugins.title.display
           );
         }}
       />
-      {option.plugins.title.display && <ChartTitleSetting />}
+      {Option.plugins.title.display && <ChartTitleSetting />}
       <Toggle
         label="Show Label"
-        active={option.plugins.legend.display}
+        active={Option.plugins.legend.display}
         onClick={() => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.legend.display",
-            !option.plugins.legend.display
+            !Option.plugins.legend.display
           );
         }}
       />
-      {option.plugins.legend.display && <LabelSetting />}
+      {Option.plugins.legend.display && <LabelSetting />}
       <Toggle
         label="Show Values"
-        active={option.plugins.datalabels.display}
+        active={Option.plugins.datalabels.display}
         onClick={() => {
           handleOptionChange(
-            setOption,
+            SetOption,
             "plugins.datalabels.display",
-            !option.plugins.datalabels.display
+            !Option.plugins.datalabels.display
           );
         }}
       />
-      {option.plugins.datalabels.display && <ValueSetting />}
+      {Option.plugins.datalabels.display && <ValueSetting />}
     </TabBigItem>
   );
 };
