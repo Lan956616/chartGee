@@ -29,18 +29,7 @@ export type SampleLineChartOption = {
       rotation: number;
       radius: number;
       hoverRadius: number;
-      pointStyle:
-        | "round"
-        | "circle"
-        | "cross"
-        | "crossRot"
-        | "dash"
-        | "line"
-        | "rect"
-        | "rectRounded"
-        | "rectRot"
-        | "star"
-        | "triangle";
+      pointStyle: "round" | "rect" | "rectRounded" | "star" | "triangle";
     };
   };
   plugins: {
@@ -92,6 +81,7 @@ export type SampleLineChartOption = {
           family: "'Outfit', 'Noto Sans TC', sans-serif";
         };
         color: string;
+        padding: number;
       };
       title: {
         display: false | true;
@@ -118,6 +108,7 @@ export type SampleLineChartOption = {
           family: "'Outfit', 'Noto Sans TC', sans-serif";
         };
         color: string;
+        padding: number;
       };
       title: {
         display: false | true;
