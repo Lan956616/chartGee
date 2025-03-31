@@ -140,7 +140,7 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
 };
 
 export const blankBarChartData: SampleBarChartData = {
-  labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
+  labels: Array(12).fill(""),
   datasets: [
     {
       label: "",
