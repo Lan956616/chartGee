@@ -4,20 +4,22 @@ import type { SampleLineChartData } from "./sampleChartData/lineChartDataType";
 export const getCleanData = (
   data: SampleBarChartData | SampleLineChartData
 ) => {
-  const activeLabel = data.labels.filter((label) => label.trim() !== "");
-  const activeDatasets = data.datasets
+  const activeIndices = data.labels
+    .map((label, index) => (label !== "" ? index : -1))
+    .filter((index) => index !== -1);
+  const cleanedLabels = activeIndices.map((i) => data.labels[i]);
+  const cleanedDatasets = data.datasets
     .filter((dataset) => dataset.label.trim() !== "")
     .map((dataset) => {
       return {
         ...dataset,
-        data: dataset.data.slice(0, activeLabel.length).map((val) => {
-          return val === "" ? null : Number(val);
-        }),
+        data: activeIndices.map((i) =>
+          dataset.data[i] !== "" ? dataset.data[i] : null
+        ),
       };
     });
-
   return {
-    labels: activeLabel,
-    datasets: activeDatasets,
+    labels: cleanedLabels,
+    datasets: cleanedDatasets,
   };
 };
