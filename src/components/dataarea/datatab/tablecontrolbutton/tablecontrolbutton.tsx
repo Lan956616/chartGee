@@ -15,13 +15,23 @@ import {
   samplePieChartData,
   samplePieChartOption,
 } from "@/utils/sampleChartData/pieChart";
+import {
+  blankLineChartData,
+  sampleLineChartData,
+  sampleLineChartOption,
+} from "@/utils/sampleChartData/lineChart";
 type TableControlButtonProps = { chartType: "bar" | "pie" | "line" };
 const TableControlButton: React.FC<TableControlButtonProps> = ({
   chartType,
 }) => {
-  const { setData, setOption, setPieData, setPieOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const {
+    setData,
+    setOption,
+    setPieData,
+    setPieOption,
+    setLineData,
+    setLineOption,
+  } = useContext(ChartDataContext) as unknown as ContextType;
   const ClearDataOnClick = () => {
     if (chartType === "bar") {
       setData(blankBarChartData);
@@ -29,6 +39,9 @@ const TableControlButton: React.FC<TableControlButtonProps> = ({
     } else if (chartType === "pie") {
       setPieData(blankPieChartData);
       handleOptionChange(setPieOption, "plugins.title.text", "");
+    } else if (chartType === "line") {
+      setLineData(blankLineChartData);
+      handleOptionChange(setLineOption, "plugins.title.text", "");
     }
   };
   const resetDataOnClick = () => {
@@ -45,6 +58,13 @@ const TableControlButton: React.FC<TableControlButtonProps> = ({
         setPieOption,
         "plugins.title.text",
         samplePieChartOption.plugins.title.text
+      );
+    } else if (chartType === "line") {
+      setLineData(sampleLineChartData);
+      handleOptionChange(
+        setLineOption,
+        "plugins.title.text",
+        sampleLineChartOption.plugins.title.text
       );
     }
   };
