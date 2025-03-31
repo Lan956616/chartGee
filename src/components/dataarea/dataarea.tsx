@@ -4,6 +4,7 @@ import Button from "@/components/button/button";
 import SettingTab from "../settingtab/settingtab";
 import DataTab from "./datatab/datatab";
 import PieSettingTab from "../pieChart/pieSettingTab/pieSettingTab.";
+import LineSettingTab from "../lineChart/lineSettingTab/lineSettingTab";
 import { useState } from "react";
 type DataAreaProps = {
   chartType: "bar" | "pie" | "line";
@@ -20,6 +21,10 @@ const DataArea: React.FC<DataAreaProps> = ({ chartType, hideOnMobile }) => {
   if (chartType === "pie") {
     DataTabComponent = <DataTab chartType={chartType} />;
     SettingTabComponent = <PieSettingTab />;
+  }
+  if (chartType === "line") {
+    DataTabComponent = <DataTab chartType={chartType} />;
+    SettingTabComponent = <LineSettingTab />;
   }
   return (
     <section

@@ -45,6 +45,7 @@
 .tableContainer {
   overflow: scroll;
   border: 1.5px solid #aaa;
+  margin-bottom: 1rem;
 }
 .tableContainer table {
   width: 100%;

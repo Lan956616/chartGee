@@ -1,7 +1,10 @@
 import type { SampleBarChartData } from "./sampleChartData/barChartDataType";
+import type { SampleLineChartData } from "./sampleChartData/lineChartDataType";
 export const handleLabelChange = (
   setData: (
-    updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
+    updateFunc: (
+      prevData: SampleBarChartData | SampleLineChartData
+    ) => SampleBarChartData | SampleLineChartData
   ) => void,
   newValue: string,
   index: number
@@ -31,10 +34,10 @@ export const handleDatasetsLabelChange = (
     };
   });
 };
-export const handleBgColorChange = (
-  setData: (
-    updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
-  ) => void,
+export const handleBgColorChange = <
+  T extends { datasets: { backgroundColor: string }[] }
+>(
+  setData: React.Dispatch<React.SetStateAction<T>>,
   newColor: string,
   index: number
 ) => {
@@ -44,6 +47,27 @@ export const handleBgColorChange = (
       datasets: prevData.datasets.map((dataset, i) => {
         return i === index
           ? { ...dataset, backgroundColor: newColor }
+          : dataset;
+      }),
+    };
+  });
+};
+export const handleBorderColorChange = (
+  setLineData: (
+    updateFunc: (prevData: SampleLineChartData) => SampleLineChartData
+  ) => void,
+  newColor: string,
+  index: number
+) => {
+  setLineData((prev) => {
+    return {
+      ...prev,
+      datasets: prev.datasets.map((dataset, i) => {
+        return i === index
+          ? {
+              ...dataset,
+              borderColor: newColor,
+            }
           : dataset;
       }),
     };

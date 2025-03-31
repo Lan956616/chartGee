@@ -8,12 +8,24 @@ import { handleOptionChange } from "@/utils/updateOptions";
 import { handleLabelChange } from "@/utils/updateData";
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 import getAxisInfo from "@/utils/getAxisInfo";
-const DataTableHeader: React.FC = () => {
-  const { data, setData, setOption, option } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
-  const { valueAxis, labelAxis } = getAxisInfo(option.indexAxis);
-  const currentDisplay = option.scales[valueAxis].title.display;
+type DataTableHeaderProps = { chartType: "bar" | "line" };
+const DataTableHeader: React.FC<DataTableHeaderProps> = ({ chartType }) => {
+  const {
+    data,
+    setData,
+    setOption,
+    option,
+    lineData,
+    setLineData,
+    lineOption,
+    setLineOption,
+  } = useContext(ChartDataContext) as unknown as ContextType;
+  const Option = chartType === "bar" ? option : lineOption;
+  const SetOption = chartType === "bar" ? setOption : setLineOption;
+  const Data = chartType === "bar" ? data : lineData;
+  const SetData = chartType === "bar" ? setData : setLineData;
+  const { valueAxis, labelAxis } = getAxisInfo(Option.indexAxis);
+  const currentDisplay = Option.scales[valueAxis].title.display;
   return (
     <thead className={styles.thead}>
       <tr className={styles.tableRow}>
@@ -32,14 +44,14 @@ const DataTableHeader: React.FC = () => {
             height={30}
             className={styles.axisIconHover}
             onClick={() => {
-              handleOptionChange(setOption, "indexAxis", valueAxis);
+              handleOptionChange(SetOption, "indexAxis", valueAxis);
               handleOptionChange(
-                setOption,
+                SetOption,
                 `scales.${labelAxis}.title.display`,
                 currentDisplay
               );
               handleOptionChange(
-                setOption,
+                SetOption,
                 `scales.${valueAxis}.title.display`,
                 false
               );
@@ -47,8 +59,8 @@ const DataTableHeader: React.FC = () => {
           />
         </th>
         <th className={styles.cell}></th>
-        {data.labels.map((label, index) => {
-          const hasData = data.datasets.some(
+        {Data.labels.map((label, index) => {
+          const hasData = Data.datasets.some(
             (dataset) =>
               dataset.data[index] !== "" && dataset.data[index] !== null
           );
@@ -65,7 +77,7 @@ const DataTableHeader: React.FC = () => {
                 value={label}
                 placeholder={`Cate${index + 1}`}
                 onChange={(e) => {
-                  handleLabelChange(setData, e.target.value, index);
+                  handleLabelChange(SetData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {

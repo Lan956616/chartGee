@@ -8,16 +8,20 @@ import {
   handleBgColorChange,
   handleDatasetsLabelChange,
   handleDatasetsChange,
+  handleBorderColorChange,
 } from "@/utils/updateData";
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
-
-const DataTableBody: React.FC = () => {
-  const { data, setData } = useContext(
+import { SampleLineChartData } from "@/utils/sampleChartData/lineChartDataType";
+type DataTableBodyProps = { chartType: "bar" | "line" };
+const DataTableBody: React.FC<DataTableBodyProps> = ({ chartType }) => {
+  const { data, setData, lineData, setLineData } = useContext(
     ChartDataContext
   ) as unknown as ContextType;
+  const Data = chartType === "bar" ? data : lineData;
+  const SetData = chartType === "bar" ? setData : setLineData;
   return (
     <tbody className={styles.tbody}>
-      {data.datasets.map((dataset, index) => {
+      {Data.datasets.map((dataset, index) => {
         const hasData = dataset.data.some(
           (value) => value !== "" && value !== null
         );
@@ -28,7 +32,14 @@ const DataTableBody: React.FC = () => {
                 <ColorBox
                   color={dataset.backgroundColor}
                   onChange={(newColor) => {
-                    handleBgColorChange(setData, newColor, index);
+                    if (chartType === "line") {
+                      handleBgColorChange<SampleLineChartData>(
+                        setLineData,
+                        newColor,
+                        index
+                      );
+                      handleBorderColorChange(setLineData, newColor, index);
+                    }
                   }}
                 />
               )}
@@ -43,7 +54,7 @@ const DataTableBody: React.FC = () => {
                 value={dataset.label}
                 placeholder={`Label${index + 1}`}
                 onChange={(e) => {
-                  handleDatasetsLabelChange(setData, e.target.value, index);
+                  handleDatasetsLabelChange(SetData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
@@ -60,7 +71,7 @@ const DataTableBody: React.FC = () => {
                     placeholder="0"
                     onChange={(e) => {
                       handleDatasetsChange(
-                        setData,
+                        SetData,
                         e.target.value,
                         index,
                         eachDataindex

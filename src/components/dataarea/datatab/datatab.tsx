@@ -12,15 +12,33 @@ import TableControlButton from "./tablecontrolbutton/tablecontrolbutton";
 import PieTableBody from "@/components/pieChart/PieTableBody/PieTableBody";
 type DataTabProps = { chartType: "bar" | "pie" | "line" };
 const DataTab: React.FC<DataTabProps> = ({ chartType }) => {
-  const { option, setOption, pieOption, setPieOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
-  const OptionName = chartType === "bar" ? option : pieOption;
-  const setOptionName = chartType === "bar" ? setOption : setPieOption;
+  const {
+    option,
+    setOption,
+    pieOption,
+    setPieOption,
+    lineOption,
+    setLineOption,
+  } = useContext(ChartDataContext) as unknown as ContextType;
+  const OptionName =
+    chartType === "bar" ? option : chartType === "pie" ? pieOption : lineOption;
+  const setOptionName =
+    chartType === "bar"
+      ? setOption
+      : chartType === "pie"
+      ? setPieOption
+      : setLineOption;
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const TableHeaderComponent = chartType === "bar" ? <DataTableHeader /> : null;
+  const TableHeaderComponent =
+    chartType === "bar" || chartType === "line" ? (
+      <DataTableHeader chartType={chartType} />
+    ) : null;
   const TableBodyComponent =
-    chartType === "bar" ? <DataTableBody /> : <PieTableBody />;
+    chartType === "bar" || chartType === "line" ? (
+      <DataTableBody chartType={chartType} />
+    ) : (
+      <PieTableBody />
+    );
   return (
     <div className={styles.dataTabContainer}>
       <div className={styles.TitleInputContainer}>
