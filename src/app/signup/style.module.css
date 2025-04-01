@@ -1,0 +1,140 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100vh;
+}
+.displayArea {
+  display: none;
+}
+.picWrapper {
+  position: relative;
+  width: 80%;
+  aspect-ratio: 1.7/1;
+  margin: 0 auto;
+}
+.pic {
+  object-fit: contain;
+}
+.displayTitle {
+  font-size: 26px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
+}
+.displayTitle p:first-child {
+  font-weight: 700;
+  font-size: 28px;
+}
+.displayTitle span {
+  margin-left: 3rem;
+}
+.container {
+  width: 500px;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+.closeIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.title {
+  margin-top: 0.5rem;
+  font-size: 32px;
+  font-weight: bold;
+  color: #070519;
+  letter-spacing: 1.1;
+}
+.description {
+  margin-top: 0.5rem;
+  font-size: 20px;
+  font-weight: 380;
+  color: #070519;
+  text-align: center;
+}
+.description + .description {
+  margin-top: 0;
+}
+
+.or {
+  margin-top: 0.5rem;
+  font-size: 18px;
+  color: #aaa;
+  font-weight: 380;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.or::before,
+.or::after {
+  content: "";
+  flex-grow: 1;
+  height: 1.5px;
+  background-color: #aaa;
+}
+.or::before {
+  margin-right: 1rem;
+}
+.or::after {
+  margin-left: 1rem;
+}
+
+.helpZone {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  color: #4c4c4c;
+  margin-top: 1rem;
+}
+.link {
+  color: var(--blue);
+}
+.link:hover {
+  text-decoration: underline;
+}
+.whiteBoardContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid red;
+}
+.whiteBoard {
+  width: 300px;
+  height: 180px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.whiteBoard p {
+  font-size: 24px;
+}
+.whiteBoard p:first-child {
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+@media screen and (min-width: 1025px) {
+  .displayArea {
+    display: flex;
+    flex-grow: 1;
+    background-image: url("/signUpBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

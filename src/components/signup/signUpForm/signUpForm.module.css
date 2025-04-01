@@ -1,0 +1,93 @@
+.signUpForm {
+  min-height: 150px;
+  border: 2px solid purple;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.stepOne,
+.stepTwo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signUpBTN {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: white;
+  font-weight: 380;
+  font-size: 18px;
+  text-align: center;
+}
+.signUpBTN:hover {
+  background-color: #2d78c3;
+}
+.stepOne p {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 1rem;
+}
+.googlelogin {
+  margin-top: 1rem;
+  background-color: pink;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.stepTwo input {
+  font-size: 18px;
+  font-weight: 380;
+  border-bottom: 1px solid #aaa;
+  padding: 10px 0;
+  color: #070519;
+  font-family: sans-serif;
+}
+.stepTwo input::placeholder {
+  color: #5b5b5b;
+  font-weight: 380;
+}
+.stepTwo input + input {
+  margin-top: 1rem;
+}
+.stepTwo input:focus {
+  outline: none;
+}
+
+.stepTwo input[type="submit"] {
+  margin-top: 2rem;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: white;
+  font-weight: 380;
+  font-size: 18px;
+  padding: 8px 10px;
+  font-family: "Outfit";
+}
+
+.stepTwo input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #2d78c3;
+}
+
+.prevStep {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.prevStep:hover {
+  cursor: pointer;
+}
+.arrow {
+  transform: rotate(90deg);
+}
+
+.stepTwo p {
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
