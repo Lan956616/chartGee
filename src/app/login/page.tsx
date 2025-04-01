@@ -1,9 +1,13 @@
 "use client";
 import { app } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,6 +53,14 @@ const LoginPage: React.FC = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.push("/");
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
   return (
     <div className={styles.wrapper}>
       <div className={styles.displayArea}>
