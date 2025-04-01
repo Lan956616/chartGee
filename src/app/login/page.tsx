@@ -1,11 +1,54 @@
 "use client";
-import { useState } from "react";
+import { app } from "@/utils/firebase";
+import { useRouter } from "next/navigation";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
+import { useState, useRef } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
+const auth = getAuth(app);
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState("TestChartGee");
+  const router = useRouter();
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const [email, setEmail] = useState("Chartgeetest@gmail.com");
   const [password, setPassword] = useState("testChartGee111");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+    const isValid = emailInputRef.current?.checkValidity();
+    if (!isValid) {
+      emailInputRef.current?.reportValidity();
+      return;
+    }
+    if (!password) {
+      setError("Password is required");
+      return;
+    }
+    try {
+      setIsLoading(true);
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      if (result) {
+        router.push("/");
+      }
+    } catch (err: unknown) {
+      if (err instanceof FirebaseError) {
+        if (err.code === "auth/invalid-credential") {
+          setError("Invalid email or password");
+        } else {
+          setError("Login failed Please try again");
+        }
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.displayArea}>
@@ -46,14 +89,15 @@ const LoginPage: React.FC = () => {
         <p className={styles.description}>
           Welcome back! Please use your email or another service to sign in.
         </p>
-        <form className={styles.logInForm}>
+        <form className={styles.logInForm} onSubmit={handleSubmit} noValidate>
           <input
-            type="text"
+            type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            ref={emailInputRef}
           />
           <input
             type="password"
@@ -63,7 +107,23 @@ const LoginPage: React.FC = () => {
               setPassword(e.target.value);
             }}
           />
-          <input type="submit" value="Login" />
+          {error && <p className={styles.error}>{error}</p>}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className={styles.submitBTN}
+          >
+            {isLoading && (
+              <Image
+                src="/load.png"
+                alt="loading-icon"
+                width={20}
+                height={20}
+                className={styles.loadIcon}
+              />
+            )}
+            Login
+          </button>
         </form>
         <p className={styles.or}>OR</p>
         <div className={styles.googlelogin}>use google</div>
