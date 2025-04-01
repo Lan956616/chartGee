@@ -7,7 +7,6 @@ import Image from "next/image";
 import NavbarSmall from "./navbarsmall/navbarsmall";
 import NavbarLarge from "./navbarlarge/navbarlarge";
 import Hamburger from "./hamburger/hamburger";
-
 const Header: React.FC = () => {
   const [hamburgerClicked, setHamburgerClicked] = useState<boolean>(false);
   return (

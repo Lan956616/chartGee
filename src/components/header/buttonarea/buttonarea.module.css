@@ -1,35 +1,39 @@
 .buttonWrapper {
   display: none;
 }
-.logBTN {
-  transition: transform 0.3s ease-in;
-}
+
 .logBTN:hover {
   cursor: pointer;
   background-color: #eee;
-  transform: scale(1.05);
 }
 .signBTN {
   color: white;
   background-color: var(--blue);
-  transition: transform 0.3s ease-in;
 }
 .signBTN:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  background-color: #2d78c3;
 }
 .accountBTN {
   border: 2px solid var(--blue);
-  transition: transform 0.3s ease-in;
 }
 .accountBTN:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  color: white;
+  background-color: var(--blue);
+  border: 0px;
+}
+.logoutBTN {
+  color: #de3c4b;
+}
+.logoutBTN:hover {
+  border: 2px solid #de3c4b;
 }
 
 @media screen and (min-width: 640px) {
   .buttonWrapper {
     display: flex;
     align-items: center;
+    gap: 1rem;
   }
 }

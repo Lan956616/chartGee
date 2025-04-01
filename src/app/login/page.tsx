@@ -1,17 +1,12 @@
 "use client";
-import { app } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
-const auth = getAuth(app);
+import { auth } from "@/utils/firebase";
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement>(null);
