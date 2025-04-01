@@ -56,8 +56,15 @@
   outline: none;
 }
 
-.stepTwo input[type="submit"] {
-  margin-top: 2rem;
+.stepTwo .error {
+  font-size: 16px;
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.registerBTN {
+  margin-top: 1rem;
   background-color: var(--blue);
   border-radius: 5px;
   color: white;
@@ -65,11 +72,35 @@
   font-size: 18px;
   padding: 8px 10px;
   font-family: "Outfit";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.stepTwo input[type="submit"]:hover {
+.registerBTN:hover {
   cursor: pointer;
   background-color: #2d78c3;
+}
+
+.registerBTN:disabled {
+  filter: brightness(0.9);
+}
+.registerBTN:disabled:hover {
+  cursor: default;
+  background-color: var(--blue);
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadIcon {
+  animation: spin 1s linear infinite;
 }
 
 .prevStep {
