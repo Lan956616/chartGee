@@ -5,37 +5,47 @@ import Image from "next/image";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
-
+import { FirebaseError } from "firebase/app";
 const GoogleLogInBTN: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
   const handleGoogleLog = async () => {
     if (isLoading) return;
+    setError("");
     try {
       setIsLoading(true);
       await signInWithPopup(auth, provider);
       router.push("/");
     } catch (err) {
-      console.error("Login Failed", err);
+      if (err instanceof FirebaseError) {
+        if (err.code === "auth/popup-closed-by-user") {
+          return;
+        }
+      }
+      setError("Login failed Please try again");
     } finally {
       setIsLoading(false);
     }
   };
   return (
-    <button
-      className={styles.googleLogBTN}
-      onClick={handleGoogleLog}
-      disabled={isLoading}
-    >
-      <Image
-        src="/google.png"
-        alt="google-icon"
-        width={25}
-        height={25}
-        className={styles.googleIcon}
-      />
-      Continue with Google
-    </button>
+    <div>
+      <button
+        className={styles.googleLogBTN}
+        onClick={handleGoogleLog}
+        disabled={isLoading}
+      >
+        <Image
+          src="/google.png"
+          alt="google-icon"
+          width={25}
+          height={25}
+          className={styles.googleIcon}
+        />
+        Continue with Google
+      </button>
+      {error && <p className={styles.error}>{error}</p>}
+    </div>
   );
 };
 
