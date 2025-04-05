@@ -6,6 +6,7 @@ import Image from "next/image";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { FirebaseError } from "firebase/app";
+import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -62,7 +63,7 @@ const SignUpForm: React.FC = () => {
           >
             Sign up with email & password
           </button>
-          <div className={styles.googlelogin}>use google</div>
+          <GoogleLogInBTN />
           <p>Keep work and life separate. Use your work email.</p>
         </div>
       )}

@@ -7,6 +7,7 @@ import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/utils/firebase";
+import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -133,7 +134,7 @@ const LoginPage: React.FC = () => {
           </button>
         </form>
         <p className={styles.or}>OR</p>
-        <div className={styles.googlelogin}>use google</div>
+        <GoogleLogInBTN />
         <div className={styles.helpZone}>
           <p>
             New to ChartGee?

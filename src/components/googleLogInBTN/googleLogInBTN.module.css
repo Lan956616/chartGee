@@ -1,0 +1,32 @@
+.googleLogBTN {
+  margin-top: 1rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #5b5b5b;
+  position: relative;
+}
+.googleLogBTN:disabled {
+  filter: brightness(0.9);
+}
+.googleLogBTN:hover {
+  cursor: pointer;
+  border-color: var(--blue);
+  background-color: rgba(45, 120, 195, 0.1);
+}
+.googleLogBTN:disabled:hover {
+  cursor: default;
+  border-color: #ddd;
+  background-color: white;
+}
+.googleIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+}
