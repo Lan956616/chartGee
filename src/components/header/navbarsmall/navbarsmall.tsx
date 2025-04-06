@@ -1,11 +1,10 @@
 "use client";
-import { auth } from "@/utils/firebase";
-import { signOut } from "firebase/auth";
 import { useAppSelector } from "@/lib/hooks";
 import Container from "@/components/container/container";
 import ListItem from "../listitem/listitem";
 import styles from "./navbarsmall.module.css";
 import Link from "next/link";
+import { handleSignOut } from "@/utils/signOutUser";
 type NavbarSmallProps = {
   isClicked: boolean;
 };
@@ -13,13 +12,6 @@ const NavbarSmall: React.FC<NavbarSmallProps> = ({ isClicked }) => {
   const { currentUser: user, isAuthLoading } = useAppSelector((store) => {
     return store.auth;
   });
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   if (isAuthLoading) {
     return null;
   } else {
