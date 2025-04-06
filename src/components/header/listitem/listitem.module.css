@@ -5,6 +5,9 @@
   font-weight: 500;
   font-size: 18px;
 }
+.listItem:hover {
+  cursor: pointer;
+}
 
 .listItemImg {
   margin-left: 10px;
