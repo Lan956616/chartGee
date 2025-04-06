@@ -5,8 +5,9 @@ import styles from "./signUpForm.module.css";
 import Image from "next/image";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/utils/firebase";
-import { FirebaseError } from "firebase/app";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
+import { validateAuthForm } from "@/utils/validateAuthForm";
+import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -18,21 +19,14 @@ const SignUpForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email) {
-      setError("Email is required");
-      return;
-    }
-    const isValid = emailInputRef.current?.checkValidity();
-    if (!isValid) {
-      emailInputRef.current?.reportValidity();
-      return;
-    }
-    if (!password) {
-      setError("Password is required");
-      return;
-    }
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters");
+    const errorMsg = validateAuthForm({
+      email,
+      password,
+      emailInputRef,
+      requireStrongPassword: true,
+    });
+    if (errorMsg) {
+      setError(errorMsg);
       return;
     }
     try {
@@ -40,13 +34,7 @@ const SignUpForm: React.FC = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       router.push("/");
     } catch (err: unknown) {
-      if (err instanceof FirebaseError) {
-        if (err.code === "auth/email-already-in-use") {
-          setError("This email is already registered");
-        } else {
-          setError("Signup failed Please try again");
-        }
-      }
+      setError(getFirebaseErrorMessage(err, "Signup"));
     } finally {
       setIsLoading(false);
     }

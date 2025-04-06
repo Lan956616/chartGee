@@ -1,13 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
 import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/utils/firebase";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
+import { validateAuthForm } from "@/utils/validateAuthForm";
+import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -18,33 +19,21 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email) {
-      setError("Email is required");
-      return;
-    }
-    const isValid = emailInputRef.current?.checkValidity();
-    if (!isValid) {
-      emailInputRef.current?.reportValidity();
-      return;
-    }
-    if (!password) {
-      setError("Password is required");
+    const errorMsg = validateAuthForm({
+      email,
+      password,
+      emailInputRef,
+    });
+    if (errorMsg) {
+      setError(errorMsg);
       return;
     }
     try {
       setIsLoading(true);
-      const result = await signInWithEmailAndPassword(auth, email, password);
-      if (result) {
-        router.push("/");
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/");
     } catch (err: unknown) {
-      if (err instanceof FirebaseError) {
-        if (err.code === "auth/invalid-credential") {
-          setError("Invalid email or password");
-        } else {
-          setError("Login failed Please try again");
-        }
-      }
+      setError(getFirebaseErrorMessage(err, "Login"));
     } finally {
       setIsLoading(false);
     }
