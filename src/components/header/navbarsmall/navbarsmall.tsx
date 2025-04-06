@@ -1,7 +1,7 @@
 "use client";
-import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "@/utils/firebase";
-import { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
+import { useAppSelector } from "@/lib/hooks";
 import Container from "@/components/container/container";
 import ListItem from "../listitem/listitem";
 import styles from "./navbarsmall.module.css";
@@ -10,39 +10,43 @@ type NavbarSmallProps = {
   isClicked: boolean;
 };
 const NavbarSmall: React.FC<NavbarSmallProps> = ({ isClicked }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setCurrentUser(user);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
-  if (!currentUser) {
+  const { currentUser: user, isAuthLoading } = useAppSelector((store) => {
+    return store.auth;
+  });
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  if (isAuthLoading) {
+    return null;
+  } else {
     return (
       <nav className={`${styles.navbarSmall} ${!isClicked && styles.hide}`}>
         <Container>
           <ul>
-            <ListItem side="right">
-              <Link href="/login">Log In</Link>
-            </ListItem>
-            <ListItem side="right">
-              <Link href="/signup">Create My Graph</Link>
-            </ListItem>
-          </ul>
-        </Container>
-      </nav>
-    );
-  }
-  if (currentUser) {
-    return (
-      <nav className={`${styles.navbarSmall} ${!isClicked && styles.hide}`}>
-        <Container>
-          <ul>
-            <ListItem side="right">
-              <Link href="/">My Graphs</Link>
-            </ListItem>
+            {!user && (
+              <>
+                <ListItem side="right">
+                  <Link href="/login">Log In</Link>
+                </ListItem>
+                <ListItem side="right">
+                  <Link href="/signup">Create My Graph</Link>
+                </ListItem>
+              </>
+            )}
+            {user && (
+              <>
+                <ListItem side="right">
+                  <Link href="/">My Graphs</Link>
+                </ListItem>
+                <ListItem side="right" onClick={handleSignOut}>
+                  Log Out
+                </ListItem>
+              </>
+            )}
           </ul>
         </Container>
       </nav>
