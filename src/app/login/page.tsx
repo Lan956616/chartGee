@@ -60,7 +60,7 @@ const LoginPage: React.FC = () => {
         </div>
         <div className={styles.displayTitle}>
           <p>
-            Use ChartGee <span>Do It Amamzing!</span>
+            Use ChartGee <span>Do It Amazing!</span>
           </p>
           <p>Share your designs directly via link</p>
         </div>
@@ -125,14 +125,13 @@ const LoginPage: React.FC = () => {
         </form>
         <p className={styles.or}>OR</p>
         <GoogleLogInBTN />
-        <div className={styles.helpZone}>
-          <p>
-            New to ChartGee?
-            <Link href="/signup" className={styles.link}>
-              Sign Up
-            </Link>
-          </p>
-        </div>
+
+        <p className={styles.helpZone}>
+          New to ChartGee?
+          <Link href="/signup" className={styles.link}>
+            Sign Up
+          </Link>
+        </p>
       </div>
     </div>
   );
