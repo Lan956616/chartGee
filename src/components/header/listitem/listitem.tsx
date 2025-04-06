@@ -3,10 +3,11 @@ import styles from "./listitem.module.css";
 type ListItemProps = {
   children: React.ReactNode;
   side: "right" | "down";
+  onClick?: () => void;
 };
-const ListItem: React.FC<ListItemProps> = ({ children, side }) => {
+const ListItem: React.FC<ListItemProps> = ({ children, side, onClick }) => {
   return (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} onClick={onClick}>
       <p>{children}</p>
       {side === "right" && (
         <Image
