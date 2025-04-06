@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
@@ -9,7 +9,11 @@ import { auth } from "@/utils/firebase";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
 import { validateAuthForm } from "@/utils/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
+import { useAppSelector } from "@/lib/hooks";
 const LoginPage: React.FC = () => {
+  const user = useAppSelector((store) => {
+    return store.auth.currentUser;
+  });
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState("Chartgeetest@gmail.com");
@@ -39,13 +43,10 @@ const LoginPage: React.FC = () => {
     }
   };
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        router.push("/");
-      }
-    });
-    return () => unsubscribe();
-  }, [router]);
+    if (user) {
+      router.push("/");
+    }
+  }, [user, router]);
   return (
     <div className={styles.wrapper}>
       <div className={styles.displayArea}>

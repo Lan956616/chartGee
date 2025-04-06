@@ -1,9 +1,21 @@
 "use client";
+import { useEffect } from "react";
+import { useAppSelector } from "@/lib/hooks";
+import { useRouter } from "next/navigation";
 import SignUpForm from "@/components/signup/signUpForm/signUpForm";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
 const SignUpPage: React.FC = () => {
+  const router = useRouter();
+  const user = useAppSelector((store) => {
+    return store.auth.currentUser;
+  });
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [router, user]);
   return (
     <div className={styles.wrapper}>
       <div className={styles.displayArea}>

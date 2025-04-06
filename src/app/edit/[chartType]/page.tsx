@@ -8,11 +8,22 @@ import HeaderEditPage from "@/components/headereditpage/headereditpage";
 import Sidebar from "@/components/sidebar/sidebar";
 import ChartArea from "@/components/chartarea/chartarea";
 import ChartDataProvider from "@/components/ChartDataProvider";
-
+import { useAppSelector } from "@/lib/hooks";
 const ChartEditPage: React.FC = () => {
+  const { currentUser: user, isAuthLoading } = useAppSelector((store) => {
+    return store.auth;
+  });
   const { chartType } = useParams();
   const router = useRouter();
   const [showData, setShowData] = useState(true);
+  useEffect(() => {
+    if (isAuthLoading) {
+      return;
+    }
+    if (!isAuthLoading && !user) {
+      router.push("/login");
+    }
+  }, [router, user, isAuthLoading]);
   useEffect(() => {
     if (
       typeof chartType !== "string" ||
