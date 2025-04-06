@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import { setUser, clearUser } from "@/lib/slice/authSlice";
+import { setUser, clearUser, setAuthDone } from "@/lib/slice/authSlice";
 
 export const useFirebaseAuthListener = () => {
   const dispatch = useAppDispatch();
@@ -14,6 +14,7 @@ export const useFirebaseAuthListener = () => {
       } else {
         dispatch(clearUser());
       }
+      dispatch(setAuthDone());
     });
     return () => unsubscribe();
   }, [dispatch]);
