@@ -10,6 +10,8 @@ import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
 import { validateAuthForm } from "@/utils/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 import { useAppSelector } from "@/lib/hooks";
+import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
+import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
 const LoginPage: React.FC = () => {
   const user = useAppSelector((store) => {
     return store.auth.currentUser;
@@ -105,23 +107,8 @@ const LoginPage: React.FC = () => {
               setPassword(e.target.value);
             }}
           />
-          {error && <p className={styles.error}>{error}</p>}
-          <button
-            type="submit"
-            disabled={isLoading}
-            className={styles.submitBTN}
-          >
-            {isLoading && (
-              <Image
-                src="/load.png"
-                alt="loading-icon"
-                width={20}
-                height={20}
-                className={styles.loadIcon}
-              />
-            )}
-            Login
-          </button>
+          <ErrorMessage error={error} />
+          <FormSubmitButton isLoading={isLoading} label="Login" />
         </form>
         <p className={styles.or}>OR</p>
         <GoogleLogInBTN />

@@ -31,9 +31,3 @@
   left: 0.5rem;
   transform: translateY(-50%);
 }
-.error {
-  font-size: 16px;
-  color: red;
-  margin-top: 0.5rem;
-  text-align: center;
-}

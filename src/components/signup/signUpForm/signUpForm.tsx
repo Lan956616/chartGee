@@ -8,6 +8,8 @@ import { auth } from "@/utils/firebase";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
 import { validateAuthForm } from "@/utils/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
+import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
+import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -94,23 +96,8 @@ const SignUpForm: React.FC = () => {
               setPassword(e.target.value);
             }}
           />
-          {error && <p className={styles.error}>{error}</p>}
-          <button
-            type="submit"
-            className={styles.registerBTN}
-            disabled={isLoading}
-          >
-            {isLoading && (
-              <Image
-                src="/load.png"
-                alt="loading-icon"
-                width={20}
-                height={20}
-                className={styles.loadIcon}
-              />
-            )}
-            Register
-          </button>
+          <ErrorMessage error={error} />
+          <FormSubmitButton isLoading={isLoading} label="Register" />
         </div>
       )}
     </form>

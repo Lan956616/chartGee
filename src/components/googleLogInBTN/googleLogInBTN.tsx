@@ -6,6 +6,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/utils/firebase";
 import { useRouter } from "next/navigation";
 import { FirebaseError } from "firebase/app";
+import ErrorMessage from "../auth/errorMessage/errorMessage";
 const GoogleLogInBTN: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -44,7 +45,7 @@ const GoogleLogInBTN: React.FC = () => {
         />
         Continue with Google
       </button>
-      {error && <p className={styles.error}>{error}</p>}
+      <ErrorMessage error={error} />
     </div>
   );
 };
