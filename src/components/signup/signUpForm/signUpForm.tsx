@@ -11,7 +11,7 @@ import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);
-  const [step, setStep] = useState("one");
+  const [step, setStep] = useState<"one" | "two">("one");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -52,7 +52,9 @@ const SignUpForm: React.FC = () => {
             Sign up with email & password
           </button>
           <GoogleLogInBTN />
-          <p>Keep work and life separate. Use your work email.</p>
+          <p className={styles.hint}>
+            Keep work and life separate. Use your work email.
+          </p>
         </div>
       )}
       {step === "two" && (
@@ -81,7 +83,9 @@ const SignUpForm: React.FC = () => {
             }}
             ref={emailInputRef}
           />
-          <p>Keep work and life separate. Use your work email.</p>
+          <p className={styles.hint}>
+            Keep work and life separate. Use your work email.
+          </p>
           <input
             type="password"
             placeholder="Password"
