@@ -7,7 +7,10 @@ import Image from "next/image";
 import NavbarSmall from "./navbarsmall/navbarsmall";
 import NavbarLarge from "./navbarlarge/navbarlarge";
 import Hamburger from "./hamburger/hamburger";
-const Header: React.FC = () => {
+type HeaderProps = {
+  showCreateGraph?: boolean;
+};
+const Header: React.FC<HeaderProps> = ({ showCreateGraph = true }) => {
   const [hamburgerClicked, setHamburgerClicked] = useState<boolean>(false);
   return (
     <header className={styles.header}>
@@ -20,7 +23,7 @@ const Header: React.FC = () => {
               width={165}
               height={45}
             />
-            <NavbarLarge />
+            {showCreateGraph && <NavbarLarge />}
           </div>
           <NavbarSmall isClicked={hamburgerClicked} />
           <Hamburger
