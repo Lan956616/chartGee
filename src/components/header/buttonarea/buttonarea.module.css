@@ -1,6 +1,9 @@
 .buttonWrapper {
   display: none;
 }
+.logBTN {
+  transition: 0.3s ease-in;
+}
 
 .logBTN:hover {
   cursor: pointer;
@@ -9,13 +12,16 @@
 .signBTN {
   color: white;
   background-color: var(--blue);
+  transition: 0.3s ease-in;
 }
 .signBTN:hover {
   cursor: pointer;
   background-color: #2d78c3;
 }
 .accountBTN {
+  color: var(--blue);
   border: 2px solid var(--blue);
+  transition: 0.3s ease-in;
 }
 .accountBTN:hover {
   cursor: pointer;
@@ -25,9 +31,11 @@
 }
 .logoutBTN {
   color: #de3c4b;
+  transition: 0.3s ease-in;
 }
 .logoutBTN:hover {
-  border: 2px solid #de3c4b;
+  background-color: #de3c4b;
+  color: white;
 }
 
 @media screen and (min-width: 640px) {
