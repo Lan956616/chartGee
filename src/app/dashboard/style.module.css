@@ -23,8 +23,9 @@
   }
   .graphTypeList {
     background-color: #eee;
-    height: 300px;
+    height: 330px;
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
   }
 }
