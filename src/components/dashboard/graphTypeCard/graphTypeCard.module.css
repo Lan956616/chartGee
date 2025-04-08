@@ -1,6 +1,3 @@
-.cardWrapper {
-  border: 2px solid red;
-}
 .cardWrapper + .cardWrapper {
   margin-top: 1rem;
 }
@@ -12,9 +9,15 @@
   margin: 0 auto;
   transition: border 0.5s ease-out;
 }
+.graphTypeCard.disabled {
+  opacity: 0.5;
+}
 .graphTypeCard:hover {
   cursor: pointer;
   border: 1px solid #ccc;
+}
+.graphTypeCard.disabled:hover {
+  cursor: not-allowed;
 }
 .graphTypeCard:hover > p {
   color: var(--blue);

@@ -28,12 +28,23 @@ const DashBoardPage: React.FC = () => {
       <Header showCreateGraph={false} />
       <p className={styles.title}>Create A Graph!</p>
       <div className={styles.graphTypeList}>
-        <GraphTypeCard src="bar-chart" alt="Bar Graph Icon" label="Bar Graph" />
-        <GraphTypeCard src="pie-chart" alt="Pie Graph Icon" label="Pie Graph" />
+        <GraphTypeCard
+          src="bar-chart"
+          alt="Bar Graph Icon"
+          label="Bar Graph"
+          chartType="bar"
+        />
+        <GraphTypeCard
+          src="pie-chart"
+          alt="Pie Graph Icon"
+          label="Pie Graph"
+          chartType="pie"
+        />
         <GraphTypeCard
           src="line-chart"
           alt="Line Graph Icon"
           label="Line Graph"
+          chartType="line"
         />
       </div>
     </div>
