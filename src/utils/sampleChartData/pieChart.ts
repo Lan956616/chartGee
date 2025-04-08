@@ -71,9 +71,6 @@ export const samplePieChartOption: SamplePieChartOption = {
         weight: "bold",
         size: 12,
       },
-      formatter: (value) => {
-        return value === null ? "" : `${value}`;
-      },
     },
   },
 };

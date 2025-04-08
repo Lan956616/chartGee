@@ -112,9 +112,6 @@ export const sampleLineChartOption: SampleLineChartOption = {
         weight: "bold",
         size: 12,
       },
-      formatter: (value) => {
-        return value === null ? "" : `${value}`;
-      },
     },
   },
   scales: {

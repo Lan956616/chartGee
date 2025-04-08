@@ -65,7 +65,7 @@ export type SampleLineChartOption = {
         weight: "bold" | "normal";
         size: number;
       };
-      formatter: (value: number | string) => string;
+      formatter?: (value: number | string) => string;
     };
   };
   scales: {

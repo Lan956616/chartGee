@@ -46,7 +46,7 @@ export type SampleBarChartOptions = {
         weight: "bold" | "normal";
         size: number;
       };
-      formatter: (value: number | string) => string;
+      formatter?: (value: number | string) => string;
     };
     legend: {
       display: true | false;
