@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  min-width: 300px;
+  height: 72px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+}
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}

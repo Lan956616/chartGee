@@ -1,0 +1,43 @@
+.iconWrapper {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  position: relative;
+}
+.iconWrapper.clicked {
+  border: 2px solid var(--blue);
+}
+.iconWrapper:hover {
+  cursor: pointer;
+  border: 2px solid var(--blue);
+}
+.iconWrapper.clicked:hover {
+  cursor: pointer;
+}
+
+.logOutButton {
+  display: none;
+}
+
+.logOutButton.active {
+  display: initial;
+  position: absolute;
+  width: 200px;
+  padding: 10px 1rem;
+  background-color: white;
+  border-radius: 5px;
+  top: 40px;
+  right: 0;
+  text-align: left;
+  font-size: 18px;
+  border: 1px solid #ddd;
+}
+
+.logOutButton.active:hover {
+  color: #de3c4b;
+}
