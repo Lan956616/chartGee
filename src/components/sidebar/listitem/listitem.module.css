@@ -3,7 +3,7 @@
   width: 72px;
   height: 72px;
 }
-.listItem .itemWrapper {
+.itemWrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,11 +16,19 @@
 .listItem:hover {
   background-color: hsl(226, 16%, 36%);
 }
+.listItem.lightMode:hover {
+  background-color: white;
+  border: 1.5px solid #bbb;
+}
+
 .listItem p {
   color: white;
   font-size: 13px;
   font-weight: 500;
   margin-top: 0.5rem;
+}
+.listItem.lightMode p {
+  color: #120d45;
 }
 
 @media screen and (min-width: 1280px) {
