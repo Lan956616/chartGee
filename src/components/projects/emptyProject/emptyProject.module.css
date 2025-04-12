@@ -1,0 +1,33 @@
+.emptyProjectWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt {
+  text-align: center;
+}
+
+.txt p:first-child {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.txt p:nth-child(2) {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--blue);
+}
+
+.createBTN {
+  width: 90%;
+  background-color: var(--blue);
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.createBTN:hover {
+  filter: brightness(1.1);
+}
