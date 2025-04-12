@@ -1,5 +1,6 @@
 .sidebar {
   display: none;
+  border: 2px solid red;
 }
 @media screen and (min-width: 1280px) {
   .sidebar {
@@ -14,8 +15,5 @@
     position: fixed;
     top: 72px;
     left: 0;
-  }
-  .sidebar ul {
-    all: unset;
   }
 }
