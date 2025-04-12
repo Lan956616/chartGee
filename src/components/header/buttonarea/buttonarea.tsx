@@ -17,7 +17,7 @@ const ButtonArea: React.FC = () => {
         {user ? (
           <>
             <Button className={styles.accountBTN}>
-              <Link href="/">My Graphs</Link>
+              <Link href="/projects">My Graphs</Link>
             </Button>
             <Button className={styles.logoutBTN} onClick={handleSignOut}>
               Log Out
