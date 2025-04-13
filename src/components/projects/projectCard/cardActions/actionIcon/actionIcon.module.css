@@ -1,3 +1,6 @@
+.iconWrapper {
+  position: relative;
+}
 .actionIcon {
   width: 50px;
   height: 40px;
@@ -6,8 +9,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease-in;
 }
 .actionIcon:hover {
   transform: scale(1.1);
+}
+.iconWrapper:hover .hint {
+  opacity: 1;
+}
+
+.hint {
+  opacity: 0;
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: 0.3s ease-in 0.2s;
+}
+.hint::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-bottom: 12px solid #ccc;
 }
