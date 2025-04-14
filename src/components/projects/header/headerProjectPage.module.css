@@ -6,7 +6,7 @@
   top: 0;
   z-index: 999;
   border-bottom: 1px solid #ddd;
-  background-color: white;
+  background-color: #f6f8f8;
 }
 .headerWrapper {
   display: flex;
