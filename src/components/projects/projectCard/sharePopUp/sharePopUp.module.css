@@ -1,0 +1,108 @@
+.popupContainer {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popupBox {
+  width: 100vw;
+  height: 100vh;
+  padding: 1.5rem 1.5rem;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.closeIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.closeIcon:hover {
+  cursor: pointer;
+  border: 2px dotted #ccc;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.link {
+  margin-top: 2.5rem;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.description p {
+  color: #aaa;
+  font-weight: 500;
+}
+.description .copied {
+  opacity: 0;
+  color: #3bcca8;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+}
+.description .copied.active {
+  opacity: 1;
+}
+.link input {
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: #e1e1e1;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  overflow: hidden;
+}
+.link input:focus {
+  outline: none;
+}
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+.BTN {
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px 1rem;
+  display: inline-block;
+  transition: 0.2s ease-in;
+}
+.openBTN {
+  color: var(--blue);
+}
+.openBTN:hover {
+  outline: 1px solid var(--blue);
+}
+
+.copyBTN {
+  background-color: var(--blue);
+  color: white;
+}
+.copyBTN:hover {
+  background-color: #347dc6;
+}
+
+@media screen and (min-width: 640px) {
+  .popupBox {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+  }
+}
