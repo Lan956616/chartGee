@@ -1,0 +1,57 @@
+.projectCardContainer {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid #ccc;
+}
+
+.thumbnailWrapper {
+  aspect-ratio: 16 / 9;
+  background-color: #dff0ff;
+  border-radius: 10px;
+}
+.cardActionContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.projectCardContainer:hover .cardActionContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.description {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.updatedTime {
+  font-size: 14px;
+  color: #545353;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
