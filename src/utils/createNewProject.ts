@@ -36,6 +36,7 @@ export const createNewProject = async (
       chartType,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
+      isPublic: false,
       data: config.data,
       option: config.option,
     });
