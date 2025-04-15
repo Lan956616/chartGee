@@ -1,53 +1,62 @@
 "use client";
-import { useEffect, useState } from "react";
+import styles from "./style.module.css";
 import { useAppSelector } from "@/lib/hooks";
-import { useRouter } from "next/navigation";
+import { useUserProjects } from "@/hooks/useUserProjects";
 import Loading from "@/components/loading/loading";
-import type { ProjectDataType } from "@/utils/sampleChartData/projectDataType";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
-import { getUserProjects } from "@/utils/getUserProjects";
-import { FirebaseError } from "firebase/app";
+import HeaderProjectPage from "@/components/projects/header/headerProjectPage";
+import SidebarProjectPage from "@/components/projects/sidebar/sidebarProjectPage";
+import Spinner from "@/components/loading/spinner/spinner";
+import EmptyProject from "@/components/projects/emptyProject/emptyProject";
+import ProjectCard from "@/components/projects/projectCard/projectCard";
+
 const ProjectPage: React.FC = () => {
-  const router = useRouter();
   const { isAuthLoading, currentUser: uid } = useAppSelector((store) => {
     return store.auth;
   });
-  const [isLoading, setIsLoading] = useState(true);
-  const [projects, setProjects] = useState<
-    (ProjectDataType & { id: string })[]
-  >([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const checkAuthAndGetProjects = async () => {
-      if (isAuthLoading) return;
-      if (!uid) {
-        router.push("/login");
-        return;
-      }
-      try {
-        const projects = await getUserProjects(uid);
-        setProjects(projects);
-      } catch (err: unknown) {
-        if (err instanceof FirebaseError) {
-          setError(err.message);
-        } else setError("Get Graphs failed. Please try again");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    checkAuthAndGetProjects();
-  }, [uid, isAuthLoading, router]);
-
+  const { projects, isLoading, error } = useUserProjects(uid, isAuthLoading);
   if (isAuthLoading) return <Loading />;
-  if (error) {
-    return <ErrorMessage error={error} />;
-  }
-  if (!isLoading && projects.length === 0) {
-    return <p>empty</p>;
-  }
+  return (
+    <div className={styles.projectsPageContainer}>
+      <HeaderProjectPage />
+      <SidebarProjectPage />
+      <div className={styles.mainContainer}>
+        <p className={styles.title}>My Graphs</p>
+        {isLoading && (
+          <div className={styles.projectsContainer}>
+            <Spinner />
+          </div>
+        )}
+        {error && (
+          <div className={styles.projectsContainer}>
+            <ErrorMessage error={error} />
+          </div>
+        )}
 
-  return <p>projects</p>;
+        {!isLoading && !error && projects.length === 0 && (
+          <div className={styles.projectsContainer}>
+            <EmptyProject />
+          </div>
+        )}
+
+        {!isLoading && !error && projects.length > 0 && (
+          <div className={styles.cardListWrapper}>
+            {projects.map((project) => {
+              return (
+                <ProjectCard
+                  key={project.id}
+                  updatedAt={project.updatedAt.toDate().toLocaleString()}
+                  title={project.option.plugins.title.text}
+                  chartType={project.chartType}
+                  id={project.id}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default ProjectPage;
