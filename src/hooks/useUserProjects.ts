@@ -12,6 +12,7 @@ export const useUserProjects = (uid: string | null, isAuthLoading: boolean) => {
   >([]);
   const [error, setError] = useState("");
   useEffect(() => {
+    if (isAuthLoading) return;
     if (!uid) {
       router.push("/login");
       return;
