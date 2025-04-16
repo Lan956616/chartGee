@@ -11,6 +11,7 @@ type ProjectCardProps = {
   updatedAt: string;
   title: string;
   id: string;
+  uid: string;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -18,6 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   updatedAt,
   title,
   id,
+  uid,
 }) => {
   const [showSharePopup, setShowSharePopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -42,7 +44,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       {showSharePopup && (
-        <SharePopUp projectID={id} setShowSharePopup={setShowSharePopup} />
+        <SharePopUp
+          projectID={id}
+          setShowSharePopup={setShowSharePopup}
+          uid={uid}
+        />
       )}
       {showDeletePopup && (
         <DeletePopUp projectID={id} setShowDeletePopup={setShowDeletePopup} />
