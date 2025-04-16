@@ -49,6 +49,7 @@ const ProjectPage: React.FC = () => {
                   title={project.option.plugins.title.text}
                   chartType={project.chartType}
                   id={project.id}
+                  uid={uid as string}
                 />
               );
             })}
