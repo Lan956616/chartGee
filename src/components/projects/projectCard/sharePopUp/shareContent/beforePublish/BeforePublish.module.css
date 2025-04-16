@@ -1,0 +1,39 @@
+/* unpublish style */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 0.5rem;
+  font-size: 16px;
+  color: #606060;
+}
+
+.BTNwrapper {
+  margin-top: 0.5rem;
+  display: flex;
+}
+
+.publishBTN {
+  display: inline-block;
+  background-color: var(--blue);
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 2rem;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.publishBTN:hover {
+  background-color: #3178be;
+}
+
+.publishBTN:disabled {
+  background-color: #3178be;
+}
+
+.publishBTN:disabled:hover {
+  cursor: default;
+}
