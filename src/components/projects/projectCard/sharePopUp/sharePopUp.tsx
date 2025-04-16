@@ -1,40 +1,61 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import styles from "./sharePopUp.module.css";
 import Image from "next/image";
-import Link from "next/link";
 import type { Dispatch, SetStateAction } from "react";
+import { onSnapshot, doc } from "firebase/firestore";
+import { db } from "@/utils/firebase";
+import Spinner from "@/components/loading/spinner/spinner";
+import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
+import ShareContent from "./shareContent/shareContent";
 type SharePopUpProps = {
   projectID: string;
   setShowSharePopup: Dispatch<SetStateAction<boolean>>;
+  uid: string;
 };
 const SharePopUp: React.FC<SharePopUpProps> = ({
   projectID,
   setShowSharePopup,
+  uid,
 }) => {
-  const [isCopied, setIsCopied] = useState(false);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isPublic, setIsPublic] = useState<boolean | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLInputElement>(null);
-  const URL = `${window.location.origin}/share/${projectID}`;
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(URL);
-      setIsCopied(true);
-      setTimeout(() => {
-        setIsCopied(false);
-      }, 2000);
-      linkRef.current?.select();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
   useClickOutside(popupRef, () => {
     setShowSharePopup(false);
   });
+
+  useEffect(() => {
+    const projectDoc = doc(db, "users", uid, "projects", projectID);
+    const unsubscribe = onSnapshot(
+      projectDoc,
+      (snapShot) => {
+        if (snapShot.exists()) {
+          setIsPublic(snapShot.data().isPublic);
+        } else {
+          setError("Project not found");
+        }
+        setIsLoading(false);
+      },
+      (error) => {
+        setError(error.message);
+        setIsLoading(false);
+      }
+    );
+    return () => unsubscribe();
+  }, [uid, projectID]);
+
   return (
     <div className={styles.popupContainer}>
-      <div className={styles.popupBox} ref={popupRef}>
+      <div
+        className={`${styles.popupBox} ${
+          (isLoading || error) && styles.contentCentered
+        }`}
+        ref={popupRef}
+      >
         <Image
           src="/cross.png"
           alt="close icon"
@@ -45,36 +66,11 @@ const SharePopUp: React.FC<SharePopUpProps> = ({
             setShowSharePopup(false);
           }}
         />
-        <h1 className={styles.title}>Share a Link to Your Graph</h1>
-        <div className={styles.link}>
-          <div className={styles.description}>
-            <p>Copy this URL</p>
-            <p className={`${styles.copied} ${isCopied && styles.active}`}>
-              Copied!
-            </p>
-          </div>
-
-          <input
-            type="text"
-            value={URL}
-            onClick={(e) => {
-              e.currentTarget.select();
-            }}
-            ref={linkRef}
-            readOnly
-          />
-        </div>
-        <div className={styles.buttons}>
-          <Link href={URL} className={`${styles.BTN} ${styles.openBTN}`}>
-            Open Link
-          </Link>
-          <button
-            className={`${styles.BTN} ${styles.copyBTN}`}
-            onClick={handleCopy}
-          >
-            Copy Link
-          </button>
-        </div>
+        {isLoading && <Spinner />}
+        {error && <ErrorMessage error={error} />}
+        {isPublic !== null && !isLoading && !error && (
+          <ShareContent projectID={projectID} isPublic={isPublic} uid={uid} />
+        )}
       </div>
     </div>
   );
