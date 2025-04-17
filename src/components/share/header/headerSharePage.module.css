@@ -27,7 +27,7 @@
   padding: 10px;
   border: 1px solid white;
   border-radius: 5px;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.5rem;
   font-weight: bold;
@@ -35,4 +35,10 @@
 }
 .editBTN:hover {
   transform: scale(1.05);
+}
+
+@media screen and (min-width: 500px) {
+  .editBTN {
+    display: flex;
+  }
 }
