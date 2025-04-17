@@ -11,9 +11,7 @@
 .chartarea.hideOnMobile {
   display: none;
 }
-.chart {
-  border: 1.5px dotted #aaa;
-}
+
 @media screen and (min-width: 900px) {
   .chartarea.hideOnMobile {
     display: flex;
