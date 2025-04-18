@@ -1,16 +1,34 @@
-import lodash, { set } from "lodash";
-import type { SampleBarChartOptions } from "./sampleChartData/barChart";
-
-export const handleOptionChange = (
-  setOptions: (
-    updateFn: (prev: SampleBarChartOptions) => SampleBarChartOptions
-  ) => void,
+import cloneDeep from "lodash/cloneDeep";
+import set from "lodash/set";
+import type { ProjectDataType } from "./sampleChartData/projectDataType";
+import type { SampleBarChartOptions } from "./sampleChartData/barChartDataType";
+import { SamplePieChartOption } from "./sampleChartData/pieChartDataType";
+import { SampleLineChartOption } from "./sampleChartData/lineChartDataType";
+export const updateOption = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   key: string,
   value: number | string | boolean
 ) => {
-  setOptions((prevOptions) => {
-    const newOptions = lodash.cloneDeep(prevOptions);
-    set(newOptions, key, value);
-    return newOptions;
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    const newOption = cloneDeep(prev?.option);
+    set(newOption, key, value);
+    switch (prev.chartType) {
+      case "bar":
+        return {
+          ...prev,
+          option: newOption as SampleBarChartOptions,
+        };
+      case "pie":
+        return {
+          ...prev,
+          option: newOption as SamplePieChartOption,
+        };
+      case "line":
+        return {
+          ...prev,
+          option: newOption as SampleLineChartOption,
+        };
+    }
   });
 };
