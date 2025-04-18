@@ -8,6 +8,7 @@ import DataTableBody from "./datatablebody/datatablebody";
 import TableControlButton from "./tablecontrolbutton/tablecontrolbutton";
 import PieTableBody from "@/components/pieChart/PieTableBody/PieTableBody";
 import { updateOption } from "@/utils/updateOptions";
+import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 const DataTab: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const context = useContext(ChartDataContext);
@@ -29,6 +30,7 @@ const DataTab: React.FC = () => {
           }}
           placeholder="Add a title"
           ref={inputRef}
+          onKeyDown={handleInputKeyDown}
         />
 
         <Image
