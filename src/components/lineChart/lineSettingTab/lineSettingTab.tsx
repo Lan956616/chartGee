@@ -6,9 +6,9 @@ import LinePointPanel from "./linePointPanel/linePointPanel";
 const LineSettingTab: React.FC = () => {
   return (
     <div className={styles.settingTab}>
-      <AppearancePanel chartType="line" />
+      <AppearancePanel />
       <LinePointPanel />
-      <AxesPanel chartType="line" />
+      <AxesPanel />
     </div>
   );
 };
