@@ -4,21 +4,22 @@ import Toggle from "@/components/settingtab/toggle/toggle";
 import ChartTitleSetting from "@/components/settingtab/appearancepanel/charttitlesettings/charttitlesettings";
 import LabelSetting from "@/components/settingtab/appearancepanel/labelsetting/labelsetting";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { handleOptionChange } from "@/utils/updateOptions";
 import PieValueSetting from "./PieValueSetting/PieValueSetting";
 import ColorSelect from "@/components/settingtab/colorselect/colorselect";
+import { updateOption } from "@/utils/updateOptions";
 const PieAppearancePanel: React.FC = () => {
-  const { pieOption, setPieOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { option, chartType } = context.currentData;
+  if (chartType !== "pie") return;
 
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
         label="Aspect Ratio"
-        value={pieOption.aspectRatio === 1 ? "1/1" : "16/9"}
+        value={option.aspectRatio === 1 ? "1/1" : "16/9"}
         width={80}
         options={[
           { value: "1/1", label: "1 / 1" },
@@ -27,15 +28,15 @@ const PieAppearancePanel: React.FC = () => {
         onChange={(newRatio) => {
           const [w, h] = newRatio.split("/").map(Number);
           const ratio = w / h;
-          handleOptionChange(setPieOption, "aspectRatio", ratio);
+          updateOption(setCurrentData, "aspectRatio", ratio);
         }}
       />
       <ColorSelect
         label="Background Color"
-        color={pieOption.plugins.backgroundColor.color}
+        color={option.plugins.backgroundColor.color}
         onChange={(newColor) => {
-          handleOptionChange(
-            setPieOption,
+          updateOption(
+            setCurrentData,
             "plugins.backgroundColor.color",
             newColor
           );
@@ -43,40 +44,40 @@ const PieAppearancePanel: React.FC = () => {
       />
       <Toggle
         label="Show ChartTitle"
-        active={pieOption.plugins.title.display}
+        active={option.plugins.title.display}
         onClick={() => {
-          handleOptionChange(
-            setPieOption,
+          updateOption(
+            setCurrentData,
             "plugins.title.display",
-            !pieOption.plugins.title.display
+            !option.plugins.title.display
           );
         }}
       />
-      {pieOption.plugins.title.display && <ChartTitleSetting chartType="pie" />}
+      {option.plugins.title.display && <ChartTitleSetting />}
       <Toggle
         label="Show Label"
-        active={pieOption.plugins.legend.display}
+        active={option.plugins.legend.display}
         onClick={() => {
-          handleOptionChange(
-            setPieOption,
+          updateOption(
+            setCurrentData,
             "plugins.legend.display",
-            !pieOption.plugins.legend.display
+            !option.plugins.legend.display
           );
         }}
       />
-      {pieOption.plugins.legend.display && <LabelSetting chartType="pie" />}
+      {option.plugins.legend.display && <LabelSetting />}
       <Toggle
         label="Show Values"
-        active={pieOption.plugins.datalabels.display}
+        active={option.plugins.datalabels.display}
         onClick={() => {
-          handleOptionChange(
-            setPieOption,
+          updateOption(
+            setCurrentData,
             "plugins.datalabels.display",
-            !pieOption.plugins.datalabels.display
+            !option.plugins.datalabels.display
           );
         }}
       />
-      {pieOption.plugins.datalabels.display && <PieValueSetting />}
+      {option.plugins.datalabels.display && <PieValueSetting />}
     </TabBigItem>
   );
 };
