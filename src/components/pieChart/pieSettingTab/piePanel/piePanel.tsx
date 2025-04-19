@@ -2,58 +2,55 @@ import Slider from "@/components/settingtab/slider/slider";
 import TabBigItem from "@/components/settingtab/tabbigitem/tabbigitem";
 import ColorSelect from "@/components/settingtab/colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { handleOptionChange } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/updateOptions";
 
 const PiePanel: React.FC = () => {
-  const { pieOption, setPieOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { option, chartType } = context.currentData;
+  if (chartType !== "pie") return;
 
   return (
     <TabBigItem title="Pies" src="/piechart.png" alt="pie-icon">
       <Slider
         label="Rotation"
-        value={pieOption.datasets.pie.rotation}
+        value={option.datasets.pie.rotation}
         min={0}
         max={360}
         Unit="deg"
         onChange={(newDeg) => {
-          handleOptionChange(setPieOption, "datasets.pie.rotation", newDeg);
+          updateOption(setCurrentData, "datasets.pie.rotation", newDeg);
         }}
       />
       <Slider
         label="Border Radius"
-        value={pieOption.datasets.pie.borderRadius}
+        value={option.datasets.pie.borderRadius}
         min={0}
         max={25}
         Unit="px"
         onChange={(border) => {
-          handleOptionChange(setPieOption, "datasets.pie.borderRadius", border);
+          updateOption(setCurrentData, "datasets.pie.borderRadius", border);
         }}
       />
       <Slider
         label="Border Width"
-        value={pieOption.datasets.pie.borderWidth}
+        value={option.datasets.pie.borderWidth}
         min={0}
         max={10}
         Unit="px"
         onChange={(newWidth) => {
-          handleOptionChange(
-            setPieOption,
-            "datasets.pie.borderWidth",
-            newWidth
-          );
+          updateOption(setCurrentData, "datasets.pie.borderWidth", newWidth);
         }}
       />
 
       <ColorSelect
         label="Border Color"
-        color={pieOption.datasets.pie.borderColor}
+        color={option.datasets.pie.borderColor}
         onChange={(newBorderColor) => {
-          handleOptionChange(
-            setPieOption,
+          updateOption(
+            setCurrentData,
             "datasets.pie.borderColor",
             newBorderColor
           );
