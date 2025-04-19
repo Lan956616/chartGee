@@ -3,55 +3,37 @@ import Slider from "../../slider/slider";
 import SelectDropDown from "../../selectdropdown/selectdropdown";
 import ColorSelect from "../../colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { handleOptionChange } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/updateOptions";
 
-type ChartTitleSettingProps = {
-  chartType: "bar" | "line" | "pie";
-};
-const ChartTitleSetting: React.FC<ChartTitleSettingProps> = ({ chartType }) => {
-  const {
-    option,
-    setOption,
-    lineOption,
-    setLineOption,
-    pieOption,
-    setPieOption,
-  } = useContext(ChartDataContext) as unknown as ContextType;
-
-  const Option =
-    chartType === "bar" ? option : chartType === "pie" ? pieOption : lineOption;
-  const SetOption =
-    chartType === "bar"
-      ? setOption
-      : chartType === "pie"
-      ? setPieOption
-      : setLineOption;
-
+const ChartTitleSetting: React.FC = () => {
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { option } = context.currentData;
   return (
     <div className={styles.chartTitleSettingContainer}>
       <Slider
         label="Font Size"
         min={6}
         max={40}
-        value={Option.plugins.title.font.size}
+        value={option.plugins.title.font.size}
         Unit="px"
         onChange={(newFontSize) => {
-          handleOptionChange(SetOption, "plugins.title.font.size", newFontSize);
+          updateOption(setCurrentData, "plugins.title.font.size", newFontSize);
         }}
       />
       <SelectDropDown
         label="Font Weight"
-        value={Option.plugins.title.font.weight}
+        value={option.plugins.title.font.weight}
         width={100}
         options={[
           { value: "normal", label: "Normal" },
           { value: "bold", label: "Bold" },
         ]}
         onChange={(newFontWeight) => {
-          handleOptionChange(
-            SetOption,
+          updateOption(
+            setCurrentData,
             "plugins.title.font.weight",
             newFontWeight
           );
@@ -59,9 +41,9 @@ const ChartTitleSetting: React.FC<ChartTitleSettingProps> = ({ chartType }) => {
       />
       <ColorSelect
         label="Font Color"
-        color={Option.plugins.title.color}
+        color={option.plugins.title.color}
         onChange={(newColor) => {
-          handleOptionChange(SetOption, "plugins.title.color", newColor);
+          updateOption(setCurrentData, "plugins.title.color", newColor);
         }}
       />
     </div>
