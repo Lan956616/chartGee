@@ -6,9 +6,9 @@ import styles from "./settingtab.module.css";
 const SettingTab: React.FC = () => {
   return (
     <div className={styles.settingTab}>
-      <AppearancePanel chartType="bar" />
+      <AppearancePanel />
       <BarPanel />
-      <AxesPanel chartType="bar" />
+      <AxesPanel />
     </div>
   );
 };
