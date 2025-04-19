@@ -5,27 +5,31 @@ import SettingTab from "../settingtab/settingtab";
 import DataTab from "./datatab/datatab";
 import PieSettingTab from "../pieChart/pieSettingTab/pieSettingTab.";
 import LineSettingTab from "../lineChart/lineSettingTab/lineSettingTab";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ChartDataContext } from "../ChartDataProvider";
 type DataAreaProps = {
-  chartType: "bar" | "pie" | "line";
   hideOnMobile: boolean;
 };
-const DataArea: React.FC<DataAreaProps> = ({ chartType, hideOnMobile }) => {
+const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
   const [activeTab, setActiveTab] = useState<"data" | "setting">("data");
-  let DataTabComponent = null;
   let SettingTabComponent = null;
-  if (chartType === "bar") {
-    DataTabComponent = <DataTab chartType={chartType} />;
-    SettingTabComponent = <SettingTab />;
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) {
+    return;
   }
-  if (chartType === "pie") {
-    DataTabComponent = <DataTab chartType={chartType} />;
-    SettingTabComponent = <PieSettingTab />;
+  const { chartType } = context.currentData;
+  switch (chartType) {
+    case "bar":
+      SettingTabComponent = <SettingTab />;
+      break;
+    case "pie":
+      SettingTabComponent = <PieSettingTab />;
+      break;
+    case "line":
+      SettingTabComponent = <LineSettingTab />;
+      break;
   }
-  if (chartType === "line") {
-    DataTabComponent = <DataTab chartType={chartType} />;
-    SettingTabComponent = <LineSettingTab />;
-  }
+
   return (
     <section
       className={`${styles.dataArea} ${hideOnMobile && styles.hideOnMobile}`}
@@ -58,7 +62,7 @@ const DataArea: React.FC<DataAreaProps> = ({ chartType, hideOnMobile }) => {
           Setting
         </Button>
       </nav>
-      {activeTab === "data" && DataTabComponent}
+      {activeTab === "data" && <DataTab />}
       {activeTab === "setting" && SettingTabComponent}
     </section>
   );
