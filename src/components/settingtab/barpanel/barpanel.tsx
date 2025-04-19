@@ -2,14 +2,14 @@ import Slider from "../slider/slider";
 import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { handleOptionChange } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/updateOptions";
 
 const BarPanel: React.FC = () => {
-  const { option, setOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData || context.currentData.chartType !== "bar") return;
+  const { setCurrentData } = context;
+  const { option } = context.currentData;
 
   return (
     <TabBigItem title="Bars" src="/blackgraph.png" alt="graph-icon">
@@ -20,7 +20,7 @@ const BarPanel: React.FC = () => {
         value={option.datasets.bar.barThickness}
         Unit="px"
         onChange={(newWidth) => {
-          handleOptionChange(setOption, "datasets.bar.barThickness", newWidth);
+          updateOption(setCurrentData, "datasets.bar.barThickness", newWidth);
         }}
       />
       <Slider
@@ -30,7 +30,7 @@ const BarPanel: React.FC = () => {
         max={25}
         Unit="px"
         onChange={(border) => {
-          handleOptionChange(setOption, "datasets.bar.borderRadius", border);
+          updateOption(setCurrentData, "datasets.bar.borderRadius", border);
         }}
       />
       <Slider
@@ -40,15 +40,15 @@ const BarPanel: React.FC = () => {
         max={10}
         Unit="px"
         onChange={(newWidth) => {
-          handleOptionChange(setOption, "datasets.bar.borderWidth", newWidth);
+          updateOption(setCurrentData, "datasets.bar.borderWidth", newWidth);
         }}
       />
       <ColorSelect
         label="Border Color"
         color={option.datasets.bar.borderColor}
         onChange={(newBorderColor) => {
-          handleOptionChange(
-            setOption,
+          updateOption(
+            setCurrentData,
             "datasets.bar.borderColor",
             newBorderColor
           );
