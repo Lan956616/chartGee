@@ -1,50 +1,41 @@
 "use client";
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import Slider from "@/components/settingtab/slider/slider";
 import SelectDropDown from "@/components/settingtab/selectdropdown/selectdropdown";
 import TabBigItem from "@/components/settingtab/tabbigitem/tabbigitem";
-import { handleOptionChange } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/updateOptions";
+import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
 
 const LinePointPanel: React.FC = () => {
-  const { lineOption, setLineOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
-
-  // point: {
-  //   rotation: 0,
-  //   radius: 10,
-  //   hoverRadius: 10,
-  //   pointStyle: "round",
-  // },
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { option, chartType } = context.currentData;
+  if (chartType !== "line") return;
   return (
     <TabBigItem title="Lines & Points" src="/line.png" alt="line&point-icon">
       <Slider
         label="Line Width"
-        value={lineOption.elements.line.borderWidth}
+        value={option.elements.line.borderWidth}
         min={0}
         max={15}
         Unit="px"
         onChange={(newWidth) => {
-          handleOptionChange(
-            setLineOption,
-            "elements.line.borderWidth",
-            newWidth
-          );
+          updateOption(setCurrentData, "elements.line.borderWidth", newWidth);
         }}
       />
       <SelectDropDown
         label="Line Style"
-        value={lineOption.elements.line.cubicInterpolationMode}
+        value={option.elements.line.cubicInterpolationMode}
         width={100}
         options={[
           { value: "default", label: "Straight" },
           { value: "monotone", label: "Curve" },
         ]}
         onChange={(newStyle) => {
-          handleOptionChange(
-            setLineOption,
+          updateOption(
+            setCurrentData,
             "elements.line.cubicInterpolationMode",
             newStyle
           );
@@ -52,32 +43,30 @@ const LinePointPanel: React.FC = () => {
       />
       <Slider
         label="Point Radius"
-        value={lineOption.elements.point.radius}
+        value={option.elements.point.radius}
         min={3}
         max={15}
         Unit="px"
         onChange={(newRadius) => {
-          handleOptionChange(setLineOption, "elements.point.radius", newRadius);
-          handleOptionChange(
-            setLineOption,
-            "elements.point.hoverRadius",
-            newRadius + 2
-          );
+          updateMultipleOptions(setCurrentData, [
+            ["elements.point.radius", newRadius],
+            ["elements.point.hoverRadius", newRadius + 2],
+          ]);
         }}
       />
       <Slider
         label="Point Rotation"
-        value={lineOption.elements.point.rotation}
+        value={option.elements.point.rotation}
         min={0}
         max={360}
         Unit="deg"
         onChange={(newDeg) => {
-          handleOptionChange(setLineOption, "elements.point.rotation", newDeg);
+          updateOption(setCurrentData, "elements.point.rotation", newDeg);
         }}
       />
       <SelectDropDown
         label="Point Style"
-        value={lineOption.elements.point.pointStyle}
+        value={option.elements.point.pointStyle}
         width={140}
         options={[
           { value: "round", label: "Round" },
@@ -87,11 +76,7 @@ const LinePointPanel: React.FC = () => {
           { value: "triangle", label: "Triangle" },
         ]}
         onChange={(newStyle) => {
-          handleOptionChange(
-            setLineOption,
-            "elements.point.pointStyle",
-            newStyle
-          );
+          updateOption(setCurrentData, "elements.point.pointStyle", newStyle);
         }}
       />
     </TabBigItem>
