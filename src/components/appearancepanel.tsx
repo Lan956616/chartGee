@@ -4,27 +4,23 @@ import Toggle from "./settingtab/toggle/toggle";
 import ChartTitleSetting from "./settingtab/appearancepanel/charttitlesettings/charttitlesettings";
 import LabelSetting from "./settingtab/appearancepanel/labelsetting/labelsetting";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { handleOptionChange } from "@/utils/updateOptions";
 import ValueSetting from "./settingtab/appearancepanel/valuesetting/valuesetting";
 import ColorSelect from "./settingtab/colorselect/colorselect";
 import getAxisInfo from "@/utils/getAxisInfo";
-type AppearancePanelProps = {
-  chartType: "bar" | "line";
-};
-const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
-  const { option, setOption, lineOption, setLineOption } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
-  const Option = chartType === "bar" ? option : lineOption;
-  const SetOption = chartType === "bar" ? setOption : setLineOption;
-
+import { updateOption } from "@/utils/updateOptions";
+import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+const AppearancePanel: React.FC = () => {
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { chartType, option } = context.currentData;
+  if (chartType === "pie") return;
   return (
     <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
       <SelectDropDown
         label="Aspect Ratio"
-        value={Option.aspectRatio === 1 ? "1/1" : "16/9"}
+        value={option.aspectRatio === 1 ? "1/1" : "16/9"}
         width={80}
         options={[
           { value: "1/1", label: "1 / 1" },
@@ -33,12 +29,12 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
         onChange={(newRatio) => {
           const [w, h] = newRatio.split("/").map(Number);
           const ratio = w / h;
-          handleOptionChange(SetOption, "aspectRatio", ratio);
+          updateOption(setCurrentData, "aspectRatio", ratio);
         }}
       />
       <SelectDropDown
         label="Index Axis"
-        value={Option.indexAxis}
+        value={option.indexAxis}
         width={60}
         options={[
           { value: "x", label: "X" },
@@ -47,27 +43,21 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
         onChange={(newAxis) => {
           const { valueAxis: newValueAxis, labelAxis: newLabelAxis } =
             getAxisInfo(newAxis as "x" | "y");
-          const { valueAxis: oldValueAxis } = getAxisInfo(Option.indexAxis);
-          const currentDisplay = Option.scales[oldValueAxis].title.display;
-          handleOptionChange(SetOption, "indexAxis", newAxis);
-          handleOptionChange(
-            SetOption,
-            `scales.${newValueAxis}.title.display`,
-            currentDisplay
-          );
-          handleOptionChange(
-            SetOption,
-            `scales.${newLabelAxis}.title.display`,
-            false
-          );
+          const { valueAxis: oldValueAxis } = getAxisInfo(option.indexAxis);
+          const currentDisplay = option.scales[oldValueAxis].title.display;
+          updateMultipleOptions(setCurrentData, [
+            ["indexAxis", newAxis],
+            [`scales.${newValueAxis}.title.display`, currentDisplay],
+            [`scales.${newLabelAxis}.title.display`, false],
+          ]);
         }}
       />
       <ColorSelect
         label="Background Color"
-        color={Option.plugins.backgroundColor.color}
+        color={option.plugins.backgroundColor.color}
         onChange={(newColor) => {
-          handleOptionChange(
-            SetOption,
+          updateOption(
+            setCurrentData,
             "plugins.backgroundColor.color",
             newColor
           );
@@ -75,44 +65,40 @@ const AppearancePanel: React.FC<AppearancePanelProps> = ({ chartType }) => {
       />
       <Toggle
         label="Show ChartTitle"
-        active={Option.plugins.title.display}
+        active={option.plugins.title.display}
         onClick={() => {
-          handleOptionChange(
-            SetOption,
+          updateOption(
+            setCurrentData,
             "plugins.title.display",
-            !Option.plugins.title.display
+            !option.plugins.title.display
           );
         }}
       />
-      {Option.plugins.title.display && (
-        <ChartTitleSetting chartType={chartType} />
-      )}
+      {option.plugins.title.display && <ChartTitleSetting />}
       <Toggle
         label="Show Label"
-        active={Option.plugins.legend.display}
+        active={option.plugins.legend.display}
         onClick={() => {
-          handleOptionChange(
-            SetOption,
+          updateOption(
+            setCurrentData,
             "plugins.legend.display",
-            !Option.plugins.legend.display
+            !option.plugins.legend.display
           );
         }}
       />
-      {Option.plugins.legend.display && <LabelSetting chartType={chartType} />}
+      {option.plugins.legend.display && <LabelSetting />}
       <Toggle
         label="Show Values"
-        active={Option.plugins.datalabels.display}
+        active={option.plugins.datalabels.display}
         onClick={() => {
-          handleOptionChange(
-            SetOption,
+          updateOption(
+            setCurrentData,
             "plugins.datalabels.display",
-            !Option.plugins.datalabels.display
+            !option.plugins.datalabels.display
           );
         }}
       />
-      {Option.plugins.datalabels.display && (
-        <ValueSetting chartType={chartType} />
-      )}
+      {option.plugins.datalabels.display && <ValueSetting />}
     </TabBigItem>
   );
 };
