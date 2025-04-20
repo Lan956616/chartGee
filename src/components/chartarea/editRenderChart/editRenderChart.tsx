@@ -2,6 +2,7 @@ import styles from "./editRenderChart.module.css";
 import { ProjectDataType } from "@/utils/sampleChartData/projectDataType";
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import { applyPieFormatter } from "@/utils/applyPieFormatter";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -61,7 +62,7 @@ const EditRenderChart: React.FC<ProjectDataType> = ({
       <Pie
         key={option.aspectRatio}
         data={getCleanPieData(data)}
-        options={option}
+        options={applyPieFormatter(option)}
         className={styles.chart}
       />
     );
