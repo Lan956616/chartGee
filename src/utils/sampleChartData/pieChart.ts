@@ -71,7 +71,7 @@ export const samplePieChartOption: SamplePieChartOption = {
         weight: "bold",
         size: 12,
       },
-      unit: "(kg)",
+      unit: "kg",
     },
   },
 };
