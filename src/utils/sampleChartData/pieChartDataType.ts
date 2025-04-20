@@ -56,7 +56,7 @@ export type SamplePieChartOption = {
         weight: "bold" | "normal";
         size: number;
       };
-      formatter?: (value: number | string) => string;
+      unit: string;
     };
   };
 };
