@@ -25,7 +25,7 @@ const BeforePublish: React.FC<BeforePublishProps> = ({ uid, projectID }) => {
       }
       const projectData = projectSnap.data();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { isPublic, ...restData } = projectData;
+      const { isPublic, updatedAt, ...restData } = projectData;
       await setDoc(publicRef, { ...restData });
       await updateDoc(projectDoc, { isPublic: true });
     } catch (err: unknown) {
