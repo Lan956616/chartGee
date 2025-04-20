@@ -1,6 +1,5 @@
 "use client";
 import { useContext } from "react";
-import type { ContextType } from "@/components/ChartDataProvider";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./PieTableBody.module.css";
 import ColorBox from "@/components/dataarea/datatab/colorbox/colorbox";
@@ -12,22 +11,23 @@ import {
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 
 const PieTableBody: React.FC = () => {
-  const { pieData, setPieData } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { data } = context.currentData;
   return (
     <tbody className={styles.tbody}>
-      {pieData.labels.map((label, index) => {
-        const hasData = pieData.datasets[0].data[index] !== "";
+      {data.labels.map((label, index) => {
+        const hasData = data.datasets[0].data[index] !== "";
         console.log(`index${index}hasdata${hasData}`);
         return (
           <tr key={`tbody${index}`} className={styles.tableRow}>
             <th className={styles.cell}>
-              {(label !== "" || pieData.datasets[0].data[index] !== "") && (
+              {(label !== "" || data.datasets[0].data[index] !== "") && (
                 <ColorBox
-                  color={pieData.datasets[0].backgroundColor[index]}
+                  color={data.datasets[0].backgroundColor[index]}
                   onChange={(newColor) => {
-                    handlePieBgColorChange(setPieData, newColor, index);
+                    handlePieBgColorChange(setCurrentData, newColor, index);
                   }}
                 />
               )}
@@ -42,7 +42,7 @@ const PieTableBody: React.FC = () => {
                 value={label}
                 placeholder={`Label${index + 1}`}
                 onChange={(e) => {
-                  handlePieLabelChange(setPieData, e.target.value, index);
+                  handlePieLabelChange(setCurrentData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
@@ -53,10 +53,10 @@ const PieTableBody: React.FC = () => {
             <td className={styles.cell}>
               <input
                 type="number"
-                value={pieData.datasets[0].data[index]}
+                value={data.datasets[0].data[index]}
                 placeholder="0"
                 onChange={(e) => {
-                  handlePieDataChange(setPieData, e.target.value, index);
+                  handlePieDataChange(setCurrentData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
