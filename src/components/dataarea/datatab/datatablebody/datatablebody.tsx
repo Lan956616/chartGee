@@ -4,12 +4,13 @@ import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./datatablebody.module.css";
 import ColorBox from "../colorbox/colorbox";
-import {
-  handleBgColorChange,
-  handleDatasetsLabelChange,
-  handleDatasetsChange,
-} from "@/utils/updateData";
+
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import {
+  updateDatasetColorAtIndex,
+  updateDatasetLabelAtIndex,
+  updateDatasetValueAtIndex,
+} from "@/utils/updateData";
 
 const DataTableBody: React.FC = () => {
   const context = useContext(ChartDataContext);
@@ -31,7 +32,7 @@ const DataTableBody: React.FC = () => {
                 <ColorBox
                   color={dataset.backgroundColor}
                   onChange={(newColor) => {
-                    handleBgColorChange(setCurrentData, newColor, index);
+                    updateDatasetColorAtIndex(setCurrentData, newColor, index);
                   }}
                 />
               )}
@@ -46,7 +47,7 @@ const DataTableBody: React.FC = () => {
                 value={dataset.label}
                 placeholder={`Label${index + 1}`}
                 onChange={(e) => {
-                  handleDatasetsLabelChange(
+                  updateDatasetLabelAtIndex(
                     setCurrentData,
                     e.target.value,
                     index
@@ -66,7 +67,7 @@ const DataTableBody: React.FC = () => {
                     value={eachData}
                     placeholder="0"
                     onChange={(e) => {
-                      handleDatasetsChange(
+                      updateDatasetValueAtIndex(
                         setCurrentData,
                         e.target.value,
                         index,

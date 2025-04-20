@@ -3,12 +3,12 @@ import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./PieTableBody.module.css";
 import ColorBox from "@/components/dataarea/datatab/colorbox/colorbox";
-import {
-  handlePieBgColorChange,
-  handlePieLabelChange,
-  handlePieDataChange,
-} from "@/utils/updatePieData";
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import {
+  updatePieColorAtIndex,
+  updatePieLabelAtIndex,
+  updatePieValueAtIndex,
+} from "@/utils/updatePieData";
 
 const PieTableBody: React.FC = () => {
   const context = useContext(ChartDataContext);
@@ -27,7 +27,7 @@ const PieTableBody: React.FC = () => {
                 <ColorBox
                   color={data.datasets[0].backgroundColor[index]}
                   onChange={(newColor) => {
-                    handlePieBgColorChange(setCurrentData, newColor, index);
+                    updatePieColorAtIndex(setCurrentData, newColor, index);
                   }}
                 />
               )}
@@ -42,7 +42,7 @@ const PieTableBody: React.FC = () => {
                 value={label}
                 placeholder={`Label${index + 1}`}
                 onChange={(e) => {
-                  handlePieLabelChange(setCurrentData, e.target.value, index);
+                  updatePieLabelAtIndex(setCurrentData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
@@ -56,7 +56,7 @@ const PieTableBody: React.FC = () => {
                 value={data.datasets[0].data[index]}
                 placeholder="0"
                 onChange={(e) => {
-                  handlePieDataChange(setCurrentData, e.target.value, index);
+                  updatePieValueAtIndex(setCurrentData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {

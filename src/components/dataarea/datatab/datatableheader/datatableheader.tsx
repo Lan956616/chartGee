@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./datatableheader.module.css";
 import Image from "next/image";
-import { handleLabelChange } from "@/utils/updateData";
+
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 import getAxisInfo from "@/utils/getAxisInfo";
 import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+import { updateLabelAtIndex } from "@/utils/updateData";
 const DataTableHeader: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;
@@ -61,7 +62,7 @@ const DataTableHeader: React.FC = () => {
                 value={label}
                 placeholder={`Cate${index + 1}`}
                 onChange={(e) => {
-                  handleLabelChange(setCurrentData, e.target.value, index);
+                  updateLabelAtIndex(setCurrentData, e.target.value, index);
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
