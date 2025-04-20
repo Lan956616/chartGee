@@ -1,103 +1,158 @@
-import type { SampleBarChartData } from "./sampleChartData/barChartDataType";
-import type { SampleLineChartData } from "./sampleChartData/lineChartDataType";
-export const handleLabelChange = (
-  setData: (
-    updateFunc: (
-      prevData: SampleBarChartData | SampleLineChartData
-    ) => SampleBarChartData | SampleLineChartData
-  ) => void,
+import { ProjectDataType } from "./sampleChartData/projectDataType";
+export const updateLabelAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newValue: string,
   index: number
 ) => {
-  setData((prevData) => {
-    return {
-      ...prevData,
-      labels: prevData.labels.map((eachLabel, i) => {
-        return i === index ? newValue : eachLabel;
-      }),
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    switch (prev.chartType) {
+      case "bar":
+        return {
+          ...prev,
+          data: {
+            ...prev.data,
+            labels: prev.data.labels.map((eachLabel, i) =>
+              i === index ? newValue : eachLabel
+            ),
+          },
+        };
+      case "line":
+        return {
+          ...prev,
+          data: {
+            ...prev.data,
+            labels: prev.data.labels.map((eachLabel, i) =>
+              i === index ? newValue : eachLabel
+            ),
+          },
+        };
+      case "pie":
+      default:
+        return prev;
+    }
   });
 };
-export const handleDatasetsLabelChange = (
-  setData: (
-    updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
-  ) => void,
+export const updateDatasetLabelAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newValue: string,
   index: number
 ) => {
-  setData((prevData) => {
-    return {
-      ...prevData,
-      datasets: prevData.datasets.map((dataset, i) => {
-        return i === index ? { ...dataset, label: newValue } : dataset;
-      }),
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType === "pie") return prev;
+    if (prev.chartType === "bar")
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index ? { ...dataset, label: newValue } : dataset;
+          }),
+        },
+      };
+    if (prev.chartType === "line")
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index ? { ...dataset, label: newValue } : dataset;
+          }),
+        },
+      };
+    return prev;
   });
 };
-export const handleBgColorChange = <
-  T extends { datasets: { backgroundColor: string }[] }
->(
-  setData: React.Dispatch<React.SetStateAction<T>>,
+export const updateDatasetColorAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newColor: string,
   index: number
 ) => {
-  setData((prevData) => {
-    return {
-      ...prevData,
-      datasets: prevData.datasets.map((dataset, i) => {
-        return i === index
-          ? { ...dataset, backgroundColor: newColor }
-          : dataset;
-      }),
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType === "pie") return prev;
+    if (prev.chartType === "bar") {
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index
+              ? { ...dataset, backgroundColor: newColor }
+              : dataset;
+          }),
+        },
+      };
+    }
+    if (prev.chartType === "line") {
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index
+              ? { ...dataset, backgroundColor: newColor, borderColor: newColor }
+              : dataset;
+          }),
+        },
+      };
+    }
+    return prev;
   });
 };
-export const handleBorderColorChange = (
-  setLineData: (
-    updateFunc: (prevData: SampleLineChartData) => SampleLineChartData
-  ) => void,
-  newColor: string,
-  index: number
-) => {
-  setLineData((prev) => {
-    return {
-      ...prev,
-      datasets: prev.datasets.map((dataset, i) => {
-        return i === index
-          ? {
-              ...dataset,
-              borderColor: newColor,
-            }
-          : dataset;
-      }),
-    };
-  });
-};
-export const handleDatasetsChange = (
-  setData: (
-    updateFunc: (prevData: SampleBarChartData) => SampleBarChartData
-  ) => void,
+
+export const updateDatasetValueAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newValue: string | null,
   index: number,
   eachDataIndex: number
 ) => {
-  setData((prevData) => {
-    return {
-      ...prevData,
-      datasets: prevData.datasets.map((dataset, i) => {
-        return i === index
-          ? {
-              ...dataset,
-              data: dataset.data.map((eachData, j) => {
-                return j === eachDataIndex
-                  ? newValue === ""
-                    ? ""
-                    : Number(newValue)
-                  : eachData;
-              }),
-            }
-          : dataset;
-      }),
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType === "pie") return prev;
+    if (prev.chartType === "bar")
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index
+              ? {
+                  ...dataset,
+                  data: dataset.data.map((eachData, j) => {
+                    return j === eachDataIndex
+                      ? newValue === ""
+                        ? ""
+                        : Number(newValue)
+                      : eachData;
+                  }),
+                }
+              : dataset;
+          }),
+        },
+      };
+    if (prev.chartType === "line")
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: prev.data.datasets.map((dataset, i) => {
+            return i === index
+              ? {
+                  ...dataset,
+                  data: dataset.data.map((eachData, j) => {
+                    return j === eachDataIndex
+                      ? newValue === ""
+                        ? ""
+                        : Number(newValue)
+                      : eachData;
+                  }),
+                }
+              : dataset;
+          }),
+        },
+      };
+    return prev;
   });
 };
