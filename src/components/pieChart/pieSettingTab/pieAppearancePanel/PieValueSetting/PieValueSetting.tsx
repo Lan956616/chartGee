@@ -18,9 +18,9 @@ const PieValueSetting: React.FC = () => {
     <div>
       <TextInput
         label="Unit"
-        value={unit}
+        value={option.plugins.datalabels.unit}
         onChange={(newUnit) => {
-          setUnit(newUnit);
+          updateOption(setCurrentData, "plugins.datalabels.unit", newUnit);
         }}
       />
       <Slider
