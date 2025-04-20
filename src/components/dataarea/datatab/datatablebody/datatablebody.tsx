@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import type { ContextType } from "@/components/ChartDataProvider";
+
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./datatablebody.module.css";
 import ColorBox from "../colorbox/colorbox";
@@ -8,20 +8,19 @@ import {
   handleBgColorChange,
   handleDatasetsLabelChange,
   handleDatasetsChange,
-  handleBorderColorChange,
 } from "@/utils/updateData";
 import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
-import { SampleLineChartData } from "@/utils/sampleChartData/lineChartDataType";
-type DataTableBodyProps = { chartType: "bar" | "line" };
-const DataTableBody: React.FC<DataTableBodyProps> = ({ chartType }) => {
-  const { data, setData, lineData, setLineData } = useContext(
-    ChartDataContext
-  ) as unknown as ContextType;
-  const Data = chartType === "bar" ? data : lineData;
-  const SetData = chartType === "bar" ? setData : setLineData;
+
+const DataTableBody: React.FC = () => {
+  const context = useContext(ChartDataContext);
+  if (!context?.currentData) return;
+  const { setCurrentData } = context;
+  const { data, chartType } = context.currentData;
+  if (chartType === "pie") return;
+
   return (
     <tbody className={styles.tbody}>
-      {Data.datasets.map((dataset, index) => {
+      {data.datasets.map((dataset, index) => {
         const hasData = dataset.data.some(
           (value) => value !== "" && value !== null
         );
@@ -32,14 +31,7 @@ const DataTableBody: React.FC<DataTableBodyProps> = ({ chartType }) => {
                 <ColorBox
                   color={dataset.backgroundColor}
                   onChange={(newColor) => {
-                    if (chartType === "line") {
-                      handleBgColorChange<SampleLineChartData>(
-                        setLineData,
-                        newColor,
-                        index
-                      );
-                      handleBorderColorChange(setLineData, newColor, index);
-                    }
+                    handleBgColorChange(setCurrentData, newColor, index);
                   }}
                 />
               )}
@@ -54,7 +46,11 @@ const DataTableBody: React.FC<DataTableBodyProps> = ({ chartType }) => {
                 value={dataset.label}
                 placeholder={`Label${index + 1}`}
                 onChange={(e) => {
-                  handleDatasetsLabelChange(SetData, e.target.value, index);
+                  handleDatasetsLabelChange(
+                    setCurrentData,
+                    e.target.value,
+                    index
+                  );
                 }}
                 onKeyDown={handleInputKeyDown}
                 onFocus={(e) => {
@@ -71,7 +67,7 @@ const DataTableBody: React.FC<DataTableBodyProps> = ({ chartType }) => {
                     placeholder="0"
                     onChange={(e) => {
                       handleDatasetsChange(
-                        SetData,
+                        setCurrentData,
                         e.target.value,
                         index,
                         eachDataindex
