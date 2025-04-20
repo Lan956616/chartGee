@@ -1,12 +1,12 @@
 "use client";
 import { createContext } from "react";
-import { ProjectDataType } from "@/utils/sampleChartData/projectDataType";
+import { StripDataType } from "@/utils/sampleChartData/projectDataType";
 import { Dispatch } from "react";
 import type { SetStateAction } from "react";
 
 type ChartDataContextType = {
-  currentData: ProjectDataType | null;
-  setCurrentData: Dispatch<SetStateAction<ProjectDataType | null>>;
+  currentData: StripDataType | null;
+  setCurrentData: Dispatch<SetStateAction<StripDataType | null>>;
 };
 export const ChartDataContext = createContext<ChartDataContextType | null>(
   null
