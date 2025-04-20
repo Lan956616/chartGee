@@ -1,56 +1,74 @@
-import type { SamplePieChartData } from "./sampleChartData/pieChartDataType";
-export const handlePieBgColorChange = (
-  setPieData: (
-    updateFunc: (prevData: SamplePieChartData) => SamplePieChartData
-  ) => void,
+import { ProjectDataType } from "./sampleChartData/projectDataType";
+export const updatePieColorAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newColor: string,
   index: number
 ) => {
-  setPieData((prevPieData) => {
-    const newBgColors = [...prevPieData.datasets[0].backgroundColor];
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType !== "pie") return prev;
+    const newBgColors = [...prev.data.datasets[0].backgroundColor];
     newBgColors[index] = newColor;
-    return {
-      ...prevPieData,
-      datasets: [
-        {
-          ...prevPieData.datasets[0],
-          backgroundColor: newBgColors,
+    if (prev.chartType === "pie") {
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: [
+            {
+              ...prev.data.datasets[0],
+              backgroundColor: newBgColors,
+            },
+          ],
         },
-      ],
-    };
+      };
+    }
+    return prev;
   });
 };
 
-export const handlePieLabelChange = (
-  setPieData: (
-    updateFunc: (prevData: SamplePieChartData) => SamplePieChartData
-  ) => void,
+export const updatePieLabelAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newLabel: string,
   index: number
 ) => {
-  setPieData((prevPieData) => {
-    const newLabels = prevPieData.labels;
-    newLabels[index] = newLabel;
-    return {
-      ...prevPieData,
-      labels: newLabels,
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType !== "pie") return prev;
+    if (prev.chartType === "pie") {
+      const newLabels = prev.data.labels;
+      newLabels[index] = newLabel;
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          labels: newLabels,
+        },
+      };
+    }
+    return prev;
   });
 };
 
-export const handlePieDataChange = (
-  setPieData: (
-    updateFunc: (prevData: SamplePieChartData) => SamplePieChartData
-  ) => void,
+export const updatePieValueAtIndex = (
+  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newData: string | null,
   index: number
 ) => {
-  setPieData((prevPieData) => {
-    const newDatas = prevPieData.datasets[0].data;
-    newDatas[index] = newData === "" ? "" : Number(newData);
-    return {
-      ...prevPieData,
-      datasets: [{ ...prevPieData.datasets[0], data: newDatas }],
-    };
+  setCurrentData((prev) => {
+    if (!prev) return prev;
+    if (prev.chartType !== "pie") return prev;
+    if (prev.chartType === "pie") {
+      const newDatas = prev.data.datasets[0].data;
+      newDatas[index] = newData === "" ? "" : Number(newData);
+      return {
+        ...prev,
+        data: {
+          ...prev.data,
+          datasets: [{ ...prev.data.datasets[0], data: newDatas }],
+        },
+      };
+    }
+    return prev;
   });
 };
