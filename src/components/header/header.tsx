@@ -4,7 +4,7 @@ import Container from "../container/container";
 import ButtonArea from "./buttonarea/buttonarea";
 import styles from "./header.module.css";
 import Image from "next/image";
-import NavbarSmall from "./navbarsmall/navbarsmall";
+import Link from "next/link";
 import NavbarLarge from "./navbarlarge/navbarlarge";
 import Hamburger from "./hamburger/hamburger";
 type HeaderProps = {
@@ -17,15 +17,17 @@ const Header: React.FC<HeaderProps> = ({ showCreateGraph = true }) => {
       <Container>
         <div className={styles.headerWrapper}>
           <div className={styles.leftHeader}>
-            <Image
-              src="/chartGeeWithTitle.png"
-              alt="logo"
-              width={165}
-              height={45}
-            />
+            <Link href="/">
+              <Image
+                src="/chartGeeWithTitle.png"
+                alt="logo"
+                width={165}
+                height={45}
+              />
+            </Link>
+
             {showCreateGraph && <NavbarLarge />}
           </div>
-          <NavbarSmall isClicked={hamburgerClicked} />
           <Hamburger
             isClicked={hamburgerClicked}
             setIsClicked={setHamburgerClicked}
