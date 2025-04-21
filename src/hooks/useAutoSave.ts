@@ -32,7 +32,7 @@ export const useAutoSave = (
         setIsSaving(false);
         console.error(`upload failed:${err}`);
       }
-    }, 1500);
+    }, 600);
 
     return () => {
       if (timerRef.current) {
