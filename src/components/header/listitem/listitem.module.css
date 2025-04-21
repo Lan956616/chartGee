@@ -3,12 +3,27 @@
   align-items: center;
   justify-content: space-between;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 17px;
 }
 .listItem:hover {
   cursor: pointer;
+  color: var(--blue);
 }
-
-.listItemImg {
+.imageWrapper {
+  position: relative;
+  width: 13px;
+  height: 13px;
   margin-left: 10px;
+}
+.listItem .hoverImg {
+  opacity: 0;
+}
+.listItem:hover .hoverImg {
+  opacity: 1;
+}
+.listItem .listItemImg {
+  opacity: 1;
+}
+.listItem:hover .listItemImg {
+  opacity: 0;
 }
