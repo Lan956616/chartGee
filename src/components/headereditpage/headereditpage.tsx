@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import ShareButton from "./sharebutton/sharebutton";
 import SmallSideBar from "./smallsidebar/smallsidebar";
-type HeaderEditPageProps = { isSaving: boolean };
-const HeaderEditPage: React.FC<HeaderEditPageProps> = ({ isSaving }) => {
+type HeaderEditPageProps = { isSaving: boolean; showNoProject: boolean };
+const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
+  isSaving,
+  showNoProject,
+}) => {
   return (
     <header className={styles.header}>
       <Container>
@@ -21,7 +24,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({ isSaving }) => {
               />
             </Link>
 
-            {isSaving && (
+            {!showNoProject && isSaving && (
               <Image
                 src="/loading.png"
                 alt="loading"
@@ -30,7 +33,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({ isSaving }) => {
                 className={`${styles.loading} ${styles.state}`}
               />
             )}
-            {!isSaving && (
+            {!showNoProject && !isSaving && (
               <Image
                 src="/uploaddone.png"
                 alt="uploaddone"
