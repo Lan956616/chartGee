@@ -3,11 +3,10 @@ import styles from "./headereditpage.module.css";
 import Container from "../container/container";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import ShareButton from "./sharebutton/sharebutton";
 import SmallSideBar from "./smallsidebar/smallsidebar";
-const HeaderEditPage: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+type HeaderEditPageProps = { isSaving: boolean };
+const HeaderEditPage: React.FC<HeaderEditPageProps> = ({ isSaving }) => {
   return (
     <header className={styles.header}>
       <Container>
@@ -22,7 +21,7 @@ const HeaderEditPage: React.FC = () => {
               />
             </Link>
 
-            {isLoading && (
+            {isSaving && (
               <Image
                 src="/loading.png"
                 alt="loading"
@@ -31,7 +30,7 @@ const HeaderEditPage: React.FC = () => {
                 className={`${styles.loading} ${styles.state}`}
               />
             )}
-            {!isLoading && (
+            {!isSaving && (
               <Image
                 src="/uploaddone.png"
                 alt="uploaddone"
