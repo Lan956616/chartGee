@@ -1,14 +1,20 @@
 import styles from "./displaybuttons.module.css";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
+import { StripDataType } from "@/utils/sampleChartData/projectDataType";
 type DisplayButtonsProps = {
   showData: boolean;
   setShowData: Dispatch<SetStateAction<boolean>>;
+  showNoProject: boolean;
+  currentData: StripDataType | null;
 };
 const DisplayButtons: React.FC<DisplayButtonsProps> = ({
   showData,
   setShowData,
+  showNoProject,
+  currentData,
 }) => {
+  if (!currentData || showNoProject) return null;
   return (
     <>
       {showData && (
