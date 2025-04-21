@@ -6,6 +6,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  transition: outline 0.2s ease-out;
+}
+.hamburgerWrapper:hover {
+  cursor: pointer;
+  outline: 2px solid #aaa;
 }
 .hamburger {
   width: 90%;
