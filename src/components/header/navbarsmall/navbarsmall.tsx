@@ -3,7 +3,6 @@ import { useAppSelector } from "@/lib/hooks";
 import Container from "@/components/container/container";
 import ListItem from "../listitem/listitem";
 import styles from "./navbarsmall.module.css";
-import Link from "next/link";
 import { handleSignOut } from "@/utils/signOutUser";
 type NavbarSmallProps = {
   isClicked: boolean;
@@ -21,18 +20,18 @@ const NavbarSmall: React.FC<NavbarSmallProps> = ({ isClicked }) => {
           <ul>
             {!user && (
               <>
-                <ListItem side="right">
-                  <Link href="/login">Log In</Link>
+                <ListItem side="right" href="/login">
+                  Log In
                 </ListItem>
-                <ListItem side="right">
-                  <Link href="/signup">Create My Graph</Link>
+                <ListItem side="right" href="/signup">
+                  Create My Graph
                 </ListItem>
               </>
             )}
             {user && (
               <>
-                <ListItem side="right">
-                  <Link href="/">My Graphs</Link>
+                <ListItem side="right" href="/projects">
+                  My Graphs
                 </ListItem>
                 <ListItem side="right" onClick={handleSignOut}>
                   Log Out
