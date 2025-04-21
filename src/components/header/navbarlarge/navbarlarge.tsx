@@ -9,7 +9,9 @@ const NavbarLarge: React.FC = () => {
     return (
       <nav className={styles.navbarLarge}>
         <ul>
-          <ListItem side="down">Create My Graph</ListItem>
+          <ListItem side="down" href="/dashboard">
+            Create Graph
+          </ListItem>
         </ul>
       </nav>
     );
