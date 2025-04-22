@@ -50,6 +50,7 @@ const ProjectPage: React.FC = () => {
                   chartType={project.chartType}
                   id={project.id}
                   uid={uid as string}
+                  imageURL={project.imageURL}
                 />
               );
             })}

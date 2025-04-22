@@ -12,6 +12,7 @@ type ProjectCardProps = {
   title: string;
   id: string;
   uid: string;
+  imageURL?: string;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -20,12 +21,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   id,
   uid,
+  imageURL,
 }) => {
   const [showSharePopup, setShowSharePopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   return (
     <div className={styles.projectCardContainer}>
-      <div className={styles.thumbnailWrapper}></div>
+      <div className={styles.thumbnailWrapper}>
+        {imageURL && (
+          <Image
+            src={imageURL}
+            alt="graph thumnail"
+            fill
+            className={styles.thumbnail}
+          />
+        )}
+      </div>
       <CardActions
         projectID={id}
         setShowDeletePopup={setShowDeletePopup}
