@@ -24,8 +24,8 @@ const SmallSideBar: React.FC = () => {
         <Image
           src="/hamburger.png"
           alt="hamburger-icon"
-          width={20}
-          height={20}
+          width={15}
+          height={15}
         />
       </div>
       <div
