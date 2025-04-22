@@ -11,7 +11,12 @@
 .thumbnailWrapper {
   aspect-ratio: 16 / 9;
   background-color: #dff0ff;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  border-bottom: 1px solid #aaa;
+}
+.thumbnail {
+  object-fit: contain;
 }
 .cardActionContainer {
   position: absolute;
@@ -19,9 +24,9 @@
   left: 0;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   display: none;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .projectCardContainer:hover .cardActionContainer {
@@ -35,6 +40,7 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
+  /* border-top: 1px solid #aaa; */
 }
 
 .description {
