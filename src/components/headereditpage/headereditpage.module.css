@@ -6,7 +6,6 @@
   top: 0;
   z-index: 999;
   background-color: #2c3140;
-  min-width: 450px;
 }
 .headerWrapper {
   display: flex;
@@ -23,7 +22,7 @@
 
 .rightHeader {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
   justify-content: end;
 }
