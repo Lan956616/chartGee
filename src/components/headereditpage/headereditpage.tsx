@@ -12,12 +12,16 @@ type HeaderEditPageProps = {
   showNoProject: boolean;
   isUploading: boolean;
   setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
+  handleDownload: () => void;
+  isDownload: boolean;
 };
 const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
   isSaving,
   showNoProject,
   isUploading,
   setShowSharePopUp,
+  isDownload,
+  handleDownload,
 }) => {
   return (
     <header className={styles.header}>
@@ -53,7 +57,10 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
             )}
           </div>
           <div className={styles.rightHeader}>
-            <DownloadButton />
+            <DownloadButton
+              handleDownload={handleDownload}
+              isDownload={isDownload}
+            />
             <ShareButton setShowSharePopUp={setShowSharePopUp} />
             <SmallSideBar />
           </div>
