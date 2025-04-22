@@ -1,3 +1,4 @@
+import { Chart as ChartJS } from "chart.js";
 import { SampleBarChartData, SampleBarChartOptions } from "./barChartDataType";
 import {
   SampleLineChartData,
@@ -90,3 +91,9 @@ export type StripDataType =
       option: SampleLineChartOption;
       createdAt: Timestamp;
     };
+
+export type EditRenderChartProps = StripDataType & {
+  barRef: React.RefObject<ChartJS<"bar", number[], unknown> | null>;
+  lineRef: React.RefObject<ChartJS<"line", number[], unknown> | null>;
+  pieRef: React.RefObject<ChartJS<"pie", number[], unknown> | null>;
+};

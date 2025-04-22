@@ -1,5 +1,5 @@
+"use client";
 import styles from "./editRenderChart.module.css";
-import { ProjectDataType } from "@/utils/sampleChartData/projectDataType";
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { applyPieFormatter } from "@/utils/applyPieFormatter";
@@ -31,11 +31,15 @@ ChartJS.register(
   LineElement,
   PointElement
 );
+import { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
 
-const EditRenderChart: React.FC<ProjectDataType> = ({
+const EditRenderChart: React.FC<EditRenderChartProps> = ({
   chartType,
   data,
   option,
+  barRef,
+  lineRef,
+  pieRef,
 }) => {
   if (chartType === "bar") {
     return (
@@ -44,6 +48,7 @@ const EditRenderChart: React.FC<ProjectDataType> = ({
         data={getCleanData(data)}
         options={option}
         className={styles.chart}
+        ref={barRef}
       />
     );
   }
@@ -54,6 +59,7 @@ const EditRenderChart: React.FC<ProjectDataType> = ({
         data={getCleanData(data)}
         options={option}
         className={styles.chart}
+        ref={lineRef}
       />
     );
   }
@@ -64,6 +70,7 @@ const EditRenderChart: React.FC<ProjectDataType> = ({
         data={getCleanPieData(data)}
         options={applyPieFormatter(option)}
         className={styles.chart}
+        ref={pieRef}
       />
     );
   }
