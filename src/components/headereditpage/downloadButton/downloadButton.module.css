@@ -1,0 +1,36 @@
+.btn {
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 17px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  color: white;
+  position: relative;
+}
+.title {
+  display: none;
+}
+.btn:hover {
+  cursor: pointer;
+  outline: 2px solid white;
+}
+@media screen and (min-width: 480px) {
+  .btn {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    padding: 8px 15px;
+  }
+  .title {
+    display: initial;
+  }
+  .btnImg {
+    margin-right: 0.5rem;
+  }
+}
