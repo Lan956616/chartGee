@@ -17,6 +17,24 @@
   cursor: pointer;
   outline: 2px solid white;
 }
+.btn:disabled {
+  filter: brightness(0.9);
+}
+.btn:disabled:hover {
+  cursor: default;
+  outline: none;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  animation: spin 1s linear infinite;
+}
 @media screen and (min-width: 480px) {
   .btn {
     display: flex;
@@ -31,6 +49,9 @@
     display: initial;
   }
   .btnImg {
+    margin-right: 0.5rem;
+  }
+  .spinner {
     margin-right: 0.5rem;
   }
 }
