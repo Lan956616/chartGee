@@ -1,6 +1,6 @@
 import { StripDataType } from "./sampleChartData/projectDataType";
 export const updatePieColorAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newColor: string,
   index: number
 ) => {
