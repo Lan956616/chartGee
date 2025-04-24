@@ -15,10 +15,10 @@ import {
 } from "./sampleChartData/pieChart";
 import { getUpdateOption } from "./getUpdateOption";
 import { Dispatch, SetStateAction } from "react";
-import type { ProjectDataType } from "./sampleChartData/projectDataType";
+import type { StripDataType } from "./sampleChartData/projectDataType";
 
 export const clearDataOnClick = (
-  setCurrentData: Dispatch<SetStateAction<ProjectDataType | null>>
+  setCurrentData: Dispatch<SetStateAction<StripDataType | null>>
 ) => {
   setCurrentData((prev) => {
     if (!prev) return prev;
@@ -45,7 +45,7 @@ export const clearDataOnClick = (
   });
 };
 export const resetDataOnClick = (
-  setCurrentData: Dispatch<SetStateAction<ProjectDataType | null>>
+  setCurrentData: Dispatch<SetStateAction<StripDataType | null>>
 ) => {
   setCurrentData((prev) => {
     if (!prev) return prev;

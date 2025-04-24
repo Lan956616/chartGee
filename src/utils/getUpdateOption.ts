@@ -1,7 +1,7 @@
 import { cloneDeep, set } from "lodash";
-import type { ProjectDataType } from "./sampleChartData/projectDataType";
+import type { StripDataType } from "./sampleChartData/projectDataType";
 
-export const getUpdateOption = <T extends ProjectDataType>(
+export const getUpdateOption = <T extends StripDataType>(
   currentData: T,
   key: string,
   value: string | number | boolean
