@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import styles from "./chartRender.module.css";
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
@@ -16,24 +17,37 @@ import {
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
-import { Pie, Bar, Line } from "react-chartjs-2";
 import { StripDataType } from "@/utils/sampleChartData/projectDataType";
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend,
-  Title,
-  ChartDataLabels,
-  backgroundColorPlugin,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement
-);
+
+import dynamic from "next/dynamic";
 
 type ChartRenderProps = { project: StripDataType };
 const ChartRender: React.FC<ChartRenderProps> = ({ project }) => {
+  useEffect(() => {
+    ChartJS.register(
+      ArcElement,
+      Tooltip,
+      Legend,
+      Title,
+      ChartDataLabels,
+      backgroundColorPlugin,
+      CategoryScale,
+      LinearScale,
+      BarElement,
+      LineElement,
+      PointElement
+    );
+  }, []);
+  const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
+    ssr: false,
+  });
+  const Line = dynamic(
+    () => import("react-chartjs-2").then((mod) => mod.Line),
+    { ssr: false }
+  );
+  const Pie = dynamic(() => import("react-chartjs-2").then((mod) => mod.Pie), {
+    ssr: false,
+  });
   if (project.chartType === "bar") {
     return (
       <Bar
