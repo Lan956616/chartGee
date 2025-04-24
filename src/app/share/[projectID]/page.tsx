@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import HeaderSharePage from "@/components/share/header/headerSharePage";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase";
-import type { ShareDataType } from "@/utils/sampleChartData/projectDataType";
+import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
 import Spinner from "@/components/loading/spinner/spinner";
 import NoProject from "@/components/share/noProject/NoProject";
 import ChartRender from "@/components/share/chartRender/chartRender";
@@ -13,7 +13,7 @@ const SharePage: React.FC = () => {
   const { projectID } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [showNotFind, setShowNotFind] = useState(false);
-  const [project, setProject] = useState<ShareDataType | null>(null);
+  const [project, setProject] = useState<StripDataType | null>(null);
   useEffect(() => {
     const fetchData = async () => {
       if (!projectID) return;
@@ -25,7 +25,7 @@ const SharePage: React.FC = () => {
         const docRef = doc(db, "publicProjects", projectID);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          const project = docSnap.data() as ShareDataType;
+          const project = docSnap.data() as StripDataType;
           setIsLoading(false);
           setProject(project);
         } else {

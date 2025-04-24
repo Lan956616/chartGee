@@ -16,7 +16,7 @@ import {
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
 import { Pie, Bar, Line } from "react-chartjs-2";
-import { ShareDataType } from "@/utils/sampleChartData/projectDataType";
+import { StripDataType } from "@/utils/sampleChartData/projectDataType";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -31,7 +31,7 @@ ChartJS.register(
   PointElement
 );
 
-type ChartRenderProps = { project: ShareDataType };
+type ChartRenderProps = { project: StripDataType };
 const ChartRender: React.FC<ChartRenderProps> = ({ project }) => {
   if (project.chartType === "bar") {
     return (

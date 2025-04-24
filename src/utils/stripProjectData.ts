@@ -1,5 +1,6 @@
 import type { ProjectDataType } from "./sampleChartData/projectDataType";
-export const stripProjectData = (data: ProjectDataType) => {
-  const { isPublic, updatedAt, ...rest } = data;
+import type { StripDataType } from "./sampleChartData/projectDataType";
+export const stripProjectData = (data: ProjectDataType): StripDataType => {
+  const { isPublic, updatedAt, imageURL, ...rest } = data;
   return rest;
 };

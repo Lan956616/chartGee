@@ -33,7 +33,7 @@ export const useProjectData = (
       setOriginalData(project as ProjectDataType);
       setCurrentData((prev) => {
         if (prev === null) {
-          return stripProjectData(project as ProjectDataType) as StripDataType;
+          return stripProjectData(project as ProjectDataType);
         }
         return prev;
       });

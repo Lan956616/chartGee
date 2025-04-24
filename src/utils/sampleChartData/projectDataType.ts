@@ -14,6 +14,7 @@ export type ProjectDataType =
       updatedAt: Timestamp;
       createdAt: Timestamp;
       isPublic: boolean;
+      imageURL?: string;
     }
   | {
       chartType: "pie";
@@ -22,6 +23,7 @@ export type ProjectDataType =
       updatedAt: Timestamp;
       createdAt: Timestamp;
       isPublic: boolean;
+      imageURL?: string;
     }
   | {
       chartType: "line";
@@ -30,46 +32,7 @@ export type ProjectDataType =
       updatedAt: Timestamp;
       createdAt: Timestamp;
       isPublic: boolean;
-    };
-
-export type RenderDataType =
-  | {
-      chartType: "bar";
-      data: SampleBarChartData;
-      option: SampleBarChartOptions;
-    }
-  | {
-      chartType: "pie";
-      data: SamplePieChartData;
-      option: SamplePieChartOption;
-    }
-  | {
-      chartType: "line";
-      data: SampleLineChartData;
-      option: SampleLineChartOption;
-    };
-
-export type ShareDataType =
-  | {
-      chartType: "bar";
-      data: SampleBarChartData;
-      option: SampleBarChartOptions;
-      updatedAt: Timestamp;
-      createdAt: Timestamp;
-    }
-  | {
-      chartType: "pie";
-      data: SamplePieChartData;
-      option: SamplePieChartOption;
-      updatedAt: Timestamp;
-      createdAt: Timestamp;
-    }
-  | {
-      chartType: "line";
-      data: SampleLineChartData;
-      option: SampleLineChartOption;
-      updatedAt: Timestamp;
-      createdAt: Timestamp;
+      imageURL?: string;
     };
 
 export type StripDataType =
