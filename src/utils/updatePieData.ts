@@ -1,4 +1,4 @@
-import { ProjectDataType } from "./sampleChartData/projectDataType";
+import { StripDataType } from "./sampleChartData/projectDataType";
 export const updatePieColorAtIndex = (
   setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
   newColor: string,
@@ -28,7 +28,7 @@ export const updatePieColorAtIndex = (
 };
 
 export const updatePieLabelAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newLabel: string,
   index: number
 ) => {
@@ -51,7 +51,7 @@ export const updatePieLabelAtIndex = (
 };
 
 export const updatePieValueAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newData: string | null,
   index: number
 ) => {

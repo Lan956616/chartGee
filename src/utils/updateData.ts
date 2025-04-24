@@ -1,6 +1,6 @@
-import { ProjectDataType } from "./sampleChartData/projectDataType";
+import { StripDataType } from "./sampleChartData/projectDataType";
 export const updateLabelAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newValue: string,
   index: number
 ) => {
@@ -34,7 +34,7 @@ export const updateLabelAtIndex = (
   });
 };
 export const updateDatasetLabelAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newValue: string,
   index: number
 ) => {
@@ -65,7 +65,7 @@ export const updateDatasetLabelAtIndex = (
   });
 };
 export const updateDatasetColorAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newColor: string,
   index: number
 ) => {
@@ -103,7 +103,7 @@ export const updateDatasetColorAtIndex = (
 };
 
 export const updateDatasetValueAtIndex = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newValue: string | null,
   index: number,
   eachDataIndex: number
