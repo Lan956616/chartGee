@@ -1,11 +1,11 @@
 import cloneDeep from "lodash/cloneDeep";
 import set from "lodash/set";
-import type { ProjectDataType } from "./sampleChartData/projectDataType";
+import type { StripDataType } from "./sampleChartData/projectDataType";
 import type { SampleBarChartOptions } from "./sampleChartData/barChartDataType";
 import { SamplePieChartOption } from "./sampleChartData/pieChartDataType";
 import { SampleLineChartOption } from "./sampleChartData/lineChartDataType";
 export const updateOption = (
-  setCurrentData: React.Dispatch<React.SetStateAction<ProjectDataType | null>>,
+  setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   key: string,
   value: number | string | boolean
 ) => {
