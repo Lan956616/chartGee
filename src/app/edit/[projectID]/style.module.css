@@ -1,0 +1,33 @@
+.pageContainer {
+  background-color: #dddddd;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex-grow: 1;
+  margin-top: 72px;
+  background-color: #dddddd;
+  overflow-y: scroll;
+  border: 2px solid red;
+}
+
+.main.centeredContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 900px) {
+  .main {
+    display: flex;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
+    margin-left: 80px;
+    width: calc(100vw - 80px);
+  }
+}
