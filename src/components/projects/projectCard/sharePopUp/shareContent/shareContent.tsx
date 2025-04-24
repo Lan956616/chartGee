@@ -1,12 +1,16 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import styles from "./shareContent.module.css";
 import AfterPublish from "./afterPublish/AfterPublish";
 import BeforePublish from "./beforePublish/BeforePublish";
 type ShareContent = { projectID: string; isPublic: boolean; uid: string };
 const ShareContent: React.FC<ShareContent> = ({ projectID, isPublic, uid }) => {
-  const URL = `${window.location.origin}/share/${projectID}`;
-
+  const [URL, setURL] = useState("");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setURL(`${window.location.origin}/share/${projectID}`);
+    }
+  }, [projectID]);
   return (
     <div className={styles.shareContentContainer}>
       {!isPublic ? (

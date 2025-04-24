@@ -1,5 +1,5 @@
 export const calculateColorSelect = (element: null | HTMLDivElement) => {
-  if (!element) {
+  if (!element || typeof window === "undefined") {
     return null;
   }
   const rect = element.getBoundingClientRect();
@@ -18,7 +18,7 @@ export const calculateColorSelect = (element: null | HTMLDivElement) => {
 };
 
 export const calculateColorBox = (element: null | HTMLDivElement) => {
-  if (!element) {
+  if (!element || typeof window === "undefined") {
     return null;
   }
   const rect = element.getBoundingClientRect();
