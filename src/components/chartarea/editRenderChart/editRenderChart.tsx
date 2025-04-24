@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import styles from "./editRenderChart.module.css";
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
@@ -17,21 +18,9 @@ import {
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
-import { Pie, Bar, Line } from "react-chartjs-2";
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend,
-  Title,
-  ChartDataLabels,
-  backgroundColorPlugin,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement
-);
+
 import { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
+import dynamic from "next/dynamic";
 
 const EditRenderChart: React.FC<EditRenderChartProps> = ({
   chartType,
@@ -41,6 +30,31 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
   lineRef,
   pieRef,
 }) => {
+  useEffect(() => {
+    ChartJS.register(
+      ArcElement,
+      Tooltip,
+      Legend,
+      Title,
+      ChartDataLabels,
+      backgroundColorPlugin,
+      CategoryScale,
+      LinearScale,
+      BarElement,
+      LineElement,
+      PointElement
+    );
+  }, []);
+  const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
+    ssr: false,
+  });
+  const Line = dynamic(
+    () => import("react-chartjs-2").then((mod) => mod.Line),
+    { ssr: false }
+  );
+  const Pie = dynamic(() => import("react-chartjs-2").then((mod) => mod.Pie), {
+    ssr: false,
+  });
   if (chartType === "bar") {
     return (
       <Bar

@@ -1,3 +1,4 @@
+"use client";
 import styles from "./chartRender.module.css";
 import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
