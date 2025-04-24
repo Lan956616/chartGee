@@ -4,8 +4,8 @@
   position: fixed;
   top: 0;
   z-index: 999;
-  box-shadow: 3px 3px 5px #e6e6e6;
   background-color: white;
+  border-bottom: 1px solid #ddd;
 }
 .headerWrapper {
   display: flex;
