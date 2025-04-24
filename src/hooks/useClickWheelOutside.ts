@@ -8,6 +8,7 @@ export const useClickWheelOutside = (
   onClose: () => void
 ) => {
   useEffect(() => {
+    if (typeof document === "undefined") return;
     const handleClose = (event: MouseEvent | WheelEvent) => {
       if (
         popUpRef.current &&

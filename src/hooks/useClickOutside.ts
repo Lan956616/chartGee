@@ -6,6 +6,7 @@ export const useClickOutside = (
   onClose: () => void
 ) => {
   useEffect(() => {
+    if (typeof document === "undefined") return;
     const handleClose = (event: MouseEvent) => {
       if (
         popupRef.current &&

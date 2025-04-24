@@ -6,7 +6,7 @@ export const downAndUploadImage = async (
   projectID: string,
   fileName: string
 ) => {
-  if (!canvas) {
+  if (!canvas || typeof document === "undefined") {
     return;
   }
   const base64 = canvas.toDataURL("image/png");

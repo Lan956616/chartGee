@@ -1,6 +1,6 @@
 "use client";
 import { createPortal } from "react-dom";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import styles from "./colorbox.module.css";
 import ColorPicker from "@/components/settingtab/colorpicker/colorpicker";
 import { calculateColorBox } from "@/utils/calculatePosition";
@@ -12,9 +12,12 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
     top: number;
     left: number;
   } | null>(null);
+  const [hasMounted, setHasMounted] = useState(false);
   const pickerRef = useRef<HTMLDivElement | null>(null);
   const BoxRef = useRef<HTMLDivElement | null>(null);
-
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
   useLayoutEffect(() => {
     if (isBoxClicked) {
       setPosition(calculateColorBox(BoxRef.current));
@@ -33,7 +36,8 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
         }}
         ref={BoxRef}
       ></div>
-      {isBoxClicked &&
+      {hasMounted &&
+        isBoxClicked &&
         position &&
         createPortal(
           <div
