@@ -1,0 +1,39 @@
+.stepContent {
+  display: none;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+}
+.stepContent.active {
+  display: block;
+}
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.description {
+  font-size: 18px;
+  margin-top: 0.5rem;
+}
+.image {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    display: initial;
+  }
+  .stepContent.active {
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .text {
+    flex-grow: 1;
+  }
+  .description {
+    font-size: 20px;
+  }
+}
