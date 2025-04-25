@@ -11,7 +11,7 @@ const StepSection: React.FC = () => {
       setActiveIndex((prev) => (prev + 1) % 3);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeIndex]);
   const displayTitle = ["1.Enter Data", "2.Customize Chart", "3.Save & Share"];
   const displayContent = [
     {
