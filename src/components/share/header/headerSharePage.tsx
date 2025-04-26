@@ -5,20 +5,11 @@ import styles from "./headerSharePage.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import UserButton from "@/components/projects/header/userButton/userButton";
-type HeaderSharePageProps = {
-  projectID: string;
-  isLoading: boolean;
-  showNotFind: boolean;
-};
-const HeaderSharePage: React.FC<HeaderSharePageProps> = ({
-  projectID,
-  isLoading,
-  showNotFind,
-}) => {
+
+const HeaderSharePage: React.FC = () => {
   const uid = useAppSelector((store) => {
     return store.auth.currentUser;
   });
-  const showEdit = Boolean(uid && !isLoading && !showNotFind);
   return (
     <header className={styles.header}>
       <Container>
@@ -31,21 +22,7 @@ const HeaderSharePage: React.FC<HeaderSharePageProps> = ({
               height={45}
             />
           </Link>
-
-          <div className={styles.rightHeader}>
-            {showEdit && (
-              <Link href={`/edit/${projectID}`} className={styles.editBTN}>
-                <Image
-                  src="/whitepencil.png"
-                  alt="edit icon"
-                  width={20}
-                  height={20}
-                />
-                Edit Graph
-              </Link>
-            )}
-            {uid && <UserButton />}
-          </div>
+          {uid && <UserButton />}
         </div>
       </Container>
     </header>
