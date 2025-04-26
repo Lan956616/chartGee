@@ -20,17 +20,17 @@ const GoogleLogInBTN: React.FC = () => {
       router.push("/");
     } catch (err) {
       if (err instanceof FirebaseError) {
-        if (err.code === "auth/popup-closed-by-user") {
-          return;
-        }
+        if (err.code === "auth/popup-closed-by-user") return;
+        setError(err.message || "Login failed Please try again");
+      } else {
+        setError("Login failed Please try again");
       }
-      setError("Login failed Please try again");
     } finally {
       setIsLoading(false);
     }
   };
   return (
-    <div>
+    <div className={styles.BTNcontainer}>
       <button
         className={styles.googleLogBTN}
         onClick={handleGoogleLog}
