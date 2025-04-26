@@ -12,8 +12,16 @@
   align-items: center;
   justify-content: center;
   width: 90%;
+}
+.chartWrapper.square {
   aspect-ratio: 1;
+  max-width: 550px;
+  max-height: 550px;
+}
+.chartWrapper.rectangle {
+  aspect-ratio: 16 / 9;
   max-width: 1000px;
+  max-height: 550px;
 }
 
 @media screen and (min-width: 480px) {
@@ -26,9 +34,14 @@
     width: 70%;
   }
 }
-@media screen and (min-width: 1024px) {
-  .chartWrapper {
-    width: 60%;
-    aspect-ratio: 16 / 9;
+
+@media screen and (min-width: 1440px) {
+  .chartWrapper.square {
+    max-width: 800px;
+    max-height: 8000px;
+  }
+  .chartWrapper.rectangle {
+    max-width: 1300px;
+    max-height: 800px;
   }
 }
