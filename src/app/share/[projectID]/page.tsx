@@ -16,8 +16,8 @@ const SharePage: React.FC = () => {
   const [project, setProject] = useState<StripDataType | null>(null);
   useEffect(() => {
     const fetchData = async () => {
-      if (!projectID) return;
-      if (typeof projectID !== "string") {
+      if (!projectID || typeof projectID !== "string") {
+        setIsLoading(false);
         setShowNotFind(true);
         return;
       }
@@ -26,34 +26,30 @@ const SharePage: React.FC = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const project = docSnap.data() as StripDataType;
-          setIsLoading(false);
           setProject(project);
         } else {
-          setIsLoading(false);
           setShowNotFind(true);
-          return;
         }
       } catch (err) {
-        setIsLoading(false);
         console.error(err);
         setShowNotFind(true);
+      } finally {
+        setIsLoading(false);
       }
     };
-
     fetchData();
   }, [projectID]);
-
   return (
     <div className={styles.sharePageContainer}>
-      <HeaderSharePage
-        projectID={projectID as string}
-        isLoading={isLoading}
-        showNotFind={showNotFind}
-      />
+      <HeaderSharePage />
       {isLoading && <Spinner white={true} />}
       {showNotFind && <NoProject />}
       {!isLoading && project && (
-        <div className={styles.chartWrapper}>
+        <div
+          className={`${styles.chartWrapper} ${
+            project.option.aspectRatio === 1 ? styles.square : styles.rectangle
+          }`}
+        >
           <ChartRender project={project} />
         </div>
       )}

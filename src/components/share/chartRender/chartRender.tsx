@@ -18,7 +18,6 @@ import {
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
 import { StripDataType } from "@/utils/sampleChartData/projectDataType";
-
 import dynamic from "next/dynamic";
 
 type ChartRenderProps = { project: StripDataType };
