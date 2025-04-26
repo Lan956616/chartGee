@@ -17,7 +17,7 @@ const SignUpPage: React.FC = () => {
     }
   }, [router, user]);
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.signUpPageContainer}>
       <div className={styles.displayArea}>
         <div className={styles.whiteBoard}>
           <p>35.4M</p>
@@ -28,34 +28,36 @@ const SignUpPage: React.FC = () => {
           <p>Projects created daily</p>
         </div>
       </div>
-      <div className={styles.container}>
-        <Link href="/">
-          <Image
-            src="/cross.png"
-            alt="close-icon"
-            width={25}
-            height={25}
-            className={styles.closeIcon}
-          />
-        </Link>
-        <Image
-          src="/chartGeeWithTitle.png"
-          alt="logo"
-          width={230}
-          height={40}
-        />
-        <p className={styles.title}>Create amazing content</p>
-        <div className={styles.description}>
-          <p>Create your free account</p>
-          <p>Enjoy using ChartGee </p>
-        </div>
-        <SignUpForm />
-        <p className={styles.helpZone}>
-          Have an account?
-          <Link href="/login" className={styles.link}>
-            Login
+      <div className={styles.formArea}>
+        <div className={styles.formAreaWrapper}>
+          <Link href="/">
+            <Image
+              src="/cross.png"
+              alt="close-icon"
+              width={25}
+              height={25}
+              className={styles.closeIcon}
+            />
           </Link>
-        </p>
+          <Image
+            src="/chartGeeWithTitle.png"
+            alt="logo"
+            width={230}
+            height={40}
+          />
+          <p className={styles.title}>Create amazing content</p>
+          <div className={styles.description}>
+            <p>Create your free account</p>
+            <p>Enjoy using ChartGee </p>
+          </div>
+          <SignUpForm />
+          <p className={styles.helpZone}>
+            Have an account?
+            <Link href="/login" className={styles.link}>
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
