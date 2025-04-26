@@ -1,4 +1,4 @@
-.wrapper {
+.signUpPageContainer {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -7,17 +7,22 @@
 .displayArea {
   display: none;
 }
-.container {
-  width: 500px;
-  min-width: 500px;
+.formArea {
+  width: 85%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
-  padding: 2rem 3rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   position: relative;
+}
+.formAreaWrapper {
+  width: 100%;
 }
 
 /* displayArea */
-
 .whiteBoard {
   width: 280px;
   height: 160px;
@@ -37,7 +42,7 @@
   font-size: 20px;
 }
 
-/* container */
+/* formArea  */
 
 .closeIcon {
   position: absolute;
@@ -47,10 +52,10 @@
 .title {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
-  font-size: 32px;
+  font-size: 30px;
+  text-align: center;
   font-weight: bold;
   color: #070519;
-  letter-spacing: 1.1;
 }
 .description {
   font-size: 20px;
@@ -58,7 +63,6 @@
   color: #070519;
   text-align: center;
 }
-
 .helpZone {
   font-size: 16px;
   text-align: center;
@@ -73,6 +77,14 @@
 }
 
 @media screen and (min-width: 1025px) {
+  .formArea {
+    flex-basis: 40%;
+    max-width: 40%;
+    padding: 2rem;
+  }
+  .formAreaWrapper {
+    max-width: 450px;
+  }
   .displayArea {
     flex-grow: 1;
     display: flex;
@@ -87,7 +99,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .displayArea {
     flex-direction: row;
   }
