@@ -10,6 +10,7 @@ import { validateAuthForm } from "@/utils/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
+import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -83,6 +84,7 @@ const SignUpForm: React.FC = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            onKeyDown={(e) => handleInputKeyDown(e)}
             ref={emailInputRef}
           />
           <p className={styles.hint}>
@@ -95,6 +97,7 @@ const SignUpForm: React.FC = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+            onKeyDown={(e) => handleInputKeyDown(e)}
           />
           <ErrorMessage error={error} />
           <FormSubmitButton isLoading={isLoading} label="Register" />
