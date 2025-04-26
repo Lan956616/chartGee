@@ -12,6 +12,7 @@ import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 import { useAppSelector } from "@/lib/hooks";
 import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
+import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
 const LoginPage: React.FC = () => {
   const user = useAppSelector((store) => {
     return store.auth.currentUser;
@@ -50,7 +51,7 @@ const LoginPage: React.FC = () => {
     }
   }, [user, router]);
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.loginPageContainer}>
       <div className={styles.displayArea}>
         <div className={styles.picWrapper}>
           <Image
@@ -67,58 +68,64 @@ const LoginPage: React.FC = () => {
           <p>Share your designs directly via link</p>
         </div>
       </div>
-      <div className={styles.container}>
-        <Link href="/">
-          {" "}
-          <Image
-            src="/cross.png"
-            alt="close=icon"
-            width={25}
-            height={25}
-            className={styles.closeIcon}
-          />
-        </Link>
-
-        <Image
-          src="/chartGeeWithTitle.png"
-          alt="logo"
-          width={230}
-          height={40}
-        />
-        <p className={styles.title}>Create amazing content</p>
-        <p className={styles.description}>
-          Welcome back! Please use your email or another service to sign in.
-        </p>
-        <form className={styles.logInForm} onSubmit={handleSubmit} noValidate>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            ref={emailInputRef}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <ErrorMessage error={error} />
-          <FormSubmitButton isLoading={isLoading} label="Login" />
-        </form>
-        <p className={styles.or}>OR</p>
-        <GoogleLogInBTN />
-
-        <p className={styles.helpZone}>
-          New to ChartGee?
-          <Link href="/signup" className={styles.link}>
-            Sign Up
+      <div className={styles.formArea}>
+        <div className={styles.formAreaWrapper}>
+          <Link href="/">
+            <Image
+              src="/cross.png"
+              alt="close icon"
+              width={25}
+              height={25}
+              className={styles.closeIcon}
+            />
           </Link>
-        </p>
+
+          <Image
+            src="/chartGeeWithTitle.png"
+            alt="chartGee logo"
+            width={230}
+            height={40}
+          />
+          <p className={styles.title}>Create amazing content</p>
+          <p className={styles.description}>
+            Welcome back! Please use your email or another service to sign in.
+          </p>
+          <form className={styles.logInForm} onSubmit={handleSubmit} noValidate>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                handleInputKeyDown(e);
+              }}
+              ref={emailInputRef}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                handleInputKeyDown(e);
+              }}
+            />
+            <ErrorMessage error={error} />
+            <FormSubmitButton isLoading={isLoading} label="Login" />
+          </form>
+          <p className={styles.or}>OR</p>
+          <GoogleLogInBTN />
+          <p className={styles.helpZone}>
+            New to ChartGee?
+            <Link href="/signup" className={styles.link}>
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
