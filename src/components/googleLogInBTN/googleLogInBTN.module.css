@@ -1,10 +1,13 @@
+.BTNcontainer {
+  width: 100%;
+}
 .googleLogBTN {
   width: 100%;
   margin-top: 1rem;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 8px 10px;
+  padding: 8px 10px 8px 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,4 +33,10 @@
   top: 50%;
   left: 0.5rem;
   transform: translateY(-50%);
+}
+
+@media screen and (min-width: 360px) {
+  .googleLogBTN {
+    padding: 8px 10px;
+  }
 }
