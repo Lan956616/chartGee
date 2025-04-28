@@ -18,7 +18,6 @@ import {
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
-
 import { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
 import dynamic from "next/dynamic";
 const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
@@ -37,6 +36,7 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
   barRef,
   lineRef,
   pieRef,
+  onReady,
 }) => {
   useEffect(() => {
     ChartJS.register(
@@ -61,7 +61,12 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         data={getCleanData(data)}
         options={option}
         className={styles.chart}
-        ref={barRef}
+        ref={(instance) => {
+          if (instance) {
+            barRef.current = instance;
+            onReady?.();
+          }
+        }}
       />
     );
   }
@@ -72,7 +77,12 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         data={getCleanData(data)}
         options={option}
         className={styles.chart}
-        ref={lineRef}
+        ref={(instance) => {
+          if (instance) {
+            lineRef.current = instance;
+            onReady?.();
+          }
+        }}
       />
     );
   }
@@ -83,7 +93,12 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         data={getCleanPieData(data)}
         options={applyPieFormatter(option)}
         className={styles.chart}
-        ref={pieRef}
+        ref={(instance) => {
+          if (instance) {
+            pieRef.current = instance;
+            onReady?.();
+          }
+        }}
       />
     );
   }

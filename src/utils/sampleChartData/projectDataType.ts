@@ -1,3 +1,4 @@
+import { MutableRefObject } from "react";
 import { Chart as ChartJS } from "chart.js";
 import { SampleBarChartData, SampleBarChartOptions } from "./barChartDataType";
 import {
@@ -56,7 +57,8 @@ export type StripDataType =
     };
 
 export type EditRenderChartProps = StripDataType & {
-  barRef: React.RefObject<ChartJS<"bar", number[], unknown> | null>;
-  lineRef: React.RefObject<ChartJS<"line", number[], unknown> | null>;
-  pieRef: React.RefObject<ChartJS<"pie", number[], unknown> | null>;
+  barRef: MutableRefObject<ChartJS<"bar", unknown, unknown> | null>;
+  lineRef: MutableRefObject<ChartJS<"line", unknown, unknown> | null>;
+  pieRef: MutableRefObject<ChartJS<"pie", unknown, unknown> | null>;
+  onReady?: () => void;
 };

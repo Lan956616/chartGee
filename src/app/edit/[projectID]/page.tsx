@@ -1,7 +1,7 @@
 "use client";
 import { useAutoSave } from "@/hooks/useAutoSave";
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MutableRefObject } from "react";
 import { Chart as ChartJS } from "chart.js";
 import DisplayButtons from "@/components/displaybuttons/displaybuttons";
 import DataArea from "@/components/dataarea/dataarea";
@@ -14,10 +14,10 @@ import { useAppSelector } from "@/lib/hooks";
 import Loading from "@/components/loading/loading";
 import NoProject from "@/components/share/noProject/NoProject";
 import Spinner from "@/components/loading/spinner/spinner";
-import { useProjectData } from "@/hooks/useProjectData";
-import { useAutoUploadThumbnail } from "@/hooks/useAutoUploadThumbnail";
+import { uploadThumbnail } from "@/utils/uploadThumbnail";
 import SharePopUp from "@/components/projects/projectCard/sharePopUp/sharePopUp";
 import { downAndUploadImage } from "@/utils/downAndUploadImage";
+import { useProjectData } from "@/hooks/useProjectData";
 const ChartEditPage: React.FC = () => {
   const { currentUser: uid, isAuthLoading } = useAppSelector((store) => {
     return store.auth;
@@ -27,9 +27,16 @@ const ChartEditPage: React.FC = () => {
   const [showData, setShowData] = useState(true);
   const [showSharePopUp, setShowSharePopUp] = useState(false);
   const [isDownload, setIsDownload] = useState(false);
-  const barRef = useRef<ChartJS<"bar", number[], unknown> | null>(null);
-  const lineRef = useRef<ChartJS<"line", number[], unknown> | null>(null);
-  const pieRef = useRef<ChartJS<"pie", number[], unknown> | null>(null);
+  const [isUpLoading, setIsUploading] = useState(false);
+  const barRef = useRef<ChartJS<"bar", number[], unknown> | null>(
+    null
+  ) as MutableRefObject<ChartJS<"bar", number[], unknown> | null>;
+  const lineRef = useRef<ChartJS<"line", number[], unknown> | null>(
+    null
+  ) as MutableRefObject<ChartJS<"line", number[], unknown> | null>;
+  const pieRef = useRef<ChartJS<"pie", number[], unknown> | null>(
+    null
+  ) as MutableRefObject<ChartJS<"pie", number[], unknown> | null>;
 
   const handleDownload = async () => {
     if (!currentData) {
@@ -54,6 +61,36 @@ const ChartEditPage: React.FC = () => {
       setIsDownload(false);
     }
   };
+  const handleChartReady = async () => {
+    if (!currentData || !uid || typeof projectID !== "string") return;
+    let canvas = null;
+    switch (currentData.chartType) {
+      case "bar":
+        canvas = barRef.current?.canvas;
+        break;
+      case "line":
+        canvas = lineRef.current?.canvas;
+        break;
+      case "pie":
+        canvas = pieRef.current?.canvas;
+        break;
+    }
+    if (!canvas) {
+      console.warn("Chart ready but no canvas, skipping thumbnail upload.");
+      return;
+    }
+    try {
+      setIsUploading(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const imageBase64 = canvas.toDataURL("image/png");
+      await uploadThumbnail(imageBase64, uid, projectID);
+      console.log("Thumbnail uploaded successfully!");
+    } catch (err) {
+      console.error("Failed to upload thumbnail:", err);
+    } finally {
+      setIsUploading(false);
+    }
+  };
   useEffect(() => {
     if (isAuthLoading) {
       return;
@@ -70,22 +107,17 @@ const ChartEditPage: React.FC = () => {
     setCurrentData,
   } = useProjectData(uid, projectID);
   const isSaving = useAutoSave(originalData, currentData, projectID, uid);
-  const { isUploading } = useAutoUploadThumbnail(
-    currentData?.chartType,
-    barRef,
-    lineRef,
-    pieRef
-  );
   if (isAuthLoading) return <Loading />;
   return (
     <div className={styles.pageContainer}>
       <HeaderEditPage
         isSaving={isSaving}
         showNoProject={showNoProject}
-        isUploading={isUploading}
+        isUploading={isUpLoading}
         setShowSharePopUp={setShowSharePopUp}
         handleDownload={handleDownload}
         isDownload={isDownload}
+        isLoading={isLoading}
       />
       <Sidebar />
       <DisplayButtons
@@ -111,6 +143,7 @@ const ChartEditPage: React.FC = () => {
                 pieRef={pieRef}
                 lineRef={lineRef}
                 barRef={barRef}
+                onReady={handleChartReady}
               />
             </>
           )}
