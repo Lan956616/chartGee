@@ -102,14 +102,17 @@ const ChartEditPage: React.FC = () => {
         <ChartDataProvider value={{ currentData, setCurrentData }}>
           {isLoading && <Spinner />}
           {showNoProject && <NoProject />}
-          <DataArea hideOnMobile={!showData} />
+
           {!isLoading && !showNoProject && (
-            <ChartArea
-              hideOnMobile={showData}
-              pieRef={pieRef}
-              lineRef={lineRef}
-              barRef={barRef}
-            />
+            <>
+              <DataArea hideOnMobile={!showData} />
+              <ChartArea
+                hideOnMobile={showData}
+                pieRef={pieRef}
+                lineRef={lineRef}
+                barRef={barRef}
+              />
+            </>
           )}
         </ChartDataProvider>
       </main>
