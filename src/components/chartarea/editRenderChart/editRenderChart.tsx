@@ -21,7 +21,15 @@ import { getCleanPieData } from "@/utils/getCleanPieData";
 
 import { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
 import dynamic from "next/dynamic";
-
+const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
+  ssr: false,
+});
+const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
+  ssr: false,
+});
+const Pie = dynamic(() => import("react-chartjs-2").then((mod) => mod.Pie), {
+  ssr: false,
+});
 const EditRenderChart: React.FC<EditRenderChartProps> = ({
   chartType,
   data,
@@ -45,16 +53,7 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
       PointElement
     );
   }, []);
-  const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
-    ssr: false,
-  });
-  const Line = dynamic(
-    () => import("react-chartjs-2").then((mod) => mod.Line),
-    { ssr: false }
-  );
-  const Pie = dynamic(() => import("react-chartjs-2").then((mod) => mod.Pie), {
-    ssr: false,
-  });
+
   if (chartType === "bar") {
     return (
       <Bar
