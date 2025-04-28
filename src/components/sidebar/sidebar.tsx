@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
           New File
         </ListItem>
         <ListItem href="/projects" src="/graph.png" alt="graph-icon">
-          My Graph
+          My Charts
         </ListItem>
         <ListItem src="/logout.png" alt="logout-icon" onClick={handleSignOut}>
           Log Out

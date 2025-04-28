@@ -21,7 +21,7 @@ const ProjectPage: React.FC = () => {
       <HeaderProjectPage />
       <SidebarProjectPage />
       <div className={styles.mainContainer}>
-        <p className={styles.title}>My Graphs</p>
+        <p className={styles.title}>My Charts</p>
         {isLoading && (
           <div className={styles.projectsContainer}>
             <Spinner />

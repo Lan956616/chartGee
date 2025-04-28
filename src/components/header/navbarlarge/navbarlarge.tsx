@@ -10,7 +10,7 @@ const NavbarLarge: React.FC = () => {
       <nav className={styles.navbarLarge}>
         <ul>
           <ListItem side="down" href="/dashboard">
-            Create Graph
+            Create Chart
           </ListItem>
         </ul>
       </nav>

@@ -24,14 +24,14 @@ const NavbarSmall: React.FC<NavbarSmallProps> = ({ isClicked }) => {
                   Log In
                 </ListItem>
                 <ListItem side="right" href="/signup">
-                  Create My Graph
+                  Create My Chart
                 </ListItem>
               </>
             )}
             {user && (
               <>
                 <ListItem side="right" href="/projects">
-                  My Graphs
+                  My Charts
                 </ListItem>
                 <ListItem side="right" onClick={handleSignOut}>
                   Log Out
