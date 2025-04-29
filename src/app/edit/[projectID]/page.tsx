@@ -107,17 +107,21 @@ const ChartEditPage: React.FC = () => {
     setCurrentData,
   } = useProjectData(uid, projectID);
   const isSaving = useAutoSave(originalData, currentData, projectID, uid);
+  const headerStatus =
+    isLoading || showNoProject
+      ? "hidden"
+      : isSaving || isUpLoading
+      ? "loading"
+      : "done";
+
   if (isAuthLoading) return <Loading />;
   return (
     <div className={styles.pageContainer}>
       <HeaderEditPage
-        isSaving={isSaving}
-        showNoProject={showNoProject}
-        isUploading={isUpLoading}
+        headerStatus={headerStatus}
         setShowSharePopUp={setShowSharePopUp}
         handleDownload={handleDownload}
         isDownload={isDownload}
-        isLoading={isLoading}
       />
       <Sidebar />
       <DisplayButtons
@@ -134,7 +138,6 @@ const ChartEditPage: React.FC = () => {
         <ChartDataProvider value={{ currentData, setCurrentData }}>
           {isLoading && <Spinner />}
           {showNoProject && <NoProject />}
-
           {!isLoading && !showNoProject && (
             <>
               <DataArea hideOnMobile={!showData} />

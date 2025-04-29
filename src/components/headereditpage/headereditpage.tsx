@@ -8,17 +8,13 @@ import SmallSideBar from "./smallsidebar/smallsidebar";
 import type { Dispatch, SetStateAction } from "react";
 import DownloadButton from "./downloadButton/downloadButton";
 type HeaderEditPageProps = {
-  isSaving: boolean;
-  showNoProject: boolean;
-  isUploading: boolean;
+  headerStatus: "hidden" | "loading" | "done";
   setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
   handleDownload: () => void;
   isDownload: boolean;
 };
 const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
-  isSaving,
-  showNoProject,
-  isUploading,
+  headerStatus,
   setShowSharePopUp,
   isDownload,
   handleDownload,
@@ -37,7 +33,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
               />
             </Link>
 
-            {!showNoProject && (isSaving || isUploading) && (
+            {headerStatus === "loading" && (
               <Image
                 src="/loading.png"
                 alt="loading"
@@ -46,7 +42,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
                 className={`${styles.loading} ${styles.state}`}
               />
             )}
-            {!showNoProject && !isSaving && !isUploading && (
+            {headerStatus === "done" && (
               <Image
                 src="/uploaddone.png"
                 alt="uploaddone"
@@ -57,11 +53,16 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
             )}
           </div>
           <div className={styles.rightHeader}>
-            <DownloadButton
-              handleDownload={handleDownload}
-              isDownload={isDownload}
-            />
-            <ShareButton setShowSharePopUp={setShowSharePopUp} />
+            {headerStatus !== "hidden" && (
+              <>
+                <DownloadButton
+                  handleDownload={handleDownload}
+                  isDownload={isDownload}
+                />
+                <ShareButton setShowSharePopUp={setShowSharePopUp} />
+              </>
+            )}
+
             <SmallSideBar />
           </div>
         </div>
