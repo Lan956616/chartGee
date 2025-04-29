@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "./style.module.css";
 import Header from "@/components/header/header";
 import Loading from "@/components/loading/loading";
-import GraphTypeCard from "@/components/dashboard/graphTypeCard/graphTypeCard";
+import ChartTypeCard from "@/components/dashboard/chartTypeCard/chartTypeCard";
 const DashBoardPage: React.FC = () => {
   const router = useRouter();
   const { currentUser: user, isAuthLoading } = useAppSelector((store) => {
@@ -28,21 +28,21 @@ const DashBoardPage: React.FC = () => {
       <Header showCreateGraph={false} />
       <p className={styles.title}>Create A Chart!</p>
       <div className={styles.graphTypeList}>
-        <GraphTypeCard
+        <ChartTypeCard
           src="bar-chart"
-          alt="Bar Graph Icon"
+          alt="Bar Chart Icon"
           label="Bar Chart"
           chartType="bar"
         />
-        <GraphTypeCard
+        <ChartTypeCard
           src="pie-chart"
-          alt="Pie Graph Icon"
+          alt="Pie Chart Icon"
           label="Pie Chart"
           chartType="pie"
         />
-        <GraphTypeCard
+        <ChartTypeCard
           src="line-chart"
-          alt="Line Graph Icon"
+          alt="Line Chart Icon"
           label="Line Chart"
           chartType="line"
         />
