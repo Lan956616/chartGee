@@ -3,7 +3,10 @@ import Header from "@/components/header/header";
 import HeroSection from "@/components/homepage/heroSection/heroSection";
 import StepSection from "@/components/homepage/stepSection/stepSection";
 import AboutSection from "@/components/homepage/aboutSection/aboutSection";
+import DisplaySection from "@/components/homepage/displaySection/displaySection";
+import FAQSection from "@/components/homepage/FAQSection/FAQSection";
 import Footer from "@/components/homepage/footer/footer";
+
 export default function Home() {
   return (
     <div className={styles.homepageContainer}>
@@ -11,6 +14,8 @@ export default function Home() {
       <HeroSection />
       <StepSection />
       <AboutSection />
+      <DisplaySection />
+      <FAQSection />
       <Footer />
     </div>
   );
