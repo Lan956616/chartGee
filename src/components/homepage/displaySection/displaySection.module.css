@@ -1,0 +1,101 @@
+.display {
+  background-color: #ddd;
+}
+.displayWrapper {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.title {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+.displayBody {
+  margin-top: 2rem;
+}
+
+.picArea {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  border: 3px dashed #8b8b8b;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+.pic {
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  inset: 0;
+}
+
+.pic.active {
+  opacity: 1;
+  z-index: 1;
+}
+.status {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.dot {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #727272;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: var(--blue);
+}
+
+@media screen and (min-width: 480px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .displayWrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .displayWrapper {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+  .title {
+    font-size: 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .displayBody {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .picArea {
+    max-width: 450px;
+    margin: 0;
+  }
+  .status {
+    display: none;
+  }
+}

@@ -1,0 +1,65 @@
+.featureItemWrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  position: relative;
+}
+.featureItemWrapper:hover {
+  cursor: pointer;
+}
+.featureItemWrapper.active {
+  background-color: white;
+  padding: 1rem 0.5rem 1rem 2rem;
+}
+.featureItemWrapper + .featureItemWrapper {
+  margin-top: 1rem;
+}
+
+.featureItemWrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  width: 3.5px;
+  height: 90%;
+  background-color: #a7a6a6;
+  border-radius: 1.75px;
+}
+
+.featureItemWrapper.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform-origin: top;
+  transform: translateY(-50%) scaleY(0);
+  height: 90%;
+  background-color: var(--blue);
+  width: 3.5px;
+  border-radius: 1.75px;
+  animation: growBar 9s linear forwards;
+}
+
+@keyframes growBar {
+  to {
+    transform: translateY(-50%) scaleY(1);
+  }
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 500;
+}
+.description {
+  font-size: 18px;
+}
+
+.featureItemWrapper .description {
+  display: none;
+}
+.featureItemWrapper.active .description {
+  display: block;
+}
