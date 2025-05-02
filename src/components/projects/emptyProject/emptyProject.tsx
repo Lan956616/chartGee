@@ -9,9 +9,17 @@ const EmptyProject: React.FC = () => {
         <p>Look at all this empty space!</p>
         <p>Let&#39;s spice things up.</p>
       </div>
-      <Image src="/analysis.png" alt="no graph icon" width={200} height={200} />
+      <div className={styles.imageArea}>
+        <Image
+          src="/analysis.png"
+          alt="no chart icon"
+          fill
+          className={styles.image}
+        />
+      </div>
+
       <Link href="/dashboard" className={styles.createBTN}>
-        Create New Graph
+        Create New Chart
       </Link>
     </div>
   );
