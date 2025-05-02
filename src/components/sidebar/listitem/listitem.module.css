@@ -30,9 +30,6 @@
 .listItem.lightMode p {
   color: #120d45;
 }
-
-@media screen and (min-width: 1280px) {
-  .listItem + .listItem {
-    margin-top: 1.5rem;
-  }
+.listItem + .listItem {
+  margin-top: 1.5rem;
 }
