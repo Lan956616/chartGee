@@ -25,7 +25,7 @@ const AfterPublish: React.FC<AfterPublishProps> = ({ url }) => {
   };
   return (
     <>
-      <h1 className={styles.title}>Share a Link to Your Graph</h1>
+      <h1 className={styles.title}>Share a Link to Your Chart</h1>
       <div className={styles.link}>
         <div className={styles.description}>
           <p>Copy this URL</p>
