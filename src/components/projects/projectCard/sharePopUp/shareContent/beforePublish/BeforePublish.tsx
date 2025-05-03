@@ -18,7 +18,6 @@ const BeforePublish: React.FC<BeforePublishProps> = ({ uid, projectID }) => {
     try {
       const projectDoc = doc(db, "users", uid, "projects", projectID);
       const publicRef = doc(db, "publicProjects", projectID);
-
       const projectSnap = await getDoc(projectDoc);
       if (!projectSnap.exists()) {
         throw new Error("Project not found");
