@@ -1,7 +1,13 @@
-.mainContainer {
+.projectsPageContainer {
   min-height: 100vh;
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer {
+  width: 100%;
+  flex-grow: 1;
   padding: 1.5rem;
-  padding-top: calc(72px + 1.5rem);
   display: flex;
   flex-direction: column;
   max-width: 1280px;
@@ -13,19 +19,27 @@
   font-weight: 600;
   border-bottom: 1.5px solid #bbb;
 }
-.projectsContainer {
+.centeredContent {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .cardListWrapper {
   padding-top: 1rem;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-content: center;
   justify-items: center;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 480px) {
+  .cardListWrapper {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 }
 
 @media screen and (min-width: 1280px) {
