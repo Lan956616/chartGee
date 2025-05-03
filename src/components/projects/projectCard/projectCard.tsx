@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {imageURL && (
           <Image
             src={imageURL}
-            alt="graph thumnail"
+            alt="chart thumnail"
             fill
             className={styles.thumbnail}
           />
@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           height={25}
         />
         <div className={styles.description}>
-          <p className={styles.title}>{title || "Untitled Graph"}</p>
+          <p className={styles.title}>{title || "Untitled Chart"}</p>
           <p className={styles.updatedTime}>{`Updated ${updatedAt}`}</p>
         </div>
       </div>
