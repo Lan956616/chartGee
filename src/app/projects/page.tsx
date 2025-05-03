@@ -23,18 +23,18 @@ const ProjectPage: React.FC = () => {
       <div className={styles.mainContainer}>
         <p className={styles.title}>My Charts</p>
         {isLoading && (
-          <div className={styles.projectsContainer}>
+          <div className={styles.centeredContent}>
             <Spinner />
           </div>
         )}
         {error && (
-          <div className={styles.projectsContainer}>
+          <div className={styles.centeredContent}>
             <ErrorMessage error={error} />
           </div>
         )}
 
         {!isLoading && !error && projects.length === 0 && (
-          <div className={styles.projectsContainer}>
+          <div className={styles.centeredContent}>
             <EmptyProject />
           </div>
         )}
