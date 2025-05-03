@@ -48,6 +48,21 @@ const SharePopUp: React.FC<SharePopUpProps> = ({
     return () => unsubscribe();
   }, [uid, projectID]);
 
+  const renderContent = () => {
+    if (isLoading) {
+      return <Spinner />;
+    }
+    if (error) {
+      return <ErrorMessage error={error} />;
+    }
+    if (isPublic !== null) {
+      return (
+        <ShareContent projectID={projectID} isPublic={isPublic} uid={uid} />
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={styles.popupContainer}>
       <div
@@ -66,11 +81,7 @@ const SharePopUp: React.FC<SharePopUpProps> = ({
             setShowSharePopup(false);
           }}
         />
-        {isLoading && <Spinner />}
-        {error && <ErrorMessage error={error} />}
-        {isPublic !== null && !isLoading && !error && (
-          <ShareContent projectID={projectID} isPublic={isPublic} uid={uid} />
-        )}
+        {renderContent()}
       </div>
     </div>
   );
