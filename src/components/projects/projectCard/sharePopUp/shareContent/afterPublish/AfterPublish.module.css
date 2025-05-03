@@ -43,20 +43,24 @@
 .buttons {
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: end;
   gap: 1rem;
 }
 .BTN {
+  width: 200px;
   font-weight: bold;
   font-size: 18px;
   border-radius: 5px;
   padding: 10px 1rem;
   display: inline-block;
   transition: 0.2s ease-in;
+  text-align: center;
 }
 .openBTN {
   color: var(--blue);
+  background-color: white;
 }
 .openBTN:hover {
   outline: 1px solid var(--blue);
@@ -68,4 +72,16 @@
 }
 .copyBTN:hover {
   background-color: #347dc6;
+}
+
+@media screen and (min-width: 480px) {
+  .BTN {
+    width: unset;
+  }
+  .buttons {
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+  }
 }
