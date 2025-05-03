@@ -34,10 +34,9 @@
   font-size: 22px;
   font-weight: 600;
   background-color: #f0f6fb;
-  border-radius: 10px 10px 0 0;
 }
 .title {
-  padding-left: 1rem;
+  padding: 0 1rem;
   margin-top: 1.5rem;
   font-size: 18px;
 }
@@ -78,10 +77,19 @@
   color: white;
 }
 
+.yesBTN:disabled {
+  background-color: #e07b7b;
+  color: white;
+}
+.yesBTN:disabled:hover {
+  cursor: default;
+}
+
 @media screen and (min-width: 640px) {
   .popupBox {
     width: 500px;
     height: auto;
     border-radius: 10px;
+    overflow: hidden;
   }
 }
