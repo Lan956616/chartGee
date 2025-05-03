@@ -16,6 +16,7 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
   projectID,
   setShowDeletePopup,
 }) => {
+  const [isDelete, setIsDelete] = useState(false);
   const [error, setError] = useState("");
   const uid = useAppSelector((store) => {
     return store.auth.currentUser;
@@ -26,6 +27,7 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
   });
   const handleDelete = async () => {
     setError("");
+    setIsDelete(true);
     try {
       await handleDeleteProject(uid as string, projectID);
       setShowDeletePopup(false);
@@ -35,6 +37,8 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
       } else {
         setError("Delete Failed. Please try again");
       }
+    } finally {
+      setIsDelete(false);
     }
   };
   return (
@@ -50,7 +54,7 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
             setShowDeletePopup(false);
           }}
         />
-        <h1 className={styles.mainTitle}>Delete Graph</h1>
+        <h1 className={styles.mainTitle}>Delete Chart</h1>
         <p className={styles.title}>
           Are you sure you want to delete this project?
         </p>
@@ -66,11 +70,12 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
           <button
             className={`${styles.BTN} ${styles.yesBTN}`}
             onClick={handleDelete}
+            disabled={isDelete}
           >
             Yes
           </button>
         </div>
-        {error && <ErrorMessage error={error} />}
+        <ErrorMessage error={error} />
       </div>
     </div>
   );
