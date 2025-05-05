@@ -4,6 +4,7 @@ import HeroSection from "@/components/homepage/heroSection/heroSection";
 import StepSection from "@/components/homepage/stepSection/stepSection";
 import AboutSection from "@/components/homepage/aboutSection/aboutSection";
 import DisplaySection from "@/components/homepage/displaySection/displaySection";
+import ChartHighlightSection from "@/components/homepage/chartHighlightSection/chartHighlightSection";
 import FAQSection from "@/components/homepage/FAQSection/FAQSection";
 import Footer from "@/components/homepage/footer/footer";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <StepSection />
       <AboutSection />
       <DisplaySection />
+      <ChartHighlightSection />
       <FAQSection />
       <Footer />
     </div>
