@@ -37,35 +37,33 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
   },
   datasets: {
     bar: {
-      barThickness: 20,
+      barThickness: 31,
       borderWidth: 0,
-      borderRadius: 10,
+      borderRadius: 25,
       borderColor: "#000000",
     },
   },
   plugins: {
-    //圖表標題
     title: {
       display: true,
       text: "Fruit Sales Trends(First Four Months)",
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
-        size: 20,
-        weight: "normal",
+        size: 25,
+        weight: "bold",
       },
       color: "#000000",
     },
     backgroundColor: {
       color: "#FFFFFF",
     },
-    //圖表類別顏色區塊
     legend: {
       display: true,
       labels: {
         font: {
           family: "'Outfit', 'Noto Sans TC', sans-serif",
-          size: 16,
-          weight: "normal",
+          size: 23,
+          weight: "bold",
         },
         color: "#000000",
       },
@@ -76,7 +74,7 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
         weight: "bold",
-        size: 12,
+        size: 19,
       },
     },
   },
@@ -85,7 +83,7 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
     x: {
       grid: {
         color: "#4A4A4A",
-        lineWidth: 1,
+        lineWidth: 3,
       },
       ticks: {
         font: {
@@ -111,7 +109,7 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
       beginAtZero: true,
       grid: {
         color: "#4A4A4A",
-        lineWidth: 1,
+        lineWidth: 3,
       },
       ticks: {
         font: {

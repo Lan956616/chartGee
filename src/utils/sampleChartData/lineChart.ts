@@ -68,14 +68,14 @@ export const sampleLineChartOption: SampleLineChartOption = {
   elements: {
     line: {
       tension: 0,
-      borderWidth: 3,
+      borderWidth: 5,
       cubicInterpolationMode: "default",
       showLine: false,
     },
     point: {
       rotation: 0,
-      radius: 10,
-      hoverRadius: 12,
+      radius: 15,
+      hoverRadius: 17,
       pointStyle: "round",
     },
   },
@@ -85,10 +85,10 @@ export const sampleLineChartOption: SampleLineChartOption = {
       text: "Ice Cream Flavor Sales (January–June)",
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
-        size: 20,
-        weight: "normal",
+        size: 23,
+        weight: "bold",
       },
-      color: "#000000",
+      color: "#4A4A4A",
     },
     backgroundColor: {
       color: "#FFFFFF",
@@ -98,10 +98,10 @@ export const sampleLineChartOption: SampleLineChartOption = {
       labels: {
         font: {
           family: "'Outfit', 'Noto Sans TC', sans-serif",
-          size: 16,
-          weight: "normal",
+          size: 19,
+          weight: "bold",
         },
-        color: "#000000",
+        color: "#4A4A4A",
       },
     },
     datalabels: {
@@ -110,23 +110,23 @@ export const sampleLineChartOption: SampleLineChartOption = {
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
         weight: "bold",
-        size: 12,
+        size: 15,
       },
     },
   },
   scales: {
     x: {
       grid: {
-        color: "#4A4A4A",
-        lineWidth: 1,
+        color: "#A0A0A0",
+        lineWidth: 3,
       },
       ticks: {
         font: {
-          size: 16,
+          size: 19,
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "#000000",
+        color: "#AOAOAO",
         padding: 10,
       },
       title: {
@@ -144,16 +144,16 @@ export const sampleLineChartOption: SampleLineChartOption = {
     y: {
       beginAtZero: true,
       grid: {
-        color: "#4A4A4A",
-        lineWidth: 1,
+        color: "#A0A0A0",
+        lineWidth: 3,
       },
       ticks: {
         font: {
-          size: 16,
+          size: 19,
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "#000000",
+        color: "#AOAOAO",
         padding: 10,
       },
       title: {

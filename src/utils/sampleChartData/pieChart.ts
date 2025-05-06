@@ -44,8 +44,8 @@ export const samplePieChartOption: SamplePieChartOption = {
       text: "Fruit Sales Trends In May",
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
-        size: 20,
-        weight: "normal",
+        size: 26,
+        weight: "bold",
       },
       color: "#000000",
     },
@@ -57,8 +57,8 @@ export const samplePieChartOption: SamplePieChartOption = {
       labels: {
         font: {
           family: "'Outfit', 'Noto Sans TC', sans-serif",
-          size: 16,
-          weight: "normal",
+          size: 23,
+          weight: "bold",
         },
         color: "#000000",
       },
@@ -69,7 +69,7 @@ export const samplePieChartOption: SamplePieChartOption = {
       font: {
         family: "'Outfit', 'Noto Sans TC', sans-serif",
         weight: "bold",
-        size: 12,
+        size: 26,
       },
       unit: "kg",
     },
