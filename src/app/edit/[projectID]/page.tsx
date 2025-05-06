@@ -62,27 +62,38 @@ const ChartEditPage: React.FC = () => {
     }
   };
   const handleChartReady = async () => {
+    console.log("handleChartReady triggered");
+    console.log("currentData:", currentData);
+    console.log("uid:", uid, "projectID:", projectID);
     if (!currentData || !uid || typeof projectID !== "string") return;
     let canvas = null;
     switch (currentData.chartType) {
       case "bar":
         canvas = barRef.current?.canvas;
+        console.log(" barRef canvas:", canvas);
         break;
       case "line":
         canvas = lineRef.current?.canvas;
+        console.log("lineRef canvas:", canvas);
         break;
       case "pie":
         canvas = pieRef.current?.canvas;
+        console.log("pieRef canvas:", canvas);
         break;
     }
     if (!canvas) {
       console.warn("Chart ready but no canvas, skipping thumbnail upload.");
+      console.log("🤖 barRef:", barRef.current);
+      console.log("🤖 lineRef:", lineRef.current);
+      console.log("🤖 pieRef:", pieRef.current);
       return;
     }
     try {
+      console.log("進入到try");
       setIsUploading(true);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       const imageBase64 = canvas.toDataURL("image/png");
+      console.log("🖼️ base64 image preview:", imageBase64.slice(0, 100));
       await uploadThumbnail(imageBase64, uid, projectID);
       console.log("Thumbnail uploaded successfully!");
     } catch (err) {
