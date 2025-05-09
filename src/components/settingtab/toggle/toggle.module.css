@@ -4,7 +4,9 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.toggleContainer p {
+  font-size: 16px;
+}
 .toggle {
   display: flex;
   align-items: center;
@@ -33,4 +35,10 @@
 }
 .toggle.active::before {
   transform: translateX(calc(60px - 100% - 2px));
+}
+
+@media screen and (min-width: 480px) {
+  .toggleContainer p {
+    font-size: 18px;
+  }
 }
