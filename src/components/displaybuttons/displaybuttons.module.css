@@ -1,29 +1,52 @@
-.showGraphBTN,
-.showDataBTN {
+.toggleButton {
   position: fixed;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 50px;
-  right: 2rem;
   bottom: 2rem;
+  width: 65px;
+  height: 50px;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0 35px 35px 0;
+  z-index: 998;
+  transition: 0.3s ease-in-out;
+}
+.toggleButton.chart {
   background-color: var(--blue);
   color: white;
-  font-weight: 500;
-  border-radius: 50px;
-  font-size: 20px;
-  z-index: 9998;
 }
-.showDataBTN {
+.toggleButton.data {
   background-color: white;
   color: var(--blue);
-  border: 3px solid var(--blue);
+  outline: 2px solid var(--blue);
 }
-@media screen and (min-width: 900px) {
-  .showGraphBTN,
-  .showDataBTN {
+.toggleButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.toggleButton > p {
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: transform 0s ease-in-out 0.3s;
+}
+@media screen and (min-width: 768px) {
+  .toggleButton {
+    padding-left: 0;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 145px;
+  }
+  .toggleButton.data {
+    outline: 3px solid var(--blue);
+  }
+  .toggleButton > p {
+    opacity: 1;
+    font-weight: 600;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .toggleButton {
     display: none;
   }
 }
