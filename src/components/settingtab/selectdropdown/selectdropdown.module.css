@@ -1,22 +1,37 @@
 .selectContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
-
+.selectContainer p {
+  font-size: 16px;
+}
 .select {
-  width: 60px;
+  margin-top: 0.5rem;
+  align-self: flex-end;
+  display: block;
   border-radius: 5px;
   border: 1px solid #908f8f;
-  padding: 5px 10px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
+  padding: 5px;
 }
 .select:focus {
   outline: none;
 }
-.select .option {
-  border: 1px solid #908f8f;
-  color: pink;
+
+@media screen and (min-width: 480px) {
+  .selectContainer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .selectContainer p {
+    font-size: 18px;
+  }
+  .select {
+    margin-top: 0;
+    padding: 5px 10px;
+    font-size: 16px;
+  }
 }
