@@ -16,9 +16,9 @@ const Slider: React.FC<SliderProps> = ({
   Unit,
 }) => {
   return (
-    <div className={styles.SliderContainer}>
+    <div className={styles.sliderContainer}>
       <p>{label}</p>
-      <div className={styles.RangeWrapper}>
+      <div className={styles.rangeWrapper}>
         <input
           type="range"
           min={min}
