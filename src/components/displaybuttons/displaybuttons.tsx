@@ -16,35 +16,23 @@ const DisplayButtons: React.FC<DisplayButtonsProps> = ({
 }) => {
   if (!currentData || showNoProject) return null;
   return (
-    <>
-      {showData && (
-        <button
-          className={styles.showGraphBTN}
-          onClick={() => {
-            setShowData(false);
-          }}
-        >
-          <Image
-            src="/statistics.png"
-            alt="graph-icon"
-            width={30}
-            height={30}
-          />
-          <p>Show Graph</p>
-        </button>
-      )}
-      {!showData && (
-        <button
-          className={styles.showDataBTN}
-          onClick={() => {
-            setShowData(true);
-          }}
-        >
-          <Image src="/table.png" alt="data-icon" width={30} height={30} />
-          <p>Show Data</p>
-        </button>
-      )}
-    </>
+    <button
+      className={`${styles.toggleButton} ${
+        showData ? styles.chart : styles.data
+      }`}
+      onClick={() => {
+        setShowData((prev) => !prev);
+      }}
+    >
+      <Image
+        src={showData ? "/statistics.png" : "/table.png"}
+        alt={showData ? "chart-icon" : "data-icon"}
+        width={30}
+        height={30}
+        className={styles.icon}
+      />
+      <p>{showData ? "Show Chart" : "Show Data"}</p>
+    </button>
   );
 };
 
