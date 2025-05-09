@@ -5,14 +5,21 @@
   margin-top: 1rem;
   position: relative;
 }
-
+.selectWrapper {
+  font-size: 16px;
+}
 .colorBox {
   width: 60px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #908f8f;
 }
-
 .pickerWrapper {
   position: fixed;
+}
+
+@media screen and (min-width: 480px) {
+  .selectWrapper {
+    font-size: 18px;
+  }
 }
