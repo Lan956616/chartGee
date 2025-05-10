@@ -1,19 +1,54 @@
 import styles from "./listitem.module.css";
 import Image from "next/image";
 import Link from "next/link";
-type ListItemProps = {
-  children: React.ReactNode;
-  src: string;
-  alt: string;
-  href: string;
-};
-const ListItem: React.FC<ListItemProps> = ({ children, src, alt, href }) => {
+type ListItemProps =
+  | {
+      src: string;
+      hoverSrc: string;
+      alt: string;
+      children: React.ReactNode;
+      href: string;
+      onClick?: never;
+    }
+  | {
+      src: string;
+      hoverSrc: string;
+      alt: string;
+      children: React.ReactNode;
+      onClick?: () => void;
+      href?: never;
+    };
+const ListItem: React.FC<ListItemProps> = (props) => {
+  const { src, hoverSrc, alt, children } = props;
   return (
     <li className={styles.listItemWrapper}>
-      <Link href={href} className={styles.listItem}>
-        <Image src={src} alt={alt} width={25} height={25} />
-        <p>{children}</p>
-      </Link>
+      {props.href ? (
+        <Link href={props.href} className={styles.listItem}>
+          <div className={styles.iconWrapper}>
+            <Image src={src} alt={alt} fill className={styles.icon} />
+            <Image
+              src={hoverSrc}
+              alt={`${alt} hover`}
+              fill
+              className={styles.iconHover}
+            />
+          </div>
+          <p>{children}</p>
+        </Link>
+      ) : (
+        <button className={styles.listItem} onClick={props.onClick}>
+          <div className={styles.iconWrapper}>
+            <Image src={src} alt={alt} fill className={styles.icon} />
+            <Image
+              src={hoverSrc}
+              alt={`${alt} hover`}
+              fill
+              className={styles.iconHover}
+            />
+          </div>
+          <p>{children}</p>
+        </button>
+      )}
     </li>
   );
 };
