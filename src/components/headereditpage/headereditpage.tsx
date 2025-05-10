@@ -62,7 +62,6 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
                 <ShareButton setShowSharePopUp={setShowSharePopUp} />
               </>
             )}
-
             <SmallSideBar />
           </div>
         </div>
