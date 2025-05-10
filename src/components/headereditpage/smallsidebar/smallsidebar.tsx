@@ -4,49 +4,72 @@ import Image from "next/image";
 import ListItem from "./listitem/listitem";
 import styles from "./smallsidebar.module.css";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
+import { handleSignOut } from "@/utils/signOutUser";
 const SmallSideBar: React.FC = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const handleClick = () => {
     setIsClicked((prev) => !prev);
   };
   const hamburgerRef = useRef<HTMLDivElement | null>(null);
-  const popUpRef = useRef<HTMLDivElement | null>(null);
+  const popUpRef = useRef<HTMLUListElement | null>(null);
   useClickWheelOutside(popUpRef, hamburgerRef, isClicked, () => {
     setIsClicked(false);
   });
   return (
     <div className={styles.sideBarWrapper}>
       <div
-        className={`${styles.hamburger} ${isClicked && styles.clicked}`}
+        className={`${styles.hamburger} ${isClicked && styles.active}`}
         onClick={handleClick}
         ref={hamburgerRef}
       >
-        <Image
-          src="/hamburger.png"
-          alt="hamburger-icon"
-          width={15}
-          height={15}
-        />
+        {isClicked ? (
+          <Image src="/cross.png" alt="cross icon" width={20} height={20} />
+        ) : (
+          <Image
+            src="/hamburger.png"
+            alt="hamburger icon"
+            width={15}
+            height={15}
+          />
+        )}
       </div>
-      <div
+      <ul
         className={`${styles.popList} ${isClicked && styles.active}`}
         ref={popUpRef}
       >
-        <ul>
-          <ListItem href="/" src="/bluehome.png" alt="home-icon">
-            Home
-          </ListItem>
-          <ListItem href="/" src="/bluenewfile.png" alt="newfile-icon">
-            New File
-          </ListItem>
-          <ListItem href="/" src="/bluegraph.png" alt="graph-icon">
-            My Graph
-          </ListItem>
-          <ListItem href="/" src="/bluelogout.png" alt="logout-icon">
-            Log Out
-          </ListItem>
-        </ul>
-      </div>
+        <ListItem
+          href="/"
+          src="/blackhome.png"
+          hoverSrc="/bluehome.png"
+          alt="homepage icon"
+        >
+          Home
+        </ListItem>
+        <ListItem
+          href="/dashboard"
+          src="/blacknewfile.png"
+          hoverSrc="/bluenewfile.png"
+          alt="create newfile icon"
+        >
+          New File
+        </ListItem>
+        <ListItem
+          href="/projects"
+          src="/blackgraph.png"
+          hoverSrc="/bluegraph.png"
+          alt="my charts icon"
+        >
+          My Graph
+        </ListItem>
+        <ListItem
+          src="/blacklogout.png"
+          hoverSrc="/bluelogout.png"
+          alt="logout icon"
+          onClick={handleSignOut}
+        >
+          Log Out
+        </ListItem>
+      </ul>
     </div>
   );
 };
