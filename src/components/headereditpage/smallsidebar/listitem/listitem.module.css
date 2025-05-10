@@ -2,19 +2,43 @@
   margin-top: 1rem;
 }
 .listItemWrapper {
-  width: 90%;
+  width: 75%;
   margin: 0 auto;
 }
 .listItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   width: 100%;
 }
-
+.iconWrapper {
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+.icon {
+  object-fit: contain;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+.iconHover {
+  object-fit: contain;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
 .listItem p {
   font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
 }
-.listItem p:hover {
+.listItemWrapper:hover p {
   color: var(--blue);
+  transform: scale(1.05);
+}
+.listItemWrapper:hover .icon {
+  opacity: 0;
+}
+.listItemWrapper:hover .iconHover {
+  opacity: 1;
+  transform: scale(1.1);
 }
