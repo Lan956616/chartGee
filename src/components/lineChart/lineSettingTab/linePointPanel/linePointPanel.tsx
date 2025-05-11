@@ -28,7 +28,7 @@ const LinePointPanel: React.FC = () => {
       <SelectDropDown
         label="Line Style"
         value={option.elements.line.cubicInterpolationMode}
-        width={100}
+        width={110}
         options={[
           { value: "default", label: "Straight" },
           { value: "monotone", label: "Curve" },
