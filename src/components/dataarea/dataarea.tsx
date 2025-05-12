@@ -62,8 +62,14 @@ const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
           Setting
         </Button>
       </nav>
-      {activeTab === "data" && <DataTab />}
-      {activeTab === "setting" && SettingTabComponent}
+      <div className={styles.tabContent}>
+        {activeTab === "data" && <DataTab />}
+        {activeTab === "setting" && (
+          <div className={styles.settingTabContainer}>
+            {SettingTabComponent}
+          </div>
+        )}
+      </div>
     </section>
   );
 };
