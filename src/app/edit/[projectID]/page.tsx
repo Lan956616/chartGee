@@ -146,9 +146,9 @@ const ChartEditPage: React.FC = () => {
           (isLoading || showNoProject) && styles.centeredContent
         }`}
       >
+        {isLoading && <Spinner />}
+        {showNoProject && <NoProject />}
         <ChartDataProvider value={{ currentData, setCurrentData }}>
-          {isLoading && <Spinner />}
-          {showNoProject && <NoProject />}
           {!isLoading && !showNoProject && (
             <>
               <DataArea hideOnMobile={!showData} />
