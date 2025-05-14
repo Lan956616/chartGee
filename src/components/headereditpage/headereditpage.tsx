@@ -32,7 +32,6 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
                 height={45}
               />
             </Link>
-
             {headerStatus === "loading" && (
               <Image
                 src="/loading.png"
@@ -62,7 +61,12 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
                 <ShareButton setShowSharePopUp={setShowSharePopUp} />
               </>
             )}
-            <SmallSideBar />
+            <SmallSideBar
+              handleDownload={handleDownload}
+              isDownload={isDownload}
+              setShowSharePopUp={setShowSharePopUp}
+              headerStatus={headerStatus}
+            />
           </div>
         </div>
       </Container>

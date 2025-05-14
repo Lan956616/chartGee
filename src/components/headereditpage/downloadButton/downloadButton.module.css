@@ -24,6 +24,16 @@
   cursor: default;
   outline: none;
 }
+.btn.inSideBar {
+  width: 80%;
+  display: flex;
+  padding: 8px 15px;
+  gap: 0.5rem;
+  margin: 1rem auto 0 auto;
+}
+.btn.inSideBar .title {
+  display: initial;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -39,19 +49,17 @@
   .btn {
     display: flex;
   }
+  .btn.inSideBar {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .btn {
     padding: 8px 15px;
+    gap: 0.5rem;
   }
   .title {
     display: initial;
-  }
-  .btnImg {
-    margin-right: 0.5rem;
-  }
-  .spinner {
-    margin-right: 0.5rem;
   }
 }

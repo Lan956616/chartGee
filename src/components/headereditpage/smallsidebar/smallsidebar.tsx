@@ -5,7 +5,21 @@ import ListItem from "./listitem/listitem";
 import styles from "./smallsidebar.module.css";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 import { handleSignOut } from "@/utils/signOutUser";
-const SmallSideBar: React.FC = () => {
+import DownloadButton from "../downloadButton/downloadButton";
+import ShareButton from "../sharebutton/sharebutton";
+import type { Dispatch, SetStateAction } from "react";
+type SmallSideBarProps = {
+  handleDownload: () => void;
+  isDownload: boolean;
+  setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
+  headerStatus: "hidden" | "loading" | "done";
+};
+const SmallSideBar: React.FC<SmallSideBarProps> = ({
+  handleDownload,
+  isDownload,
+  setShowSharePopUp,
+  headerStatus,
+}) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const handleClick = () => {
     setIsClicked((prev) => !prev);
@@ -69,6 +83,19 @@ const SmallSideBar: React.FC = () => {
         >
           Log Out
         </ListItem>
+        {headerStatus !== "hidden" && (
+          <>
+            <DownloadButton
+              handleDownload={handleDownload}
+              isDownload={isDownload}
+              inSideBar={true}
+            />
+            <ShareButton
+              setShowSharePopUp={setShowSharePopUp}
+              inSideBar={true}
+            />
+          </>
+        )}
       </ul>
     </div>
   );
