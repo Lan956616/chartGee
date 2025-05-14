@@ -23,9 +23,12 @@
   gap: 0.5rem;
   margin: 0.5rem auto 0 auto;
   background-color: #c0e8f9;
+  transition: 0.3s ease-in-out;
 }
 .btn.inSideBar:hover {
-  outline: 2px solid black;
+  cursor: pointer;
+  transform: scale(1.05);
+  outline: none;
 }
 .btn.inSideBar .title {
   display: initial;

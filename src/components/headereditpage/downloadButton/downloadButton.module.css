@@ -30,6 +30,12 @@
   padding: 8px 15px;
   gap: 0.5rem;
   margin: 1rem auto 0 auto;
+  transition: 0.3s ease-in-out;
+}
+.btn.inSideBar:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  outline: none;
 }
 .btn.inSideBar .title {
   display: initial;
