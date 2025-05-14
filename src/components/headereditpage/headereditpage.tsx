@@ -10,7 +10,7 @@ import DownloadButton from "./downloadButton/downloadButton";
 type HeaderEditPageProps = {
   headerStatus: "hidden" | "loading" | "done";
   setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
-  handleDownload: () => void;
+  handleDownload: () => Promise<void>;
   isDownload: boolean;
 };
 const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
