@@ -1,7 +1,12 @@
+"use client";
 import styles from "./heroSection.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { useAppSelector } from "@/lib/hooks";
 const HeroSection: React.FC = () => {
+  const { currentUser } = useAppSelector((store) => {
+    return store.auth;
+  });
   return (
     <section className={styles.hero}>
       <div className={styles.hero_wrapper}>
@@ -12,15 +17,29 @@ const HeroSection: React.FC = () => {
           professional data visualizations
         </p>
         <div className={styles.hero_BTNgroup}>
-          <Link
-            href="/signup"
-            className={`${styles.hero_BTN} ${styles.signUp}`}
-          >
-            Sign Up Free
-          </Link>
-          <Link href="/login" className={`${styles.hero_BTN} ${styles.logIn}`}>
-            Log In
-          </Link>
+          {currentUser ? (
+            <Link
+              href="/dashboard"
+              className={`${styles.hero_BTN} ${styles.create}`}
+            >
+              Try It Now
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/signup"
+                className={`${styles.hero_BTN} ${styles.signUp}`}
+              >
+                Sign Up Free
+              </Link>
+              <Link
+                href="/login"
+                className={`${styles.hero_BTN} ${styles.logIn}`}
+              >
+                Log In
+              </Link>
+            </>
+          )}
         </div>
         <div className={styles.hero_imageWrapper}>
           <Image

@@ -47,11 +47,13 @@
   text-align: center;
   max-width: 300px;
 }
-.hero_BTN.signUp {
+.hero_BTN.signUp,
+.hero_BTN.create {
   background-color: var(--blue);
   color: white;
 }
-.hero_BTN.signUp:hover {
+.hero_BTN.signUp:hover,
+.hero_BTN.create:hover {
   background-color: #2d78c3;
 }
 

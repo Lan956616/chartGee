@@ -1,10 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "@/lib/hooks";
 import styles from "./stepSection.module.css";
 import Link from "next/link";
 import StepTab from "./stepTab/stepTab";
 import StepContent from "./stepContent/stepContent";
 const StepSection: React.FC = () => {
+  const { currentUser } = useAppSelector((store) => {
+    return store.auth;
+  });
   const [activeIndex, setActiveIndex] = useState<number>(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,7 +48,10 @@ const StepSection: React.FC = () => {
           design professional and engaging visualizations that impress your
           audience. Minimum effort, maximum clarity.
         </p>
-        <Link href="/signup" className={styles.step_BTN}>
+        <Link
+          href={currentUser ? "/dashboard" : "/signup"}
+          className={styles.step_BTN}
+        >
           Create My Graph
         </Link>
         <div className={styles.TitleBox}>

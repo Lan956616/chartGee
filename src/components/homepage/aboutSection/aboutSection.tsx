@@ -1,7 +1,12 @@
+"use client";
 import styles from "./aboutSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useAppSelector } from "@/lib/hooks";
 const AboutSection: React.FC = () => {
+  const { currentUser } = useAppSelector((store) => {
+    return store.auth;
+  });
   return (
     <section className={styles.about}>
       <div className={styles.about_wrapper}>
@@ -23,7 +28,10 @@ const AboutSection: React.FC = () => {
             chart maker: crafted by experts, driven by innovation, and trusted
             by data enthusiasts.
           </p>
-          <Link href="/signup" className={styles.try_BTN}>
+          <Link
+            href={currentUser ? "/dashboard" : "/signup"}
+            className={styles.try_BTN}
+          >
             Try It Now
           </Link>
         </div>

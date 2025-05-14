@@ -1,7 +1,12 @@
+"use client";
 import styles from "./chartHighlightSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useAppSelector } from "@/lib/hooks";
 const ChartHighlightSection: React.FC = () => {
+  const { currentUser } = useAppSelector((store) => {
+    return store.auth;
+  });
   return (
     <section className={styles.highlight}>
       <div className={styles.highlightWrapper}>
@@ -25,7 +30,10 @@ const ChartHighlightSection: React.FC = () => {
             speak for themselves.
           </p>
           <div className={styles.BTNwrapper}>
-            <Link href="/signup" className={styles.BTN}>
+            <Link
+              href={currentUser ? "/dashboard" : "/signup"}
+              className={styles.BTN}
+            >
               Get Started Now
             </Link>
           </div>
