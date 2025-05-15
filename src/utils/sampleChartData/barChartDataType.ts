@@ -24,7 +24,6 @@ export type SampleBarChartOptions = {
     };
   };
   plugins: {
-    //圖表標題
     title: {
       display: true | false;
       text: string;
