@@ -2,6 +2,11 @@ import type {
   SampleBarChartData,
   SampleBarChartOptions,
 } from "./barChartDataType";
+const emptyDataset = (color: string) => ({
+  label: "",
+  data: Array(12).fill(""),
+  backgroundColor: color,
+});
 export const SampleBarChartdata: SampleBarChartData = {
   labels: ["Jan", "Feb", "Mar", "Apr", "", "", "", "", "", "", "", ""],
   datasets: [
@@ -20,10 +25,10 @@ export const SampleBarChartdata: SampleBarChartData = {
       data: [50, 50, 50, 50, "", "", "", "", "", "", "", ""],
       backgroundColor: "#ABEBC6",
     },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#E67E22" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#E573C2" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#5DADE2" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#EC7063" },
+    emptyDataset("#E67E22"),
+    emptyDataset("#E573C2"),
+    emptyDataset("#5DADE2"),
+    emptyDataset("#EC7063"),
   ],
 };
 
@@ -137,24 +142,12 @@ export const SampleBarChartoptions: SampleBarChartOptions = {
 export const blankBarChartData: SampleBarChartData = {
   labels: Array(12).fill(""),
   datasets: [
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#E74C3C",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#F7DC6F",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#ABEBC6",
-    },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#E67E22" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#E573C2" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#5DADE2" },
-    { label: "", data: Array(12).fill(""), backgroundColor: "#EC7063" },
+    emptyDataset("#E74C3C"),
+    emptyDataset("#F7DC6F"),
+    emptyDataset("#ABEBC6"),
+    emptyDataset("#E67E22"),
+    emptyDataset("#E573C2"),
+    emptyDataset("#5DADE2"),
+    emptyDataset("#EC7063"),
   ],
 };
