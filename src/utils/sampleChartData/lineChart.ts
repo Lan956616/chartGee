@@ -3,57 +3,51 @@ import type {
   SampleLineChartOption,
 } from "./lineChartDataType";
 
-export const blankLineChartData: SampleLineChartData = {
-  labels: Array(12).fill(""),
+const emptyDataset = (color: string) => ({
+  label: "",
+  data: Array(12).fill(""),
+  backgroundColor: color,
+  borderColor: color,
+});
+export const sampleLineChartData: SampleLineChartData = {
+  labels: [
+    "January",
+    "Feburary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ],
   datasets: [
     {
-      label: "",
-      data: Array(12).fill(""),
+      label: "Strawberry",
+      data: [100, 50, 85, 20, 68, 80, "", "", "", "", "", ""],
       backgroundColor: "#E573C2",
       borderColor: "#E573C2",
     },
     {
-      label: "",
-      data: Array(12).fill(""),
+      label: "Mint",
+      data: [20, 40, 53, 37, 55, 43, "", "", "", "", "", ""],
       backgroundColor: "#82E0AA",
       borderColor: "#82E0AA",
     },
     {
-      label: "",
-      data: Array(12).fill(""),
+      label: "Mango",
+      data: [40, 67, 67, 67, 40, 66, "", "", "", "", "", ""],
       backgroundColor: "#F4A261",
       borderColor: "#F4A261",
     },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#000000",
-      borderColor: "#000000",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#E74C3C",
-      borderColor: "#E74C3C",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#B87FDB",
-      borderColor: "#B87FDB",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#5E33D1",
-      borderColor: "#5E33D1",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#3498DB",
-      borderColor: "#3498DB",
-    },
+    emptyDataset("#000000"),
+    emptyDataset("#E74C3C"),
+    emptyDataset("#B87FDB"),
+    emptyDataset("#5E33D1"),
+    emptyDataset("#3498DB"),
   ],
 };
 export const sampleLineChartOption: SampleLineChartOption = {
@@ -126,7 +120,7 @@ export const sampleLineChartOption: SampleLineChartOption = {
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "#AOAOAO",
+        color: "#A0A0A0",
         padding: 10,
       },
       title: {
@@ -153,7 +147,7 @@ export const sampleLineChartOption: SampleLineChartOption = {
           weight: "bold",
           family: "'Outfit', 'Noto Sans TC', sans-serif",
         },
-        color: "#AOAOAO",
+        color: "#A0A0A0",
         padding: 10,
       },
       title: {
@@ -170,64 +164,16 @@ export const sampleLineChartOption: SampleLineChartOption = {
     },
   },
 };
-
-export const sampleLineChartData: SampleLineChartData = {
-  labels: [
-    "January",
-    "Feburary",
-    "March",
-    "April",
-    "May",
-    "June",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ],
+export const blankLineChartData: SampleLineChartData = {
+  labels: Array(12).fill(""),
   datasets: [
-    {
-      label: "Strawberry",
-      data: [100, 50, 85, 20, 68, 80, "", "", "", "", "", ""],
-      backgroundColor: "#E573C2",
-      borderColor: "#E573C2",
-    },
-    {
-      label: "Mint",
-      data: [20, 40, 53, 37, 55, 43, "", "", "", "", "", ""],
-      backgroundColor: "#82E0AA",
-      borderColor: "#82E0AA",
-    },
-    {
-      label: "Mango",
-      data: [40, 67, 67, 67, 40, 66, "", "", "", "", "", ""],
-      backgroundColor: "#F4A261",
-      borderColor: "#F4A261",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#000000",
-      borderColor: "#000000",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#E74C3C",
-      borderColor: "#E74C3C",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#B87FDB",
-      borderColor: "#B87FDB",
-    },
-    {
-      label: "",
-      data: Array(12).fill(""),
-      backgroundColor: "#5E33D1",
-      borderColor: "#5E33D1",
-    },
+    emptyDataset("#E573C2"),
+    emptyDataset("#82E0AA"),
+    emptyDataset("#F4A261"),
+    emptyDataset("#000000"),
+    emptyDataset("#E74C3C"),
+    emptyDataset("#B87FDB"),
+    emptyDataset("#5E33D1"),
+    emptyDataset("#3498DB"),
   ],
 };
