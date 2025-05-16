@@ -5,20 +5,25 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import EditRenderChart from "./editRenderChart/editRenderChart";
 import Spinner from "../loading/spinner/spinner";
 import { Chart as ChartJS } from "chart.js";
+import DownloadButton from "../headereditpage/downloadButton/downloadButton";
 
 type ChartAreaProps = {
   hideOnMobile: boolean;
   barRef: MutableRefObject<ChartJS<"bar", unknown, unknown> | null>;
   lineRef: MutableRefObject<ChartJS<"line", unknown, unknown> | null>;
   pieRef: MutableRefObject<ChartJS<"pie", unknown, unknown> | null>;
-  onReady?: () => void;
+  onReady: () => void;
+  handleDownload: () => Promise<void>;
+  isDownload: boolean;
 };
 const ChartArea: React.FC<ChartAreaProps> = ({
   hideOnMobile,
   barRef,
-  lineRef,
   pieRef,
+  lineRef,
   onReady,
+  handleDownload,
+  isDownload,
 }) => {
   const context = useContext(ChartDataContext);
   const currentData = context?.currentData;
@@ -35,13 +40,22 @@ const ChartArea: React.FC<ChartAreaProps> = ({
     <section
       className={`${styles.chartarea} ${hideOnMobile && styles.hideOnMobile}`}
     >
-      <EditRenderChart
-        {...currentData}
-        barRef={barRef}
-        pieRef={pieRef}
-        lineRef={lineRef}
-        onReady={onReady}
-      />
+      <div
+        className={`${styles.chartWrapper} ${
+          currentData.option.aspectRatio === 1
+            ? styles.square
+            : styles.rectangle
+        }`}
+      >
+        <EditRenderChart
+          {...currentData}
+          barRef={barRef}
+          pieRef={pieRef}
+          lineRef={lineRef}
+          onReady={onReady}
+        />
+      </div>
+      <DownloadButton handleDownload={handleDownload} isDownload={isDownload} />
     </section>
   );
 };
