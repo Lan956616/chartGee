@@ -1,31 +1,38 @@
 .chartarea {
-  min-width: 450px;
   width: 100%;
-  max-width: 100%;
-  height: 100%;
+  flex-grow: 1;
+  padding: 1.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  position: relative;
 }
 .chartarea.hideOnMobile {
   display: none;
 }
+.chartWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chartWrapper.square {
+  aspect-ratio: 1;
+  width: min(90%, calc(100vh - 72px - 3rem));
+  height: auto;
+}
+.chartWrapper.rectangle {
+  aspect-ratio: 16 / 9;
+  width: 90%;
+  max-height: calc(100vh - 72px - 3rem);
+}
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1025px) {
   .chartarea.hideOnMobile {
     display: flex;
   }
   .chartarea {
-    position: fixed;
-    right: 0;
-    top: 72px;
-    width: calc(50% - 1rem);
     height: calc(100vh - 72px);
-  }
-}
-@media screen and (min-width: 1280px) {
-  .chartarea {
-    width: calc(60% - 54px - 1rem);
+    flex-basis: 50%;
+    flex-shrink: 0;
   }
 }
