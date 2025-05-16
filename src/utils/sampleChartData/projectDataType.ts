@@ -60,5 +60,5 @@ export type EditRenderChartProps = StripDataType & {
   barRef: MutableRefObject<ChartJS<"bar", unknown, unknown> | null>;
   lineRef: MutableRefObject<ChartJS<"line", unknown, unknown> | null>;
   pieRef: MutableRefObject<ChartJS<"pie", unknown, unknown> | null>;
-  onReady?: () => void;
+  onReady: () => void;
 };

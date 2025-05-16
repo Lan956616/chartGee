@@ -6,18 +6,13 @@ import Link from "next/link";
 import ShareButton from "./sharebutton/sharebutton";
 import SmallSideBar from "./smallsidebar/smallsidebar";
 import type { Dispatch, SetStateAction } from "react";
-import DownloadButton from "./downloadButton/downloadButton";
 type HeaderEditPageProps = {
   headerStatus: "hidden" | "loading" | "done";
   setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
-  handleDownload: () => Promise<void>;
-  isDownload: boolean;
 };
 const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
   headerStatus,
   setShowSharePopUp,
-  isDownload,
-  handleDownload,
 }) => {
   return (
     <header className={styles.header}>
@@ -53,17 +48,9 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
           </div>
           <div className={styles.rightHeader}>
             {headerStatus !== "hidden" && (
-              <>
-                <DownloadButton
-                  handleDownload={handleDownload}
-                  isDownload={isDownload}
-                />
-                <ShareButton setShowSharePopUp={setShowSharePopUp} />
-              </>
+              <ShareButton setShowSharePopUp={setShowSharePopUp} />
             )}
             <SmallSideBar
-              handleDownload={handleDownload}
-              isDownload={isDownload}
               setShowSharePopUp={setShowSharePopUp}
               headerStatus={headerStatus}
             />

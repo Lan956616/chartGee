@@ -131,8 +131,6 @@ const ChartEditPage: React.FC = () => {
       <HeaderEditPage
         headerStatus={headerStatus}
         setShowSharePopUp={setShowSharePopUp}
-        handleDownload={handleDownload}
-        isDownload={isDownload}
       />
       <Sidebar />
       <DisplayButtons
@@ -158,6 +156,8 @@ const ChartEditPage: React.FC = () => {
                 lineRef={lineRef}
                 barRef={barRef}
                 onReady={handleChartReady}
+                handleDownload={handleDownload}
+                isDownload={isDownload}
               />
             </>
           )}

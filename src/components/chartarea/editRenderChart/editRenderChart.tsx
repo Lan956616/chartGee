@@ -18,7 +18,7 @@ import {
 } from "chart.js";
 import { getCleanData } from "@/utils/getCleanData";
 import { getCleanPieData } from "@/utils/getCleanPieData";
-import { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
+import type { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
 import dynamic from "next/dynamic";
 const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
   ssr: false,

@@ -1,21 +1,25 @@
 .btn {
-  display: none;
-  padding: 10px;
-  border-radius: 10px;
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  padding: 10px 15px 10px 20px;
+  border-radius: 20px 0 0 20px;
   font-weight: 500;
   font-size: 17px;
-  align-items: center;
-  justify-content: center;
   background-color: var(--blue);
   color: white;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
 }
 .title {
   display: none;
 }
 .btn:hover {
   cursor: pointer;
-  outline: 2px solid white;
+  outline: 3px solid white;
+  transform: scale(1.05);
 }
 .btn:disabled {
   filter: brightness(0.9);
@@ -23,22 +27,7 @@
 .btn:disabled:hover {
   cursor: default;
   outline: none;
-}
-.btn.inSideBar {
-  width: 80%;
-  display: flex;
-  padding: 8px 15px;
-  gap: 0.5rem;
-  margin: 1rem auto 0 auto;
-  transition: 0.3s ease-in-out;
-}
-.btn.inSideBar:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  outline: none;
-}
-.btn.inSideBar .title {
-  display: initial;
+  transform: scale(1);
 }
 @keyframes spin {
   0% {
@@ -51,18 +40,9 @@
 .spinner {
   animation: spin 1s linear infinite;
 }
-@media screen and (min-width: 480px) {
-  .btn {
-    display: flex;
-  }
-  .btn.inSideBar {
-    display: none;
-  }
-}
 
 @media screen and (min-width: 768px) {
   .btn {
-    padding: 8px 15px;
     gap: 0.5rem;
   }
   .title {

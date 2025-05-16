@@ -1,18 +1,16 @@
 import styles from "./downloadButton.module.css";
 import Image from "next/image";
 type DownloadButtonProps = {
-  handleDownload: () => void;
+  handleDownload: () => Promise<void>;
   isDownload: boolean;
-  inSideBar?: boolean;
 };
 const DownloadButton: React.FC<DownloadButtonProps> = ({
   handleDownload,
   isDownload,
-  inSideBar = false,
 }) => {
   return (
     <button
-      className={`${styles.btn} ${inSideBar && styles.inSideBar}`}
+      className={styles.btn}
       onClick={handleDownload}
       disabled={isDownload}
     >
