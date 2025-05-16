@@ -68,7 +68,7 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
           hoverSrc="/bluegraph.png"
           alt="my charts icon"
         >
-          My Graph
+          My Charts
         </ListItem>
         <ListItem
           src="/blacklogout.png"
