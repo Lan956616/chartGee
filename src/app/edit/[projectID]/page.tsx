@@ -14,10 +14,10 @@ import { useAppSelector } from "@/lib/hooks";
 import Loading from "@/components/loading/loading";
 import NoProject from "@/components/share/noProject/NoProject";
 import Spinner from "@/components/loading/spinner/spinner";
-import { uploadThumbnail } from "@/utils/uploadThumbnail";
 import SharePopUp from "@/components/projects/projectCard/sharePopUp/sharePopUp";
 import { downAndUploadImage } from "@/utils/downAndUploadImage";
 import { useProjectData } from "@/hooks/useProjectData";
+import { useInitialThumbnailUpload } from "@/hooks/useInitialThumbnailUpload";
 const ChartEditPage: React.FC = () => {
   const { currentUser: uid, isAuthLoading } = useAppSelector((store) => {
     return store.auth;
@@ -61,47 +61,6 @@ const ChartEditPage: React.FC = () => {
       setIsDownload(false);
     }
   };
-  const handleChartReady = async () => {
-    console.log("handleChartReady triggered");
-    console.log("currentData:", currentData);
-    console.log("uid:", uid, "projectID:", projectID);
-    if (!currentData || !uid || typeof projectID !== "string") return;
-    let canvas = null;
-    switch (currentData.chartType) {
-      case "bar":
-        canvas = barRef.current?.canvas;
-        console.log(" barRef canvas:", canvas);
-        break;
-      case "line":
-        canvas = lineRef.current?.canvas;
-        console.log("lineRef canvas:", canvas);
-        break;
-      case "pie":
-        canvas = pieRef.current?.canvas;
-        console.log("pieRef canvas:", canvas);
-        break;
-    }
-    if (!canvas) {
-      console.warn("Chart ready but no canvas, skipping thumbnail upload.");
-      console.log("🤖 barRef:", barRef.current);
-      console.log("🤖 lineRef:", lineRef.current);
-      console.log("🤖 pieRef:", pieRef.current);
-      return;
-    }
-    try {
-      console.log("進入到try");
-      setIsUploading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      const imageBase64 = canvas.toDataURL("image/png");
-      console.log("🖼️ base64 image preview:", imageBase64.slice(0, 100));
-      await uploadThumbnail(imageBase64, uid, projectID);
-      console.log("Thumbnail uploaded successfully!");
-    } catch (err) {
-      console.error("Failed to upload thumbnail:", err);
-    } finally {
-      setIsUploading(false);
-    }
-  };
   useEffect(() => {
     if (isAuthLoading) {
       return;
@@ -118,13 +77,23 @@ const ChartEditPage: React.FC = () => {
     setCurrentData,
   } = useProjectData(uid, projectID);
   const isSaving = useAutoSave(originalData, currentData, projectID, uid);
+  useInitialThumbnailUpload(
+    currentData,
+    showData,
+    uid,
+    projectID as string,
+    barRef,
+    lineRef,
+    pieRef,
+    isUpLoading,
+    setIsUploading
+  );
   const headerStatus =
     isLoading || showNoProject
       ? "hidden"
       : isSaving || isUpLoading
       ? "loading"
       : "done";
-
   if (isAuthLoading) return <Loading />;
   return (
     <div className={styles.pageContainer}>
@@ -155,7 +124,6 @@ const ChartEditPage: React.FC = () => {
                 pieRef={pieRef}
                 lineRef={lineRef}
                 barRef={barRef}
-                onReady={handleChartReady}
                 handleDownload={handleDownload}
                 isDownload={isDownload}
               />

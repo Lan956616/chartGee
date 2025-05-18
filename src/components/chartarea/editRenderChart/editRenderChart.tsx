@@ -36,7 +36,6 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
   barRef,
   lineRef,
   pieRef,
-  onReady,
 }) => {
   useEffect(() => {
     ChartJS.register(
@@ -64,7 +63,6 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         ref={(instance) => {
           if (instance) {
             barRef.current = instance;
-            onReady?.();
           }
         }}
       />
@@ -80,7 +78,6 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         ref={(instance) => {
           if (instance) {
             lineRef.current = instance;
-            onReady?.();
           }
         }}
       />
@@ -96,7 +93,6 @@ const EditRenderChart: React.FC<EditRenderChartProps> = ({
         ref={(instance) => {
           if (instance) {
             pieRef.current = instance;
-            onReady?.();
           }
         }}
       />

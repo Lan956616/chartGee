@@ -12,7 +12,6 @@ type ChartAreaProps = {
   barRef: MutableRefObject<ChartJS<"bar", unknown, unknown> | null>;
   lineRef: MutableRefObject<ChartJS<"line", unknown, unknown> | null>;
   pieRef: MutableRefObject<ChartJS<"pie", unknown, unknown> | null>;
-  onReady: () => void;
   handleDownload: () => Promise<void>;
   isDownload: boolean;
 };
@@ -21,7 +20,6 @@ const ChartArea: React.FC<ChartAreaProps> = ({
   barRef,
   pieRef,
   lineRef,
-  onReady,
   handleDownload,
   isDownload,
 }) => {
@@ -52,7 +50,6 @@ const ChartArea: React.FC<ChartAreaProps> = ({
           barRef={barRef}
           pieRef={pieRef}
           lineRef={lineRef}
-          onReady={onReady}
         />
       </div>
       <DownloadButton handleDownload={handleDownload} isDownload={isDownload} />
