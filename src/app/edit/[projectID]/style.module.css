@@ -1,26 +1,24 @@
 .pageContainer {
   background-color: #dddddd;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
 }
 .main {
+  width: 100%;
   flex-grow: 1;
-  margin-top: 72px;
-  background-color: #dddddd;
-  overflow-y: scroll;
-}
-
-.main.centeredContent {
+  padding-top: 72px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main.centeredContent {
   align-items: center;
   justify-content: center;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1025px) {
   .main {
-    display: flex;
-    overflow: hidden;
+    flex-direction: row;
   }
 }
 
