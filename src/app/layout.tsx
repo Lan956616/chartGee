@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 export const metadata = {
   title: "ChartGee",
   icons: [
-    { rel: "icon", url: "/favicon.png" },
-    { rel: "shortcut icon", url: "/favicon.png" },
+    { rel: "icon", url: "/logos/favicon.png" },
+    { rel: "shortcut icon", url: "/logos/favicon.png" },
   ],
 };
 
