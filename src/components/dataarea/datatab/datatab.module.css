@@ -1,8 +1,6 @@
 .dataTabContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow-y: scroll;
 }
 .TitleInputContainer {
   margin-bottom: 0.5rem;
@@ -14,8 +12,8 @@
 .TitleInputContainer input {
   margin-left: 1rem;
   padding: 5px 10px;
-  min-width: 300px;
-  width: 60%;
+  max-width: 500px;
+  width: 90%;
   font-weight: 700;
   text-align: center;
   transition: 0.3s ease-in;
@@ -50,21 +48,3 @@
 .tableContainer table {
   width: 100%;
 }
-
-/* @media screen and (min-width: 768px) {
-  .dataTabContainer {
-    overflow-y: auto;
-  }
-  .tableContainer {
-    overflow-y: auto;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .dataTabContainer {
-    overflow-y: auto;
-  }
-  .tableContainer {
-    overflow-y: auto;
-  }
-} */
