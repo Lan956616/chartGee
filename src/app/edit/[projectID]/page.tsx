@@ -18,6 +18,8 @@ import SharePopUp from "@/components/projects/projectCard/sharePopUp/sharePopUp"
 import { downAndUploadImage } from "@/utils/downAndUploadImage";
 import { useProjectData } from "@/hooks/useProjectData";
 import { useInitialThumbnailUpload } from "@/hooks/useInitialThumbnailUpload";
+import { toast } from "react-toastify";
+import { getFileName } from "@/utils/getFileName";
 const ChartEditPage: React.FC = () => {
   const { currentUser: uid, isAuthLoading } = useAppSelector((store) => {
     return store.auth;
@@ -43,9 +45,10 @@ const ChartEditPage: React.FC = () => {
       return;
     }
     let canvas = null;
-    if (currentData.chartType === "bar") canvas = barRef.current?.canvas;
-    else if (currentData.chartType === "line") canvas = lineRef.current?.canvas;
-    else if (currentData.chartType === "pie") canvas = pieRef.current?.canvas;
+    const chartType = currentData.chartType;
+    if (chartType === "bar") canvas = barRef.current?.canvas;
+    else if (chartType === "line") canvas = lineRef.current?.canvas;
+    else if (chartType === "pie") canvas = pieRef.current?.canvas;
     if (!canvas || !uid || typeof projectID !== "string") return;
     try {
       setIsDownload(true);
@@ -53,10 +56,11 @@ const ChartEditPage: React.FC = () => {
         canvas,
         uid,
         projectID,
-        `chart-${Date.now()}.png`
+        getFileName(currentData)
       );
     } catch (err) {
       console.error("Download failed.", err);
+      toast.error("Download failed. Please try again.");
     } finally {
       setIsDownload(false);
     }
