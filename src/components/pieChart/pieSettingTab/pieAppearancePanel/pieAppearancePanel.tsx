@@ -7,7 +7,7 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import PieValueSetting from "./PieValueSetting/PieValueSetting";
 import ColorSelect from "@/components/settingtab/colorselect/colorselect";
-import { updateOption } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
 const PieAppearancePanel: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;

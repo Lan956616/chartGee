@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./userButton.module.css";
 import { useState, useRef } from "react";
-import { handleSignOut } from "@/utils/signOutUser";
+import { handleSignOut } from "@/utils/auth/signOutUser";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 const UserButton: React.FC = () => {
   const [isClicked, setIsClicked] = useState(false);

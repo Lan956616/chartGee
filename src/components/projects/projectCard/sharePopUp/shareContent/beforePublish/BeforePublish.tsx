@@ -2,7 +2,7 @@
 import styles from "./BeforePublish.module.css";
 import { useState } from "react";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
-import { db } from "@/utils/firebase";
+import { db } from "@/utils/firebase/firebase";
 import { doc, updateDoc, getDoc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 

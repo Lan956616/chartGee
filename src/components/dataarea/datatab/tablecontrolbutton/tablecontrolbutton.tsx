@@ -2,7 +2,10 @@
 import styles from "./tablecontrolbutton.module.css";
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import { resetDataOnClick, clearDataOnClick } from "@/utils/controlButtonFunc";
+import {
+  resetDataOnClick,
+  clearDataOnClick,
+} from "@/utils/editPage/controlButtonFunc";
 const TableControlButton: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context) return;

@@ -2,7 +2,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import styles from "./colorselect.module.css";
 import ColorPicker from "../colorpicker/colorpicker";
-import { calculateColorSelect } from "@/utils/calculatePosition";
+import { calculateColorSelect } from "@/utils/editPage/calculatePosition";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type SelectProps = {
   label: string;

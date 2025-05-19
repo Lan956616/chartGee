@@ -5,7 +5,7 @@ import styles from "./sharePopUp.module.css";
 import Image from "next/image";
 import type { Dispatch, SetStateAction } from "react";
 import { onSnapshot, doc } from "firebase/firestore";
-import { db } from "@/utils/firebase";
+import { db } from "@/utils/firebase/firebase";
 import Spinner from "@/components/loading/spinner/spinner";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
 import ShareContent from "./shareContent/shareContent";

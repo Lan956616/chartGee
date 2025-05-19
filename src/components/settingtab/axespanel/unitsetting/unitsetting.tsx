@@ -4,7 +4,7 @@ import ColorSelect from "../../colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import TextInput from "../../textinput/textinput";
-import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 const UnitSetting: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;

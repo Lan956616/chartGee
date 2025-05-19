@@ -4,10 +4,10 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./datatableheader.module.css";
 import Image from "next/image";
 
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
-import getAxisInfo from "@/utils/getAxisInfo";
-import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
-import { updateLabelAtIndex } from "@/utils/updateData";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
+import getAxisInfo from "@/utils/editPage/getAxisInfo";
+import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
+import { updateLabelAtIndex } from "@/utils/editPage/updateData";
 const DataTableHeader: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;

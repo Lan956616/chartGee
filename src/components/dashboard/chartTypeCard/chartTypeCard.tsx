@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styles from "./chartTypeCard.module.css";
 import Image from "next/image";
-import { createNewProject } from "@/utils/createNewProject";
+import { createNewProject } from "@/utils/dashboardPage/createNewProject";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";

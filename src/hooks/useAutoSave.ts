@@ -1,12 +1,12 @@
 "use client";
-import { uploadToFirestore } from "@/utils/uploadToFirestore";
+import { uploadToFirestore } from "@/utils/editPage/uploadToFirestore";
 import type {
   ProjectDataType,
   StripDataType,
 } from "@/utils/sampleChartData/projectDataType";
 import { useEffect, useRef, useState } from "react";
 import deepEqual from "fast-deep-equal";
-import { stripProjectData } from "@/utils/stripProjectData";
+import { stripProjectData } from "@/utils/editPage/stripProjectData";
 import { toast } from "react-toastify";
 export const useAutoSave = (
   originalData: ProjectDataType | null,

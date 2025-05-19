@@ -1,4 +1,4 @@
-import { auth } from "./firebase";
+import { auth } from "../firebase/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 export const handleSignOut = async () => {

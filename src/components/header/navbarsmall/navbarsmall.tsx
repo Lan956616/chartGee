@@ -3,7 +3,7 @@ import { useAppSelector } from "@/lib/hooks";
 import Container from "@/components/container/container";
 import ListItem from "../listitem/listitem";
 import styles from "./navbarsmall.module.css";
-import { handleSignOut } from "@/utils/signOutUser";
+import { handleSignOut } from "@/utils/auth/signOutUser";
 type NavbarSmallProps = {
   isClicked: boolean;
 };

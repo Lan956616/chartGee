@@ -3,7 +3,7 @@ import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { updateOption } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
 
 const BarPanel: React.FC = () => {
   const context = useContext(ChartDataContext);

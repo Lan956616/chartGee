@@ -7,9 +7,9 @@ import TabBigItem from "../tabbigitem/tabbigitem";
 import ColorSelect from "../colorselect/colorselect";
 import Toggle from "../toggle/toggle";
 import UnitSetting from "./unitsetting/unitsetting";
-import getAxisInfo from "@/utils/getAxisInfo";
-import { updateOption } from "@/utils/updateOptions";
-import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+import getAxisInfo from "@/utils/editPage/getAxisInfo";
+import { updateOption } from "@/utils/editPage/updateOptions";
+import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 const AxesPanel: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;

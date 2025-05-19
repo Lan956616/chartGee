@@ -1,4 +1,4 @@
-import type { SamplePieChartData } from "./sampleChartData/pieChartDataType";
+import type { SamplePieChartData } from "../sampleChartData/pieChartDataType";
 
 export const getCleanPieData = (
   data: SamplePieChartData

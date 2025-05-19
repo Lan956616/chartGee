@@ -1,17 +1,17 @@
-import { db } from "./firebase";
+import { db } from "../firebase/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import {
   SampleBarChartdata,
   SampleBarChartoptions,
-} from "./sampleChartData/barChart";
+} from "../sampleChartData/barChart";
 import {
   samplePieChartData,
   samplePieChartOption,
-} from "./sampleChartData/pieChart";
+} from "../sampleChartData/pieChart";
 import {
   sampleLineChartData,
   sampleLineChartOption,
-} from "./sampleChartData/lineChart";
+} from "../sampleChartData/lineChart";
 const chartConfig = {
   bar: {
     data: SampleBarChartdata,

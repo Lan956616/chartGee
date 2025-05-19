@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import styles from "./colorbox.module.css";
 import ColorPicker from "@/components/settingtab/colorpicker/colorpicker";
-import { calculateColorBox } from "@/utils/calculatePosition";
+import { calculateColorBox } from "@/utils/editPage/calculatePosition";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type ColorBoxProps = { color: string; onChange: (newColor: string) => void };
 const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {

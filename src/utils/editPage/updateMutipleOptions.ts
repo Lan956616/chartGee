@@ -1,8 +1,8 @@
 import { cloneDeep, set } from "lodash";
-import type { StripDataType } from "./sampleChartData/projectDataType";
-import { SampleBarChartOptions } from "./sampleChartData/barChartDataType";
-import { SampleLineChartOption } from "./sampleChartData/lineChartDataType";
-import { SamplePieChartOption } from "./sampleChartData/pieChartDataType";
+import type { StripDataType } from "../sampleChartData/projectDataType";
+import { SampleBarChartOptions } from "../sampleChartData/barChartDataType";
+import { SampleLineChartOption } from "../sampleChartData/lineChartDataType";
+import { SamplePieChartOption } from "../sampleChartData/pieChartDataType";
 export const updateMultipleOptions = (
   setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   updates: [string, string | number | boolean][]

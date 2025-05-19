@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, MutableRefObject } from "react";
-import { uploadThumbnail } from "@/utils/uploadThumbnail";
+import { uploadThumbnail } from "@/utils/editPage/uploadThumbnail";
 import type { Chart } from "chart.js";
 import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
 export const useInitialThumbnailUpload = (

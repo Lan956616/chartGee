@@ -1,5 +1,5 @@
 import { updateDoc, doc } from "firebase/firestore";
-import { db, storage } from "./firebase";
+import { db, storage } from "../firebase/firebase";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 
 export const uploadThumbnail = async (

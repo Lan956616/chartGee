@@ -1,4 +1,4 @@
-import { handleSignOut } from "@/utils/signOutUser";
+import { handleSignOut } from "@/utils/auth/signOutUser";
 import styles from "./sidebarProjectPage.module.css";
 import ListItem from "@/components/sidebar/listitem/listitem";
 const SidebarProjectPage: React.FC = () => {

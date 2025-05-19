@@ -4,7 +4,7 @@ import Image from "next/image";
 import ListItem from "./listitem/listitem";
 import styles from "./smallsidebar.module.css";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
-import { handleSignOut } from "@/utils/signOutUser";
+import { handleSignOut } from "@/utils/auth/signOutUser";
 import ShareButton from "../sharebutton/sharebutton";
 import type { Dispatch, SetStateAction } from "react";
 type SmallSideBarProps =

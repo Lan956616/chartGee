@@ -5,12 +5,12 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./datatablebody.module.css";
 import ColorBox from "../colorbox/colorbox";
 
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 import {
   updateDatasetColorAtIndex,
   updateDatasetLabelAtIndex,
   updateDatasetValueAtIndex,
-} from "@/utils/updateData";
+} from "@/utils/editPage/updateData";
 
 const DataTableBody: React.FC = () => {
   const context = useContext(ChartDataContext);

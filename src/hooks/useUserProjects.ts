@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import type { ProjectDataType } from "@/utils/sampleChartData/projectDataType";
 import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
-import { db } from "@/utils/firebase";
+import { db } from "@/utils/firebase/firebase";
 export const useUserProjects = (uid: string | null, isAuthLoading: boolean) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);

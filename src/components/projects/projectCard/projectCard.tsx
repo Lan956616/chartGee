@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./projectCard.module.css";
 import Image from "next/image";
 import CardActions from "./cardActions/cardActions";
-import { getChartTypeIcon } from "@/utils/getChartTypeIcon";
+import { getChartTypeIcon } from "@/utils/projectsPage/getChartTypeIcon";
 import SharePopUp from "./sharePopUp/sharePopUp";
 import DeletePopUp from "./deletePopUp/deletePopUp";
 type ProjectCardProps = {

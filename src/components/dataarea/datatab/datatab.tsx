@@ -7,8 +7,8 @@ import DataTableHeader from "./datatableheader/datatableheader";
 import DataTableBody from "./datatablebody/datatablebody";
 import TableControlButton from "./tablecontrolbutton/tablecontrolbutton";
 import PieTableBody from "@/components/pieChart/PieTableBody/PieTableBody";
-import { updateOption } from "@/utils/updateOptions";
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import { updateOption } from "@/utils/editPage/updateOptions";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const DataTab: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const context = useContext(ChartDataContext);

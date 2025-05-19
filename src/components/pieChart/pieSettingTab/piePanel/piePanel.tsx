@@ -3,7 +3,7 @@ import TabBigItem from "@/components/settingtab/tabbigitem/tabbigitem";
 import ColorSelect from "@/components/settingtab/colorselect/colorselect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import { updateOption } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
 
 const PiePanel: React.FC = () => {
   const context = useContext(ChartDataContext);

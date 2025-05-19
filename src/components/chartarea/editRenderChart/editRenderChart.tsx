@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
 import styles from "./editRenderChart.module.css";
-import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
+import { backgroundColorPlugin } from "@/utils/chart/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { applyPieFormatter } from "@/utils/applyPieFormatter";
+import { applyPieFormatter } from "@/utils/chart/applyPieFormatter";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -16,8 +16,8 @@ import {
   LineElement,
   PointElement,
 } from "chart.js";
-import { getCleanData } from "@/utils/getCleanData";
-import { getCleanPieData } from "@/utils/getCleanPieData";
+import { getCleanData } from "@/utils/chart/getCleanData";
+import { getCleanPieData } from "@/utils/chart/getCleanPieData";
 import type { EditRenderChartProps } from "@/utils/sampleChartData/projectDataType";
 import dynamic from "next/dynamic";
 const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./googleLogInBTN.module.css";
 import Image from "next/image";
 import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "@/utils/firebase";
+import { auth, provider } from "@/utils/firebase/firebase";
 import { useRouter } from "next/navigation";
 import { FirebaseError } from "firebase/app";
 import ErrorMessage from "../auth/errorMessage/errorMessage";

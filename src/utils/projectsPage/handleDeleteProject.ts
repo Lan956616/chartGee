@@ -1,4 +1,4 @@
-import { db, storage } from "./firebase";
+import { db, storage } from "../firebase/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 export const handleDeleteProject = async (uid: string, projectID: string) => {

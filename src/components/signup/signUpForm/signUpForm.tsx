@@ -4,13 +4,13 @@ import { useRouter } from "next/navigation";
 import styles from "./signUpForm.module.css";
 import Image from "next/image";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/utils/firebase";
+import { auth } from "@/utils/firebase/firebase";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
-import { validateAuthForm } from "@/utils/validateAuthForm";
-import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
+import { validateAuthForm } from "@/utils/auth/validateAuthForm";
+import { getFirebaseErrorMessage } from "@/utils/auth/getFirebaseErrorMessage";
 import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const SignUpForm: React.FC = () => {
   const router = useRouter();
   const emailInputRef = useRef<HTMLInputElement | null>(null);

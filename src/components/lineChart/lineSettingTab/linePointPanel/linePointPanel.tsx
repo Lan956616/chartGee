@@ -4,8 +4,8 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import Slider from "@/components/settingtab/slider/slider";
 import SelectDropDown from "@/components/settingtab/selectdropdown/selectdropdown";
 import TabBigItem from "@/components/settingtab/tabbigitem/tabbigitem";
-import { updateOption } from "@/utils/updateOptions";
-import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
+import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 
 const LinePointPanel: React.FC = () => {
   const context = useContext(ChartDataContext);

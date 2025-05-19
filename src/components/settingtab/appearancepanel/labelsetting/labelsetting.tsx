@@ -5,7 +5,7 @@ import styles from "./labelsetting.module.css";
 import SelectDropDown from "../../selectdropdown/selectdropdown";
 import Slider from "../../slider/slider";
 import ColorSelect from "../../colorselect/colorselect";
-import { updateOption } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
 const LabelSetting: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;

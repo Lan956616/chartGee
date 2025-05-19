@@ -1,8 +1,8 @@
 import type {
   ProjectDataType,
   StripDataType,
-} from "./sampleChartData/projectDataType";
-import { db } from "./firebase";
+} from "../sampleChartData/projectDataType";
+import { db } from "../firebase/firebase";
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 export const uploadToFirestore = async (
   originalData: ProjectDataType,

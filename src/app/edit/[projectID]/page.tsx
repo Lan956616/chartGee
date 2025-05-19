@@ -15,11 +15,11 @@ import Loading from "@/components/loading/loading";
 import NoProject from "@/components/share/noProject/NoProject";
 import Spinner from "@/components/loading/spinner/spinner";
 import SharePopUp from "@/components/projects/projectCard/sharePopUp/sharePopUp";
-import { downAndUploadImage } from "@/utils/downAndUploadImage";
+import { downAndUploadImage } from "@/utils/editPage/downAndUploadImage";
 import { useProjectData } from "@/hooks/useProjectData";
 import { useInitialThumbnailUpload } from "@/hooks/useInitialThumbnailUpload";
 import { toast } from "react-toastify";
-import { getFileName } from "@/utils/getFileName";
+import { getFileName } from "@/utils/editPage/getFileName";
 const ChartEditPage: React.FC = () => {
   const { currentUser: uid, isAuthLoading } = useAppSelector((store) => {
     return store.auth;

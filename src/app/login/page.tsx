@@ -5,14 +5,14 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { auth } from "@/utils/firebase";
+import { auth } from "@/utils/firebase/firebase";
 import GoogleLogInBTN from "@/components/googleLogInBTN/googleLogInBTN";
-import { validateAuthForm } from "@/utils/validateAuthForm";
-import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
+import { validateAuthForm } from "@/utils/auth/validateAuthForm";
+import { getFirebaseErrorMessage } from "@/utils/auth/getFirebaseErrorMessage";
 import { useAppSelector } from "@/lib/hooks";
 import FormSubmitButton from "@/components/auth/formSubmitButton/formSubmitButton";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const LoginPage: React.FC = () => {
   const user = useAppSelector((store) => {
     return store.auth.currentUser;

@@ -5,7 +5,7 @@ import SelectDropDown from "@/components/settingtab/selectdropdown/selectdropdow
 import Slider from "@/components/settingtab/slider/slider";
 import ColorSelect from "@/components/settingtab/colorselect/colorselect";
 import TextInput from "@/components/settingtab/textinput/textinput";
-import { updateOption } from "@/utils/updateOptions";
+import { updateOption } from "@/utils/editPage/updateOptions";
 
 const PieValueSetting: React.FC = () => {
   const context = useContext(ChartDataContext);

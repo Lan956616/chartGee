@@ -3,12 +3,12 @@ import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./PieTableBody.module.css";
 import ColorBox from "@/components/dataarea/datatab/colorbox/colorbox";
-import { handleInputKeyDown } from "@/utils/handleInputKeyDown";
+import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 import {
   updatePieColorAtIndex,
   updatePieLabelAtIndex,
   updatePieValueAtIndex,
-} from "@/utils/updatePieData";
+} from "@/utils/editPage/updatePieData";
 
 const PieTableBody: React.FC = () => {
   const context = useContext(ChartDataContext);

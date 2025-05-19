@@ -1,5 +1,5 @@
-import type { SampleBarChartData } from "./sampleChartData/barChartDataType";
-import type { SampleLineChartData } from "./sampleChartData/lineChartDataType";
+import type { SampleBarChartData } from "../sampleChartData/barChartDataType";
+import type { SampleLineChartData } from "../sampleChartData/lineChartDataType";
 
 export const getCleanData = (
   data: SampleBarChartData | SampleLineChartData

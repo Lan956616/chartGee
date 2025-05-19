@@ -1,4 +1,4 @@
-import type { StripDataType } from "./sampleChartData/projectDataType";
+import type { StripDataType } from "../sampleChartData/projectDataType";
 export const getFileName = (currentData: StripDataType) => {
   const safeChartTitle = currentData.option.plugins.title.text
     .replace(/[\\/:*?"<>|]/g, "")

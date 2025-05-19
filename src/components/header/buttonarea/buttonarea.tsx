@@ -3,7 +3,7 @@ import { useAppSelector } from "@/lib/hooks";
 import styles from "./buttonarea.module.css";
 import Button from "@/components/button/button";
 import Link from "next/link";
-import { handleSignOut } from "@/utils/signOutUser";
+import { handleSignOut } from "@/utils/auth/signOutUser";
 
 const ButtonArea: React.FC = () => {
   const { currentUser: user, isAuthLoading } = useAppSelector((store) => {

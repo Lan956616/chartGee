@@ -1,4 +1,4 @@
-import type { SamplePieChartOption } from "./sampleChartData/pieChartDataType";
+import type { SamplePieChartOption } from "../sampleChartData/pieChartDataType";
 export const applyPieFormatter = (
   option: SamplePieChartOption
 ): SamplePieChartOption => {

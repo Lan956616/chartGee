@@ -5,7 +5,7 @@ import styles from "./deletePopUp.module.css";
 import Image from "next/image";
 import type { Dispatch, SetStateAction } from "react";
 import { useAppSelector } from "@/lib/hooks";
-import { handleDeleteProject } from "@/utils/handleDeleteProject";
+import { handleDeleteProject } from "@/utils/projectsPage/handleDeleteProject";
 import { FirebaseError } from "firebase/app";
 import ErrorMessage from "@/components/auth/errorMessage/errorMessage";
 type DeletePopUpProps = {

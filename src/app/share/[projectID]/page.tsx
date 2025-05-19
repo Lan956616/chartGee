@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import HeaderSharePage from "@/components/share/header/headerSharePage";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/utils/firebase";
+import { db } from "@/utils/firebase/firebase";
 import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
 import Spinner from "@/components/loading/spinner/spinner";
 import NoProject from "@/components/share/noProject/NoProject";

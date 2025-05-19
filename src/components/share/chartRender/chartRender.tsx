@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import styles from "./chartRender.module.css";
-import { backgroundColorPlugin } from "@/utils/backgroundColorPlugin";
+import { backgroundColorPlugin } from "@/utils/chart/backgroundColorPlugin";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import {
   Chart as ChartJS,
@@ -15,8 +15,8 @@ import {
   LineElement,
   PointElement,
 } from "chart.js";
-import { getCleanData } from "@/utils/getCleanData";
-import { getCleanPieData } from "@/utils/getCleanPieData";
+import { getCleanData } from "@/utils/chart/getCleanData";
+import { getCleanPieData } from "@/utils/chart/getCleanPieData";
 import { StripDataType } from "@/utils/sampleChartData/projectDataType";
 import dynamic from "next/dynamic";
 

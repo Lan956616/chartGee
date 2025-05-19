@@ -1,4 +1,4 @@
-import { StripDataType } from "./sampleChartData/projectDataType";
+import { StripDataType } from "../sampleChartData/projectDataType";
 export const updateLabelAtIndex = (
   setCurrentData: React.Dispatch<React.SetStateAction<StripDataType | null>>,
   newValue: string,

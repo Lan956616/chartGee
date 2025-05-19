@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import { db } from "@/utils/firebase";
+import { db } from "@/utils/firebase/firebase";
 import { onSnapshot, doc } from "firebase/firestore";
 import type {
   ProjectDataType,
   StripDataType,
 } from "@/utils/sampleChartData/projectDataType";
-import { stripProjectData } from "@/utils/stripProjectData";
+import { stripProjectData } from "@/utils/editPage/stripProjectData";
 import { toast } from "react-toastify";
 export const useProjectData = (
   uid: string | null,

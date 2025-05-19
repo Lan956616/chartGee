@@ -2,20 +2,20 @@ import {
   blankBarChartData,
   SampleBarChartdata,
   SampleBarChartoptions,
-} from "./sampleChartData/barChart";
+} from "../sampleChartData/barChart";
 import {
   blankLineChartData,
   sampleLineChartData,
   sampleLineChartOption,
-} from "./sampleChartData/lineChart";
+} from "../sampleChartData/lineChart";
 import {
   blankPieChartData,
   samplePieChartData,
   samplePieChartOption,
-} from "./sampleChartData/pieChart";
+} from "../sampleChartData/pieChart";
 import { getUpdateOption } from "./getUpdateOption";
 import { Dispatch, SetStateAction } from "react";
-import type { StripDataType } from "./sampleChartData/projectDataType";
+import type { StripDataType } from "../sampleChartData/projectDataType";
 
 export const clearDataOnClick = (
   setCurrentData: Dispatch<SetStateAction<StripDataType | null>>

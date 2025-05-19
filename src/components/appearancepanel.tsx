@@ -7,9 +7,9 @@ import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import ValueSetting from "./settingtab/appearancepanel/valuesetting/valuesetting";
 import ColorSelect from "./settingtab/colorselect/colorselect";
-import getAxisInfo from "@/utils/getAxisInfo";
-import { updateOption } from "@/utils/updateOptions";
-import { updateMultipleOptions } from "@/utils/updateMutipleOptions";
+import getAxisInfo from "@/utils/editPage/getAxisInfo";
+import { updateOption } from "@/utils/editPage/updateOptions";
+import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 const AppearancePanel: React.FC = () => {
   const context = useContext(ChartDataContext);
   if (!context?.currentData) return;
