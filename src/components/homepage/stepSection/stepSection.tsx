@@ -21,19 +21,19 @@ const StepSection: React.FC = () => {
     {
       title: "Your First Steps",
       text: `Pick a chart type that fits your needs, then copy and paste your data into the spreadsheet panel. Just your data, visualized — beautifully and instantly.`,
-      src: "/table.png",
+      src: "/charts/table.png",
       alt: "enter data",
     },
     {
       title: "Achieve Beauty With Ease",
       text: `Customize every detail of your chart — type, colors, fonts, borders... We've made sure you can fully express your data story.`,
-      src: "/makeup.png",
+      src: "/icons/makeup.png",
       alt: "customize graph",
     },
     {
       title: "Now It's Yours!",
       text: `Export your chart as an image, or simply share a link with your team. You can also save it to your ChartGee account to access anytime.`,
-      src: "/save.png",
+      src: "/icons/save.png",
       alt: "download graph",
     },
   ];

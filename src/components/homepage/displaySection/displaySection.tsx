@@ -9,7 +9,7 @@ const features = [
     title: "Easily edit online",
     description:
       "Directly input your data into an online spreadsheet — see your chart come to life instantly with ChartGee’s real-time preview.",
-    src: "/editonline.gif",
+    src: "/gif/editonline.gif",
     alt: "edit data online display",
   },
   {
@@ -17,7 +17,7 @@ const features = [
     title: "Custom chart styles",
     description:
       "Freely adjust colors, labels, borders, and more — ChartGee gives you full control to style your chart exactly the way you want.",
-    src: "/customize.gif",
+    src: "/gif/customize.gif",
     alt: "customize chart display",
   },
   {
@@ -25,7 +25,7 @@ const features = [
     title: "Export & share anywhere",
     description:
       "You’re in control — download your chart as a high-quality PNG or share it with a public link in just a click.",
-    src: "/shareanddownload.gif",
+    src: "/gif/shareanddownload.gif",
     alt: "share and download your chart display",
   },
 ];
