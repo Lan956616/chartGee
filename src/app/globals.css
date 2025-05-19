@@ -10,6 +10,7 @@
   --tabMenu-height: 33px;
   --tabMenu-padding: 1.5rem;
   --tabMenu-margin: 1rem;
+  --blue: #3d92e7;
 }
 *,
 *::before,
@@ -18,9 +19,6 @@
   padding: 0;
   list-style: none;
   box-sizing: border-box;
-}
-* {
-  --blue: #3d92e7;
 }
 html,
 body {
