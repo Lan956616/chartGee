@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-height: 72px;
+  --dataArea-margin: 1rem;
+  --dataArea-padding: 1.6rem;
+  --tabMenu-height: 33px;
+  --tabMenu-padding: 1.5rem;
+  --tabMenu-margin: 1rem;
+}
 *,
 *::before,
 *::after {
