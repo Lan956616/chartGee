@@ -45,7 +45,7 @@ const DeletePopUp: React.FC<DeletePopUpProps> = ({
     <div className={styles.popupContainer}>
       <div className={styles.popupBox} ref={popupRef}>
         <Image
-          src="/cross.png"
+          src="/icons/cross.png"
           alt="close icon"
           width={30}
           height={30}

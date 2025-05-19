@@ -1,12 +1,12 @@
 export const getChartTypeIcon = (chartType: "pie" | "line" | "bar") => {
   switch (chartType) {
     case "pie":
-      return "/piechart.png";
+      return "/charts/piechart.png";
 
     case "line":
-      return "/line.png";
+      return "/charts/line.png";
 
     case "bar":
-      return "/blackgraph.png";
+      return "/charts/blackgraph.png";
   }
 };

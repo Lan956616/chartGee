@@ -72,7 +72,7 @@ const SharePopUp: React.FC<SharePopUpProps> = ({
         ref={popupRef}
       >
         <Image
-          src="/cross.png"
+          src="/icons/cross.png"
           alt="close icon"
           width={30}
           height={30}

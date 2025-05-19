@@ -11,7 +11,7 @@ const EmptyProject: React.FC = () => {
       </div>
       <div className={styles.imageArea}>
         <Image
-          src="/analysis.png"
+          src="/charts/analysis.png"
           alt="no chart icon"
           fill
           className={styles.image}

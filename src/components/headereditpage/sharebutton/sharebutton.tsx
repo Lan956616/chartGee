@@ -16,7 +16,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
         setShowSharePopUp(true);
       }}
     >
-      <Image src="/share.png" alt="share-icon" width={20} height={20} />
+      <Image src="/icons/share.png" alt="share-icon" width={20} height={20} />
       <p className={styles.title}>Share</p>
     </button>
   );

@@ -18,7 +18,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
       <div className={`${styles.header} ${isClicked && styles.clicked}`}>
         <p className={styles.question}>{question}</p>
         <Image
-          src="/blue-down-arrow.png"
+          src="/arrows/blue-down-arrow.png"
           alt="toggle arrow"
           width={18}
           height={18}

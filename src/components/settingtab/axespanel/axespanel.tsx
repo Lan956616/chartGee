@@ -18,7 +18,7 @@ const AxesPanel: React.FC = () => {
   if (chartType === "pie") return;
   const { valueAxis } = getAxisInfo(option.indexAxis);
   return (
-    <TabBigItem title="Axes" src="/axis.png" alt="axis-icon">
+    <TabBigItem title="Axes" src="/charts/axis.png" alt="axis-icon">
       <Slider
         label="Font Size"
         min={6}

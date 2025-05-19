@@ -19,7 +19,7 @@ const UserButton: React.FC = () => {
       }}
       ref={iconRef}
     >
-      <Image src="/user.png" alt="user icon" width={20} height={20} />
+      <Image src="/icons/user.png" alt="user icon" width={20} height={20} />
       <button
         className={`${styles.logOutButton} ${isClicked && styles.active}`}
         onClick={handleSignOut}

@@ -16,7 +16,11 @@ const PieAppearancePanel: React.FC = () => {
   if (chartType !== "pie") return;
 
   return (
-    <TabBigItem title="Appearance" src="/painting.png" alt="painting-icon">
+    <TabBigItem
+      title="Appearance"
+      src="/charts/painting.png"
+      alt="painting-icon"
+    >
       <SelectDropDown
         label="Aspect Ratio"
         value={option.aspectRatio === 1 ? "1/1" : "16/9"}

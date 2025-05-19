@@ -25,7 +25,7 @@ const DisplayButtons: React.FC<DisplayButtonsProps> = ({
       }}
     >
       <Image
-        src={showData ? "/statistics.png" : "/table.png"}
+        src={showData ? "/charts/statistics.png" : "/charts/table.png"}
         alt={showData ? "chart-icon" : "data-icon"}
         width={30}
         height={30}

@@ -43,10 +43,15 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
         ref={hamburgerRef}
       >
         {isClicked ? (
-          <Image src="/cross.png" alt="cross icon" width={20} height={20} />
+          <Image
+            src="/icons/cross.png"
+            alt="cross icon"
+            width={20}
+            height={20}
+          />
         ) : (
           <Image
-            src="/hamburger.png"
+            src="/icons/hamburger.png"
             alt="hamburger icon"
             width={15}
             height={15}
@@ -59,16 +64,16 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
       >
         <ListItem
           href="/"
-          src="/blackhome.png"
-          hoverSrc="/bluehome.png"
+          src="/icons/blackhome.png"
+          hoverSrc="/icons/bluehome.png"
           alt="homepage icon"
         >
           Home
         </ListItem>
         <ListItem
           href="/dashboard"
-          src="/blacknewfile.png"
-          hoverSrc="/bluenewfile.png"
+          src="/icons/blacknewfile.png"
+          hoverSrc="/icons/bluenewfile.png"
           alt="create newfile icon"
         >
           New File
@@ -76,16 +81,16 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
         {!inProjectsPage && (
           <ListItem
             href="/projects"
-            src="/blackgraph.png"
-            hoverSrc="/bluegraph.png"
+            src="/charts/blackgraph.png"
+            hoverSrc="/charts/bluegraph.png"
             alt="my charts icon"
           >
             My Charts
           </ListItem>
         )}
         <ListItem
-          src="/blacklogout.png"
-          hoverSrc="/bluelogout.png"
+          src="/icons/blacklogout.png"
+          hoverSrc="/icons/bluelogout.png"
           alt="logout icon"
           onClick={handleSignOut}
         >

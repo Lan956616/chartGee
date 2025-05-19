@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ showCreateGraph = true }) => {
           <div className={styles.leftHeader}>
             <Link href="/">
               <Image
-                src="/chartGeeWithTitle.png"
+                src="/logos/chartGeeWithTitle.png"
                 alt="logo"
                 width={165}
                 height={45}

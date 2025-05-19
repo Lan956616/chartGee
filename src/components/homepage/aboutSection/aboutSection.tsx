@@ -12,7 +12,7 @@ const AboutSection: React.FC = () => {
       <div className={styles.about_wrapper}>
         <div className={styles.picWrapper}>
           <Image
-            src="/HappyStudent.png"
+            src="/illustrations/HappyStudent.png"
             alt="happy student pic"
             fill
             className={styles.pic}

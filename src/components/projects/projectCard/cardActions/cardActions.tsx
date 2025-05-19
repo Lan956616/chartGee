@@ -17,13 +17,13 @@ const CardActions: React.FC<CardActionProps> = ({
       <ActionIcon
         isLink={true}
         href={`/edit/${projectID}`}
-        src="/blackpencil.png"
+        src="/icons/blackpencil.png"
         alt="edit icon"
         hint="edit"
       />
       <ActionIcon
         isLink={false}
-        src="/share.png"
+        src="/icons/share.png"
         alt="share icon"
         hint="share"
         onClick={() => {
@@ -32,7 +32,7 @@ const CardActions: React.FC<CardActionProps> = ({
       />
       <ActionIcon
         isLink={false}
-        src="/trash.png"
+        src="/icons/trash.png"
         alt="delete icon"
         onClick={() => {
           setShowDeletePopup((prev) => !prev);

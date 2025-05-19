@@ -21,7 +21,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
           <div className={styles.leftHeader}>
             <Link href="/">
               <Image
-                src="/whiteiconwithtitle.png"
+                src="/logos/whiteiconwithtitle.png"
                 alt="logo"
                 width={165}
                 height={45}
@@ -29,7 +29,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
             </Link>
             {headerStatus === "loading" && (
               <Image
-                src="/loading.png"
+                src="/state/loading.png"
                 alt="loading"
                 width={35}
                 height={35}
@@ -38,7 +38,7 @@ const HeaderEditPage: React.FC<HeaderEditPageProps> = ({
             )}
             {headerStatus === "done" && (
               <Image
-                src="/uploaddone.png"
+                src="/state/uploaddone.png"
                 alt="uploaddone"
                 width={35}
                 height={35}

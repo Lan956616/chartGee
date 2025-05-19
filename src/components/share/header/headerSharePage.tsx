@@ -16,7 +16,7 @@ const HeaderSharePage: React.FC = () => {
         <div className={styles.headerWrapper}>
           <Link href="/">
             <Image
-              src="/tryChartGeeIcon.png"
+              src="/logos/tryChartGeeIcon.png"
               alt="logo"
               width={165}
               height={45}

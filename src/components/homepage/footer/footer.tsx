@@ -10,13 +10,13 @@ const Footer: React.FC = () => {
         className={styles.picWrapper}
       >
         <Image
-          src="/github.png"
+          src="/icons/github.png"
           alt="github icon"
           fill
           className={styles.iconHover}
         />
         <Image
-          src="/githubhover.png"
+          src="/icons/githubhover.png"
           alt="github hover icon"
           fill
           className={styles.icon}

@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
         </div>
         <div className={styles.hero_imageWrapper}>
           <Image
-            src="/homepage.png"
+            src="/illustrations/homepage.png"
             alt="display picture"
             fill
             className={styles.hero_image}

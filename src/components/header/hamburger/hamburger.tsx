@@ -15,10 +15,15 @@ const Hamburger: React.FC<HamburgerProps> = ({ isClicked, setIsClicked }) => {
         }}
       >
         {isClicked && (
-          <Image src="/cross.png" alt="cross" width={20} height={20} />
+          <Image src="/icons/cross.png" alt="cross" width={20} height={20} />
         )}
         {!isClicked && (
-          <Image src="/hamburger.png" alt="cross" width={20} height={20} />
+          <Image
+            src="/icons/hamburger.png"
+            alt="cross"
+            width={20}
+            height={20}
+          />
         )}
       </div>
       <NavbarSmall isClicked={isClicked} />

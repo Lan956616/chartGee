@@ -5,19 +5,24 @@ const SidebarProjectPage: React.FC = () => {
   return (
     <nav className={styles.sidebar}>
       <ul>
-        <ListItem href="/" src="/darkhome.png" alt="home-icon" lightMode={true}>
+        <ListItem
+          href="/"
+          src="/icons/darkhome.png"
+          alt="home-icon"
+          lightMode={true}
+        >
           Home
         </ListItem>
         <ListItem
           href="/dashboard"
-          src="/darknewfile.png"
+          src="/icons/darknewfile.png"
           alt="newfile-icon"
           lightMode={true}
         >
           New File
         </ListItem>
         <ListItem
-          src="/darklogout.png"
+          src="/icons/darklogout.png"
           alt="logout-icon"
           onClick={handleSignOut}
           lightMode={true}

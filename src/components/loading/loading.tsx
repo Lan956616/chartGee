@@ -5,7 +5,7 @@ const Loading: React.FC = () => {
   return (
     <div className={styles.container}>
       <Image
-        src="/loader.png"
+        src="/state/loader.png"
         alt="loading spinner icon"
         width={60}
         height={60}

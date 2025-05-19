@@ -20,14 +20,14 @@ const DataTableHeader: React.FC = () => {
       <tr className={styles.tableRow}>
         <th className={styles.cell}>
           <Image
-            src="/sync.png"
+            src="/icons/sync.png"
             alt="change-axis-icon"
             width={30}
             height={30}
             className={styles.axisIconBase}
           />
           <Image
-            src="/bluesync.png"
+            src="/icons/bluesync.png"
             alt="blue-change-axis-icon"
             width={30}
             height={30}

@@ -37,7 +37,7 @@ const GoogleLogInBTN: React.FC = () => {
         disabled={isLoading}
       >
         <Image
-          src="/google.png"
+          src="/icons/google.png"
           alt="google-icon"
           width={25}
           height={25}

@@ -29,19 +29,19 @@ const DashBoardPage: React.FC = () => {
       <p className={styles.title}>Create A Chart!</p>
       <div className={styles.graphTypeList}>
         <ChartTypeCard
-          src="bar-chart"
+          src="/charts/bar-chart"
           alt="Bar Chart Icon"
           label="Bar Chart"
           chartType="bar"
         />
         <ChartTypeCard
-          src="pie-chart"
+          src="charts/pie-chart"
           alt="Pie Chart Icon"
           label="Pie Chart"
           chartType="pie"
         />
         <ChartTypeCard
-          src="line-chart"
+          src="charts/line-chart"
           alt="Line Chart Icon"
           label="Line Chart"
           chartType="line"

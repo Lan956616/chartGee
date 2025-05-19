@@ -6,7 +6,7 @@ const NoProject: React.FC = () => {
     <div className={styles.noProjectContainer}>
       <div className={styles.picWrapper}>
         <Image
-          src="/noproject.png"
+          src="/icons/noproject.png"
           alt="no project"
           fill
           className={styles.image}

@@ -6,7 +6,7 @@ type SpinnerProps = {
 const Spinner: React.FC<SpinnerProps> = ({ white = false }) => {
   return (
     <Image
-      src={white ? "/whitespinner.png" : "/spinner.png"}
+      src={white ? "/state/whitespinner.png" : "/state/spinner.png"}
       alt="loading spinner icon"
       width={70}
       height={70}

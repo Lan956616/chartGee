@@ -34,7 +34,7 @@ const DataTab: React.FC = () => {
         />
 
         <Image
-          src="/pencil.png"
+          src="/icons/pencil.png"
           alt="edit-icon"
           width={20}
           height={20}

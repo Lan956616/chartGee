@@ -69,7 +69,7 @@ const SignUpForm: React.FC = () => {
             className={styles.prevStep}
           >
             <Image
-              src="/down-arrow.png"
+              src="/arrows/down-arrow.png"
               alt="left-arrow"
               width={15}
               height={15}

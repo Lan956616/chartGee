@@ -32,7 +32,7 @@ const SignUpPage: React.FC = () => {
         <div className={styles.formAreaWrapper}>
           <Link href="/">
             <Image
-              src="/cross.png"
+              src="/icons/cross.png"
               alt="close-icon"
               width={25}
               height={25}
@@ -40,7 +40,7 @@ const SignUpPage: React.FC = () => {
             />
           </Link>
           <Image
-            src="/chartGeeWithTitle.png"
+            src="/logos/chartGeeWithTitle.png"
             alt="logo"
             width={230}
             height={40}

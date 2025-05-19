@@ -36,7 +36,7 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
         <div className={styles.right}>
           <p>{title}</p>
           <Image
-            src="/down-arrow.png"
+            src="/arrows/down-arrow.png"
             alt="down-arrow-icon"
             width={15}
             height={15}

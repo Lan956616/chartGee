@@ -26,13 +26,13 @@ const ListItem: React.FC<ListItemProps> = ({
       {side === "right" && (
         <div className={styles.imageWrapper}>
           <Image
-            src="/right-arrow.png"
+            src="/arrows/right-arrow.png"
             alt="right-arrow"
             fill
             className={styles.listItemImg}
           />
           <Image
-            src="/blue-right-arrow.png"
+            src="/arrows/blue-right-arrow.png"
             alt="right-arrow"
             fill
             className={styles.hoverImg}
@@ -42,13 +42,13 @@ const ListItem: React.FC<ListItemProps> = ({
       {side === "down" && (
         <div className={styles.imageWrapper}>
           <Image
-            src="/down-arrow.png"
+            src="/arrows/down-arrow.png"
             alt="down-arrow"
             fill
             className={styles.listItemImg}
           />
           <Image
-            src="/blue-down-arrow.png"
+            src="/arrows/blue-down-arrow.png"
             alt="down-arrow"
             fill
             className={styles.hoverImg}

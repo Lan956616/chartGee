@@ -16,7 +16,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
     >
       {isDownload ? (
         <Image
-          src="/load.png"
+          src="/state/load.png"
           alt="loading spinner"
           width={20}
           height={20}
@@ -24,7 +24,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
         />
       ) : (
         <Image
-          src="/whitedownload.png"
+          src="/icons/whitedownload.png"
           alt="download-icon"
           width={20}
           height={20}

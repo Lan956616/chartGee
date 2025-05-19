@@ -14,7 +14,11 @@ const LinePointPanel: React.FC = () => {
   const { option, chartType } = context.currentData;
   if (chartType !== "line") return;
   return (
-    <TabBigItem title="Lines & Points" src="/line.png" alt="line&point-icon">
+    <TabBigItem
+      title="Lines & Points"
+      src="/charts/line.png"
+      alt="line&point-icon"
+    >
       <Slider
         label="Line Width"
         value={option.elements.line.borderWidth}

@@ -5,16 +5,20 @@ const Sidebar: React.FC = () => {
   return (
     <nav className={styles.sidebar}>
       <ul>
-        <ListItem href="/" src="/home.png" alt="home-icon">
+        <ListItem href="/" src="/icons/home.png" alt="home-icon">
           Home
         </ListItem>
-        <ListItem href="/dashboard" src="/newfile.png" alt="newfile-icon">
+        <ListItem href="/dashboard" src="/icons/newfile.png" alt="newfile-icon">
           New File
         </ListItem>
-        <ListItem href="/projects" src="/graph.png" alt="graph-icon">
+        <ListItem href="/projects" src="/charts/graph.png" alt="graph-icon">
           My Charts
         </ListItem>
-        <ListItem src="/logout.png" alt="logout-icon" onClick={handleSignOut}>
+        <ListItem
+          src="/icons/logout.png"
+          alt="logout-icon"
+          onClick={handleSignOut}
+        >
           Log Out
         </ListItem>
       </ul>

@@ -10,7 +10,7 @@ const FormSubmitButton: React.FC<FormSubmitButtonProps> = ({
       <button type="submit" className={styles.submitBTN} disabled={isLoading}>
         {isLoading && (
           <Image
-            src="/load.png"
+            src="/state/load.png"
             alt="loading-spinner"
             width={20}
             height={20}

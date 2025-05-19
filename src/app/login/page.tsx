@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
       <div className={styles.displayArea}>
         <div className={styles.picWrapper}>
           <Image
-            src="/loginDisplay.png"
+            src="/illustrations/loginDisplay.png"
             alt="display-picture"
             fill
             className={styles.pic}
@@ -72,7 +72,7 @@ const LoginPage: React.FC = () => {
         <div className={styles.formAreaWrapper}>
           <Link href="/">
             <Image
-              src="/cross.png"
+              src="/icons/cross.png"
               alt="close icon"
               width={25}
               height={25}
@@ -81,7 +81,7 @@ const LoginPage: React.FC = () => {
           </Link>
 
           <Image
-            src="/chartGeeWithTitle.png"
+            src="/logos/chartGeeWithTitle.png"
             alt="chartGee logo"
             width={230}
             height={40}
