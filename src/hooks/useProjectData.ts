@@ -7,6 +7,7 @@ import type {
   StripDataType,
 } from "@/utils/sampleChartData/projectDataType";
 import { stripProjectData } from "@/utils/stripProjectData";
+import { toast } from "react-toastify";
 export const useProjectData = (
   uid: string | null,
   projectID: string | string[] | undefined
@@ -22,22 +23,31 @@ export const useProjectData = (
     if (typeof projectID !== "string") return;
     setIsLoading(true);
     const projectRef = doc(db, "users", uid, "projects", projectID);
-    const unsubscribe = onSnapshot(projectRef, (snapShot) => {
-      if (!snapShot.exists()) {
+    const unsubscribe = onSnapshot(
+      projectRef,
+      (snapShot) => {
+        if (!snapShot.exists()) {
+          setIsLoading(false);
+          setShowNoProject(true);
+          return;
+        }
+        const project = snapShot.data();
+        setIsLoading(false);
+        setOriginalData(project as ProjectDataType);
+        setCurrentData((prev) => {
+          if (prev === null) {
+            return stripProjectData(project as ProjectDataType);
+          }
+          return prev;
+        });
+      },
+      (error) => {
+        console.error("get user project failed:", error);
+        toast.error("Something Went Wrong! Please try again.");
         setIsLoading(false);
         setShowNoProject(true);
-        return;
       }
-      const project = snapShot.data();
-      setIsLoading(false);
-      setOriginalData(project as ProjectDataType);
-      setCurrentData((prev) => {
-        if (prev === null) {
-          return stripProjectData(project as ProjectDataType);
-        }
-        return prev;
-      });
-    });
+    );
     return () => unsubscribe();
   }, [uid, projectID]);
   return {
