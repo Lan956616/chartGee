@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useRef, MutableRefObject } from "react";
+import { useEffect, useRef, useState, MutableRefObject } from "react";
 import { uploadThumbnail } from "@/utils/uploadThumbnail";
-import type { Dispatch, SetStateAction } from "react";
 import type { Chart } from "chart.js";
 import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
 export const useInitialThumbnailUpload = (
@@ -11,11 +10,10 @@ export const useInitialThumbnailUpload = (
   projectID: string | null,
   barRef: MutableRefObject<Chart<"bar", number[], unknown> | null>,
   lineRef: MutableRefObject<Chart<"line", number[], unknown> | null>,
-  pieRef: MutableRefObject<Chart<"pie", number[], unknown> | null>,
-  isUpLoading: boolean,
-  setIsUploading: Dispatch<SetStateAction<boolean>>
+  pieRef: MutableRefObject<Chart<"pie", number[], unknown> | null>
 ) => {
   const hasGeneratedThumbnail = useRef(false);
+  const [isUpLoading, setIsUploading] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const isDesktop = window.innerWidth >= 1025;
@@ -67,4 +65,5 @@ export const useInitialThumbnailUpload = (
     pieRef,
     isUpLoading,
   ]);
+  return isUpLoading;
 };

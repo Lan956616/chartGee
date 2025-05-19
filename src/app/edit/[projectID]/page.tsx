@@ -29,7 +29,6 @@ const ChartEditPage: React.FC = () => {
   const [showData, setShowData] = useState(true);
   const [showSharePopUp, setShowSharePopUp] = useState(false);
   const [isDownload, setIsDownload] = useState(false);
-  const [isUpLoading, setIsUploading] = useState(false);
   const barRef = useRef<ChartJS<"bar", number[], unknown> | null>(
     null
   ) as MutableRefObject<ChartJS<"bar", number[], unknown> | null>;
@@ -81,16 +80,14 @@ const ChartEditPage: React.FC = () => {
     setCurrentData,
   } = useProjectData(uid, projectID);
   const isSaving = useAutoSave(originalData, currentData, projectID, uid);
-  useInitialThumbnailUpload(
+  const isUpLoading = useInitialThumbnailUpload(
     currentData,
     showData,
     uid,
     projectID as string,
     barRef,
     lineRef,
-    pieRef,
-    isUpLoading,
-    setIsUploading
+    pieRef
   );
   const headerStatus =
     isLoading || showNoProject
