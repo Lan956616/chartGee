@@ -7,6 +7,7 @@ import type {
 import { useEffect, useRef, useState } from "react";
 import deepEqual from "fast-deep-equal";
 import { stripProjectData } from "@/utils/stripProjectData";
+import { toast } from "react-toastify";
 export const useAutoSave = (
   originalData: ProjectDataType | null,
   currentData: StripDataType | null,
@@ -27,10 +28,11 @@ export const useAutoSave = (
       try {
         setIsSaving(true);
         await uploadToFirestore(originalData, currentData, projectID, uid);
-        setIsSaving(false);
       } catch (err) {
+        console.error(`Upload Failed:${err}`);
+        toast.error("Auto-save failed. Please check your network.");
+      } finally {
         setIsSaving(false);
-        console.error(`upload failed:${err}`);
       }
     }, 600);
 
