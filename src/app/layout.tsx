@@ -3,12 +3,15 @@ import AuthInit from "@/components/AuthInit";
 import StoreProvider from "./storeProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 export const metadata = {
   title: "ChartGee",
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: [
+    { rel: "icon", url: "/favicon.png" },
+    { rel: "shortcut icon", url: "/favicon.png" },
+  ],
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
