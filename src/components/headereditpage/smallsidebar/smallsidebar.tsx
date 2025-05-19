@@ -7,13 +7,21 @@ import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 import { handleSignOut } from "@/utils/signOutUser";
 import ShareButton from "../sharebutton/sharebutton";
 import type { Dispatch, SetStateAction } from "react";
-type SmallSideBarProps = {
-  setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
-  headerStatus: "hidden" | "loading" | "done";
-};
+type SmallSideBarProps =
+  | {
+      setShowSharePopUp: Dispatch<SetStateAction<boolean>>;
+      headerStatus: "hidden" | "loading" | "done";
+      inProjectsPage?: never;
+    }
+  | {
+      setShowSharePopUp?: never;
+      headerStatus?: never;
+      inProjectsPage: true;
+    };
 const SmallSideBar: React.FC<SmallSideBarProps> = ({
   setShowSharePopUp,
   headerStatus,
+  inProjectsPage = false,
 }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const handleClick = () => {
@@ -24,10 +32,13 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
   useClickWheelOutside(popUpRef, hamburgerRef, isClicked, () => {
     setIsClicked(false);
   });
+
   return (
     <div className={styles.sideBarWrapper}>
       <div
-        className={`${styles.hamburger} ${isClicked && styles.active}`}
+        className={`${styles.hamburger} ${isClicked && styles.active} ${
+          inProjectsPage && styles.projectPage
+        }`}
         onClick={handleClick}
         ref={hamburgerRef}
       >
@@ -62,14 +73,16 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
         >
           New File
         </ListItem>
-        <ListItem
-          href="/projects"
-          src="/blackgraph.png"
-          hoverSrc="/bluegraph.png"
-          alt="my charts icon"
-        >
-          My Charts
-        </ListItem>
+        {!inProjectsPage && (
+          <ListItem
+            href="/projects"
+            src="/blackgraph.png"
+            hoverSrc="/bluegraph.png"
+            alt="my charts icon"
+          >
+            My Charts
+          </ListItem>
+        )}
         <ListItem
           src="/blacklogout.png"
           hoverSrc="/bluelogout.png"
@@ -78,7 +91,7 @@ const SmallSideBar: React.FC<SmallSideBarProps> = ({
         >
           Log Out
         </ListItem>
-        {headerStatus !== "hidden" && (
+        {!inProjectsPage && headerStatus !== "hidden" && setShowSharePopUp && (
           <ShareButton setShowSharePopUp={setShowSharePopUp} inSideBar={true} />
         )}
       </ul>

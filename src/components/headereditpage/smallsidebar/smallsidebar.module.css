@@ -17,6 +17,9 @@
   border: 2px solid var(--blue);
   cursor: pointer;
 }
+.hamburger.projectPage {
+  background-color: #ddd;
+}
 .popList {
   display: none;
   position: absolute;

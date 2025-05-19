@@ -4,6 +4,7 @@ import styles from "./headerProjectPage.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import UserButton from "./userButton/userButton";
+import SmallSideBar from "@/components/headereditpage/smallsidebar/smallsidebar";
 const HeaderProjectPage: React.FC = ({}) => {
   return (
     <header className={styles.header}>
@@ -17,8 +18,10 @@ const HeaderProjectPage: React.FC = ({}) => {
               height={45}
             />
           </Link>
-
-          <UserButton />
+          <div className={styles.rightHeader}>
+            <UserButton />
+            <SmallSideBar inProjectsPage={true} />
+          </div>
         </div>
       </Container>
     </header>
