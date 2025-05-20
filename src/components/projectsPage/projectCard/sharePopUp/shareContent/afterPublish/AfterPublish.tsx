@@ -2,7 +2,7 @@
 import styles from "./afterPublish.module.css";
 import Link from "next/link";
 import { useState, useRef } from "react";
-import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/components/auth/ErrorMessage_temp/ErrorMessage_temp";
 type AfterPublishProps = {
   url: string;
 };

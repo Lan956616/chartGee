@@ -1,6 +1,6 @@
 "use client";
 import styles from "./dataArea.module.css";
-import Button from "@/components/common/Button/Button";
+import Button from "@/components/common/Button_temp/Button";
 import SettingTab from "./SettingTab/SettingTab";
 import DataTab from "./DataTab/DataTab";
 import PieSettingTab from "./SettingTab/PieSettingTab/PieSettingTab.";

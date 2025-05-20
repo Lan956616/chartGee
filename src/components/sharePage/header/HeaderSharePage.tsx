@@ -1,6 +1,6 @@
 "use client";
 import { useAppSelector } from "@/lib/hooks";
-import Container from "../../common/Container/Container";
+import Container from "../../common/Container_temp/Container";
 import styles from "./headerSharePage.module.css";
 import Image from "next/image";
 import Link from "next/link";
