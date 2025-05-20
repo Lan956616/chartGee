@@ -7,7 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase/firebase";
 import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
 import Spinner from "@/components/common/Loading/Spinner/Spinner";
-import NoProject from "@/components/sharePage/NoProject_temp/NoProject";
+import NoProject from "@/components/sharePage/NoProject/NoProject";
 import ChartRender from "@/components/sharePage/ChartRender/ChartRender";
 const SharePage: React.FC = () => {
   const { projectID } = useParams();

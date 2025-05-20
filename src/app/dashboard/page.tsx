@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import styles from "./style.module.css";
-import Header from "@/components/homePage/header_temp/Header";
+import Header from "@/components/homePage/Header/Header";
 import Loading from "@/components/common/Loading/Loading";
 import ChartTypeCard from "@/components/dashBoardPage/ChartTypeCard/ChartTypeCard";
 const DashBoardPage: React.FC = () => {
