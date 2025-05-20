@@ -3,7 +3,7 @@ import styles from "./chartArea.module.css";
 import { useContext, MutableRefObject } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import EditRenderChart from "./EditRenderChart/EditRenderChart";
-import Spinner from "@/components/common/Loading_temp/Spinner/Spinner";
+import Spinner from "@/components/common/Loading/Spinner/Spinner";
 import { Chart as ChartJS } from "chart.js";
 import DownloadButton from "./DownloadButton/DownloadButton";
 type ChartAreaProps = {

@@ -4,7 +4,7 @@ import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import styles from "./style.module.css";
 import Header from "@/components/homePage/header_temp/Header";
-import Loading from "@/components/common/Loading_temp/Loading";
+import Loading from "@/components/common/Loading/Loading";
 import ChartTypeCard from "@/components/dashBoardPage/ChartTypeCard/ChartTypeCard";
 const DashBoardPage: React.FC = () => {
   const router = useRouter();
