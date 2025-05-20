@@ -8,7 +8,7 @@ import HeaderProjectPage from "@/components/projectsPage/header/HeaderProjectPag
 import SidebarProjectPage from "@/components/projectsPage/sidebar/SidebarProjectPage";
 import Spinner from "@/components/common/Loading/Spinner/Spinner";
 import EmptyProject from "@/components/projectsPage/EmptyProject/EmptyProject";
-import ProjectCard from "@/components/projectsPage/ProjectCard/ProjectCard";
+import ProjectCard from "@/components/projectsPage/ProjectCard_temp/ProjectCard";
 
 const ProjectPage: React.FC = () => {
   const { isAuthLoading, currentUser: uid } = useAppSelector((store) => {

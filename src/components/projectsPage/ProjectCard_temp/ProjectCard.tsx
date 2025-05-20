@@ -2,10 +2,10 @@
 import { useState } from "react";
 import styles from "./projectCard.module.css";
 import Image from "next/image";
-import CardActions from "./CardActions/CardActions";
+import CardActions from "./CardActions_temp/CardActions_temp";
 import { getChartTypeIcon } from "@/utils/projectsPage/getChartTypeIcon";
-import SharePopUp from "./SharePopUp/SharePopUp";
-import DeletePopUp from "./DeletePopUp/DeletePopUp";
+import SharePopUp from "./SharePopUp_temp/SharePopUp_temp";
+import DeletePopUp from "./DeletePopUp_temp/DeletePopUp_temp";
 type ProjectCardProps = {
   chartType: "pie" | "line" | "bar";
   updatedAt: string;

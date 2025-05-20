@@ -4,7 +4,7 @@ import Container from "../../common/Container/Container";
 import styles from "./headerSharePage.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import UserButton from "@/components/projectsPage/header/UserButton/UserButton";
+import UserButton from "@/components/projectsPage/header/UserButton_temp/UserButton";
 
 const HeaderSharePage: React.FC = () => {
   const uid = useAppSelector((store) => {
