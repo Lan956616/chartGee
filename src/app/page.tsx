@@ -1,5 +1,5 @@
 import styles from "./homePage.module.css";
-import Header from "@/components/homePage/Header/Header";
+import Header from "@/components/homePage/header_temp/Header";
 import HeroSection from "@/components/homePage/HeroSection/HeroSection";
 import StepSection from "@/components/homePage/StepSection/StepSection";
 import AboutSection from "@/components/homePage/AboutSection/AboutSection";
