@@ -14,7 +14,7 @@ import { useAppSelector } from "@/lib/hooks";
 import Loading from "@/components/common/Loading/Loading";
 import NoProject from "@/components/sharePage/NoProject/NoProject";
 import Spinner from "@/components/common/Loading/Spinner/Spinner";
-import SharePopUp from "@/components/projectsPage/ProjectCard_temp/SharePopUp_temp/SharePopUp_temp";
+import SharePopUp from "@/components/projectsPage/ProjectCard/SharePopUp/SharePopUp_temp";
 import { downAndUploadImage } from "@/utils/editPage/downAndUploadImage";
 import { useProjectData } from "@/hooks/useProjectData";
 import { useInitialThumbnailUpload } from "@/hooks/useInitialThumbnailUpload";

@@ -3,7 +3,7 @@ import Container from "../../common/Container/Container";
 import styles from "./headerProjectPage.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import UserButton from "./UserButton_temp/UserButton";
+import UserButton from "./UserButton/UserButton";
 import SmallSideBar from "@/components/editPage/HeaderEditPage/SmallSideBar/SmallSideBar";
 const HeaderProjectPage: React.FC = ({}) => {
   return (
