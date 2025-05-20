@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Container from "@/components/common/Container_temp/Container";
+import Container from "@/components/common/Container/Container";
 import ButtonArea from "./ButtonArea/ButtonArea";
 import styles from "./header.module.css";
 import Image from "next/image";

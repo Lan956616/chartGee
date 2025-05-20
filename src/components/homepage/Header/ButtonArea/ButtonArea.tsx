@@ -1,7 +1,7 @@
 "use client";
 import { useAppSelector } from "@/lib/hooks";
 import styles from "./buttonArea.module.css";
-import Button from "@/components/common/Button_temp/Button";
+import Button from "@/components/common/Button/Button";
 import Link from "next/link";
 import { handleSignOut } from "@/utils/auth/signOutUser";
 

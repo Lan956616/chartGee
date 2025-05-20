@@ -1,6 +1,6 @@
 "use client";
 import styles from "./headerEditPage.module.css";
-import Container from "@/components/common/Container_temp/Container";
+import Container from "@/components/common/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
 import ShareButton from "./ShareButton/ShareButton";

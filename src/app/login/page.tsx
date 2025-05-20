@@ -6,12 +6,12 @@ import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/utils/firebase/firebase";
-import GoogleLogInBTN from "@/components/auth/GoogleLogInBTN_temp/GoogleLogInBTN";
+import GoogleLogInBTN from "@/components/auth/GoogleLogInBTN/GoogleLogInBTN";
 import { validateAuthForm } from "@/utils/auth/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/auth/getFirebaseErrorMessage";
 import { useAppSelector } from "@/lib/hooks";
-import FormSubmitButton from "@/components/auth/FormSubmitButton_temp/FormSubmitButton_temp";
-import ErrorMessage from "@/components/auth/ErrorMessage_temp/ErrorMessage_temp";
+import FormSubmitButton from "@/components/auth/FormSubmitButton/FormSubmitButton";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const LoginPage: React.FC = () => {
   const user = useAppSelector((store) => {

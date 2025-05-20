@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import { useAppSelector } from "@/lib/hooks";
 import { useUserProjects } from "@/hooks/useUserProjects";
 import Loading from "@/components/common/Loading/Loading";
-import ErrorMessage from "@/components/auth/ErrorMessage_temp/ErrorMessage_temp";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 import HeaderProjectPage from "@/components/projectsPage/header/HeaderProjectPage";
 import SidebarProjectPage from "@/components/projectsPage/sidebar/SidebarProjectPage";
 import Spinner from "@/components/common/Loading/Spinner/Spinner";

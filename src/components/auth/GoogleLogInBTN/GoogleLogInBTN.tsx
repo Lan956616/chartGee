@@ -6,7 +6,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/utils/firebase/firebase";
 import { useRouter } from "next/navigation";
 import { FirebaseError } from "firebase/app";
-import ErrorMessage from "@/components/auth/ErrorMessage_temp/ErrorMessage_temp";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 const GoogleLogInBTN: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
