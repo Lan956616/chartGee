@@ -1,6 +1,6 @@
 import { handleSignOut } from "@/utils/auth/signOutUser";
 import styles from "./sidebarProjectPage.module.css";
-import ListItem from "@/components/editPage/SideBar/ListItem/ListItem";
+import ListItem from "@/components/editPage/SideBar_temp/ListItem/ListItem";
 const SidebarProjectPage: React.FC = () => {
   return (
     <nav className={styles.sidebar}>
