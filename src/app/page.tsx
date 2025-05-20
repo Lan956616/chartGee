@@ -1,12 +1,12 @@
-import styles from "./homepage.module.css";
-import Header from "@/components/header/header";
-import HeroSection from "@/components/homepage/heroSection/heroSection";
-import StepSection from "@/components/homepage/stepSection/stepSection";
-import AboutSection from "@/components/homepage/aboutSection/aboutSection";
-import DisplaySection from "@/components/homepage/displaySection/displaySection";
-import ChartHighlightSection from "@/components/homepage/chartHighlightSection/chartHighlightSection";
-import FAQSection from "@/components/homepage/FAQSection/FAQSection";
-import Footer from "@/components/homepage/footer/footer";
+import styles from "./homePage.module.css";
+import Header from "@/components/homePage/header/Header";
+import HeroSection from "@/components/homePage/heroSection/HeroSection";
+import StepSection from "@/components/homePage/stepSection/StepSection";
+import AboutSection from "@/components/homePage/aboutSection/AboutSection";
+import DisplaySection from "@/components/homePage/displaySection/DisplaySection";
+import ChartHighlightSection from "@/components/homePage/chartHighlightSection/ChartHighlightSection";
+import FAQSection from "@/components/homePage/FAQSection/FAQSection";
+import Footer from "@/components/homePage/footer/Footer";
 
 export default function Home() {
   return (

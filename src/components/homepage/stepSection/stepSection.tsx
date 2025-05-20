@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import styles from "./stepSection.module.css";
 import Link from "next/link";
-import StepTab from "./stepTab/stepTab";
-import StepContent from "./stepContent/stepContent";
+import StepTab from "./stepTab/StepTab";
+import StepContent from "./stepContent/StepContent";
 const StepSection: React.FC = () => {
   const { currentUser } = useAppSelector((store) => {
     return store.auth;

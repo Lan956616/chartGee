@@ -2,13 +2,13 @@
 import styles from "./style.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import HeaderSharePage from "@/components/share/header/headerSharePage";
+import HeaderSharePage from "@/components/sharePage/header/HeaderSharePage";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase/firebase";
 import type { StripDataType } from "@/utils/sampleChartData/projectDataType";
-import Spinner from "@/components/loading/spinner/spinner";
-import NoProject from "@/components/share/noProject/NoProject";
-import ChartRender from "@/components/share/chartRender/chartRender";
+import Spinner from "@/components/common/loading/spinner/Spinner";
+import NoProject from "@/components/sharePage/noProject/NoProject";
+import ChartRender from "@/components/sharePage/chartRender/ChartRender";
 const SharePage: React.FC = () => {
   const { projectID } = useParams();
   const [isLoading, setIsLoading] = useState(true);

@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import styles from "./style.module.css";
-import Header from "@/components/header/header";
-import Loading from "@/components/loading/loading";
-import ChartTypeCard from "@/components/dashboard/chartTypeCard/chartTypeCard";
+import Header from "@/components/homePage/header/Header";
+import Loading from "@/components/common/loading/Loading";
+import ChartTypeCard from "@/components/dashBoardPage/chartTypeCard/ChartTypeCard";
 const DashBoardPage: React.FC = () => {
   const router = useRouter();
   const { currentUser: user, isAuthLoading } = useAppSelector((store) => {
@@ -29,7 +29,7 @@ const DashBoardPage: React.FC = () => {
       <p className={styles.title}>Create A Chart!</p>
       <div className={styles.graphTypeList}>
         <ChartTypeCard
-          src="/charts/bar-chart"
+          src="charts/bar-chart"
           alt="Bar Chart Icon"
           label="Bar Chart"
           chartType="bar"
