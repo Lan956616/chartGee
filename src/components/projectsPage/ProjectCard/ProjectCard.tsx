@@ -4,7 +4,7 @@ import styles from "./projectCard.module.css";
 import Image from "next/image";
 import CardActions from "./CardActions/CardActions";
 import { getChartTypeIcon } from "@/utils/projectsPage/getChartTypeIcon";
-import SharePopUp from "./SharePopUp/SharePopUp_temp";
+import SharePopUp from "./SharePopUp/SharePopUp";
 import DeletePopUp from "./DeletePopUp/DeletePopUp";
 type ProjectCardProps = {
   chartType: "pie" | "line" | "bar";
