@@ -3,7 +3,7 @@ import styles from "./dataArea.module.css";
 import Button from "@/components/common/Button/Button";
 import SettingTab from "./SettingTab/SettingTab";
 import DataTab from "./DataTab/DataTab";
-import PieSettingTab from "./SettingTab/PieSettingTab/PieSettingTab.";
+import PieSettingTab from "./SettingTab/PieSettingTab/PieSettingTab";
 import LineSettingTab from "./SettingTab/LineSettingTab/LineSettingTab";
 import { useState, useContext } from "react";
 import { ChartDataContext } from "../../ChartDataProvider";
@@ -45,7 +45,7 @@ const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
             setActiveTab("data");
           }}
           className={`${styles.btn} ${
-            activeTab === "data" ? styles.activeBTN : ""
+            activeTab === "data" && styles.activeBTN
           }`}
         >
           Data
@@ -56,7 +56,7 @@ const DataArea: React.FC<DataAreaProps> = ({ hideOnMobile }) => {
             setActiveTab("setting");
           }}
           className={`${styles.btn} ${
-            activeTab === "setting" ? styles.activeBTN : ""
+            activeTab === "setting" && styles.activeBTN
           }`}
         >
           Setting
