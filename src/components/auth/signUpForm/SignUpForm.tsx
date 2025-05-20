@@ -5,11 +5,11 @@ import styles from "./signUpForm.module.css";
 import Image from "next/image";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/utils/firebase/firebase";
-import GoogleLogInBTN from "../googleLogInBTN/GoogleLogInBTN";
+import GoogleLogInBTN from "../GoogleLogInBTN/GoogleLogInBTN";
 import { validateAuthForm } from "@/utils/auth/validateAuthForm";
 import { getFirebaseErrorMessage } from "@/utils/auth/getFirebaseErrorMessage";
-import FormSubmitButton from "@/components/auth/formSubmitButton/FormSubmitButton";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
+import FormSubmitButton from "@/components/auth/FormSubmitButton/FormSubmitButton";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const SignUpForm: React.FC = () => {
   const router = useRouter();

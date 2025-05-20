@@ -1,6 +1,6 @@
-import Slider from "../common/slider/Slider";
-import TabBigItem from "../common/tabBigItem/TabBigItem";
-import ColorSelect from "../common/colorSelect/ColorSelect";
+import Slider from "@/components/editPage/DataArea/SettingTab/common/Slider/Slider";
+import TabBigItem from "@/components/editPage/DataArea/SettingTab/common/TabBigItem/TabBigItem";
+import ColorSelect from "@/components/editPage/DataArea/SettingTab/common/ColorSelect/ColorSelect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
 import { updateOption } from "@/utils/editPage/updateOptions";

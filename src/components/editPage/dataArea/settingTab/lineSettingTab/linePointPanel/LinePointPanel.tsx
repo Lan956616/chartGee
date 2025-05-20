@@ -1,9 +1,9 @@
 "use client";
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import Slider from "../../common/slider/Slider";
-import SelectDropDown from "../../common/selectDropDown/SelectDropDown";
-import TabBigItem from "../../common/tabBigItem/TabBigItem";
+import Slider from "@/components/editPage/DataArea/SettingTab/common/Slider/Slider";
+import SelectDropDown from "@/components/editPage/DataArea/SettingTab/common/SelectDropDown/SelectDropDown";
+import TabBigItem from "@/components/editPage/DataArea/SettingTab/common/TabBigItem/TabBigItem";
 import { updateOption } from "@/utils/editPage/updateOptions";
 import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 

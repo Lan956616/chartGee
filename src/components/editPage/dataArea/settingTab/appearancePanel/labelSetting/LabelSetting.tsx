@@ -2,9 +2,9 @@
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./labelSetting.module.css";
-import SelectDropDown from "../../common/selectDropDown/SelectDropDown";
-import Slider from "../../common/slider/Slider";
-import ColorSelect from "../../common/colorSelect/ColorSelect";
+import SelectDropDown from "@/components/editPage/DataArea/SettingTab/common/SelectDropDown/SelectDropDown";
+import Slider from "@/components/editPage/DataArea/SettingTab/common/Slider/Slider";
+import ColorSelect from "@/components/editPage/DataArea/SettingTab/common/ColorSelect/ColorSelect";
 import { updateOption } from "@/utils/editPage/updateOptions";
 const LabelSetting: React.FC = () => {
   const context = useContext(ChartDataContext);

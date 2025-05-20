@@ -1,7 +1,7 @@
 "use client";
-import AppearancePanel from "./appearancePanel/AppearancePanel";
-import BarPanel from "./barPanel/BarPanel";
-import AxesPanel from "./axesPanel/AxesPanel";
+import AppearancePanel from "./AppearancePanel/AppearancePanel";
+import BarPanel from "./BarPanel/BarPanel";
+import AxesPanel from "./AxesPanel/AxesPanel";
 const SettingTab: React.FC = () => {
   return (
     <>

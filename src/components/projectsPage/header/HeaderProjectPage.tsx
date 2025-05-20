@@ -1,10 +1,10 @@
 "use client";
-import Container from "../../common/container/Container";
+import Container from "../../common/Container/Container";
 import styles from "./headerProjectPage.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import UserButton from "./userButton/UserButton";
-import SmallSideBar from "@/components/editPage/headerEditPage/smallSideBar/SmallSideBar";
+import UserButton from "./UserButton/UserButton";
+import SmallSideBar from "@/components/editPage/HeaderEditPage/SmallSideBar/SmallSideBar";
 const HeaderProjectPage: React.FC = ({}) => {
   return (
     <header className={styles.header}>

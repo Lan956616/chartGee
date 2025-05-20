@@ -1,11 +1,11 @@
 "use client";
 import { useState, useRef } from "react";
 import Image from "next/image";
-import ListItem from "./listItem/ListItem";
+import ListItem from "./ListItem/ListItem";
 import styles from "./smallSideBar.module.css";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 import { handleSignOut } from "@/utils/auth/signOutUser";
-import ShareButton from "../shareButton/ShareButton";
+import ShareButton from "../ShareButton/ShareButton";
 import type { Dispatch, SetStateAction } from "react";
 type SmallSideBarProps =
   | {

@@ -1,7 +1,7 @@
 "use client";
 import { useAppSelector } from "@/lib/hooks";
-import Container from "@/components/common/container/Container";
-import ListItem from "../listItem/ListItem";
+import Container from "@/components/common/Container/Container";
+import ListItem from "../ListItem/ListItem";
 import styles from "./navbarSmall.module.css";
 import { handleSignOut } from "@/utils/auth/signOutUser";
 type NavbarSmallProps = {

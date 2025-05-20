@@ -1,10 +1,10 @@
 "use client";
 import styles from "./headerEditPage.module.css";
-import Container from "@/components/common/container/Container";
+import Container from "@/components/common/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
-import ShareButton from "./shareButton/ShareButton";
-import SmallSideBar from "./smallSideBar/SmallSideBar";
+import ShareButton from "./ShareButton/ShareButton";
+import SmallSideBar from "./SmallSideBar/SmallSideBar";
 import type { Dispatch, SetStateAction } from "react";
 type HeaderEditPageProps = {
   headerStatus: "hidden" | "loading" | "done";

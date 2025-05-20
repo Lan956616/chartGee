@@ -1,6 +1,6 @@
 import styles from "./hamburger.module.css";
 import Image from "next/image";
-import NavbarSmall from "../navbarSmall/NavbarSmall";
+import NavbarSmall from "../NavbarSmall/NavbarSmall";
 type HamburgerProps = {
   isClicked: boolean;
   setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;

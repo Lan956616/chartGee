@@ -1,10 +1,10 @@
 "use client";
 import styles from "./dataArea.module.css";
-import Button from "@/components/common/button/Button";
-import SettingTab from "./settingTab/SettingTab";
-import DataTab from "./dataTab/DataTab";
-import PieSettingTab from "./settingTab/pieSettingTab/PieSettingTab.";
-import LineSettingTab from "./settingTab/lineSettingTab/LineSettingTab";
+import Button from "@/components/common/Button/Button";
+import SettingTab from "./SettingTab/SettingTab";
+import DataTab from "./DataTab/DataTab";
+import PieSettingTab from "./SettingTab/PieSettingTab/PieSettingTab.";
+import LineSettingTab from "./SettingTab/LineSettingTab/LineSettingTab";
 import { useState, useContext } from "react";
 import { ChartDataContext } from "../../ChartDataProvider";
 type DataAreaProps = {

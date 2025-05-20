@@ -1,5 +1,5 @@
 import styles from "./sideBar.module.css";
-import ListItem from "./listItem/ListItem";
+import ListItem from "./ListItem/ListItem";
 import { handleSignOut } from "@/utils/auth/signOutUser";
 const Sidebar: React.FC = () => {
   return (

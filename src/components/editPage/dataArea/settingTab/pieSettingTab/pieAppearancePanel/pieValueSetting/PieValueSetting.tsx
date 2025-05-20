@@ -1,10 +1,10 @@
 "use client";
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
-import SelectDropDown from "../../../common/selectDropDown/SelectDropDown";
-import Slider from "../../../common/slider/Slider";
-import ColorSelect from "../../../common/colorSelect/ColorSelect";
-import TextInput from "../../../common/textInput/TextInput";
+import SelectDropDown from "@/components/editPage/DataArea/SettingTab/common/SelectDropDown/SelectDropDown";
+import Slider from "@/components/editPage/DataArea/SettingTab/common/Slider/Slider";
+import ColorSelect from "@/components/editPage/DataArea/SettingTab/common/ColorSelect/ColorSelect";
+import TextInput from "@/components/editPage/DataArea/SettingTab/common/TextInput/TextInput";
 import { updateOption } from "@/utils/editPage/updateOptions";
 
 const PieValueSetting: React.FC = () => {

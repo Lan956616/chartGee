@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
-import Container from "@/components/common/container/Container";
-import ButtonArea from "./buttonArea/ButtonArea";
+import Container from "@/components/common/Container/Container";
+import ButtonArea from "./ButtonArea/ButtonArea";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import NavbarLarge from "./navbarLarge/NavbarLarge";
-import Hamburger from "./hamburger/Hamburger";
+import NavbarLarge from "./NavbarLarge/NavbarLarge";
+import Hamburger from "./Hamburger/Hamburger";
 type HeaderProps = {
   showCreateGraph?: boolean;
 };

@@ -2,7 +2,7 @@
 import { createPortal } from "react-dom";
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import styles from "./colorBox.module.css";
-import ColorPicker from "../../settingTab/common/colorSelect/colorPicker/ColorPicker";
+import ColorPicker from "../../settingTab/common/ColorSelect/ColorPicker/ColorPicker";
 import { calculateColorBox } from "@/utils/editPage/calculatePosition";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type ColorBoxProps = { color: string; onChange: (newColor: string) => void };

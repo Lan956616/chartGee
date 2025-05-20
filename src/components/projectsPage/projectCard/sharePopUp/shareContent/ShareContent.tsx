@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./shareContent.module.css";
-import AfterPublish from "./afterPublish/AfterPublish";
-import BeforePublish from "./beforePublish/BeforePublish";
+import AfterPublish from "./AfterPublish/AfterPublish";
+import BeforePublish from "./BeforePublish/BeforePublish";
 type ShareContent = { projectID: string; isPublic: boolean; uid: string };
 const ShareContent: React.FC<ShareContent> = ({ projectID, isPublic, uid }) => {
   const [URL, setURL] = useState("");

@@ -1,7 +1,7 @@
 "use client";
 import styles from "./beforePublish.module.css";
 import { useState } from "react";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 import { db } from "@/utils/firebase/firebase";
 import { doc, updateDoc, getDoc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";

@@ -1,5 +1,5 @@
 import styles from "../projectCard.module.css";
-import ActionIcon from "./actionIcon/ActionIcon";
+import ActionIcon from "./ActionIcon/ActionIcon";
 import type { Dispatch, SetStateAction } from "react";
 
 type CardActionProps = {

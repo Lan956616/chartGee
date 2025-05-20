@@ -5,7 +5,7 @@ import Image from "next/image";
 import { createNewProject } from "@/utils/dashboardPage/createNewProject";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 type ChartCardProps = {
   src: string;
   alt: string;

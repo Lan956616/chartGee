@@ -1,10 +1,10 @@
 "use client";
 import { useAppSelector } from "@/lib/hooks";
-import Container from "../../common/container/Container";
+import Container from "../../common/Container/Container";
 import styles from "./headerSharePage.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import UserButton from "@/components/projectsPage/header/userButton/UserButton";
+import UserButton from "@/components/projectsPage/header/UserButton/UserButton";
 
 const HeaderSharePage: React.FC = () => {
   const uid = useAppSelector((store) => {

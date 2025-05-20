@@ -7,7 +7,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { handleDeleteProject } from "@/utils/projectsPage/handleDeleteProject";
 import { FirebaseError } from "firebase/app";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 type DeletePopUpProps = {
   projectID: string;
   setShowDeletePopup: Dispatch<SetStateAction<boolean>>;

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styles from "./displaySection.module.css";
 import Image from "next/image";
-import FeatureItem from "./featureItem/FeatureItem";
+import FeatureItem from "./FeatureItem/FeatureItem";
 const features = [
   {
     id: 0,

@@ -1,9 +1,9 @@
-import Slider from "../common/slider/Slider";
-import SelectDropDown from "../common/selectDropDown/SelectDropDown";
-import ColorSelect from "../common/colorSelect/ColorSelect";
+import Slider from "@/components/editPage/DataArea/SettingTab/common/Slider/Slider";
+import SelectDropDown from "@/components/editPage/DataArea/SettingTab/common/SelectDropDown/SelectDropDown";
+import ColorSelect from "@/components/editPage/DataArea/SettingTab/common/ColorSelect/ColorSelect";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import TextInput from "../common/textInput/TextInput";
+import TextInput from "@/components/editPage/DataArea/SettingTab/common/TextInput/TextInput";
 import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
 const UnitSetting: React.FC = () => {
   const context = useContext(ChartDataContext);

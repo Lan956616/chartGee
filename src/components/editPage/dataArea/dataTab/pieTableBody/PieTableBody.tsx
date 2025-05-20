@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./pieTableBody.module.css";
-import ColorBox from "@/components/editPage/dataArea/dataTab/colorBox/ColorBox";
+import ColorBox from "@/components/editPage/DataArea/DataTab/ColorBox/ColorBox";
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 import {
   updatePieColorAtIndex,

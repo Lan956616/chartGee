@@ -2,13 +2,13 @@
 import styles from "./style.module.css";
 import { useAppSelector } from "@/lib/hooks";
 import { useUserProjects } from "@/hooks/useUserProjects";
-import Loading from "@/components/common/loading/Loading";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
+import Loading from "@/components/common/Loading/Loading";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
 import HeaderProjectPage from "@/components/projectsPage/header/HeaderProjectPage";
 import SidebarProjectPage from "@/components/projectsPage/sidebar/SidebarProjectPage";
-import Spinner from "@/components/common/loading/spinner/Spinner";
-import EmptyProject from "@/components/projectsPage/emptyProject/EmptyProject";
-import ProjectCard from "@/components/projectsPage/projectCard/ProjectCard";
+import Spinner from "@/components/common/Loading/Spinner/Spinner";
+import EmptyProject from "@/components/projectsPage/EmptyProject/EmptyProject";
+import ProjectCard from "@/components/projectsPage/ProjectCard/ProjectCard";
 
 const ProjectPage: React.FC = () => {
   const { isAuthLoading, currentUser: uid } = useAppSelector((store) => {

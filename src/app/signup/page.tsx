@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
-import SignUpForm from "@/components/auth/signUpForm/SignUpForm";
+import SignUpForm from "@/components/auth/SignUpForm/SignUpForm";
 import styles from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";

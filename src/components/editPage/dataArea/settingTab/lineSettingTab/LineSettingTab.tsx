@@ -1,7 +1,7 @@
 "use client";
-import AppearancePanel from "../appearancePanel/AppearancePanel";
-import AxesPanel from "../axesPanel/AxesPanel";
-import LinePointPanel from "./linePointPanel/LinePointPanel";
+import AppearancePanel from "../AppearancePanel/AppearancePanel";
+import AxesPanel from "../AxesPanel/AxesPanel";
+import LinePointPanel from "./LinePointPanel/LinePointPanel";
 const LineSettingTab: React.FC = () => {
   return (
     <>

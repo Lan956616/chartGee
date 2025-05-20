@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useContext, useRef } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./dataTab.module.css";
-import DataTableHeader from "./dataTableHeader/DataTableHeader";
-import DataTableBody from "./dataTableBody/DataTableBody";
-import TableControlButton from "./tableControlButton/TableControlButton";
-import PieTableBody from "@/components/editPage/dataArea/dataTab/pieTableBody/PieTableBody";
+import DataTableHeader from "./DataTableHeader/DataTableHeader";
+import DataTableBody from "./DataTableBody/DataTableBody";
+import TableControlButton from "./TableControlButton/TableControlButton";
+import PieTableBody from "@/components/editPage/DataArea/DataTab/PieTableBody/PieTableBody";
 import { updateOption } from "@/utils/editPage/updateOptions";
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 const DataTab: React.FC = () => {

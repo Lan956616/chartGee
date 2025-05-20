@@ -1,5 +1,5 @@
 import styles from "./navbarLarge.module.css";
-import ListItem from "../listItem/ListItem";
+import ListItem from "../ListItem/ListItem";
 import { useAppSelector } from "@/lib/hooks";
 const NavbarLarge: React.FC = () => {
   const { currentUser: user, isAuthLoading } = useAppSelector((store) => {

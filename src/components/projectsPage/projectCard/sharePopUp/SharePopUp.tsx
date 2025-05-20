@@ -6,9 +6,9 @@ import Image from "next/image";
 import type { Dispatch, SetStateAction } from "react";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "@/utils/firebase/firebase";
-import Spinner from "@/components/common/loading/spinner/Spinner";
-import ErrorMessage from "@/components/auth/errorMessage/ErrorMessage";
-import ShareContent from "./shareContent/ShareContent";
+import Spinner from "@/components/common/Loading/Spinner/Spinner";
+import ErrorMessage from "@/components/auth/ErrorMessage/ErrorMessage";
+import ShareContent from "./ShareContent/ShareContent";
 type SharePopUpProps = {
   projectID: string;
   setShowSharePopup: Dispatch<SetStateAction<boolean>>;

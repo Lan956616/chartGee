@@ -1,12 +1,12 @@
-import TabBigItem from "../../common/tabBigItem/TabBigItem";
-import SelectDropDown from "../../common/selectDropDown/SelectDropDown";
-import Toggle from "../../common/toggle/Toggle";
-import ChartTitleSetting from "../../appearancePanel/chartTitleSettings/ChartTitleSettings";
-import LabelSetting from "../../appearancePanel/labelSetting/LabelSetting";
+import TabBigItem from "@/components/editPage/DataArea/SettingTab/common/TabBigItem/TabBigItem";
+import SelectDropDown from "@/components/editPage/DataArea/SettingTab/common/SelectDropDown/SelectDropDown";
+import Toggle from "@/components/editPage/DataArea/SettingTab/common/Toggle/Toggle";
+import ChartTitleSetting from "../../AppearancePanel/ChartTitleSettings/ChartTitleSettings";
+import LabelSetting from "../../AppearancePanel/LabelSetting/LabelSetting";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import { useContext } from "react";
-import PieValueSetting from "./pieValueSetting/PieValueSetting";
-import ColorSelect from "../../common/colorSelect/ColorSelect";
+import PieValueSetting from "./PieValueSetting/PieValueSetting";
+import ColorSelect from "@/components/editPage/DataArea/SettingTab/common/ColorSelect/ColorSelect";
 import { updateOption } from "@/utils/editPage/updateOptions";
 const PieAppearancePanel: React.FC = () => {
   const context = useContext(ChartDataContext);

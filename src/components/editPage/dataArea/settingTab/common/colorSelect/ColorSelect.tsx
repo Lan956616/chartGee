@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useLayoutEffect } from "react";
 import styles from "./colorSelect.module.css";
-import ColorPicker from "./colorPicker/ColorPicker";
+import ColorPicker from "./ColorPicker/ColorPicker";
 import { calculateColorSelect } from "@/utils/editPage/calculatePosition";
 import { useClickWheelOutside } from "@/hooks/useClickWheelOutside";
 type SelectProps = {
