@@ -20,7 +20,7 @@ const AppearancePanel: React.FC = () => {
     <TabBigItem
       title="Appearance"
       src="/charts/painting.png"
-      alt="painting-icon"
+      alt="appearance setting panel"
     >
       <SelectDropDown
         label="Aspect Ratio"
