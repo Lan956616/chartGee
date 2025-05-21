@@ -5,7 +5,7 @@ type SliderProps = {
   max: number;
   value: number;
   onChange: (value: number) => void;
-  Unit: string;
+  unit: string;
 };
 const Slider: React.FC<SliderProps> = ({
   label,
@@ -13,7 +13,7 @@ const Slider: React.FC<SliderProps> = ({
   max,
   value,
   onChange,
-  Unit,
+  unit,
 }) => {
   return (
     <div className={styles.sliderContainer}>
@@ -26,11 +26,10 @@ const Slider: React.FC<SliderProps> = ({
           value={value}
           className={styles.slider}
           onChange={(e) => {
-            const newSize = Number(e.target.value);
-            onChange(newSize);
+            onChange(Number(e.target.value));
           }}
         />
-        <p>{`${value}${Unit}`}</p>
+        <p>{`${value}${unit}`}</p>
       </div>
     </div>
   );
