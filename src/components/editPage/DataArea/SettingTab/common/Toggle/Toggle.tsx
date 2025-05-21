@@ -9,7 +9,7 @@ const Toggle: React.FC<ToggleProps> = ({ label, active, onClick }) => {
     <div className={styles.toggleContainer}>
       <p>{label}</p>
       <div
-        className={`${styles.toggle} ${active ? styles.active : ""}`}
+        className={`${styles.toggle} ${active && styles.active}`}
         onClick={onClick}
       ></div>
     </div>

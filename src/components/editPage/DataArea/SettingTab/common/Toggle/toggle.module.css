@@ -19,6 +19,10 @@
   position: relative;
   transition: background-color 0.3s ease-in-out;
 }
+.toggle:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
 .toggle.active {
   background-color: #3d92e7;
 }
