@@ -3,10 +3,8 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
-  position: relative;
-}
-.selectWrapper {
   font-size: 16px;
+  position: relative;
 }
 .colorBox {
   width: 60px;
