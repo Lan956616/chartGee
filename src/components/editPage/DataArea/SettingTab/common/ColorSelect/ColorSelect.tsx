@@ -11,18 +11,18 @@ type SelectProps = {
 };
 const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
   const pickerRef = useRef<HTMLDivElement | null>(null);
+  const boxRef = useRef<HTMLDivElement | null>(null);
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<{
     top: number;
     left: number;
   } | null>(null);
-  const BoxRef = useRef<HTMLDivElement | null>(null);
   useLayoutEffect(() => {
     if (isPickerOpen) {
-      setPosition(calculateColorSelect(BoxRef.current));
+      setPosition(calculateColorSelect(boxRef.current));
     }
   }, [isPickerOpen]);
-  useClickWheelOutside(pickerRef, BoxRef, isPickerOpen, () => {
+  useClickWheelOutside(pickerRef, boxRef, isPickerOpen, () => {
     setIsPickerOpen(false);
   });
   return (
@@ -35,7 +35,7 @@ const ColorSelect: React.FC<SelectProps> = ({ label, color, onChange }) => {
           onClick={() => {
             setIsPickerOpen((prev) => !prev);
           }}
-          ref={BoxRef}
+          ref={boxRef}
         ></div>
         {isPickerOpen && position !== null && (
           <div
