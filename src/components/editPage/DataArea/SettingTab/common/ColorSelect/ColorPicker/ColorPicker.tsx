@@ -38,9 +38,7 @@ const ColorPicker: React.FC<PickerProps> = ({ color, onClick }) => {
         return (
           <div
             key={each}
-            className={`${styles.color} ${
-              color === each ? styles.selected : ""
-            }`}
+            className={`${styles.color} ${color === each && styles.selected}`}
             style={{ backgroundColor: `${each}` }}
             onClick={() => onClick(each)}
           ></div>
