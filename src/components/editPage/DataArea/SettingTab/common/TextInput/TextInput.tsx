@@ -6,7 +6,7 @@ type TextInputProps = {
 };
 const TextInput: React.FC<TextInputProps> = ({ label, value, onChange }) => {
   return (
-    <div className={styles.InputContainer}>
+    <div className={styles.inputContainer}>
       <p>{label}</p>
       <input
         type="text"

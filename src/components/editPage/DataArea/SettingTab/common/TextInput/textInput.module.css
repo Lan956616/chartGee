@@ -1,9 +1,9 @@
-.InputContainer {
+.inputContainer {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
-.InputContainer > p {
+.inputContainer > p {
   font-size: 16px;
 }
 .input {
@@ -20,12 +20,12 @@
 }
 
 @media screen and (min-width: 480px) {
-  .InputContainer {
+  .inputContainer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  .InputContainer > p {
+  .inputContainer > p {
     font-size: 18px;
   }
   .input {
