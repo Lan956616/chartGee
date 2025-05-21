@@ -17,22 +17,14 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    <div
-      className={`${styles.tabBigItem} ${isClicked ? styles.itemClicked : ""}`}
-    >
+    <div className={`${styles.tabBigItem} ${isClicked && styles.itemClicked}`}>
       <div
         className={styles.row}
         onClick={() => {
           setIsClicked((prev) => !prev);
         }}
       >
-        <Image
-          src={src}
-          alt={alt}
-          width={30}
-          height={30}
-          className={styles.icon}
-        />
+        <Image src={src} alt={alt} width={30} height={30} />
         <div className={styles.right}>
           <p>{title}</p>
           <Image
@@ -40,7 +32,7 @@ const TabBigItem: React.FC<TabBigItemProps> = ({
             alt="down-arrow-icon"
             width={15}
             height={15}
-            className={`${styles.arrow} ${isClicked ? styles.clicked : ""}`}
+            className={`${styles.arrow} ${isClicked && styles.clicked}`}
           />
         </div>
       </div>
