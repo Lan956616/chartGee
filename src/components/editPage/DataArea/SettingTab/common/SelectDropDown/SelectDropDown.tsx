@@ -24,7 +24,7 @@ const SelectDropDown: React.FC<SelectProps> = ({
       >
         {options.map((opt) => {
           return (
-            <option key={opt.value} value={opt.value} className={styles.option}>
+            <option key={opt.value} value={opt.value}>
               {opt.label}
             </option>
           );
