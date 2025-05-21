@@ -12,7 +12,11 @@ const BarPanel: React.FC = () => {
   const { option } = context.currentData;
 
   return (
-    <TabBigItem title="Bars" src="/charts/blackgraph.png" alt="graph-icon">
+    <TabBigItem
+      title="Bars"
+      src="/charts/blackgraph.png"
+      alt="bar setting panel"
+    >
       <Slider
         label="Width"
         min={5}

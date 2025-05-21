@@ -17,7 +17,7 @@ const LinePointPanel: React.FC = () => {
     <TabBigItem
       title="Lines & Points"
       src="/charts/line.png"
-      alt="line&point-icon"
+      alt="line&point setting panel"
     >
       <Slider
         label="Line Width"

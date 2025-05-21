@@ -13,7 +13,7 @@ const PiePanel: React.FC = () => {
   if (chartType !== "pie") return;
 
   return (
-    <TabBigItem title="Pies" src="/charts/piechart.png" alt="pie-icon">
+    <TabBigItem title="Pies" src="/charts/piechart.png" alt="pie setting area">
       <Slider
         label="Rotation"
         value={option.datasets.pie.rotation}
