@@ -19,7 +19,7 @@ const PiePanel: React.FC = () => {
         value={option.datasets.pie.rotation}
         min={0}
         max={360}
-        Unit="deg"
+        unit="deg"
         onChange={(newDeg) => {
           updateOption(setCurrentData, "datasets.pie.rotation", newDeg);
         }}
@@ -29,7 +29,7 @@ const PiePanel: React.FC = () => {
         value={option.datasets.pie.borderRadius}
         min={0}
         max={25}
-        Unit="px"
+        unit="px"
         onChange={(border) => {
           updateOption(setCurrentData, "datasets.pie.borderRadius", border);
         }}
@@ -39,7 +39,7 @@ const PiePanel: React.FC = () => {
         value={option.datasets.pie.borderWidth}
         min={0}
         max={10}
-        Unit="px"
+        unit="px"
         onChange={(newWidth) => {
           updateOption(setCurrentData, "datasets.pie.borderWidth", newWidth);
         }}

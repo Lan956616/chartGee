@@ -18,7 +18,7 @@ const ChartTitleSetting: React.FC = () => {
         min={6}
         max={40}
         value={option.plugins.title.font.size}
-        Unit="px"
+        unit="px"
         onChange={(newFontSize) => {
           updateOption(setCurrentData, "plugins.title.font.size", newFontSize);
         }}

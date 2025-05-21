@@ -23,7 +23,7 @@ const AxesPanel: React.FC = () => {
         label="Font Size"
         min={6}
         max={40}
-        Unit="px"
+        unit="px"
         value={option.scales.x.ticks.font.size}
         onChange={(newFontSize) => {
           updateMultipleOptions(setCurrentData, [
@@ -62,7 +62,7 @@ const AxesPanel: React.FC = () => {
         value={option.scales.x.grid.lineWidth}
         min={1}
         max={10}
-        Unit="px"
+        unit="px"
         onChange={(newLineWidth) => {
           updateMultipleOptions(setCurrentData, [
             ["scales.x.grid.lineWidth", newLineWidth],

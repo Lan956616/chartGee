@@ -28,7 +28,7 @@ const UnitSetting: React.FC = () => {
         min={6}
         max={40}
         value={option.scales.x.title.font.size}
-        Unit="px"
+        unit="px"
         onChange={(newFontSize) => {
           updateMultipleOptions(setCurrentData, [
             ["scales.x.title.font.size", newFontSize],

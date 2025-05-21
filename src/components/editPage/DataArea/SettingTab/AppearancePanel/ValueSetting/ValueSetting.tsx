@@ -18,7 +18,7 @@ const ValueSetting: React.FC = () => {
         min={6}
         max={45}
         value={option.plugins.datalabels.font.size}
-        Unit="px"
+        unit="px"
         onChange={(newFontSize) => {
           updateOption(
             setCurrentData,

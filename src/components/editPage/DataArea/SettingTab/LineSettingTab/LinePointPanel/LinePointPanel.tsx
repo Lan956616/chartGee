@@ -24,7 +24,7 @@ const LinePointPanel: React.FC = () => {
         value={option.elements.line.borderWidth}
         min={0}
         max={15}
-        Unit="px"
+        unit="px"
         onChange={(newWidth) => {
           updateOption(setCurrentData, "elements.line.borderWidth", newWidth);
         }}
@@ -50,7 +50,7 @@ const LinePointPanel: React.FC = () => {
         value={option.elements.point.radius}
         min={3}
         max={15}
-        Unit="px"
+        unit="px"
         onChange={(newRadius) => {
           updateMultipleOptions(setCurrentData, [
             ["elements.point.radius", newRadius],
@@ -63,7 +63,7 @@ const LinePointPanel: React.FC = () => {
         value={option.elements.point.rotation}
         min={0}
         max={360}
-        Unit="deg"
+        unit="deg"
         onChange={(newDeg) => {
           updateOption(setCurrentData, "elements.point.rotation", newDeg);
         }}
