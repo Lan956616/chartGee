@@ -9,6 +9,9 @@
 .fakeCell {
   background-color: #eee;
 }
+.fakeCell:hover {
+  cursor: not-allowed;
+}
 .invalidCell {
   background-color: #ff9c9c;
 }
