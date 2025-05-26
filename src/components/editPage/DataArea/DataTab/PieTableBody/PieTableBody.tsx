@@ -19,11 +19,10 @@ const PieTableBody: React.FC = () => {
     <tbody className={styles.tbody}>
       {data.labels.map((label, index) => {
         const hasData = data.datasets[0].data[index] !== "";
-        console.log(`index${index}hasdata${hasData}`);
         return (
           <tr key={`tbody${index}`} className={styles.tableRow}>
             <th className={styles.cell}>
-              {(label !== "" || data.datasets[0].data[index] !== "") && (
+              {(label !== "" || hasData) && (
                 <ColorBox
                   color={data.datasets[0].backgroundColor[index]}
                   onChange={(newColor) => {
@@ -64,13 +63,12 @@ const PieTableBody: React.FC = () => {
                 }}
               />
             </td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
-            <td className={`${styles.cell} ${styles.fakeCell}`}></td>
+            {Array.from({ length: 7 }).map((_, i) => (
+              <td
+                key={`fakeCell${i}`}
+                className={`${styles.cell} ${styles.fakeCell}`}
+              ></td>
+            ))}
           </tr>
         );
       })}
