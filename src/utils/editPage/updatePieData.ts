@@ -5,25 +5,21 @@ export const updatePieColorAtIndex = (
   index: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType !== "pie") return prev;
+    if (!prev || prev.chartType !== "pie") return prev;
     const newBgColors = [...prev.data.datasets[0].backgroundColor];
     newBgColors[index] = newColor;
-    if (prev.chartType === "pie") {
-      return {
-        ...prev,
-        data: {
-          ...prev.data,
-          datasets: [
-            {
-              ...prev.data.datasets[0],
-              backgroundColor: newBgColors,
-            },
-          ],
-        },
-      };
-    }
-    return prev;
+    return {
+      ...prev,
+      data: {
+        ...prev.data,
+        datasets: [
+          {
+            ...prev.data.datasets[0],
+            backgroundColor: newBgColors,
+          },
+        ],
+      },
+    };
   });
 };
 
@@ -33,20 +29,16 @@ export const updatePieLabelAtIndex = (
   index: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType !== "pie") return prev;
-    if (prev.chartType === "pie") {
-      const newLabels = prev.data.labels;
-      newLabels[index] = newLabel;
-      return {
-        ...prev,
-        data: {
-          ...prev.data,
-          labels: newLabels,
-        },
-      };
-    }
-    return prev;
+    if (!prev || prev.chartType !== "pie") return prev;
+    const newLabels = [...prev.data.labels];
+    newLabels[index] = newLabel;
+    return {
+      ...prev,
+      data: {
+        ...prev.data,
+        labels: newLabels,
+      },
+    };
   });
 };
 
@@ -56,19 +48,15 @@ export const updatePieValueAtIndex = (
   index: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType !== "pie") return prev;
-    if (prev.chartType === "pie") {
-      const newDatas = prev.data.datasets[0].data;
-      newDatas[index] = newData === "" ? "" : Number(newData);
-      return {
-        ...prev,
-        data: {
-          ...prev.data,
-          datasets: [{ ...prev.data.datasets[0], data: newDatas }],
-        },
-      };
-    }
-    return prev;
+    if (!prev || prev.chartType !== "pie") return prev;
+    const newDatas = [...prev.data.datasets[0].data];
+    newDatas[index] = newData === "" ? "" : Number(newData);
+    return {
+      ...prev,
+      data: {
+        ...prev.data,
+        datasets: [{ ...prev.data.datasets[0], data: newDatas }],
+      },
+    };
   });
 };
