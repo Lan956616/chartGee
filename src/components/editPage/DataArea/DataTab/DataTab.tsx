@@ -20,7 +20,7 @@ const DataTab: React.FC = () => {
   const TableBodyComponent = isPieChart ? <PieTableBody /> : <DataTableBody />;
   return (
     <div className={styles.dataTabContainer}>
-      <div className={styles.TitleInputContainer}>
+      <div className={styles.titleInputContainer}>
         <input
           type="text"
           id="titleInput"
@@ -32,7 +32,6 @@ const DataTab: React.FC = () => {
           ref={inputRef}
           onKeyDown={handleInputKeyDown}
         />
-
         <Image
           src="/icons/pencil.png"
           alt="edit-icon"
