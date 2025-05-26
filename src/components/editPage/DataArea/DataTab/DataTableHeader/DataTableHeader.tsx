@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./dataTableHeader.module.css";
 import Image from "next/image";
-
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 import getAxisInfo from "@/utils/editPage/getAxisInfo";
 import { updateMultipleOptions } from "@/utils/editPage/updateMutipleOptions";
@@ -19,29 +18,29 @@ const DataTableHeader: React.FC = () => {
     <thead className={styles.thead}>
       <tr className={styles.tableRow}>
         <th className={styles.cell}>
-          <Image
-            src="/icons/sync.png"
-            alt="change-axis-icon"
-            width={30}
-            height={30}
-            className={styles.axisIconBase}
-          />
-          <Image
-            src="/icons/bluesync.png"
-            alt="blue-change-axis-icon"
-            width={30}
-            height={30}
-            className={styles.axisIconHover}
-            onClick={() => {
-              const { valueAxis, labelAxis } = getAxisInfo(option.indexAxis);
-              const currentDisplay = option.scales[valueAxis].title.display;
-              updateMultipleOptions(setCurrentData, [
-                ["indexAxis", valueAxis],
-                [`scales[${valueAxis}].title.display`, false],
-                [`scales[${labelAxis}].title.display`, currentDisplay],
-              ]);
-            }}
-          />
+          <div className={styles.imageWrapper}>
+            <Image
+              src="/icons/sync.png"
+              alt="change-axis-icon"
+              className={styles.axisIconBase}
+              fill
+            />
+            <Image
+              src="/icons/bluesync.png"
+              alt="blue-change-axis-icon"
+              className={styles.axisIconHover}
+              fill
+              onClick={() => {
+                const { valueAxis, labelAxis } = getAxisInfo(option.indexAxis);
+                const currentDisplay = option.scales[valueAxis].title.display;
+                updateMultipleOptions(setCurrentData, [
+                  ["indexAxis", valueAxis],
+                  [`scales[${valueAxis}].title.display`, false],
+                  [`scales[${labelAxis}].title.display`, currentDisplay],
+                ]);
+              }}
+            />
+          </div>
         </th>
         <th className={styles.cell}></th>
         {data.labels.map((label, index) => {
@@ -54,7 +53,7 @@ const DataTableHeader: React.FC = () => {
             <th
               key={`category${index}`}
               className={`${styles.cell} ${
-                hasData && label === "" ? styles.invalidCell : ""
+                hasData && label === "" && styles.invalidCell
               }`}
             >
               <input
