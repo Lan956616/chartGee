@@ -1,10 +1,8 @@
 "use client";
 import { useContext } from "react";
-
 import { ChartDataContext } from "@/components/ChartDataProvider";
 import styles from "./dataTableBody.module.css";
 import ColorBox from "../ColorBox/ColorBox";
-
 import { handleInputKeyDown } from "@/utils/editPage/handleInputKeyDown";
 import {
   updateDatasetColorAtIndex,
