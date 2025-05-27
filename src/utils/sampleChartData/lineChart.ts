@@ -27,19 +27,19 @@ export const sampleLineChartData: SampleLineChartData = {
   datasets: [
     {
       label: "Strawberry",
-      data: [100, 50, 85, 20, 68, 80, "", "", "", "", "", ""],
+      data: [60, 50, 54, 20, 68, 70, "", "", "", "", "", ""],
       backgroundColor: "#E573C2",
       borderColor: "#E573C2",
     },
     {
       label: "Mint",
-      data: [20, 40, 53, 37, 55, 43, "", "", "", "", "", ""],
+      data: [20, 40, 42, 37, 55, 43, "", "", "", "", "", ""],
       backgroundColor: "#82E0AA",
       borderColor: "#82E0AA",
     },
     {
       label: "Mango",
-      data: [40, 67, 67, 67, 40, 66, "", "", "", "", "", ""],
+      data: [40, 67, 67, 67, 40, 61, "", "", "", "", "", ""],
       backgroundColor: "#F4A261",
       borderColor: "#F4A261",
     },
@@ -54,7 +54,7 @@ export const sampleLineChartOption: SampleLineChartOption = {
   indexAxis: "x",
   responsive: true,
   maintainAspectRatio: true,
-  aspectRatio: 16 / 9,
+  aspectRatio: 1 / 1,
   layout: {
     padding: 20,
   },
