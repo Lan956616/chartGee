@@ -14,16 +14,16 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
   } | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
   const pickerRef = useRef<HTMLDivElement | null>(null);
-  const BoxRef = useRef<HTMLDivElement | null>(null);
+  const boxRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     setHasMounted(true);
   }, []);
   useLayoutEffect(() => {
     if (isBoxClicked) {
-      setPosition(calculateColorBox(BoxRef.current));
+      setPosition(calculateColorBox(boxRef.current));
     }
   }, [isBoxClicked]);
-  useClickWheelOutside(pickerRef, BoxRef, isBoxClicked, () => {
+  useClickWheelOutside(pickerRef, boxRef, isBoxClicked, () => {
     setIsBoxClicked(false);
   });
   return (
@@ -34,7 +34,7 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange }) => {
         onClick={() => {
           setIsBoxClicked((prev) => !prev);
         }}
-        ref={BoxRef}
+        ref={boxRef}
       ></div>
       {hasMounted &&
         isBoxClicked &&
