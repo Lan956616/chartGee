@@ -39,8 +39,7 @@ export const updateDatasetLabelAtIndex = (
   index: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType === "pie") return prev;
+    if (!prev || prev.chartType === "pie") return prev;
     if (prev.chartType === "bar")
       return {
         ...prev,
@@ -70,8 +69,7 @@ export const updateDatasetColorAtIndex = (
   index: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType === "pie") return prev;
+    if (!prev || prev.chartType === "pie") return prev;
     if (prev.chartType === "bar") {
       return {
         ...prev,
@@ -109,8 +107,7 @@ export const updateDatasetValueAtIndex = (
   eachDataIndex: number
 ) => {
   setCurrentData((prev) => {
-    if (!prev) return prev;
-    if (prev.chartType === "pie") return prev;
+    if (!prev || prev.chartType === "pie") return prev;
     if (prev.chartType === "bar")
       return {
         ...prev,
