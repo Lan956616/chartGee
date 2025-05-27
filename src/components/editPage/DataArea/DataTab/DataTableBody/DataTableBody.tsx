@@ -20,9 +20,7 @@ const DataTableBody: React.FC = () => {
   return (
     <tbody className={styles.tbody}>
       {data.datasets.map((dataset, index) => {
-        const hasData = dataset.data.some(
-          (value) => value !== "" && value !== null
-        );
+        const hasData = dataset.data.some((value) => value !== "");
         return (
           <tr key={`tbody${index}`} className={styles.tableRow}>
             <th className={styles.cell}>
@@ -37,7 +35,7 @@ const DataTableBody: React.FC = () => {
             </th>
             <th
               className={`${styles.cell} ${
-                hasData && dataset.label === "" ? styles.invalidCell : ""
+                hasData && dataset.label === "" && styles.invalidCell
               }`}
             >
               <input
@@ -57,9 +55,9 @@ const DataTableBody: React.FC = () => {
                 }}
               />
             </th>
-            {dataset.data.map((eachData, eachDataindex) => {
+            {dataset.data.map((eachData, eachDataIndex) => {
               return (
-                <td key={`each${eachDataindex}`} className={styles.cell}>
+                <td key={`each${eachDataIndex}`} className={styles.cell}>
                   <input
                     type="number"
                     value={eachData}
@@ -69,7 +67,7 @@ const DataTableBody: React.FC = () => {
                         setCurrentData,
                         e.target.value,
                         index,
-                        eachDataindex
+                        eachDataIndex
                       );
                     }}
                     onKeyDown={handleInputKeyDown}
