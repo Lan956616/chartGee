@@ -4,6 +4,9 @@
   border: 1px solid #908f8f;
   margin: auto;
 }
+.colorBox:hover {
+  cursor: pointer;
+}
 .pickerWrapper {
   position: fixed;
   z-index: 1000;
