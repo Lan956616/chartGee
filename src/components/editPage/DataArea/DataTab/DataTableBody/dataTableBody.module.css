@@ -11,7 +11,7 @@
 }
 
 /* specific style */
-.tableRow .cell:nth-child(1) {
+.cell:nth-child(1) {
   width: 45px;
   min-width: 45px;
   height: 45px;
@@ -21,13 +21,13 @@
   align-items: center;
   justify-content: center;
 }
-.tableRow .cell:nth-child(2) {
+.cell:nth-child(2) {
   position: sticky;
   left: 45px;
 }
 
 /* specific box shadow */
-.tableRow .cell:last-child {
+.cell:last-child {
   box-shadow: inset 0px -1px 0px #ddd;
 }
 .tableRow:last-child .cell {
@@ -35,15 +35,6 @@
 }
 .tableRow:last-child .cell:last-child {
   box-shadow: none;
-}
-/* for the scroll in table */
-
-.tbody tr {
-  z-index: 80;
-}
-
-.tbody td input {
-  padding-left: 15px;
 }
 
 .tbody input {
@@ -56,4 +47,15 @@
 .tbody input:focus {
   border: 1.5px solid var(--blue);
   background-color: rgba(61, 146, 231, 0.2);
+}
+
+.tbody input[type="number"]::-webkit-outer-spin-button,
+.tbody input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tbody input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
