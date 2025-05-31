@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.hero_wrapper}>
-        <p className={styles.hero_label}>ONLINE GRAPH MAKER</p>
+        <p className={styles.hero_label}>ONLINE CHART MAKER</p>
         <h1 className={styles.hero_title}>Make charting easy with Gee!</h1>
         <p className={styles.hero_description}>
           An interactive design platform to easily create clear, engaging, and
