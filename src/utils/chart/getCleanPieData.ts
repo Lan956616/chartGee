@@ -9,7 +9,7 @@ export const getCleanPieData = (
 
   data.labels.forEach((label, index) => {
     if (label !== "") {
-      activeLabel.push(label);
+      activeLabel.push(label.length > 12 ? label.slice(0, 12) + "..." : label);
       activeData.push(
         data.datasets[0].data[index] === ""
           ? ""

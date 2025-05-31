@@ -13,6 +13,10 @@ export const getCleanData = (
     .map((dataset) => {
       return {
         ...dataset,
+        label:
+          dataset.label.length > 12
+            ? dataset.label.slice(0, 12) + "..."
+            : dataset.label,
         data: activeIndices.map((i) =>
           dataset.data[i] !== "" ? dataset.data[i] : null
         ),
