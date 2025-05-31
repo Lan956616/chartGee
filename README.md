@@ -20,10 +20,12 @@ Demo Chart URL: [Bar Chart](https://chart-gee-4y8.vercel.app/share/Bp5Wh4YJUJiln
   - [Third-Party Library](#third-party-library)
   - [Back-End](#back-end)
 - [Techniques](#techniques)
-  - [React Page Components Design](#react-page-components-design)
-  - [Redux - Resume Data Flow](#redux---resume-data-flow)
-  - [Redux - User Info Data Flow](#redux---user-info-data-flow)
+- [Next.js Page Routing Structure](#nextjs-page-routing-structure)
+- [ChartData Flow via React Context & Firebase Sync](#chartdata-flow-via-react-context--firebase-sync)
+- [User Authentication & Redux State Flow](#user-authentication--redux-state-flow)
+- [SharePage Data Flow](#sharepage-data-flow)
 - [Contact](#contact)
+
 
 # Demo
 [(back to top)](#table-of-contents)
