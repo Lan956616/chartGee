@@ -38,7 +38,7 @@ const LoginPage: React.FC = () => {
     try {
       setIsLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      router.push("/projects");
     } catch (err: unknown) {
       setError(getFirebaseErrorMessage(err, "Login"));
     } finally {
