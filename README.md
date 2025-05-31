@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+<img width="1443" alt="homePageScreenShot" src="https://github.com/Lan956616/chartGee/blob/main/public/readMe/homePageScreenShot.png">
 
-First, run the development server:
+# ChartGee
+ChartGee empowers anyone to turn data into beautiful, customizable charts — no design or coding required. Just focus on your data, and we’ll handle the rest.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Website URL: https://chart-gee-4y8.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Test account: Chartgeetest@gmail.com
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Test password: testChartGee111
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Demo Chart URL: [Bar Chart](https://chart-gee-4y8.vercel.app/share/Bp5Wh4YJUJilnMjV2jQp) / [Pie Chart](https://chart-gee-4y8.vercel.app/share/bxZW8eEAORiNgpUbkgla) / [Line Chart](https://chart-gee-4y8.vercel.app/share/mAAiSb2Bg6OF4SRymO2n)
 
-## Learn More
+# Table of Contents
+- [Demo](#demo)
+- [Main Features](#main-features)
+- [Core Tools and Technologies](#core-tools-and-technologies)
+  - [Front-End](#front-end)
+  - [Third-Party Library](#third-party-library)
+  - [Back-End](#back-end)
+- [Techniques](#techniques)
+  - [React Page Components Design](#react-page-components-design)
+  - [Redux - Resume Data Flow](#redux---resume-data-flow)
+  - [Redux - User Info Data Flow](#redux---user-info-data-flow)
+- [Contact](#contact)
 
-To learn more about Next.js, take a look at the following resources:
+# Demo
+[(back to top)](#table-of-contents)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Easily edit online
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![showCaseArea_edit](https://github.com/Lan956616/chartGee/blob/main/public/gif/editonline.gif)
 
-## Deploy on Vercel
+### Custom chart styles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![showCaseArea_styles](https://github.com/Lan956616/chartGee/blob/main/public/gif/customize.gif)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Export & share anywhere
+
+![showCaseArea_export](https://github.com/Lan956616/chartGee/blob/main/public/gif/shareanddownload.gif)
+
+# Main Features
+[(back to top)](#table-of-contents)
+
+- Login with email or Google account supported by Firebase Authentication
+- View a dynamic preview of chart while editing to ensure changes look great
+- Effortlessly generate bar, pie, and line charts from your input data
+- Customize fonts, colors, borders, and more to make your charts stand out
+- Automatically save your chart as you edit
+- Manage multiple chart projects from your personal dashboard
+- Support exporting your charts as PNG files
+- Support sharing a URL link to your public chart page ([example](https://chart-gee-4y8.vercel.app/share/Bp5Wh4YJUJilnMjV2jQp))
+
+# Core Tools and Technologies
+[(back to top)](#table-of-contents)
+
+### Front-End
+- **Framework**: Next.js (App Router), React (Hooks, JSX)
+- **Styling**: CSS Modules
+- **Routing**: Next.js File-based Routing
+- **State Management**: React Context API, Redux Toolkit, React-Redux, Redux-persist
+- **Type Checking**: TypeScript
+- **Code Formatter**: ESLint (Next Config), Prettier
+- **Bundler**: Turbopack (Dev) / Webpack (Prod)
+
+
+### Third-Party Library
+- chart.js
+- react-chartjs-2
+- chartjs-plugin-datalabels
+- fast-deep-equal 
+- lodash
+- react-toastify
+
+### Back-End
+**Firebase (backend-as-a-service)**
+- Authentication
+- FireStore Database
+- Storage
+- Hosting
+
+
+# Techniques
+[(back to top)](#table-of-contents)
+
+### Next.js Page Routing Structure
+<img width="1200" alt="Page Routing Structure" src="https://github.com/Lan956616/chartGee/blob/main/public/readMe/pageRouting.png">
+
+### ChartData Flow via React Context & Firebase Sync
+<img width="1200" alt="ChartData Flow" src="https://github.com/Lan956616/chartGee/blob/main/public/readMe/reduxChartDataFlow.png">
+
+### User Authentication & Redux State Flow
+<img width="1200" alt="Authentication & Redux State Flow" src="https://github.com/Lan956616/chartGee/blob/main/public/readMe/authentication.png">
+
+### SharePage Data Flow
+<img width="1200" alt="SharePage Data Flow" src="https://github.com/Lan956616/chartGee/blob/main/public/readMe/sharePageDataFlow.png">
+
+# Contact
+YUAN SHAO LAN
+
+Email: cd25924218@gmail.com
