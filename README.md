@@ -30,15 +30,15 @@ Demo Chart URL: [Bar Chart](https://chart-gee-4y8.vercel.app/share/Bp5Wh4YJUJiln
 
 ### Easily edit online
 
-<img width="800" alt="Easily edit online" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/editonline.gif">
+<img width="500" alt="Easily edit online" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/editonline.gif">
 
 ### Custom chart styles
 
-<img width="800" alt="Custom chart styles" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/customize.gif">
+<img width="500" alt="Custom chart styles" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/customize.gif">
 
 ### Export & share anywhere
 
-<img width="800" alt="Export & share anywhere" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/shareanddownload.gif">
+<img width="500" alt="Export & share anywhere" src="https://github.com/Lan956616/chartGee/blob/main/public/gif/shareanddownload.gif">
 
 # Main Features
 [(back to top)](#table-of-contents)
